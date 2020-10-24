@@ -1,17 +1,27 @@
 /**
    @file Car.h
    @class Car
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A class that serves as an interface from which
+   		  both the car and the parts it comprises of inherits.
  */
 
 #ifndef CAR_H
 #define CAR_H
+#include <iostream>
 
-enum PartIndices = {
-	
-}
+using namespace std;
+
+/**
+	An enum used to facilitate tha access of specific car parts 
+	in the CarComposite.
+*/
+enum PartIndices = { ENGINE =0, CHASSIS=1, TRANSMISSION=2, 
+		STEERINGWHEEL=3, COOLINGSYSTEM=4, BODY=5, SUSPENSION=6,
+		BRAKES=7, ELECTRONICS=8
+
+};
 
 class Car {
 

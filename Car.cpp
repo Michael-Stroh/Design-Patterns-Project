@@ -1,11 +1,9 @@
 #include "Car.h"
 
 Car::Car() {
-	// TODO - implement Car::Car
-	throw "Not yet implemented";
+	//Nothing important to do here.
 }
 
 Car::Car(Car& c) {
-	// TODO - implement Car::Car
-	throw "Not yet implemented";
+	//Nothing important to do here.
 }
