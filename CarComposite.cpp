@@ -1,11 +1,12 @@
 #include "CarComposite.h"
 
-//The default constructor.Sets up tyres, but nothing else. 
+//The default constructor. Sets all parts to nullptr. Adding of parts
+//Will be handled By CarBuilder Class
 CarComposite::CarComposite() {
 
-	for(int i=0; i<NUMTYRES; ++i)	//may have to change this depending on the tyre class
-		tyres[i] = new Tyres();
-
+	for(int i=0; i<NUMPARTS; ++i)
+			carParts[i] = nullptr;
+		
 	aeroDynamicMultiplier = 0.65;
 }
 
