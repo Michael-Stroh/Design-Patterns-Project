@@ -9,6 +9,10 @@
 #ifndef CAR_H
 #define CAR_H
 
+enum PartIndices = {
+	
+}
+
 class Car {
 
 	public:
