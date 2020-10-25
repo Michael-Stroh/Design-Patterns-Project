@@ -35,8 +35,9 @@ class Art: public Car {
 		/**
      		@brief holds a pointer to the next ArtCompnonet stored
 		*/
-		ArtComponent* next;
-		
+		Art* next;
+		//ArtComponent* next;
+
 		/**
      		@brief Describes the art
 		*/
