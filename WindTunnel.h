@@ -37,10 +37,17 @@ class WindTunnel : Simulation {
 		Simulation* simulate( CarComposite*, Driver* );
 
 		/**
-			
+
+		 	@return
 		*/
 		int getUsage();
-		
+
+		/**
+
+			 @return
+		*/
+		void setUsage( int );
+
 	private:
 	
 		/**

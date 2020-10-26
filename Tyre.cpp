@@ -6,10 +6,15 @@ Tyre::Tyre() {
 	throw "Not yet implemented";
 }
 
-Tyre::Tyre(int c, int parameter, float parameter2) {
+Tyre::Tyre( int StartDurability, int StartGrip, float StartPressure ):
+		durability( StartDurability ), grip( StartGrip ), pressure( StartPressure ) {
 
 	// TODO - implement Tyre::Tyre
 	throw "Not yet implemented";
+}
+
+Tyre::~Tyre() {
+
 }
 
 int Tyre::getDurability() {
@@ -17,9 +22,9 @@ int Tyre::getDurability() {
 	return this->durability;
 }
 
-void Tyre::setDurability(int durability) {
+void Tyre::setDurability( int StartDurability ) {
 
-	this->durability = durability;
+	this->durability = StartDurability;
 }
 
 int Tyre::getGrip() {
@@ -27,17 +32,17 @@ int Tyre::getGrip() {
 	return this->grip;
 }
 
-void Tyre::setGrip(int c) {
+void Tyre::setGrip( int StartGrip ) {
 
-	this->grip = c;
-}
-
-void Tyre::setPressure(float g) {
-
-	this->pressure = g;
+	this->grip = StartGrip;
 }
 
 float Tyre::getPressure() {
 
 	return this->pressure;
+}
+
+void Tyre::setPressure( float StartPressure ) {
+
+	this->pressure = StartPressure;
 }

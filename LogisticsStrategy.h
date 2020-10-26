@@ -33,7 +33,7 @@ class LogisticsStrategy {
 		/**
 			@brief 
 		*/
-		vector<logistics*> logisitics;
+		vector<Logistics*> logisitics;
 };
 
 #endif

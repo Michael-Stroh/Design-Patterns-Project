@@ -9,7 +9,6 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
-#include "RacingTeam.h"
 #include "RaceState.h"
 
 class Subject {
@@ -30,13 +29,13 @@ class Subject {
 			
 			@param
 		*/
-		void attach( RacingTeam* );
+		void attach( RaceTeam* );
 
 		/**
 			
 			@param
 		*/
-		void detach( RacingTeam* );
+		void detach( RaceTeam* );
 
 		/**
 			
@@ -49,7 +48,7 @@ class Subject {
 		/**			
 			@brief
 		*/
-		RacingTeam* observerList;
+		RaceTeam* observerList;
 };
 
 #endif

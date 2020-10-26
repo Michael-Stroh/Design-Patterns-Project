@@ -10,7 +10,6 @@
 #define TRANSMISSIONFACTORY_H
 
 #include "CarPartFactory.h"
-#include "CarPart.h"
 
 class TransmissionFactory: public CarPartFactory {
 

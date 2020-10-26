@@ -2,6 +2,10 @@
 
 LogisticsStrategy::LogisticsStrategy() {
 
-	// TODO - implement LogisiticsStrategy::LogisiticsStrategy
+	// TODO - implement LogisticsStrategy::LogisticsStrategy
 	throw "Not yet implemented";
+}
+
+LogisticsStrategy::~LogisticsStrategy() {
+
 }

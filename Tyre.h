@@ -20,16 +20,16 @@ class Tyre {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param StartDurability
+			@param StartGrip
+			@param StartPressure
 		*/
 		Tyre( int, int, float );
 
 		/**
 			Destructor
 		*/
-		~Tyre();
+		virtual ~Tyre();
 
 		/**
 		
