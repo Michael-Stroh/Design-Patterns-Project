@@ -6,25 +6,24 @@ Race::Race() {
 	throw "Not yet implemented";
 }
 
-Race::Race(RaceState* s, RaceSubject* r) {
+Race::Race( RaceState* _state, RaceSubject* race ): state( _state ), raceSubject( race ) {
 
 	// TODO - implement Race::Race
 	throw "Not yet implemented";
 }
 
-Result* Race::runRace(Result* result, RaceTeam* teams, Circuit* circuit) {
+Result* Race::runRace( Result* result, RaceTeam* teams, Circuit* circuit ) {
 
 	// TODO - implement Race::runRace
 	throw "Not yet implemented";
 }
 
-void Race::setState(string s) {
+void Race::setState( RaceState* _state ) {
 
-	// TODO - implement Race::setState
-	throw "Not yet implemented";
+	state = _state;
 }
 
-void Race::setRaceSubject(RaceSubject* r) {
+void Race::setRaceSubject( RaceSubject* race ) {
 
-	this->raceSubject = r;
+	raceSubject = race;
 }

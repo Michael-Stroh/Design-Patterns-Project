@@ -9,10 +9,11 @@
 #ifndef QUALIFYINGSTATE_H
 #define QUALIFYINGSTATE_H
 
+#include "QualifyingRaceSubject.h"
 #include "RaceState.h"
-#include "Result.h"
-#include "Circuit.h"
 #include "RaceTeam.h"
+#include "Circuit.h"
+#include "Result.h"
 
 class QualifyingState: public RaceState {
 

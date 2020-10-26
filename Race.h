@@ -29,7 +29,7 @@ class Race {
 			@param
 			@param
 		*/
-		Race(RaceState* s, RaceSubject* r);
+		Race( RaceState*, RaceSubject* );
 
 		/**
 			Destructor
@@ -43,13 +43,13 @@ class Race {
 			@param
 			@return
 		*/
-		Result* runRace(Result*, RaceTeam*, Circuit* );
+		Result* runRace( Result*, RaceTeam*, Circuit* );
 
 		/**
 			
 			@param
 		*/
-		void setState( string );
+		void setState( RaceState* );
 
 		/**
 			

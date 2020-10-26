@@ -6,19 +6,19 @@ RaceResult::RaceResult() {
 	throw "Not yet implemented";
 }
 
-RaceResult::RaceResult(Result* r) {
+RaceResult::RaceResult( Result* r ) {
 
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-RaceResult::RaceResult(Result* r, map<string, int> m) {
+RaceResult::RaceResult( Result* r, map<string, int> m ) {
 
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-bool RaceResult::addLapTime(Result* r) {
+bool RaceResult::addLapTime( Result* r ) {
 
 	// TODO - implement RaceResult::addLapTime
 	throw "Not yet implemented";
@@ -42,13 +42,13 @@ void RaceResult::printTeams() {
 	throw "Not yet implemented";
 }
 
-void RaceResult::setTeamTime(map<string, int> m) {
+void RaceResult::setTeamTime( map<string, int> m ) {
 
 	// TODO - implement RaceResult::setTeamTime
 	throw "Not yet implemented";
 }
 
-void RaceResult::setDriverTime(map<string, int> m) {
+void RaceResult::setDriverTime( map<string, int> m ) {
 
 	// TODO - implement RaceResult::setDriverTime
 	throw "Not yet implemented";

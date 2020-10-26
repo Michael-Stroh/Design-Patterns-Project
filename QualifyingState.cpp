@@ -10,7 +10,7 @@ QualifyingState::~QualifyingState() {
 
 }
 
-Result* QualifyingState::runRace(Result* result, RaceTeam* teams, Circuit* circuit) {
+Result* QualifyingState::runRace( Result* result, RaceTeam* teams, Circuit* circuit ) {
 
 	// TODO - implement QualifyingState::runRace
 	throw "Not yet implemented";
