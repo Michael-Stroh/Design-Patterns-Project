@@ -9,6 +9,9 @@
 #ifndef CARTRANSPORT_H
 #define CARTRANSPORT_H
 
+#include "LogisiticsStrategy.h"
+#include "Car.h"
+
 class CarTransport {
 
 	public:
@@ -32,6 +35,9 @@ class CarTransport {
 			Displays that the car is being moved to the factory
 		*/
 		void transportCarToRace();
+
+private:
+	
 };
 
 #endif

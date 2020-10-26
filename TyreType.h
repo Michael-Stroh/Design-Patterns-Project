@@ -20,9 +20,9 @@ class TyreType {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+			@param grip rating
+			@param pressure
 		*/
 		TyreType( int, int, float );
 
@@ -33,56 +33,56 @@ class TyreType {
 
 		/**
 		
-			@return
+			@return durability
 		*/
 		int getDurability();
 
 		/**
-			@param
+			@param durability
 		*/
 		void setDurability( int );
 
 		/**
-			@return
+			@return grip rating
 		*/
 		int getGrip();
 
 		/**
 			
-			@param
+			@param grip rating
 		*/
 		void setGrip( int );
 
 		/**
 			
-			@param
+			@param pressure value
 		*/
 		void setPressure( float );
 
 		/**
-			@return
+			@return pressure of the tyre
 		*/
 		float getPressure();
 
 		/**
-				
+				calculates the wear and tear of the tyre, will also "blow-up" tyre if durability is to low
 		*/
 		virtual void usage() = 0;
 		
 	private:
 		
 		/**
-			@brief
+			@brief durability of the tyre
 		*/
 		int durability;
 		
 		/**
-			@brief
+			@brief grip of the tyre, depending on the durability
 		*/
 		int grip;
 		
 		/**
-			@brief
+			@brief the pressure of the tyre 
 		*/
 		float pressure;
 };

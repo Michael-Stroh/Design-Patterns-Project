@@ -30,7 +30,7 @@ class TyreStrategy {
 
 		/**
 			
-			@return
+			@return the stack of tyres
 		*/
 		vector<TyreType*> getTyres();
 

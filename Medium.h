@@ -10,7 +10,11 @@
 #ifndef MEDIUM_H
 #define MEDIUM_H
 
+#include <iostream>
+
 #include "TyreType.h"
+
+using namespace std;
 
 class Medium: public TyreType {
 

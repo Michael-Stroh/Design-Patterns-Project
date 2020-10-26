@@ -1,13 +1,20 @@
 #include "TyreType.h"
 
 TyreType::TyreType() {
-	// TODO - implement TyreType::TyreType
-	throw "Not yet implemented";
+	this->durability = 0;
+	this->grip = 0;
+	this->pressure = 0;
 }
 
-TyreType::TyreType(int c, int parameter, float parameter2) {
-	// TODO - implement TyreType::TyreType
-	throw "Not yet implemented";
+TyreType::TyreType(int durability, int grip, float pressure) {
+	this->durability = durability;
+	this->grip = grip;
+	this->pressure = pressure;
+}
+
+TyreType::~TyreType()
+{
+	delete this;
 }
 
 int TyreType::getDurability() {

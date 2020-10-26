@@ -1,7 +1,7 @@
 #include "CateringEquipment.h"
 
 CateringEquipment::CateringEquipment() {
-	// TODO - implement CateringEquipment::CateringEquipment
+	cout << "Catering equipement has been placed"
 	throw "Not yet implemented";
 }
 

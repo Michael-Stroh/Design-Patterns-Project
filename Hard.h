@@ -30,14 +30,14 @@ class Hard: public TyreType {
 		Hard( int, int, float );
 
 		/**
-			Desstructor
+			Destructor
 		*/
-		void ~Hard();
 
 		/**
 			
 		*/
 		void usage();
+
 };
 
 #endif

@@ -10,7 +10,12 @@
 #ifndef GARAGEEQUIPMENT_H
 #define GARAGEEQUIPMENT_H
 
+#include <iostream>
+#include <string>
+
 #include "Container.h"
+
+using namespace std;
 
 class GarageEquipment: public Container {
 

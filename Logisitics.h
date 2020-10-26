@@ -23,15 +23,15 @@ class Logisitics {
 
 		/**
 			Constructor
-			@param
+			@param boolean to tell if its eurpean or not
 		*/
 		Logisitics( boolean );
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param first container is for garage equipment
+			@param second container is for the catering equipment
+			@param third container is for the car components
 		*/
 		Logisitics( Containter*, Containter*, Containter* );
 
@@ -42,29 +42,29 @@ class Logisitics {
 
 		/**
 			
-			@return
+			@return was supposed to call the handle function for the state diagram
 		*/
 		virtual Logistics* handleLogistics() = 0;
 
 	private:
 
 		/**
-			@brief 
+			@brief garage equiment
 		*/
-		Container* a;
+		Container* garage;
 		
 		/**
-			@brief 
+			@brief catering equipement
 		*/
-		Container* b;
+		Container* catering;
 		
 		/**
-			@brief 
+			@brief car component 
 		*/
 		Container* c;
 		
 		/**
-			@brief 
+			@brief european = true, non-european = false
 		*/
 		boolean european;
 };

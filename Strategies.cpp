@@ -1,15 +1,24 @@
 #include "Strategies.h"
 
 Strategies::Strategies() {
-	// TODO - implement Strategies::Strategies
-	throw "Not yet implemented";
+	raceStrategy = new RaceStrategy();
+	logisiticStrategy = new logisiticStrategy();
 }
 
 Strategies::Strategies(RaceStrategy* r, LogisticStrategy* l) {
 	// TODO - implement Strategies::Strategies
-	throw "Not yet implemented";
+	this->raceStrategy = r;
+	this->logisiticStrategy = l;
 }
 
 int Strategies::getLapNumber() {
 	return this->lapNumber;
+}
+
+void Strategies::checkLogistics() {
+	//todo check after each race for need of logisitics, + before the season will start
+}
+
+void  Strategies::setRaceStrategy(RaceStrategy* rs) {
+	this->raceStrategy = rs;
 }

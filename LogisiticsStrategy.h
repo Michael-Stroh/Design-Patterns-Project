@@ -27,6 +27,10 @@ class LogisiticsStrategy {
 			Destructor
 		*/
 		~LogisiticsStrategy();
+
+		void StartOfNewRace();
+
+		void EndOfRace();
 	
 	private:
 

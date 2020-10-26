@@ -1,7 +1,7 @@
 /**
    @file Container.h
    @class Container
-   @authors Michael
+   @authors Brent
    @version 1.0.0
    @brief 
  */

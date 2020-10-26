@@ -1,13 +1,11 @@
 #include "CarComponenets.h"
 
 CarComponenets::CarComponenets() {
-	// TODO - implement CarComponenets::CarComponenets
-	throw "Not yet implemented";
+	cout << "car components have been placed into the container" << endl;
 }
 
 CarComponenets::CarComponenets(string s) {
-	// TODO - implement CarComponenets::CarComponenets
-	throw "Not yet implemented";
+	cout << s << " have been packed for the race " << endl;
 }
 
 string CarComponenets::getComponents() {

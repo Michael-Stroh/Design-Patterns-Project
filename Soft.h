@@ -9,6 +9,12 @@
 #ifndef SOFT_H
 #define SOFT_H
 
+#include <iostream>
+
+#include <TyreType.h>
+
+using namespace std;
+
 class Soft: public TyreType {
 
 	public:
@@ -20,16 +26,12 @@ class Soft: public TyreType {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+			@param grip rating 
+			@param pressure
 		*/
 		Soft( int, int, float );
 
-		/**
-			Destructor
-		*/
-		~Soft();
 
 		/**
 			

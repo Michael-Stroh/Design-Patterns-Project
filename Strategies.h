@@ -21,12 +21,6 @@ class Strategies {
 		*/
 		Strategies();
 
-		/**
-			Constructor
-			@param
-			@param
-		*/
-		Strategies( RaceStrategy*, LogisticStrategy* );
 
 		/**
 			Destructor
@@ -49,7 +43,7 @@ class Strategies {
 		/**
 			@brief
 		*/
-		LogisticStarategy* logisiticStrategy;
+		LogisticStrategy* logisiticStrategy;
 		
 		/**
 			@brief

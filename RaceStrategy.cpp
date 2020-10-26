@@ -6,16 +6,16 @@ RaceStrategy::RaceStrategy() {
 }
 
 void RaceStrategy::setPitCrewStrategy() {
+	pitCrewStrategy = new pitCrewStrategy();
 	// TODO - implement RaceStrategy::setPitCrewStrategy
-	throw "Not yet implemented";
 }
 
 void RaceStrategy::setDriverStrategy() {
+	driverStrategy = new DriverStrategy();
 	// TODO - implement RaceStrategy::setDriverStrategy
-	throw "Not yet implemented";
 }
 
 void RaceStrategy::setTyreStrategy() {
+	tyreStrategy = new TyreStrategy();
 	// TODO - implement RaceStrategy::setTyreStrategy
-	throw "Not yet implemented";
 }

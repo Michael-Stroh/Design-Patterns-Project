@@ -45,17 +45,17 @@ class RaceStrategy {
 	private:
 	
 		/**
-			@brief
+			@brief the variable that holds the tyre strategy
 		*/
 		TyreStrategy* tyreStrategy;
 		
 		/**
-			@brief
+			@brief the variable that holds the pit crew strategy
 		*/
 		PitCrewStrategy* pitCrewStrategy;
 		
 		/**
-			@brief
+			@brief the variable that holds the driver strategy
 		*/
 		DriverStrategy* driverStrategy;
 

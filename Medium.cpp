@@ -1,13 +1,18 @@
 #include "Medium.h"
 
 Medium::Medium() {
-	// TODO - implement Medium::Medium
+	setDurability(100);
+	setGrip(60);
+	setPressure(15154);
+	cout << "Medium tyreD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
 	throw "Not yet implemented";
 }
 
-Medium::Medium(int c, int parameter, float parameter2) {
-	// TODO - implement Medium::Medium
-	throw "Not yet implemented";
+Medium::Medium(int durability, int grip, float pressure) {
+	setDurability(durability);
+	setGrip(grip);
+	setPressure(pressure);
+	cout << "Medium tyreD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
 }
 
 void Medium::usage() {
