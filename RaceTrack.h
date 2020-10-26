@@ -18,28 +18,27 @@ class RaceTrack: public Road {
 		/**
 			Constructor
 		*/
-		raceTrack();
+		RaceTrack();
 
 		/**
 			Constructor
-			@param
+			@param name
 		*/
 		RaceTrack( string );
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
-			@param
-			@param
+			@param name
+			@param dist
+			@param wind
+			@param RaceSkill
 		*/
 		RaceTrack( string, float, float, float );
 
 		/**
 			Destructor
 		*/
-		~raceTrack();
+		~RaceTrack();
 
 		/**
 			
@@ -65,7 +64,7 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@param
+			@param dist
 		*/
 		void setDistance( float );
 
@@ -77,7 +76,7 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@return
+			@return wind
 		*/
 		float setWindForce( float );
 
@@ -89,7 +88,7 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@param
+			@param RaceSkill
 		*/
 		void setSkill( float );
 

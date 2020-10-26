@@ -6,7 +6,11 @@ Race_Season::Race_Season() {
 	throw "Not yet implemented";
 }
 
-Race_Season::Race_Season(GrandPrix* g, RacingTeam* t, Result* r, Subject* s) {
+Race_Season::~Race_Season() {
+
+}
+
+Race_Season::Race_Season( GrandPrix* g, RaceTeam* t, Result* r, Subject* s ) {
 
 	// TODO - implement Race Season::Race Season
 	throw "Not yet implemented";

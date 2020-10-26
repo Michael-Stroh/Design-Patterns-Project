@@ -1,18 +1,18 @@
 #include "RaceSeasonResult.h"
 
-RaceSeasonResult::RaceSeasonResult() {
+RaceSeasonResult::RaceSeasonResult(): Result() {
 
 	// TODO - implement RaceSeasonResult::RaceSeasonResult
 	throw "Not yet implemented";
 }
 
-RaceSeasonResult::RaceSeasonResult(Result* r, map<string, int> m, map<string, int> parameter) {
+RaceSeasonResult::RaceSeasonResult(Result* r, map<string, int> m, map<string, int> parameter): Result() {
 
 	// TODO - implement RaceSeasonResult::RaceSeasonResult
 	throw "Not yet implemented";
 }
 
-RaceSeasonResult::RaceSeasonResult(Result* r) {
+RaceSeasonResult::RaceSeasonResult(Result* r): Result() {
 
 	// TODO - implement RaceSeasonResult::RaceSeasonResult
 	throw "Not yet implemented";

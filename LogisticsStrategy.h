@@ -14,19 +14,19 @@
 
 #include <vector> 
 
-class LogisiticsStrategy {
+class LogisticsStrategy {
 
 	public:
 		
 		/**
 			Constructor
 		*/
-		LogisiticsStrategy();
+		LogisticsStrategy();
 
 		/**
 			Destructor
 		*/
-		~LogisiticsStrategy();
+		~LogisticsStrategy();
 	
 	private:
 

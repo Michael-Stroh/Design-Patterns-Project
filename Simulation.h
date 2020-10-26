@@ -28,7 +28,7 @@ class Simulation {
 		/**
 			Constructor
 		*/
-		~Simulation();
+		virtual ~Simulation();
 
 		/**
 			

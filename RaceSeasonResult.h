@@ -45,7 +45,7 @@ class RaceSeasonResult: public Result {
 			
 			@param
 		*/
-		void addResult(Result* r);
+		void addResult( Result* );
 
 		/**
 			

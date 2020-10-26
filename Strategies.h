@@ -10,7 +10,7 @@
 #define STRATEGIES_H
 
 #include "RaceStrategy.h"
-#include "LogisticStrategy.h"
+#include "LogisticsStrategy.h"
 
 class Strategies {
 
@@ -26,7 +26,7 @@ class Strategies {
 			@param
 			@param
 		*/
-		Strategies( RaceStrategy*, LogisticStrategy* );
+		Strategies( RaceStrategy*, LogisticsStrategy* );
 
 		/**
 			Destructor
@@ -38,7 +38,13 @@ class Strategies {
 			@return
 		*/
 		int getLapNumber();
-		
+
+		/**
+
+			@param
+		*/
+		void setLapNumber( int );
+
 	private:
 	
 		/**
@@ -49,7 +55,7 @@ class Strategies {
 		/**
 			@brief
 		*/
-		LogisticStarategy* logisiticStrategy;
+		LogisticsStrategy* logisticsStrategy;
 		
 		/**
 			@brief

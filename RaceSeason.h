@@ -10,7 +10,7 @@
 #define RACE_SEASON_H
 
 #include "GrandPrix.h"
-#include "RacingTeam.h"
+#include "RaceTeam.h"
 #include "Result.h"
 #include "Subject.h"
 
@@ -30,7 +30,7 @@ class Race_Season {
 			@param
 			@param
 		*/
-		Race_Season( GrandPrix*, RacingTeam*, Result*, Subject* );
+		Race_Season( GrandPrix*, RaceTeam*, Result*, Subject* );
 
 		/**
 			Destructor
@@ -58,7 +58,7 @@ class Race_Season {
 		/**
 			@brief 
 		*/
-		RacingTeam* teams;
+		RaceTeam* teams;
 		
 		/**
 			@brief 

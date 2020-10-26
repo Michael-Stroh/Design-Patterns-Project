@@ -1,18 +1,18 @@
 #include "RaceResult.h"
 
-RaceResult::RaceResult() {
+RaceResult::RaceResult(): Result() {
 
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-RaceResult::RaceResult( Result* r ) {
+RaceResult::RaceResult( Result* r ): Result() {
 
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-RaceResult::RaceResult( Result* r, map<string, int> m ) {
+RaceResult::RaceResult( Result* r, map<string, int> m ): Result() {
 
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";

@@ -16,7 +16,6 @@
 class RaceResult: public Result {
 
 
-
 	public:
 	
 		/**
@@ -86,12 +85,12 @@ class RaceResult: public Result {
 		/**
 			@brief
 		*/
-		map<string, int> totalTeamsLaptime;
+		map<string, int> totalTeamsLapTime;
 		
 		/**
 			@brief
 		*/
-		map<string, int> totalDriversLaptime;
+		map<string, int> totalDriversLapTime;
 };
 
 #endif

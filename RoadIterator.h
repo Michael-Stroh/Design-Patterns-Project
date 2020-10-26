@@ -23,7 +23,7 @@ class RoadIterator: public Iterator {
 		/**
 			Destructor
 		*/
-		~roadIterator();
+		~RoadIterator();
 
 		/**
 			

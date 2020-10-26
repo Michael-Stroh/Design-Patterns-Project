@@ -1,6 +1,6 @@
 #include "LogisticsStrategy.h"
 
-LogisiticsStrategy::LogisiticsStrategy() {
+LogisticsStrategy::LogisticsStrategy() {
 
 	// TODO - implement LogisiticsStrategy::LogisiticsStrategy
 	throw "Not yet implemented";
