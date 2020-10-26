@@ -21,22 +21,49 @@ class Art: public Car {
 		Art();
 
 		/**
+			Constructor
+		 	@param
+		*/
+		Art( string );
+
+		/**
 			Destructor
 		*/
-		~Art();
+		virtual ~Art();
 
 		/**
 			Prints out the added details to the car
 		*/
 		void print();
-		
+
+		/**
+
+		*/
+		Art* getNext();
+
+		/**
+
+		*/
+		void setNext( Art* );
+
+		/**
+
+		*/
+		string getDescription();
+
+		/**
+
+		*/
+		void setDescription( string );
+
 	private:
 	
 		/**
      		@brief holds a pointer to the next ArtCompnonet stored
 		*/
-		ArtComponent* next;
-		
+		Art* next;
+		//ArtComponent* next;
+
 		/**
      		@brief Describes the art
 		*/

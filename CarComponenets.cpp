@@ -1,16 +1,23 @@
 #include "CarComponenets.h"
 
-CarComponenets::CarComponenets() {
+CarComponenets::CarComponenets(): Container() {
 	// TODO - implement CarComponenets::CarComponenets
 	throw "Not yet implemented";
+
+
 }
 
-CarComponenets::CarComponenets(string s) {
-	// TODO - implement CarComponenets::CarComponenets
-	throw "Not yet implemented";
+CarComponenets::CarComponenets( string details ): Container() {
+
+    this->stored = details;
+}
+
+CarComponenets::~CarComponenets() {
+
 }
 
 string CarComponenets::getComponents() {
-	// TODO - implement CarComponenets::getComponents
-	throw "Not yet implemented";
+
+	return this->stored;
 }
+

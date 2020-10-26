@@ -23,7 +23,7 @@ class CarPartFactory {
 		/**
 			Destructor
 		*/
-		void ~CarPartFactory();
+		virtual ~CarPartFactory();
 
 		/**
 			Determines what CarPart to make and returns the object created

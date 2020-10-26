@@ -17,12 +17,12 @@ class Iterator {
 		/**
 			Constructor
 		*/
-		iterator();
+		Iterator();
 
 		/**
 			Destructor
 		*/
-		~iterator();
+		~Iterator();
 
 		/**
 			

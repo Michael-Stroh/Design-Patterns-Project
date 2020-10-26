@@ -10,6 +10,9 @@
 #define CARBUILDER_H
 
 #include "CarComposite.h"
+#include "CarPartFactory.h"
+
+#include <vector>
 
 class CarBuilder {
 

@@ -5,6 +5,14 @@ Driver::Driver() {
 	throw "Not yet implemented";
 }
 
+Driver::Driver( string ) {
+
+}
+
+Driver::~Driver() {
+
+}
+
 Driver::Driver(string name, int aggr, float move) {
 	// TODO - implement Driver::Driver
 	throw "Not yet implemented";

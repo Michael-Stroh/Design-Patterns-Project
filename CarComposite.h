@@ -10,9 +10,10 @@
 #define CARCOMPOSITE_H
 
 #include "CarMemento.h"
-#include "Memento.h"
 #include "Tyre.h"
 #include "Car.h"
+
+#include <vector>
 
 class CarComposite {
 
@@ -22,6 +23,12 @@ class CarComposite {
 			Constructor
 		*/
 		CarComposite();
+
+        /**
+            Constructor
+            @param
+        */
+        CarComposite( float );
 
 		/**
 			Copy constructor for prototype design pattern
@@ -37,7 +44,7 @@ class CarComposite {
 			Returns a clone of the current Car object
 			@return
 		*/
-		Car * clone();
+		Car* clone();
 
 		/**
 			Prints out details about the Car object
@@ -61,7 +68,7 @@ class CarComposite {
 			Creates a Memento of the current object and returns it
 			@return
 		*/
-		Memento* createCarMemento();
+		CarMemento* createCarMemento();
 
 		/**
 			Sets the current object to the given Memento
