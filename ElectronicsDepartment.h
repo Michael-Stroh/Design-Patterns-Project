@@ -23,7 +23,7 @@ class ElectronicsDepartment: public EngineeringDepartment {
 
 		/**
 			Constructor
-			@param
+			@param budget
 		*/
 		ElectronicsDepartment( float );
 

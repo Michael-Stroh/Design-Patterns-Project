@@ -9,7 +9,9 @@
 #ifndef SOFT_H
 #define SOFT_H
 
-class Soft: public TyreType {
+#include "Tyre.h"
+
+class Soft: public Tyre {
 
 	public:
 
@@ -20,9 +22,9 @@ class Soft: public TyreType {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+			@param grip
+			@param pressure
 		*/
 		Soft( int, int, float );
 

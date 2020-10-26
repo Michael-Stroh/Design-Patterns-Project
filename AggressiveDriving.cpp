@@ -18,6 +18,12 @@ AggressiveDriving::AggressiveDriving( string name, int aggression, float move ):
 	throw "Not yet implemented";
 }
 
+AggressiveDriving::~AggressiveDriving() {
+
+	// TODO - implement AggressiveDriving::AggressiveDriving
+	throw "Not yet implemented";
+}
+
 string AggressiveDriving::displayDriver() {
 
 	// TODO - implement AggressiveDriving::displayDriver

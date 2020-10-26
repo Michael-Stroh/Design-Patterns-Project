@@ -24,27 +24,27 @@ class EngineeringDepartment {
 
 		/**
 			Constructor
-			@param
+			@param budget
 		*/
 		EngineeringDepartment( float );
 
 		/**
 			Constructor
-			@param
+			@param state
 		*/
 		EngineeringDepartment( Simulation* );
 
 		/**
 			Constructor
-			@param
-			@param
+			@param state
+			@param budget
 		*/
 		EngineeringDepartment( Simulation*, float );
 
 		/**
 			Destructor
 		*/
-		~EngineeringDepartment();
+		virtual ~EngineeringDepartment();
 
 		/**
 			
@@ -62,7 +62,7 @@ class EngineeringDepartment {
 		/**
 			@brief 
 		*/
-		Simulation* state;
+		Simulation* SimulationState;
 		
 		/**
 			@brief 

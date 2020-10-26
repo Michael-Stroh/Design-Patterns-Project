@@ -24,6 +24,20 @@ class ControlledDriving: public Driver {
 		ControlledDriving();
 
 		/**
+			Constructor
+			 @param
+		*/
+		ControlledDriving( string );
+
+		/**
+			Constructor
+			@param
+			@param
+			@param
+		*/
+		ControlledDriving( string, int, float );
+
+		/**
 			Destructor
 		*/
 		~ControlledDriving();

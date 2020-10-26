@@ -9,9 +9,9 @@
 #ifndef CARSTOP_H
 #define CARSTOP_H
 
-#include "PitStop.h";
-#include "Car.h";
-#include "PitCrew.h";
+#include "PitStop.h"
+#include "PitCrew.h"
+#include "Car.h"
 
 class CarStop: public PitStop {
 
@@ -23,16 +23,55 @@ class CarStop: public PitStop {
 		CarStop();
 
 		/**
+			Constructor
+		 	@param CarName
+		*/
+		CarStop( string );
+
+		/**
 			Destructor
 		*/
-		void ~CarStop();
+		~CarStop();
 
 		/**
 			Sets the Car pointer to the parameter and indicates if it was successful
-			@param
+			@return
 		*/
-		bool setCar( car* );
-		
+		string getName();
+
+		/**
+			Sets the Car pointer to the parameter and indicates if it was successful
+			@param CarName
+			@return
+		*/
+		void setName( string );
+
+		/**
+			Sets the Car pointer to the parameter and indicates if it was successful
+			@return
+		*/
+		Car* getCar();
+
+		/**
+			Sets the Car pointer to the parameter and indicates if it was successful
+			@param carChange
+			@return
+		*/
+		bool setCar( Car* );
+
+		/**
+		Sets the Car pointer to the parameter and indicates if it was successful
+		@return
+		*/
+		PitCrew* getCrew();
+
+		/**
+			Sets the Car pointer to the parameter and indicates if it was successful
+			@param crewChange
+			@return
+		*/
+		bool setCrew( PitCrew* );
+
 	private:
 	
 		/**

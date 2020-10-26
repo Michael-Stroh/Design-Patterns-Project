@@ -28,7 +28,7 @@ class PitStopStrategy {
 			
 			@return
 		*/
-		boolean CheckForPitStop();
+		bool CheckForPitStop();
 
 		/**
 			

@@ -28,7 +28,7 @@ public:
 	/**
 			Constructor
 		*/
-	void ~OfficialState();
+	~OfficialState();
 
 	/**
 			
@@ -43,7 +43,7 @@ private:
 	/**
 		@brief The subject that will allow all teams to be informed of any necessary information before or during the official race.
 		*/
-	OfficialRaceSubject *officialRaceSubject;
+	OfficialRaceSubject *raceSubject;
 };
 
 #endif

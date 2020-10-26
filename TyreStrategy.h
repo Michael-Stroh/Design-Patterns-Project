@@ -9,9 +9,11 @@
 #ifndef TYRESTRATEGY_H
 #define TYRESTRATEGY_H
 
-#include "TyreType.h"
+#include "Tyre.h"
 
 #include <vector>
+
+using namespace std;
 
 class TyreStrategy {
 
@@ -32,14 +34,20 @@ class TyreStrategy {
 			
 			@return
 		*/
-		vector<TyreType*> getTyres();
+		vector<Tyre*> getTyres();
+
+		/**
+
+			@param
+		*/
+		void setTyres( vector<Tyre*> );
 
 	private:
 	
 		/**
 			@brief
 		*/
-		vector<TyreType*> tyres;
+		vector<Tyre*> tyres;
 
 };
 

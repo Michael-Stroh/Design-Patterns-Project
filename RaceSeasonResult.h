@@ -45,7 +45,7 @@ public:
 			
 			@param
 		*/
-	void addResult(Result *r);
+	void addResult(Result *);
 
 	/**
 			

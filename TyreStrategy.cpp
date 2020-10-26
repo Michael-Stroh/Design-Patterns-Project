@@ -1,10 +1,21 @@
 #include "TyreStrategy.h"
 
 TyreStrategy::TyreStrategy() {
+
 	// TODO - implement TyreStrategy::TyreStrategy
 	throw "Not yet implemented";
 }
 
-vector<TyreType*> TyreStrategy::getTyres() {
-	return this->tyres;
+TyreStrategy::~TyreStrategy() {
+
+}
+
+vector<Tyre*> TyreStrategy::getTyres() {
+
+	return tyres;
+}
+
+void TyreStrategy::setTyres( vector< Tyre* > newTyre ) {
+
+	tyres = newTyre;
 }

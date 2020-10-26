@@ -1,13 +1,15 @@
 #include "LapResult.h"
 
-LapResult::LapResult()
+LapResult::LapResult() : Result()
 {
+
 	// TODO - implement LapResult::LapResult
 	throw "Not yet implemented";
 }
 
-LapResult::LapResult(string d, string s, float f)
+LapResult::LapResult(string d, string s, float Time) : lapTime(Time)
 {
+
 	// TODO - implement LapResult::LapResult
 	throw "Not yet implemented";
 }

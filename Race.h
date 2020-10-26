@@ -49,7 +49,7 @@ public:
 			
 			@param[in] s: A string describing the state to which the race must be set. Either "Practice", "Qualifying", or "Official"
 		*/
-	void setState(string);
+	void setState(RaceState *);
 
 	/**
 			

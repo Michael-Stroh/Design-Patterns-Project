@@ -63,19 +63,6 @@ class RaceTeam {
 			@param
 		*/
 		void informGrandPrix( GrandPrix* );
-
-
-		/**
-			
-			@return
-		*/
-		int getPoints();
-
-		/**
-			
-			@param
-		*/
-		void setPoints( int );
 		
 	private:
 	

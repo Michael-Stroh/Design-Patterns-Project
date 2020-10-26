@@ -23,7 +23,7 @@ class GarageEquipment: public Container {
 
 		/**
 			Constructor
-			@param
+			@param details
 		*/
 		GarageEquipment( string );
 

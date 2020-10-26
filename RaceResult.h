@@ -23,6 +23,12 @@ public:
 		*/
 	RaceResult();
 
+public:
+	/**
+			Constructor
+		*/
+	RaceResult();
+
 	/**
 			Copy Constructor
 			@param[in] r: An instance of Result

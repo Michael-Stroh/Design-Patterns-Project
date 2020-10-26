@@ -1,13 +1,15 @@
 #include "GrandPrixResult.h"
 
-GrandPrixResult::GrandPrixResult()
+GrandPrixResult::GrandPrixResult() : Result()
 {
+
 	// TODO - implement GrandPrixResult::GrandPrixResult
 	throw "Not yet implemented";
 }
 
-GrandPrixResult::GrandPrixResult(Result *r)
+GrandPrixResult::GrandPrixResult(Result *r) : Result()
 {
+
 	// TODO - implement GrandPrixResult::GrandPrixResult
 	throw "Not yet implemented";
 }
@@ -20,6 +22,7 @@ void GrandPrixResult::print()
 
 void GrandPrixResult::printDrivers()
 {
+
 	// TODO - implement GrandPrixResult::printDrivers
 	throw "Not yet implemented";
 }

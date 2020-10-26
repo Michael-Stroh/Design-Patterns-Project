@@ -1,11 +1,17 @@
 #include "HandlingSimulation.h"
 
-HandlingSimulation::HandlingSimulation() {
+HandlingSimulation::HandlingSimulation(): Simulation() {
+
 	// TODO - implement HandlingSimulation::HandlingSimulation
 	throw "Not yet implemented";
 }
 
-Simulation* HandlingSimulation::simulate(CarComposite* car, Driver* drivre) {
+HandlingSimulation::~HandlingSimulation() {
+
+}
+
+Simulation* HandlingSimulation::simulate( CarComposite* car, Driver* driver ) {
+
 	// TODO - implement HandlingSimulation::simulate
 	throw "Not yet implemented";
 }

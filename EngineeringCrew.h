@@ -10,7 +10,7 @@
 #ifndef ENGINEERINGCREW_H
 #define ENGINEERINGCREW_H
 
-#include "CarComposite.h"
+#include "Car.h"
 #include "EngineeringDepartment.h"
 
 class EngineeringCrew {
@@ -49,25 +49,25 @@ class EngineeringCrew {
 			
 			@return
 		*/
-		Car* getnextSeasonCar();
+		Car* getNextSeasonCar();
 
 		/**
 			
 			@param
 		*/
-		void setnextSeasonCar( Car* );
+		void setNextSeasonCar( Car* );
 		
 	private:
 	
 		/**
 			@brief 
 		*/
-		CarComposite* car;
+		Car* car;
 		
 		/**
 			@brief 
 		*/
-		CarComposite* nextSeasonCar;
+		Car* nextSeasonCar;
 		
 		/**
 			@brief 

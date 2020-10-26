@@ -1,18 +1,20 @@
 #include "RaceResult.h"
 
-RaceResult::RaceResult()
+RaceResult::RaceResult() : Result()
 {
+
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-RaceResult::RaceResult(Result *r)
+RaceResult::RaceResult(Result *r) : Result()
 {
+
 	// TODO - implement RaceResult::RaceResult
 	throw "Not yet implemented";
 }
 
-bool RaceResult::addLapTime(Result *r)
+bool RaceResult::addLapTime(float)
 {
 	// TODO - implement RaceResult::addLapTime
 	throw "Not yet implemented";
@@ -26,6 +28,7 @@ void RaceResult::print()
 
 void RaceResult::printDrivers()
 {
+
 	// TODO - implement RaceResult::printDrivers
 	throw "Not yet implemented";
 }
