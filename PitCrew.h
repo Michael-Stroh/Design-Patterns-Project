@@ -42,7 +42,19 @@ class PitCrew {
 			
 		*/
 		virtual void update() = 0;
-		
+
+		/**
+
+		*/
+		bool getStatus();
+
+
+		/**
+
+		 	@param
+		*/
+		void getStatus( bool );
+
 	private:
 
 		/**

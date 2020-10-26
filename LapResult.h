@@ -23,8 +23,22 @@ class LapResult: public Result {
 
 		/**
 			Constructor
+		 	@param Time
 		*/
-		LapResult( long );
+		LapResult( float );
+
+		/**
+			Constructor
+			 @param name
+		*/
+		LapResult( string );
+
+		/**
+				Constructor
+				@param name
+				@param Time
+			*/
+		LapResult( string, float );
 
 		/**
 			Destructor
@@ -42,7 +56,18 @@ class LapResult: public Result {
 			
 		*/
 		void print();
-	
+
+		/**
+
+		*/
+		string getTeamName();
+
+		/**
+
+		 	@param name
+		*/
+		void setTeamName( string );
+
 	private:
 
 		/**

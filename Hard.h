@@ -10,9 +10,9 @@
 #ifndef HARD_H
 #define HARD_H
 
-#include "TyreType.h"
+#include "Tyre.h"
 
-class Hard: public TyreType {
+class Hard: public Tyre {
 
 	public:
 		
@@ -32,7 +32,7 @@ class Hard: public TyreType {
 		/**
 			Desstructor
 		*/
-		void ~Hard();
+		~Hard();
 
 		/**
 			

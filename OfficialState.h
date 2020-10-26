@@ -6,7 +6,6 @@
    @brief 
  */
 
-
 #ifndef OFFICIALSTATE_H
 #define OFFICIALSTATE_H
 
@@ -28,7 +27,7 @@ class OfficialState: public RaceState {
 		/**
 			Constructor
 		*/
-		void ~OfficialState();
+		~OfficialState();
 
 		/**
 			
@@ -44,7 +43,7 @@ class OfficialState: public RaceState {
 		/**
 			@brief
 		*/
-		OfficialRaceSubject* officialRaceSubject;
+		OfficialRaceSubject* raceSubject;
 };
 
 #endif

@@ -10,9 +10,9 @@
 #ifndef MEDIUM_H
 #define MEDIUM_H
 
-#include "TyreType.h"
+#include "Tyre.h"
 
-class Medium: public TyreType {
+class Medium: public Tyre {
 
 	public:
 		
@@ -23,6 +23,9 @@ class Medium: public TyreType {
 
 		/**
 			Constructor
+		 	@param durability
+		 	@param grip
+		 	@param pressure
 		*/
 		Medium( int, int, float );
 
