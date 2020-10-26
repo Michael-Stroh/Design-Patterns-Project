@@ -44,10 +44,20 @@ class Budget {
 		void detach( EngineeringDepartment* );
 
 		/**
-			Notifys all the attached obervers of a change
+			Notifies all the attached obervers of a change
 		*/
 		void notifyAll();
-	
+
+		/**
+			Returns the allocated budget
+		*/
+		float getBudget();
+
+		/**
+			Sets the allocated budget
+		*/
+		void setBudget( float );
+
 	private:
 	
 		/**

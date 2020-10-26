@@ -30,7 +30,7 @@ class Car {
 		/**
 			Destructor
 		*/
-		~Car();
+		virtual ~Car();
 
 		/**
 			Makes and returns a clone of the current Car object
@@ -58,6 +58,7 @@ class Car {
 
 		/**
 			Returns the stored handling
+		 	@return
 		*/
 		virtual float getHandling() = 0;
 

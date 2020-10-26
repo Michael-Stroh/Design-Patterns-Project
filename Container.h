@@ -9,6 +9,10 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
+#include <string>
+
+using namespace std;
+
 class Container {
 
 	public:
@@ -22,6 +26,16 @@ class Container {
 			Destructor
 		*/
 		~Container();
+
+		string getStored();
+		void setStored( string );
+
+	protected:
+
+		/**
+			@brief
+		*/
+		string stored;
 };
 
 #endif

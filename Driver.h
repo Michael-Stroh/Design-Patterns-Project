@@ -24,6 +24,11 @@ class Driver {
 
 		/**
 			Constructor
+		*/
+		Driver( string );
+
+		/**
+			Constructor
 			@param
 			@param
 			@param
