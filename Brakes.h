@@ -4,7 +4,7 @@
    @authors Michael
    @version 1.0.0
    @brief 
- */
+*/
 
 #ifndef BRAKES_H
 #define BRAKES_H

@@ -9,16 +9,19 @@
 #ifndef ROAD_H
 #define ROAD_H
 
-#include ".h"
+#include "Iterator.h"
+
+#include <string>
+
+using namespace std;
 
 class Road {
-
 
 	public:
 		/**
 			Constructor
 		*/
-		road();
+		Road();
 
 		/**
 			Constructor
@@ -29,7 +32,7 @@ class Road {
 		/**
 			Destructor
 		*/
-		~road();
+		virtual ~Road();
 
 		/**
 			
@@ -46,8 +49,7 @@ class Road {
 			@return
 		*/
 		virtual Iterator* createIterator() = 0;
-		
-		
+
 	private:
 	
 		/**

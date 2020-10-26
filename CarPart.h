@@ -3,7 +3,7 @@
    @class CarPart
    @authors Michael
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef CARPART_H

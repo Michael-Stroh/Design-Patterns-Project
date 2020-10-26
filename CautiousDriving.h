@@ -9,10 +9,7 @@
 #ifndef CAUTIOUSDRIVING_H
 #define CAUTIOUSDRIVING_H
 
-#inlcude "Driver.h"
-
-#include <iostream>
-using namespace std;
+#include "Driver.h"
 
 class CautiousDriving: public Driver {
 
@@ -22,6 +19,20 @@ class CautiousDriving: public Driver {
 			Constructor
 		*/
 		CautiousDriving();
+
+		/**
+			Constructor
+		 	@param
+		*/
+		CautiousDriving( string  );
+
+		/**
+			Constructor
+			@param
+			@param
+			@param
+		*/
+		CautiousDriving( string, int, float );
 
 		/**
 			Destructor

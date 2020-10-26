@@ -23,11 +23,26 @@ class Container {
 		Container();
 
 		/**
+			Constructor
+		 	@param
+		*/
+		Container( string );
+
+		/**
 			Destructor
 		*/
-		~Container();
+		virtual ~Container();
 
+		/**
+
+		*/
 		string getStored();
+
+		/**
+
+		 	@param
+		 	@return
+		*/
 		void setStored( string );
 
 	protected:

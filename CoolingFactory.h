@@ -13,7 +13,6 @@
 
 class CoolingFactory: public CarPartFactory {
 
-
 	public:
 		
 		/**

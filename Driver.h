@@ -9,7 +9,7 @@
 #ifndef DRIVER_H
 #define DRIVER_H
 
-#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -24,21 +24,22 @@ class Driver {
 
 		/**
 			Constructor
+		 	@param DriverName
 		*/
 		Driver( string );
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param DriverName
+			@param DriverAggression
+			@param move
 		*/
 		Driver( string, int, float );
 
 		/**
 			Destructor
 		*/
-		~Driver();
+		virtual ~Driver();
 
 		/**
 			
@@ -49,23 +50,11 @@ class Driver {
 			
 			@return
 		*/
-		int getPoints();
-
-		/**
-			
-			@param
-		*/
-		void setPoints( int );
-
-		/**
-			
-			@return
-		*/
 		string getName();
 
 		/**
 			
-			@param
+			@param DriverName
 		*/
 		void setName( string );
 
@@ -77,7 +66,7 @@ class Driver {
 
 		/**
 			
-			@param
+			@param DriverAggression
 		*/
 		void setAggression( int );
 
@@ -89,7 +78,7 @@ class Driver {
 
 		/**
 			
-			@param
+			@param move
 		*/
 		void setSpecialMove( float );
 	
