@@ -1,25 +1,25 @@
 #include "Logistics.h"
 
-logistics::logistics() {
+Logistics::Logistics() {
 
-	// TODO - implement logistics::logistics
+	// TODO - implement Logistics::Logistics
 	throw "Not yet implemented";
 }
 
-logistics::logistics( bool euro ): isEuropean( euro ) {
+Logistics::Logistics( bool euro ): isEuropean( euro ) {
 
-	// TODO - implement logistics::logistics
+	// TODO - implement Logistics::Logistics
 	throw "Not yet implemented";
 }
 
-logistics::logistics( Container* a, Container* parameter, Container* parameter2 ) {
+Logistics::Logistics( Container* a, Container* parameter, Container* parameter2 ) {
 
 	//variables need to be initialized but need to be renamed first
 
-	// TODO - implement logistics::logistics
+	// TODO - implement Logistics::Logistics
 	throw "Not yet implemented";
 }
 
-logistics::~logistics() {
+Logistics::~Logistics() {
 
 }

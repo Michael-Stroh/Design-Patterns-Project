@@ -11,20 +11,20 @@
 
 #include "Container.h"
 
-class logistics {
+class Logistics {
 
 	public:
 	
 		/**
 			Constructor
 		*/
-		logistics();
+		Logistics();
 
 		/**
 			Constructor
 			@param
 		*/
-		logistics( bool );
+		Logistics( bool );
 
 		/**
 			Constructor
@@ -32,18 +32,18 @@ class logistics {
 			@param
 			@param
 		*/
-		logistics( Container*, Container*, Container* );
+		Logistics( Container*, Container*, Container* );
 
 		/**
 			Destructor
 		*/
-		~logistics();
+		~Logistics();
 
 		/**
 			
 			@return
 		*/
-		virtual logistics* handlelogistics() = 0;
+		virtual Logistics* handlelogistics() = 0;
 
 	private:
 

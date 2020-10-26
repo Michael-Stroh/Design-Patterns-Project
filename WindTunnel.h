@@ -44,9 +44,21 @@ class WindTunnel : Simulation {
 
 		/**
 
-			 @return
+			 @param
 		*/
 		void setUsage( int );
+
+		/**
+
+			 @return
+		*/
+		int getAllowedUsage();
+
+		/**
+
+			 @param
+		*/
+		void setAllowedUsage( int );
 
 	private:
 	

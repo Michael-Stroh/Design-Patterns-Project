@@ -20,3 +20,18 @@ int WindTunnel::getUsage() {
 
 	return this->usage;
 }
+
+void WindTunnel::setUsage( int used ) {
+
+	usage = used;
+}
+
+int WindTunnel::getAllowedUsage() {
+
+	return usageAllowed;
+}
+
+void WindTunnel::setAllowedUsage( int allowedUsed ) {
+
+	usageAllowed = allowedUsed;
+}
