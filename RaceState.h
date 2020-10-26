@@ -1,9 +1,9 @@
 /**
    @file RaceState.h
    @class RaceState
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The abstract class from which the various Race Subjects (Practice, Qualifying & Official) will inherit.
  */
 
 #ifndef RACESTATE_H
@@ -13,28 +13,28 @@
 #include "RaceTeam.h"
 #include "Circuit.h"
 
-class RaceState {
+class RaceState
+{
 
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceState();
+	RaceState();
 
-		/**
+	/**
 			Destructor
 		*/
-		~RaceState();
+	~RaceState();
 
-		/**
+	/**
 			
-			@param
-			@param
-			@param
-			@return
+			@param Result: The results of the previous race (will be used within the function if necessary).
+			@param RaceTeam: The teams that will participate in the race.
+			@param Circuit: The circuit on which the race will take place.
+			@return The result for the race.
 		*/
-		virtual Result* runRace( Result*, RaceTeam*, Circuit* ) = 0;
+	virtual Result *runRace(Result *, RaceTeam *, Circuit *) = 0;
 };
 
 #endif

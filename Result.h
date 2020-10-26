@@ -1,9 +1,9 @@
 /**
    @file Result.h
    @class Result
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The abstract class that the various Result classes (LapResult, RaceResult, GrandPrixResult, RaceSeasonResult) will inherit from.
  */
 
 #ifndef RESULT_H
@@ -13,37 +13,30 @@
 
 #include <vector>
 
-class Result {
+class Result
+{
 
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		Result();
+	Result();
 
-		/**
+	/**
 			Constructor
 		*/
-		~Result();
+	~Result();
 
-		/**
+	/**
 			
 		*/
-		virtual void print() = 0;
+	virtual void print() = 0;
 
-		/**
+	/**
 			
-			@param
+			@param[in]: Result: a result to be added and aggregated by the current result class. This will be a "lower level" result that will be added to other "lower level" results to form a single "higher level" result.
 		*/
-		void addResult( Result* );
-		
-	private:
-	
-		/**
-			@brief
-		*/
-		vector<string> racePositions;
+	void addResult(Result *);
 };
 
 #endif

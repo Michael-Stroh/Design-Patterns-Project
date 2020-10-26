@@ -45,28 +45,28 @@ public:
 	Result *runSeason();
 
 	/**
-			
+			@brief Performs all necessary actions that occur before the Race Season begins.
 		*/
 	void prepareSeason();
 
 private:
 	/**
-			@brief 
+			@brief All of the grand prixs that will take place during the racing season.
 		*/
 	GrandPrix *grandPrixs;
 
 	/**
-			@brief 
+			@brief All of the racing teams that will participate in the racing season.
 		*/
 	RacingTeam *teams;
 
 	/**
-			@brief 
+			@brief The overall Season Result, this will be updated everytime a grand prix completes.
 		*/
 	Result *result;
 
 	/**
-			@brief 
+			@brief The Season Subject, to which each racing team attaches so that they can be informed of any pertinent information regarding the Race Season.
 		*/
 	Subject *seasonSubject;
 };

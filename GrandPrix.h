@@ -1,11 +1,10 @@
 /**
    @file GrandPrix.h
    @class GrandPrix
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
  */
-
 
 #ifndef GRAND PRIX_H
 #define GRAND PRIX_H
@@ -14,43 +13,42 @@
 #include "Result.h"
 #include "Circuit.h"
 
-class GrandPrix {
+class GrandPrix
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		GrandPrix();
+	GrandPrix();
 
-		/**
+	/**
 			Destructor
 		*/
-		~GrandPrix();
+	~GrandPrix();
 
-		/**
+	/**
 			
-			@param
-			@return
+			@param teams: All of the teams that will be participating in a Grand Prix.
+			@return An instance of GrandPrixResult, containing the results of the final official race of the Grand Prix.
 		*/
-		Result* runGrandPrix( RaceTeam* );
+	Result *runGrandPrix(RaceTeam *);
 
-		/**
+	/**
 			
 		*/
-		void displayWinners();
-		
-	private:
-		
-		/**
-			@brief 
+	void displayWinners();
+
+private:
+	/**
+			@brief The circuit on which all of the races during this Grand Prix will take place.
 		*/
-		Circuit* circuit;
-		
-		/**
-			@brief 
+	Circuit *circuit;
+
+	/**
+			@brief The race(s) that will take place during this Grand Prix. Will change state from "practice" to "qualifying" to "official" as required.
 		*/
-		Race* race;
+	Race *race;
 };
 
 #endif

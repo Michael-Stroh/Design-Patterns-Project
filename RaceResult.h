@@ -1,97 +1,76 @@
 /**
    @file RaceResult.h
    @class RaceResult
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The ancestor of Result that will contain the results of a single race.
  */
 
 #ifndef RACERESULT_H
 #define RACERESULT_H
 
 #include "Result.h"
-
+#include <string>
 #include <map>
+using namespace std;
 
-class RaceResult: public Result {
+class RaceResult : public Result
+{
 
-
-
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceResult();
+	RaceResult();
 
-		/**
-			Constructor
-			@param
+	/**
+			Copy Constructor
+			@param[in] r: An instance of Result
 		*/
-		RaceResult( Result* );
+	RaceResult(Result *);
 
-		/**
-			Constructor
-			@param
-			@param
+	/**
+			Destructor
 		*/
-		RaceResult( Result*, map<string, int> );
+	~RaceResult();
 
-		/**
-			Constructor
-		*/
-		~RaceResult();
-
-		/**
+	/**
 			
-			@param
+			@param[in] r: An instance of LapResult, to be added to the total results of the race
 		*/
-		bool addLapTime( Result* );
+	bool addLapTime(Result *);
 
-		/**
-			
+	/**
+			@brief Prints the formatted results of the race
 		*/
-		void print();
+	void print();
 
-		/**
-			
+	/**
+			@brief prints the results of the Driver's of the race (for the driver's championship)
 		*/
-		void printDrivers();
+	void printDrivers();
 
-		/**
+	/**
+			@brief prints the results of the Teams's of the race (for the teams's championship)
 			
 		*/
-		void printTeams();
+	void printTeams();
 
-		/**
-			
-			@param
+private:
+	/**
+			@brief A collection of all the lapresults for the current race
 		*/
-		void setTeamTime( map<string, int> );
+	Result *lapResult;
 
-		/**
-			
-			@param
+	/**
+			@brief A collection of all the lapresults for the teams for the current race
 		*/
-		void setDriverTime( map<string, int> );
-		
-		
-	private:
-		
-		/**
-			@brief
+	map<string, int> totalTeamsLaptime;
+
+	/**
+			@brief A collection of all the lapresults for the drivers for the current race
 		*/
-		Result* lapResult;
-		
-		/**
-			@brief
-		*/
-		map<string, int> totalTeamsLaptime;
-		
-		/**
-			@brief
-		*/
-		map<string, int> totalDriversLaptime;
+	map<string, int> totalDriversLaptime;
 };
 
 #endif

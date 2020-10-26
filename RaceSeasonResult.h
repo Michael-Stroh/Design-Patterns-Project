@@ -1,7 +1,7 @@
 /**
    @file RaceSeasonResult.h
    @class RaceSeasonResult
-   @authors Michael
+   @authors Alex
    @version 1.0.0
    @brief 
  */
@@ -13,83 +13,82 @@
 
 #include <map>
 
-class RaceSeasonResult: public Result {
+class RaceSeasonResult : public Result
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceSeasonResult();
+	RaceSeasonResult();
 
-		/**
+	/**
 			Constructor
 			@param
 			@param
 			@param
 		*/
-		RaceSeasonResult( Result*, map<string, int>, map<string, int> );
+	RaceSeasonResult(Result *, map<string, int>, map<string, int>);
 
-		/**
+	/**
 			Constructor
 			@param
 		*/
-		RaceSeasonResult( Result* );
+	RaceSeasonResult(Result *);
 
-		/**
+	/**
 			Destructor
 		*/
-		~RaceSeasonResult();
+	~RaceSeasonResult();
 
-		/**
+	/**
 			
 			@param
 		*/
-		void addResult(Result* r);
+	void addResult(Result *r);
 
-		/**
+	/**
 			
 		*/
-		void print();
+	void print();
 
-		/**
+	/**
 			
 		*/
-		void printDrivers();
+	void printDrivers();
 
-		/**
+	/**
 			
 		*/
-		void printTeams();
+	void printTeams();
 
-		/**
-			
-			@param
-		*/
-		void setTeamTime( map<string, int> );
-
-		/**
+	/**
 			
 			@param
 		*/
-		void setDriverTime( map<string, int> );
+	void setTeamTime(map<string, int>);
 
-	private:
-		
-		/**
+	/**
+			
+			@param
+		*/
+	void setDriverTime(map<string, int>);
+
+private:
+	/**
 			@brief
 		*/
-		Result* grandPrixResults;
-		
-		/**
+	Result *grandPrixResults;
+
+	/**
 			@brief
 		*/
-		map<string, int> totalDriverPoints;
-		
-		/**
+	map<string, int> totalDriverPoints;
+
+	/**
 			@brief
 		*/
-		map<string, int> totalTeamPoints;
+	map<string, int> totalTeamPoints;
 };
 
 #endif

@@ -1,9 +1,10 @@
 /**
    @file .h
    @class 
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The Qualfying state for the Race class.
+   @details Responsible for performing the necessary steps to complete a qualfiying race.
  */
 
 #ifndef QUALIFYINGSTATE_H
@@ -14,35 +15,34 @@
 #include "Circuit.h"
 #include "RaceTeam.h"
 
-class QualifyingState: public RaceState {
+class QualifyingState : public RaceState
+{
 
-	public:
-
-		/**
+public:
+	/**
 			Constructor
 		*/
-		QualifyingState();
+	QualifyingState();
 
-		/**
+	/**
 			Destructor
 		*/
-		~QualifyingState();
+	~QualifyingState();
 
-		/**
+	/**
 			
-			@param
-			@param
-			@param
-			@return
+			@param Result: The results of the previous race (Can be NULL in this case as it will not be used in the qualifying race).
+			@param RaceTeam: The teams that will participate in the qualfying race.
+			@param Circuit: The circuit on which the qualfying race will take place.
+			@return The result of the qualfying race.
 		*/
-		Result* runRace( Result*, RaceTeam*, Circuit* );
-		
-	private:
-		
-		/**
-			@brief
+	Result *runRace(Result *, RaceTeam *, Circuit *);
+
+private:
+	/**
+			@brief The subject that will allow all teams to be informed of any necessary information before or during the qualfying race.
 		*/
-		QualifyingRaceSubject* qualifyingRaceSubject;
+	QualifyingRaceSubject *qualifyingRaceSubject;
 };
 
 #endif

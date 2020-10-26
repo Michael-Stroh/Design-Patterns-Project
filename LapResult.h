@@ -1,59 +1,74 @@
 /**
    @file LapResult.h
    @class LapResult
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The ancestor of Result that will contain the lowest possible recordable result: the time taken to perform a lap.
  */
-
 
 #ifndef LAPRESULT_H
 #define LAPRESULT_H
 
 #include "Result.h"
+#include <string>
+using namespace std;
 
-class LapResult: public Result {
+class LapResult : public Result
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		LapResult();
+	LapResult();
 
-		/**
-			Constructor
+	/**
+			@param[in] d: The driver who completed the lap's name
+			@param[in] t: The team who the driver is currently driving for's team
+			@param[in] f: The time taken to complete a lap
 		*/
-		LapResult( long );
+	LapResult(string, string, float);
 
-		/**
+	/**
 			Destructor
 		*/
-		~LapResult();
+	~LapResult();
 
-		/**
-			
-			@param
-			@return
-		*/
-		bool addLapTime( Result* );
-
-		/**
+	/**
 			
 		*/
-		void print();
-	
-	private:
+	void print();
 
-		/**
-			@brief 
+	/**
+			@return The laptime for the current lap.
 		*/
-		float lapTime;
-		
-		/**
-			@brief 
+	float getLapTime();
+
+	/**
+			@return The driver who completed the current lap's name.
 		*/
-		string teamName;
+	string getDriverName();
+
+	/**
+			@return The name of the team for which the driver who complete the current lap drives.
+		*/
+	string getTeamName();
+
+private:
+	/**
+			@brief The time taken for a driver to complete a lap.
+		*/
+	float lapTime;
+
+	/**
+			@brief The name of the team for which the driver is currently driving.
+		*/
+	string teamName;
+
+	/**
+			@brief The name of the driver who just completed the lap.
+		*/
+	string driverName;
 };
 
 #endif
