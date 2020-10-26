@@ -12,6 +12,9 @@
 #include "Result.h"
 
 #include <vector>
+#include <string>
+
+using namespace std;
 
 class Result {
 

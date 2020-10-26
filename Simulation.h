@@ -12,6 +12,10 @@
 #include "CarComposite.h"
 #include "Driver.h"
 
+#include <string>
+
+using namespace std;
+
 class Simulation {
 
 	public:
