@@ -3,6 +3,7 @@
 RaceTrack::RaceTrack(): Road() {
 
 }
+
 RaceTrack::RaceTrack( string name ): Road( name ) {
 
 	// TODO - implement RaceTrack::RaceTrack

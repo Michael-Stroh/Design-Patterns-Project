@@ -6,7 +6,7 @@ CompositeRoad::CompositeRoad(): Road() {
 	throw "Not yet implemented";
 }
 
-CompositeRoad::CompositeRoad( string RoadName ) : Road( RoadName ) {
+CompositeRoad::CompositeRoad( string RoadName ): Road( RoadName ) {
 
 	// TODO - implement CompositeRoad::CompositeRoad
 	throw "Not yet implemented";
