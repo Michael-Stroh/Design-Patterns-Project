@@ -1,6 +1,16 @@
 #include "Electronics.h"
 
+//should never be used
 Electronics::Electronics() {
-	// TODO - implement Electronics::Electronics
-	throw "Not yet implemented";
+	
+}
+
+Electronics::Electronics(float s, float h, float a, string b) : CarPart(s, h,a, "Electronics", b)
+{
+
+}
+
+CarPart::~CarPart()
+{
+
 }

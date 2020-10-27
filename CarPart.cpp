@@ -35,14 +35,16 @@ CarPart *  CarPart::clone() {
 //is subject to change should we decide to use a logger
 void CarPart::print()
 {
-	cout<<"Part: "<<name<<endl;
-	cout<<"Brand: "<<brand<endl;
-	cout<<"Speed Score: "<<speed<<endl;
-	cout<<"Acceleration Score: "<<acceleration<<endl;
-	cout<<"Handling Score: "<<handling<<endl;
+	Logger::magenta("Part ","-" + name);
+	Logger::magenta("Brand ", "-" + brand);
+	Logger::magenta("Speed Score ","-" + speed<);
+	Logger::magenta("Acceleration Score ", "-" + acceleration);
+	Logger::magenta("Handling Score ", "-" + handling);
 	
 }
 
+//Not a part of the Car interface class. Can be added to there if necessary, 
+//for now, type cast the object to type CarPart to access this function.
 string CarPart::getBrand() {
 	return brand;
 }
@@ -51,4 +53,34 @@ string CarPart::getBrand() {
 //A new part of a different brand would be created.
 void CarPart::setBrand(string newBrand) {
 	brand = newBrand;
+}
+
+float CarPart::getHandling()
+{
+	return handling;
+}
+
+void CarPart::setHandling(float newHandling)
+{
+	handling = newHandling;
+}
+
+float CarPart::getSpeed()
+{
+	return speed;
+}
+
+void CarPart::setSpeed(float newSpeed)
+{
+	speed = newSpeed;
+}
+
+float CarPart::getAcceleration()
+{
+	return acceleration;
+}
+
+void CarPart::setAcceleration(float newAcceleration)
+{
+	acceleration = newAcceleration;
 }

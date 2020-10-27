@@ -18,28 +18,22 @@ using namespace std;
 /*
 	Removed the Tyre * member variable since it makes no sense for 
 	all car parts to hold a tyre (eg an engine does not have a tyre in
-	real life). Maybe move the get and set brand functions into Car.h?
+	real life). 
 */
 
-class CarPart {
+class CarPart : public Car{
 
 	public:
 	
-		/**
-			Default Constructor
-		*/
-		CarPart();
-
 		/**
 			A Constructor that takes in all of the necessary parameters
 			to intialize each member variable.
 			@param s is the speed.
 			@param h is the handling.
 			@param a is the acceleration.
-			@param n is the name of the part
-			@param b is the brand of the part
+			@param b is the brand of the part.
 		*/
-		CarPart(float, float, float, string, string);
+		CarPart(float, float, float, string);
 		
 		/**
 			Constructor for prototype method
@@ -56,55 +50,61 @@ class CarPart {
 			Returns a clone/instantiation of the current CarPart object
 			@return a CarPart * (since a CarPart is a Car*).
 		*/
-		CarPart *  clone();
+		virtual CarPart *  clone();
 
 		/**
 			Prints out the specifications of the part. May be overridden by
 			derived classes.
 		*/
-		void print();
+		virtual void print();
 
 		/**
 			Returns the string named Brand
 			@return a string that is the brand name.
 		*/
-		string getBrand();
+		virtual string getBrand();
 
 		/**
 			Sets the Brand string to the parameter given.
 			@param newBrand is the brand to replace the old brand. 
 		*/
-		void setBrand( string );
+		virtual void setBrand( string );
 
-		float getHandling();
+		/**
+			Returns the handing score for this carPart
+			@return the handling of this part
+		*/
+		virtual float getHandling();
+
+		/**
+			Sets the stored handling to the given value.
+			@param newHandling is the value to change handling to.
+		*/
+		virtual void setHandling( float ) ;
+
+		/**
+			Returns the speed score for this part
+			@return the speed of this part
+		*/
+		virtual float getSpeed();
 
 		/**
 			Sets the stored handling to the given value
-			@param
+			@param newSpeed is the value to change speed to.
 		*/
-		void setHandling( float ) ;
+		virtual void setSpeed( float );
 
 		/**
-			Returns the stored speed
+			Returns the acceleration score for this part
+			@return the acceleration of this part
 		*/
-		float getSpeed();
+		virtual float getAcceleration();
 
 		/**
-			Sets the stored handling to the given value
-			@param
+			Sets the stored acceleration to the given value
+			@param newAcceleration is the value to change acceleration to.
 		*/
-		void setSpeed( float );
-
-		/**
-			Returns the acceleration handling
-		*/
-		float getAcceleration();
-
-		/**
-			Sets the stored handling to the given value
-			@param
-		*/
-		void setAcceleration( float );
+		virtual void setAcceleration( float );
 
 	protected:	//changed from private to protected
 		
@@ -129,10 +129,16 @@ class CarPart {
 		float speed;
 		
 		/**
-     		@brief Stores the current speed is
+     		@brief Stores the acceleration of the car.
 		*/
 		float acceleration;
 	
+	private:
+		/**
+			Default Constructor, made private to restrict access to it and force a different constructor
+			to be used.
+		*/
+		CarPart();
 };
 
 #endif

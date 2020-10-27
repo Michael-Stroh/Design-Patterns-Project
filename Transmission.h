@@ -18,12 +18,25 @@ class Transmission: public CarPart {
 		/**
 			Constructor
 		*/
-		Transmission();
+		~Transmission();
 
+
+		/**
+			A Constructor that takes in all of the necessary parameters
+			to intialize each member variable.
+			@param s is the speed.
+			@param h is the handling.
+			@param a is the acceleration.
+			@param b is the brand of the part
+		*/
+		Transmission(float, float, float, string);
+
+	private:
 		/**
 			Constructor
 		*/
-		~Transmission();
+		Transmission();
+
 };
 
 #endif

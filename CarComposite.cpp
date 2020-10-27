@@ -7,7 +7,7 @@ CarComposite::CarComposite() {
 	for(int i=0; i<NUMPARTS; ++i)
 			carParts[i] = nullptr;
 		
-	aeroDynamicMultiplier = 0.65;
+	aeroDynamicMultiplier = DEFAULT_AERODYNAMICS;
 }
 
 //The copy constructor, it clones every single part
@@ -27,11 +27,6 @@ CarComposite::~CarComposite()
 {
 	for(int i=0; i<NUMPARTS; ++i)
 		delete carParts[i];
-
-	//for(int i=0; i<NUMTYRES; ++i)
-	//	delete Tyres[i];
-
-	//delete [] Tyres;	
 }
 
 //Uses the copy constructor to create a new CarComposite Object
@@ -44,6 +39,7 @@ Car * CarComposite::clone() {
 //or not we use a logger.
 void CarComposite::print() {
 	
+	Logger::magenta("Printing the summary of this CarComposite", "");
 	for(int i=0; i<carParts.size(); ++i)
 		carParts[i]->print();
 
@@ -64,7 +60,7 @@ void CarComposite::add(int index, Car * part) {
 
 void CarComposite::remove(int index) {
 	if(index <0 || index >= NUMPARTS)
-		throw "CarComposite::add; index out of bounds";
+		throw "CarComposite::remove; index out of bounds";
 	else
 	{
 		delete carParts[i];
@@ -80,4 +76,47 @@ Memento * CarComposite::createCarMemento() {
 void CarComposite::setCarMemento(CarMemento * memento) {
 	// TODO - implement CarComposite::setCarMemento
 	throw "Not yet implemented";
+}
+
+
+float CarComposite::getHandling()
+{
+	float handlingAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		handlingAggregate += carParts[i]->getHandling();
+
+	return handlingAggregate;
+}
+
+void CarComposite::setHandling(float newHandling)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "SetHandling should be called on an individual component, not the car itself");
+}
+
+float CarComposite::getSpeed()
+{
+	float speedAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		speedAggregate += carParts[i]->getSpeed();
+
+	return speedAggregate * aeroDynamicMultiplier;
+}
+
+void CarComposite::setSpeed(float newSpeed)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "SetSpeed should be called on an individual component, not the car itself");
+}
+
+float CarComposite::getAcceleration()
+{
+	float accelerationAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		accelerationAggregate += carParts[i]->getAcceleration();
+
+	return accelerationAggregate;
+}
+
+void CarComposite::setAcceleration(float newAcceleration)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "setAcceleration should be called on an individual component, not the car itself");
 }

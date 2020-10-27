@@ -1,16 +1,36 @@
 #include "Engine.h"
 
+//Should never be used
 Engine::Engine() {
-	// TODO - implement Engine::Engine
-	throw "Not yet implemented";
+	
 }
 
-void Engine::print() {
-	// TODO - implement Engine::print
-	throw "Not yet implemented";
+Engine::Engine(float s, float h, float a, string b) : CarPart(s,h,a, "Engine", b)
+{
+
+}
+
+Engine::~Engine()
+{
+	
+}
+
+float Engine::getSpeed()
+{
+	return determineEffectiveSpeed;
 }
 
 float Engine::determineEffectiveSpeed() {
-	// TODO - implement Engine::determineEffectiveSpeed
-	throw "Not yet implemented";
+	
+	return speed * (temperature/100);
+}
+
+void Engine::setTemperature(float newTemperature)
+{
+	temperature = newTemperature;
+}
+
+float Engine::getTemperature()
+{
+	return temperature;
 }

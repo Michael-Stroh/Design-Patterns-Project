@@ -12,9 +12,7 @@
 #define CARCOMPOSITE_H
 
 #include "CarMemento.h"
-#include "Memento.h"
-//#include "Tyre.h"
-#include "CarPart.h"	//Contains CarPart.h so no need to include it here.
+#include "CarPart.h"	//Contains Car.h so no need to include it here.
 #include <vector>
 
 
@@ -22,7 +20,7 @@
 	Removed all Tyre related things. Thats Brents problem now 	(͡ ° ͜ʖ ͡ °)
 */
 
-class CarComposite {
+class CarComposite : public Car{
 
 	public:
 		
@@ -90,36 +88,42 @@ class CarComposite {
 		*/
 		void setCarMemento( CarMemento* );
 
-		//Functions beneath here have not been implemented yet
-		virtual float getHandling() = 0;
+		/**
+			Returns the sum of the handling scores for each owned carPart.
+			@return the logical total handling score of the car.
+		*/
+		float getHandling();
 
 		/**
-			Sets the stored handling to the given value
-			@param
+			ObseleteFunctin for class CarComposite
+			@param newHandling is not used.
 		*/
-		virtual void setHandling( float ) = 0;
+		void setHandling( float );
 
 		/**
-			Returns the stored speed
+			Returns the sum of the speed scores for each owned carPart multiplied by the car's 
+			aerodynamics score.
+			@return the logical total speed score of the car.
 		*/
-		virtual float getSpeed() = 0;
+		float getSpeed();
 
 		/**
-			Sets the stored handling to the given value
-			@param
+			ObseleteFunctin for class CarComposite
+			@param newSpeed is not used.
 		*/
-		virtual void setSpeed( float ) = 0;
+		void setSpeed( float );
 
 		/**
-			Returns the acceleration handling
+			Returns the sum of the acceleration scores for each owned carPart.
+			@return the logical total acceleration score of the car.
 		*/
-		virtual float getAcceleration() = 0;
+		 float getAcceleration();
 
 		/**
-			Sets the stored handling to the given value
-			@param
+			ObseleteFunctin for class CarComposite
+			@param newAcceleration is not used.
 		*/
-		virtual void setAcceleration( float ) = 0;
+		void setAcceleration( float );
 		
 	private:
 	
@@ -138,14 +142,9 @@ class CarComposite {
 		float aeroDynamicMultiplier;
 		
 		/*
-     		@brief An array of Tyre pointers.
+     		@brief The default aerodynamics score, held as a variable for best practices.
 		*/
-		//Tyre** tyres;
-		/**
-			@brief A constant value that determines the number of tyres a
-			car has.
-		*/
-		const static int NUMTYRES = 4;	
+		const static int DEFAULT_AERODYNAMICS = 0.65;
 
 		/**
 			@brief A constant value that determines the number of CarParts

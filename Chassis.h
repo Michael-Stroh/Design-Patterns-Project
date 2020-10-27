@@ -17,19 +17,26 @@ class Chassis: public CarPart {
 	public:
 	
 		/**
-			Constructor
+			A Constructor that takes in all of the necessary parameters
+			to intialize each member variable.
+			@param s is the speed.
+			@param h is the handling.
+			@param a is the acceleration.
+			@param n is the name of the part
+			@param b is the brand of the part
 		*/
-		Chassis();
+		Chassis(float, float, float, string, string);
 
 		/**
 			Constructor
 		*/
 		~Chassis();
 
+	private:
 		/**
-			Displays the detials of the object
+			Default Constructor
 		*/
-		void print();
+		Chassis();
 };
 
 #endif

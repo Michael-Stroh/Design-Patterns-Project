@@ -1,6 +1,16 @@
 #include "Body.h"
 
-Body::Body() {
-	// TODO - implement Body::Body
-	throw "Not yet implemented";
+Body::Body() 
+{
+	
+}
+
+Body::Body(float s, float h, float a, string b) :CarPart(s, h, a, "Body", b)
+{
+
+}
+
+Body::~Body()
+{
+
 }
