@@ -2,20 +2,20 @@
 
 CompositeRoad::CompositeRoad(): Road() {
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
 }
 
 CompositeRoad::CompositeRoad( string RoadName ): Road( RoadName ) {
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
 }
 
 CompositeRoad::~CompositeRoad() {
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
+    for ( auto it = tracks.begin(); it != tracks.end(); ++it ) {
+
+        delete *it;
+    }
+
+    tracks.clear();
 }
 
 void CompositeRoad::addRoad( Road* CreateRoad ) {

@@ -18,6 +18,7 @@ using namespace std;
 class Road {
 
 	public:
+
 		/**
 			Constructor
 		*/
@@ -56,6 +57,11 @@ class Road {
 			@brief
 		*/
 		string name;
+
+        /**
+            @brief
+        */
+        int distance;
 };
 
 #endif
