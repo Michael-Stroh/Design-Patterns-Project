@@ -14,6 +14,12 @@
 #include "Circuit.h"
 #include "RaceTeam.h"
 #include "Result.h"
+#include "PracticeState.h"
+#include "QualifyingState.h"
+#include "OfficialState.h"
+#include <vector>
+#include <string>
+using namespace std;
 
 class Race
 {
@@ -25,14 +31,12 @@ public:
 	Race();
 
 	/**
-			Constructor
-			@param s: The initial race state (either practice, qualifying or official). 
-			@param r: The Race Subject, allowing for racing teams to be notified of any pertinent details regarding a race either before or during the race.
-		*/
-	Race(RaceState *, RaceSubject *);
-
-	/**
 			Destructor
+			@details: Free's the following memory
+			- The private state variable
+			- The private raceSubject variable
+			- The private state instances
+
 		*/
 	~Race();
 
@@ -43,7 +47,7 @@ public:
 			@param[in] circuit: The circuit on which the current race will take place.
 			@return
 		*/
-	Result *runRace(Result *, RaceTeam *, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
 
 	/**
 			
@@ -67,6 +71,26 @@ private:
 			@brief The Race Subject used to inform any racing teams of updates before or during the race.
 		*/
 	RaceSubject *raceSubject;
+
+	/**
+			@brief The results of the race;
+		*/
+	Result *result;
+
+	/**
+		@brief A pointer to an instance of PracticeState, used to update the race's state
+	*/
+	PracticeState *practiceState;
+
+	/**
+		@brief A pointer to an instance of QualfyingState, used to update the race's state
+	*/
+	QualifyingState *qualifyingState;
+
+	/**
+		@brief A pointer to an instance of OfficialState, used to update the race's state
+	*/
+	OfficialState *officialState;
 };
 
 #endif
