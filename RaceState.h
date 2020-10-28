@@ -12,6 +12,8 @@
 #include "Result.h"
 #include "RaceTeam.h"
 #include "Circuit.h"
+#include <vector>
+using namespace std;
 
 class RaceState
 {
@@ -34,7 +36,7 @@ public:
 			@param Circuit: The circuit on which the race will take place.
 			@return The result for the race.
 		*/
-	virtual Result *runRace(Result *, RaceTeam *, Circuit *) = 0;
+	virtual Result *runRace(Result *, vector<RaceTeam *> *, Circuit *) = 0;
 };
 
 #endif
