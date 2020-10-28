@@ -15,6 +15,7 @@ using namespace std;
 class Logger
 {
     public:
+
         /**
              @brief Prints a specified heading & message to the console.
              @details All other functions in the Logger class function in the same manner.

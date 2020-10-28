@@ -1,14 +1,24 @@
 #include "Road.h"
 
-Road::Road(): distance( 0 ) {
+Road::Road() {
 
 }
 
-Road::Road( string RoadName ): name( RoadName ), distance( 0 ) {
+Road::Road( string RoadName ): name( RoadName ) {
 
 }
 
 
 Road::~Road() {
 
+}
+
+string Road::getName() {
+
+    return name;
+}
+
+void Road::setName( string ChangeName ) {
+
+    name = ChangeName;
 }

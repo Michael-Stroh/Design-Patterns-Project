@@ -9,11 +9,14 @@
 #ifndef ROAD_H
 #define ROAD_H
 
+#include <utilities/Logger.h>
 #include "Iterator.h"
 
 #include <string>
 
 using namespace std;
+
+Logger* output = new Logger();
 
 class Road {
 
@@ -51,17 +54,25 @@ class Road {
 		*/
 		virtual Iterator* createIterator() = 0;
 
+
+		/**
+
+			@return
+		*/
+		string getName();
+
+		/**
+
+			@param ChangeName
+		*/
+		void setName( string );
+
 	private:
 	
 		/**
 			@brief
 		*/
 		string name;
-
-        /**
-            @brief
-        */
-        int distance;
 };
 
 #endif

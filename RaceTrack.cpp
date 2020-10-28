@@ -6,15 +6,11 @@ RaceTrack::RaceTrack(): Road() {
 
 RaceTrack::RaceTrack( string name ): Road( name ) {
 
-	// TODO - implement RaceTrack::RaceTrack
-	throw "Not yet implemented";
 }
 
 RaceTrack::RaceTrack( string name, float dist, float wind, float RaceSkill ):
 					Road( name ), distance( dist ), windForce( wind ), skill( RaceSkill )  {
 
-	// TODO - implement RaceTrack::RaceTrack
-	throw "Not yet implemented";
 }
 
 RaceTrack::~RaceTrack() {
@@ -24,8 +20,7 @@ RaceTrack::~RaceTrack() {
 
 void RaceTrack::print() {
 
-	// TODO - implement RaceTrack::print
-	throw "Not yet implemented";
+	output->cyan( "Road raced", "The " + getName() + " road was raced " );
 }
 
 void RaceTrack::timeToFinish() {
@@ -42,17 +37,17 @@ Iterator* RaceTrack::createIterator() {
 
 float RaceTrack::getDistance() {
 
-	return this->distance;
+	return distance;
 }
 
 void RaceTrack::setDistance( float dist ) {
 
-	this->distance = dist;
+	distance = dist;
 }
 
 float RaceTrack::getWindForce() {
 
-	return this->windForce;
+	return windForce;
 }
 
 float RaceTrack::setWindForce( float wind ) {
@@ -62,10 +57,10 @@ float RaceTrack::setWindForce( float wind ) {
 
 float RaceTrack::getSkill() {
 
-	return this->skill;
+	return skill;
 }
 
 void RaceTrack::setSkill( float RaceSkill ) {
 
-	this->skill = RaceSkill;
+	skill = RaceSkill;
 }

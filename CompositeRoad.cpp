@@ -1,18 +1,19 @@
 #include "CompositeRoad.h"
 
-CompositeRoad::CompositeRoad(): Road() {
+CompositeRoad::CompositeRoad(): Road(), tracks() {
 
 }
 
-CompositeRoad::CompositeRoad( string RoadName ): Road( RoadName ) {
+CompositeRoad::CompositeRoad( string RoadName ): Road( RoadName ), tracks() {
 
 }
 
 CompositeRoad::~CompositeRoad() {
 
-    for ( auto it = tracks.begin(); it != tracks.end(); ++it ) {
+    //for ( vector<Road*>::iterator it = tracks.begin(); it != tracks.end(); ++it ) {
+    for ( auto& track : tracks ) {
 
-        delete *it;
+        delete track;
     }
 
     tracks.clear();
@@ -20,14 +21,24 @@ CompositeRoad::~CompositeRoad() {
 
 void CompositeRoad::addRoad( Road* CreateRoad ) {
 
-	// TODO - implement CompositeRoad::addRoad
-	throw "Not yet implemented";
+	tracks.push_back( CreateRoad );
 }
 
 void CompositeRoad::removeRoad( Road* RemoveRoad ) {
 
-	// TODO - implement CompositeRoad::removeRoad
-	throw "Not yet implemented";
+    for ( auto& track : tracks ) {
+
+        if ( track->getName() == RemoveRoad->getName() ) {
+
+            delete track;
+
+            //need to print something
+
+            return;
+        }
+    }
+
+    //print it was not found
 }
 
 void CompositeRoad::print() {
