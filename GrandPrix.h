@@ -4,10 +4,6 @@
    @authors Alex
    @version 1.0.0
    @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
-   @todo Implement value constructor
-   @todo Implement runGrandPrix()
-   @todo Implement displayResult()
-   @todo Implement setCircuit()
  */
 
 #ifndef GRAND PRIX_H
@@ -17,6 +13,8 @@
 #include "Result.h"
 #include "GrandPrixResult.h"
 #include "Circuit.h"
+#include <vector>
+using namespace std;
 
 class GrandPrix
 {
@@ -41,7 +39,7 @@ public:
 		@param teams: All of the teams that will be participating in a Grand Prix.
 		@return An instance of GrandPrixResult, containing the results of the final official race of the Grand Prix.
 	*/
-	Result *runGrandPrix(RaceTeam *);
+	Result *runGrandPrix(vector<RaceTeam *> *);
 
 	/**
 		@brief Displays the results of the Grand Prix
