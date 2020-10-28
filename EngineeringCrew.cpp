@@ -15,7 +15,6 @@ EngineeringCrew::EngineeringCrew( Car* car ) {
 EngineeringCrew::~EngineeringCrew() {
 
 	// TODO - implement EngineeringCrew::EngineeringCrew
-	throw "Not yet implemented";
 }
 
 Car* EngineeringCrew::getCar() {

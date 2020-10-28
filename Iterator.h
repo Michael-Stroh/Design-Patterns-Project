@@ -10,7 +10,7 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-#include "Road.h"
+class Road;
 
 class Iterator {
 
