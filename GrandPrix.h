@@ -4,7 +4,6 @@
    @authors Alex
    @version 1.0.0
    @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
-   @todo Implement constructor
    @todo Implement value constructor
    @todo Implement runGrandPrix()
    @todo Implement displayResult()
@@ -16,6 +15,7 @@
 
 #include "RaceTeam.h"
 #include "Result.h"
+#include "GrandPrixResult.h"
 #include "Circuit.h"
 
 class GrandPrix
