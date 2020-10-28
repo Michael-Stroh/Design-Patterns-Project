@@ -1,16 +1,16 @@
 #include "GrandPrix.h"
 
-GrandPrix::GrandPrix() {
-	// TODO - implement Grand Prix::Grand Prix
+GrandPrix::GrandPrix()
+{
 	throw "Not yet implemented";
 }
 
-Result* GrandPrix::runGrandPrix(RaceTeam* teams) {
-	// TODO - implement Grand Prix::runGrandPrix
+Result *GrandPrix::runGrandPrix(RaceTeam *teams)
+{
 	throw "Not yet implemented";
 }
 
-void GrandPrix::displayWinners() {
-	// TODO - implement Grand Prix::displayWinners
+void GrandPrix::displayWinners()
+{
 	throw "Not yet implemented";
 }
