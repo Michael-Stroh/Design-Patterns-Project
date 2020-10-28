@@ -1,3 +1,4 @@
+#include <sstream>
 #include "RaceTrack.h"
 
 RaceTrack::RaceTrack(): Road() {
@@ -19,7 +20,14 @@ RaceTrack::~RaceTrack() {
 
 void RaceTrack::print() {
 
-	Logger::cyan( "Road raced:", "The " + getName() + " road was raced " );
+	stringstream dist, wind, skilled;
+
+	dist << distance;
+	wind << windForce;
+	skilled << skill;
+
+	Logger::cyan( "Road raced", "The " + getName() + " road was raced with a distance of " + dist.str()
+	+  ", a wind force of " + wind.str() + "  and a skill needed of " + skilled.str() + "." );
 }
 
 Iterator* RaceTrack::createIterator() {

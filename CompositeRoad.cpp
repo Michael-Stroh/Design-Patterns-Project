@@ -30,14 +30,14 @@ void CompositeRoad::removeRoad( Road* RemoveRoad ) {
 
         if ( track->getName() == RemoveRoad->getName() ) {
 
-            Logger::cyan( "Success:", "Road " + track->getName() + " was removed." );
+            Logger::cyan( "Success", "Road " + track->getName() + " was removed." );
             delete track;
 
             return;
         }
     }
 
-    Logger::cyan( "Error:", "Road " + RemoveRoad->getName() + " was not found." );
+    Logger::cyan( "Error", "Road " + RemoveRoad->getName() + " was not found." );
 }
 
 void CompositeRoad::removeRoad( const string& RemoveRoad ) {
@@ -46,14 +46,14 @@ void CompositeRoad::removeRoad( const string& RemoveRoad ) {
 
         if ( track->getName() == RemoveRoad ) {
 
-            Logger::cyan( "Success:", "Road " + track->getName() + " was removed." );
+            Logger::cyan( "Success", "Road " + track->getName() + " was removed." );
             delete track;
 
             return;
         }
     }
 
-    Logger::cyan( "Error:", "Road " + RemoveRoad + " was not found." );
+    Logger::cyan( "Error", "Road " + RemoveRoad + " was not found." );
 }
 
 void CompositeRoad::print() {
