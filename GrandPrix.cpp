@@ -15,6 +15,21 @@ GrandPrix::GrandPrix(Circuit *c)
 	this->result = new GrandPrixResult();
 }
 
+GrandPrix::~GrandPrix()
+{
+	if (this->race)
+	{
+		delete this->race;
+	}
+	this->race = NULL;
+
+	if (this->result)
+	{
+		delete this->result;
+	}
+	this->result = NULL;
+}
+
 Result *GrandPrix::runGrandPrix(vector<RaceTeam *> *teams)
 {
 	// Perform the practice race

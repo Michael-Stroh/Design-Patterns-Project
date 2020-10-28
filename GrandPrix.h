@@ -32,6 +32,11 @@ public:
 
 	/**
 		Destructor
+		@details Deletes the following memory:
+		- The Race held by the Grand Prix
+		- The Result held by the Grand Prix
+		
+		NOTE: Does not delete the Circuit
 	*/
 	~GrandPrix();
 
