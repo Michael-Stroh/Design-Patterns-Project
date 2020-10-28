@@ -6,8 +6,6 @@ CarComposite::CarComposite() {
 
 	for(int i=0; i<NUMPARTS; ++i)
 			carParts[i] = nullptr;
-		
-	aeroDynamicMultiplier = DEFAULT_AERODYNAMICS;
 }
 
 //The copy constructor, it clones every single part
@@ -17,8 +15,6 @@ CarComposite::CarComposite(Car& c) {
 	for(int i=0; i<NUMPARTS; ++i)
 		carParts[i] = c.get(i)->clone();
 
-	aeroDynamicMultiplier = c.aeroDynamicMultiplier;
-	
 }
 
 //Deallocates the memory of all parts

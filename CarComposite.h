@@ -134,19 +134,6 @@ class CarComposite : public Car{
 		vector<Car*> carParts;
 	
 		/**
-     		@brief The aeroDynamicMultiplier determines how aeroDynamic a car is
-     		according to the formula actual_speed=speed_aggregate * aeroDynamicMultiplier.
-     		aeroDynamicMultiplier will have a default value of 0.65 and a maximum value
-     		of 1.0.
-		*/
-		float aeroDynamicMultiplier;
-		
-		/*
-     		@brief The default aerodynamics score, held as a variable for best practices.
-		*/
-		const static int DEFAULT_AERODYNAMICS = 0.65;
-
-		/**
 			@brief A constant value that determines the number of CarParts
 			held int the carParts vector.
 		*/

@@ -15,3 +15,13 @@ CoolingSystem::~CoolingSystem()
 {
 
 }
+
+void CoolingSystem::setCoolingRate(float newCoolingRate)
+{
+	coolingRate = newCoolingRate;
+}
+
+float CoolingSystem::getCoolingRate()
+{
+	return CoolingRate;
+}

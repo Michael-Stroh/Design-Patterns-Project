@@ -17,7 +17,7 @@ using namespace std;
 	An enum used to facilitate tha access of specific car parts 
 	in the CarComposite.
 */
-enum PartIndices = { ENGINE =0, CHASSIS=1, TRANSMISSION=2, 
+enum PartIndices { ENGINE =0, CHASSIS=1, TRANSMISSION=2, 
 		STEERINGWHEEL=3, COOLINGSYSTEM=4, BODY=5, SUSPENSION=6,
 		BRAKES=7, ELECTRONICS=8
 

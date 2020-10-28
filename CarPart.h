@@ -2,9 +2,9 @@
    @file CarPart.h
    @class CarPart
    @authors Michael Timothy
-   @version 1.0.1
+   @version 1.0.2
    @brief An interface that each CarPart must adhere to. CarParts are held
-   		in the @link CarComposite class.
+   		in the @link CarComposite class. 
  */
 
 #ifndef CARPART_H
@@ -139,6 +139,19 @@ class CarPart : public Car{
 			to be used.
 		*/
 		CarPart();
+
+		/**
+			@brief The maximum value for acceleration for any car part.
+		*/
+		const static float MAX_ACCELERATION_VALUE = 100;
+		/**
+			@brief The maximum value for handling for any car part.
+		*/
+		const static float MAX_HANDLING_VALUE = 100;
+		/**
+			@brief The maximum value for speed for any car part.
+		*/
+		const static float MAX_SPEED_VALUE = 100;
 };
 
 #endif

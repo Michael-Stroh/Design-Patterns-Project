@@ -2,8 +2,8 @@
    @file Engine.h
    @class Engine
    @authors Michael Timothy
-   @version 1.0.1
-   @brief The engine of the car. Its primary role will be to provide speed to the car.
+   @version 1.0.2
+   @brief The engine of the car. Its primary role will be to provide speed and acceleration to the car.
  */
 
 
@@ -60,6 +60,50 @@ class Engine: public CarPart {
 	
 	private:
 		
+		/**
+			@brief Specifies the initial speed value that newly created engines should start with before variance.
+		*/
+		const static float INITAL_SPEED = 55;
+		/**
+			@brief Specifies by how much the inital speed can vary where speed = initial speed + (variance*n)
+			where -1<=n<=1
+		*/
+		const static float INITIAL_SPEED_VARIANCE = 5;
+		/**	
+			@brief Specifies by how much the speed may change when acted upon by an
+			engineering department. 
+		*/
+		const static float SPEED_CHANGE_VARIANCE = 2;
+
+		/**
+			@brief Specifies the initial acceleration value that newly created engines should start with before variance.
+		*/
+		const static float INITAL_ACCELERATION = 55;
+		/**
+			@brief Specifies by how much the inital acceleration can vary.
+		*/
+		const static float INITAL_ACCELERATION_VARIANCE = 5;
+		/**	
+			@brief Specifies by how much the acceleration may change when acted upon by an
+			engineering department. 
+		*/
+		const static float ACCELERATION_CHANGE_VARIANCE = 2;
+
+		/**
+			@brief Specifies the initial handling value that newly created engines should start with before variance.
+		*/
+		const static float INITIAL_HANDLING = 0;
+		/**	
+			@brief Specifies by how much the handling may change when acted upon by an
+			engineering department. 
+		*/
+		const static float INITIAL_HANDLING_VARIABNCE = 0;
+		/**	
+			@brief Specifies by how much the handling may change when acted upon by an
+			engineering department. 
+		*/
+		const static float HANDLING_CHANGE_VARIANCE = 0;
+
 		/**
 			@brief Stores the current temperature the engine is at, which
 			affects how well it can function and thus, its speed score.

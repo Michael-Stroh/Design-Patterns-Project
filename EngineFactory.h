@@ -1,9 +1,10 @@
 /**
    @file EngineFactory.h
    @class EngineFactory
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A concrete factory responsible for creating the engine of a car and ensuring its variables are
+   varied and set correctly.
  */
 
 
@@ -12,6 +13,7 @@
 
 #include "CarPartFactory.h"
 #include "CarPart.h"
+
 
 class EngineFactory: public CarPartFactory {
 
@@ -32,6 +34,8 @@ class EngineFactory: public CarPartFactory {
 			@param
 		*/
 		CarPart* createPart();
+
+
 };
 
 #endif
