@@ -1,18 +1,18 @@
 #include "Brakes.h"
 
-Brakes::Brakes(): CarPart() {
-
-	// TODO - implement Brakes::Brakes
-	throw "Not yet implemented";
+//Should not be used
+Brakes::Brakes() 
+{
+	
 }
 
-Brakes::~Brakes() {
+Brakes::Brakes(float s, float h, float a, string b) : CarPart(s,h,a, "Brakes", b)
+{
 
-    // TODO - implement Brakes::~Brakes
-    throw "Not yet implemented";
 }
 
+Brakes::~Brakes()
+{
 
+}
 
-//need to consider what attributes are going to be used here
-    //will it have a name and had to acceleration

@@ -1,19 +1,19 @@
 #include "Chassis.h"
 
-Chassis::Chassis(): CarPart() {
+//should never be used
+Chassis::Chassis() 
+{
 
-	// TODO - implement Chassis::Chassis
-	throw "Not yet implemented";
 }
 
-Chassis::~Chassis() {
 
-	// TODO - implement Chassis::Chassis
-	throw "Not yet implemented";
+Chassis::Chassis(float s, float h, float a, string b) : CarPart(s,h,a, "Chassis", b)
+{
+
+
 }
 
-void Chassis::print() {
-
-	// TODO - implement Chassis::print
-	throw "Not yet implemented";
+Chassis:~Chassis()
+{
+	
 }

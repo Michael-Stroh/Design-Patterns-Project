@@ -1,39 +1,38 @@
 #include "Engine.h"
 
-Engine::Engine(): CarPart() {
-
-	// TODO - implement Engine::Engine
-	throw "Not yet implemented";
+//Should never be used
+Engine::Engine() {
+	
 }
 
-Engine::Engine( int StartTemp ): CarPart(), temperature( StartTemp ) {
-
-	// TODO - implement Engine::Engine
-	throw "Not yet implemented";
-}
-
-Engine::~Engine() {
+Engine::Engine(float s, float h, float a, string b) : CarPart(s,h,a, "Engine", b)
+{
 
 }
 
-void Engine::print() {
-
-	// TODO - implement Engine::print
-	throw "Not yet implemented";
+Engine::~Engine()
+{
+	
 }
 
+float Engine::getSpeed()
+{
+	return determineEffectiveSpeed;
+}
+
+//may need to be updated as time goes by, we need a highest value that the engine can reach
 float Engine::determineEffectiveSpeed() {
-
-	// TODO - implement Engine::determineEffectiveSpeed
-	throw "Not yet implemented";
+	
+	return speed * (100/temperature);
 }
 
-int Engine::getTemp() {
+void Engine::setTemperature(float newTemperature)
+{
+	temperature = newTemperature;
+}
 
+float Engine::getTemperature()
+{
 	return temperature;
 }
 
-void Engine::setTemp( int ChangeTemp ) {
-
-	temperature = ChangeTemp;
-}

@@ -1,18 +1,27 @@
 /**
    @file CarPart.h
    @class CarPart
-   @authors Michael
-   @version 1.0.0
-   @brief
+   @authors Michael Timothy
+   @version 1.0.2
+   @brief An interface that each CarPart must adhere to. CarParts are held
+   		in the @link CarComposite class. 
  */
 
 #ifndef CARPART_H
 #define CARPART_H
 
-#include "Tyre.h"
 #include "Car.h"
+#include <string>
 
-class CarPart {
+using namespace std;
+
+/*
+	Removed the Tyre * member variable since it makes no sense for 
+	all car parts to hold a tyre (eg an engine does not have a tyre in
+	real life). 
+*/
+
+class CarPart : public Car{
 
 	public:
 	
@@ -20,34 +29,22 @@ class CarPart {
 			Constructor
 		*/
 		CarPart();
-
+		
 		/**
-			Constructor
-		 	@param CarName
+			A Constructor that takes in all of the necessary parameters
+			to intialize each member variable.
+			@param s is the speed.
+			@param h is the handling.
+			@param a is the acceleration.
+			@param b is the brand of the part.
 		*/
-		CarPart( string );
-
-		/**
-			Constructor
-			 @param CarName
-			 @param BrandName
-			 @param
-			 @param
-			 @param
-		*/
-		CarPart( string, string, float, float, float );
-
-		/**
-			Constructor that takes in and stores a pointer to tyre object
-			@param
-		*/
-		CarPart( Tyre* );
+		CarPart(float, float, float, string);
 		
 		/**
 			Constructor for prototype method
-			@param
+			@param part is the CarPart to be copied.
 		*/
-		CarPart( Car& );
+		CarPart( const Car& );
 
 		/**
 			Destructor
@@ -56,69 +53,66 @@ class CarPart {
 
 		/**
 			Returns a clone/instantiation of the current CarPart object
-			@return
+			@return a CarPart * (since a CarPart is a Car*).
 		*/
-		Car*  clone();
+		virtual CarPart *  clone();
+
+		/**
+			Prints out the specifications of the part. May be overridden by
+			derived classes.
+		*/
+		virtual void print();
 
 		/**
 			Returns the string named Brand
-			@return
+			@return a string that is the brand name.
 		*/
-		string getName();
+		virtual string getBrand();
 
 		/**
-			Sets the Brand string to the parameter given
-			@param CarName
+			Sets the Brand string to the parameter given.
+			@param newBrand is the brand to replace the old brand. 
 		*/
-		void setName( string );
+		virtual void setBrand( string );
 
 		/**
-			Returns the string named Brand
-			@return
+			Returns the handing score for this carPart
+			@return the handling of this part
 		*/
-		string getBrand();
+		virtual float getHandling();
 
 		/**
-			Sets the Brand string to the parameter given
-			@param BrandName
+			Sets the stored handling to the given value.
+			@param newHandling is the value to change handling to.
 		*/
-		void setBrand( string );
+		virtual void setHandling( float ) ;
 
 		/**
-		Returns the stored handling
+			Returns the speed score for this part
+			@return the speed of this part
 		*/
-		float getHandling();
-
-		/**
-			Sets the stored handling to the given value
-			@param handlingValue
-		*/
-		void setHandling( float );
-
-		/**
-			Returns the stored speed
-		*/
-		float getSpeed();
+		virtual float getSpeed();
 
 		/**
 			Sets the stored handling to the given value
-			@param speedValue
+			@param newSpeed is the value to change speed to.
 		*/
-		void setSpeed( float );
+		virtual void setSpeed( float );
 
 		/**
-			Returns the acceleration handling
+			Returns the acceleration score for this part
+			@return the acceleration of this part
 		*/
-		float getAcceleration();
+		virtual float getAcceleration();
 
 		/**
-			Sets the stored handling to the given value
-			@param accelerate
+			Sets the stored acceleration to the given value
+			@param newAcceleration is the value to change acceleration to.
 		*/
-		void setAcceleration( float );
+		virtual void setAcceleration( float );
 
-	private:
-		
+	protected:	//changed from private to protected
+
 		/**
      		@brief stores what type of brand the CarPart
 		*/
@@ -140,14 +134,29 @@ class CarPart {
 		float speed;
 		
 		/**
-     		@brief Stores the current speed is
+     		@brief Stores the acceleration of the car.
 		*/
 		float acceleration;
-		
+	
+	private:
 		/**
-     		@brief Stores a pointer to a Tyre object
+			Default Constructor, made private to restrict access to it and force a different constructor
+			to be used.
 		*/
-		Tyre* tyre;
+		CarPart();
+
+		/**
+			@brief The maximum value for acceleration for any car part.
+		*/
+		const static float MAX_ACCELERATION_VALUE = 100;
+		/**
+			@brief The maximum value for handling for any car part.
+		*/
+		const static float MAX_HANDLING_VALUE = 100;
+		/**
+			@brief The maximum value for speed for any car part.
+		*/
+		const static float MAX_SPEED_VALUE = 100;
 };
 
 #endif

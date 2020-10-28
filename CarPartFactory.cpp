@@ -1,13 +1,19 @@
 #include "CarPartFactory.h"
 
-CarPartFactory::CarPartFactory() {
 
-	// TODO - implement CarPartFactory::CarPartFactory
-	throw "Not yet implemented";
+CarPartFactory::CarPartFactory()
+{
+
 }
 
-CarPartFactory::~CarPartFactory() {
+CarPartFactory::~CarPartFactory()
+{
 
-	// TODO - implement CarPartFactory::CarPartFactory
-	throw "Not yet implemented";
+}
+
+//may need to test that this doesnt generate predictable names
+string CarPartFactory::generateBrandName()
+{
+	srand(time(0));
+	return brands[ rand() % numBrands];
 }

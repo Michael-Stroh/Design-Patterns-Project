@@ -1,13 +1,16 @@
 #include "Electronics.h"
 
-Electronics::Electronics(): CarPart() {
-
-	// TODO - implement Electronics::Electronics
-	throw "Not yet implemented";
+//should never be used
+Electronics::Electronics() {
+	
 }
 
-Electronics::~Electronics() {
+Electronics::Electronics(float s, float h, float a, string b) : CarPart(s, h,a, "Electronics", b)
+{
 
-	// TODO - implement Electronics::Electronics
-	throw "Not yet implemented";
+}
+
+CarPart::~CarPart()
+{
+
 }

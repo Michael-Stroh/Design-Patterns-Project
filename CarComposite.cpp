@@ -1,51 +1,67 @@
 #include "CarComposite.h"
 
+//The default constructor. Sets all parts to nullptr. Adding of parts
+//Will be handled By CarBuilder Class
 CarComposite::CarComposite() {
 
-	// TODO - implement CarComposite::CarComposite
-	throw "Not yet implemented";
+	for(int i=0; i<NUMPARTS; ++i)
+			carParts[i] = nullptr;
 }
 
-CarComposite::CarComposite( float aerodynamics ): aeroDynamicMultiplier( aerodynamics ) {
+//The copy constructor, it clones every single part
+//of the passed in car and adds them to itself.
+CarComposite::CarComposite(Car& c) {
 
-    // TODO - implement CarComposite::CarComposite
-    throw "Not yet implemented";
+	for(int i=0; i<NUMPARTS; ++i)
+		carParts[i] = c.get(i)->clone();
+
 }
 
-CarComposite::CarComposite( Car& c ) {
-
-	// TODO - implement CarComposite::CarComposite
-	throw "Not yet implemented";
+//Deallocates the memory of all parts
+//that this object owns.
+CarComposite::~CarComposite()
+{
+	for(int i=0; i<NUMPARTS; ++i)
+		delete carParts[i];
 }
 
-CarComposite::~CarComposite() {
-
-	// TODO - implement CarComposite::~CarComposite
-	throw "Not yet implemented";
-}
-
+//Uses the copy constructor to create a new CarComposite Object
 Car * CarComposite::clone() {
-
-	// TODO - implement CarComposite::clone
-	throw "Not yet implemented";
+	
+	return new CarComposite(*this);
 }
 
+//is subject to change depending on whether
+//or not we use a logger.
 void CarComposite::print() {
 
-	// TODO - implement CarComposite::print
-	throw "Not yet implemented";
+	Logger::magenta("Printing the summary of this CarComposite", "");
+	for(int i=0; i<carParts.size(); ++i)
+		carParts[i]->print();
+
 }
 
-void CarComposite::add( int index, Car* car ) {
-
-	// TODO - implement CarComposite::add
-	throw "Not yet implemented";
+//should be used in conjunction with remove
+void CarComposite::add(int index, Car * part) {
+	if(index <0 || index >= NUMPARTS)
+		throw "CarComposite::add; index out of bounds";
+	else
+	{
+		if(carParts[i] != nullptr)	//an extra check to avoid memory leaks
+			delete carParts[i];
+		carParts[i] = part;
+	}
 }
 
-void CarComposite::remove( int index ) {
 
-	// TODO - implement CarComposite::remove
-	throw "Not yet implemented";
+void CarComposite::remove(int index) {
+	if(index <0 || index >= NUMPARTS)
+		throw "CarComposite::remove; index out of bounds";
+	else
+	{
+		delete carParts[i];
+		carParts[i] = nullptr;
+	}
 }
 
 CarMemento* CarComposite::createCarMemento() {
@@ -58,4 +74,47 @@ void CarComposite::setCarMemento( CarMemento* memento ) {
 
 	// TODO - implement CarComposite::setCarMemento
 	throw "Not yet implemented";
+}
+
+
+float CarComposite::getHandling()
+{
+	float handlingAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		handlingAggregate += carParts[i]->getHandling();
+
+	return handlingAggregate;
+}
+
+void CarComposite::setHandling(float newHandling)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "SetHandling should be called on an individual component, not the car itself");
+}
+
+float CarComposite::getSpeed()
+{
+	float speedAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		speedAggregate += carParts[i]->getSpeed();
+
+	return speedAggregate * aeroDynamicMultiplier;
+}
+
+void CarComposite::setSpeed(float newSpeed)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "SetSpeed should be called on an individual component, not the car itself");
+}
+
+float CarComposite::getAcceleration()
+{
+	float accelerationAggregate = 0;
+	for(int i=0; i<carParts.size(); ++i)
+		accelerationAggregate += carParts[i]->getAcceleration();
+
+	return accelerationAggregate;
+}
+
+void CarComposite::setAcceleration(float newAcceleration)
+{
+	Logger::log("Obselete Function Usage in CarComposite", "setAcceleration should be called on an individual component, not the car itself");
 }

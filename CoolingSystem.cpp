@@ -1,13 +1,27 @@
 #include "CoolingSystem.h"
 
-CoolingSystem::CoolingSystem(): CarPart() {
-
-	// TODO - implement CoolingSystem::CoolingSystem
-	throw "Not yet implemented";
+//Should never be used
+CoolingSystem::CoolingSystem() 
+{
+	
 }
 
-CoolingSystem::~CoolingSystem() {
+CoolingSystem::CoolingSystem(float s, float h, float a, string b) : CarPart(s,h,a, "CoolingSystem", b)
+{
 
-	// TODO - implement CoolingSystem::CoolingSystem
-	throw "Not yet implemented";
+}
+
+CoolingSystem::~CoolingSystem()
+{
+
+}
+
+void CoolingSystem::setCoolingRate(float newCoolingRate)
+{
+	coolingRate = newCoolingRate;
+}
+
+float CoolingSystem::getCoolingRate()
+{
+	return CoolingRate;
 }
