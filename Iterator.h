@@ -10,6 +10,8 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
+#include "Road.h"
+
 class Iterator {
 
 	public:
@@ -18,6 +20,12 @@ class Iterator {
 			Constructor
 		*/
 		Iterator();
+
+		/**
+			Constructor
+		 	@param
+		*/
+		Iterator( Road* );
 
 		/**
 			Destructor

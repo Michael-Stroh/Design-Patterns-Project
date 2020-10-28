@@ -2,7 +2,7 @@
    @file CompositeRoad.h
    @class CompositeRoad
    @authors Michael
-   @version 1.0.0
+   @version 1.2.0
    @brief Composite participant which will hold the roads
  */
 
@@ -44,6 +44,12 @@ class CompositeRoad: public Road {
 			@param RemoveRoad
 		*/
 		void removeRoad( Road* );
+
+        /**
+            Removes a road object to the tracks list
+            @param RemoveRoad
+        */
+        void removeRoad( const string& );
 
 		/**
 			Prints out details about the tracks list

@@ -30,19 +30,38 @@ void CompositeRoad::removeRoad( Road* RemoveRoad ) {
 
         if ( track->getName() == RemoveRoad->getName() ) {
 
+            Logger::cyan( "Success:", "Road " + track->getName() + " was removed." );
             delete track;
-
-            //need to print something
 
             return;
         }
     }
 
-    //print it was not found
+    Logger::cyan( "Error:", "Road " + RemoveRoad->getName() + " was not found." );
+}
+
+void CompositeRoad::removeRoad( const string& RemoveRoad ) {
+
+    for ( auto& track : tracks ) {
+
+        if ( track->getName() == RemoveRoad ) {
+
+            Logger::cyan( "Success:", "Road " + track->getName() + " was removed." );
+            delete track;
+
+            return;
+        }
+    }
+
+    Logger::cyan( "Error:", "Road " + RemoveRoad + " was not found." );
 }
 
 void CompositeRoad::print() {
 
-	// TODO - implement CompositeRoad::print
-	throw "Not yet implemented";
+    // for each child
+    for ( vector< Road* >::iterator it = tracks.begin(); it != tracks.end(); it++ ) {
+
+        //call the print function to display the details
+        ( *it )->print();
+    }
 }

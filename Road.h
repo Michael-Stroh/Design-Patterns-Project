@@ -2,7 +2,7 @@
    @file Road.h
    @class Road
    @authors Michael
-   @version 1.0.0
+   @version 1.2.0
    @brief 
  */
 
@@ -10,13 +10,7 @@
 #define ROAD_H
 
 #include <utilities/Logger.h>
-#include "Iterator.h"
-
-#include <string>
-
-using namespace std;
-
-Logger* output = new Logger();
+#include "RoadIterator.h"
 
 class Road {
 
@@ -42,11 +36,6 @@ class Road {
 			
 		*/
 		virtual void print() = 0;
-		
-		/**
-			
-		*/
-		virtual void timeToFinish() = 0;
 
 		/**
 			

@@ -6,6 +6,12 @@ RoadIterator::RoadIterator(): Iterator() {
 	throw "Not yet implemented";
 }
 
+RoadIterator::RoadIterator( Road* track ): Iterator() {
+
+	// TODO - implement RoadIterator::RoadIterator
+	throw "Not yet implemented";
+}
+
 RoadIterator::~RoadIterator() {
 
 }

@@ -21,6 +21,12 @@ class RoadIterator: public Iterator {
 		RoadIterator();
 
 		/**
+			Constructor
+		 	@param
+		*/
+		RoadIterator( Road* );
+
+		/**
 			Destructor
 		*/
 		~RoadIterator();

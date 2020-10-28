@@ -2,7 +2,7 @@
    @file RaceTrack.h
    @class RaceTrack
    @authors Michael
-   @version 1.0.0
+   @version 1.2.0
    @brief 
  */
 
@@ -47,11 +47,6 @@ class RaceTrack: public Road {
 
 		/**
 			
-		*/
-		void timeToFinish();
-
-		/**
-			
 			@return
 		*/
 		Iterator* createIterator();
@@ -60,7 +55,7 @@ class RaceTrack: public Road {
 			
 			@return
 		*/
-		float getDistance();
+		float getDistance() const;
 
 		/**
 			
@@ -72,19 +67,19 @@ class RaceTrack: public Road {
 			
 			@return
 		*/
-		float getWindForce();
+		float getWindForce() const;
 
 		/**
 			
 			@return wind
 		*/
-		float setWindForce( float );
+		void setWindForce( float );
 
 		/**
 			
 			@return
 		*/
-		float getSkill();
+		float getSkill() const;
 
 		/**
 			
