@@ -5,6 +5,8 @@
    @version 1.0.0
    @brief The Practice State for the Race class.
    @details Responsible for performing the necessary steps to complete a practice race.
+   @todo: Implement Constructor
+   @todo: Implement Destructor
  */
 
 #ifndef PRACTICESTATE_H
@@ -14,6 +16,7 @@
 #include "RaceTeam.h"
 #include "Circuit.h"
 #include "Result.h"
+#include "RaceResult.h"
 
 class PracticeState : public RaceState
 {
@@ -36,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the practice race will take place.
 			@return The result of the practice race.
 		*/
-	Result *runRace(Result *, RaceTeam *, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
 };
 
 #endif
