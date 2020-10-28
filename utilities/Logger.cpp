@@ -5,6 +5,8 @@
 #include <iostream>
 using namespace std;
 
+bool Logger::isDebug = false;
+
 void Logger::log(string heading, string message)
 {
     cout << "--- " << heading << " ---" << endl;
@@ -57,6 +59,20 @@ void Logger::cyan(string heading, string message)
     cout << "--- " << heading << " ---" << endl;
     cout << message << endl;
     cout << "\e[39m";
+}
+
+void Logger::debug(string heading, string message)
+{
+    if (Logger::isDebug)
+    {
+        cout << "[debug] --- " << heading << " ---" << endl;
+        cout << "[debug] " << message << endl;
+    }
+}
+
+void Logger::setDebug(bool debug)
+{
+    Logger::isDebug = debug;
 }
 
 #endif
