@@ -11,6 +11,7 @@
 #define COOLINGSYSTEM_H
 
 #include "CarPart.h"
+#include "CoolingSystem.h"
 
 /*
 	TODO: Expand on the cooling mechanism. May nneed to have some sort of coupling
@@ -41,84 +42,84 @@ class CoolingSystem: public CarPart {
 			@brief Gets the coolingRate of the cooling system.
 			@return the coolingRate of the cooling system.
 		*/
-		float getCoolingRate(float); 
+		float getCoolingRate(); 
 
 		/**
 			Destructor
 		*/
 		~CoolingSystem();
 
-	private:
-		/**
-			Constructor
-		*/
-		CoolingSystem();
-
-		/**
-			@brief The rate at which the cooling system can cool down an engine.
-		*/
-		float  coolingRate;
-
 		/**
 			@brief Specifies the initial coolingRate value that newly created cooling systems should start with before variance.
 		*/
-		const static float INITAL_COOLINGRATE = 0.9;
+		const static float INITIAL_COOLINGRATE;
 		/**
-			@brief Specifies by how much the inital coolingRate can vary where speed = initial speed + (variance*n)
+			@brief Specifies by how much the INITIAL coolingRate can vary where speed = initial speed + (variance*n)
 			where -1<=n<=1
 		*/
-		const static float INITIAL_COOLINGVARIANCE = 0.2;
+		const static float INITIAL_COOLINGVARIANCE;
 		/**	
 			@brief Specifies by how much the coolingRate may change when acted upon by an
 			engineering department. 
 		*/
-		const static float COOLINGRATE_CHANGE_VARIANCE = 0.1;
+		const static float COOLINGRATE_CHANGE_VARIANCE;
 
 
 		/**
 			@brief Specifies the initial speed value that newly created cooling systems should start with before variance.
 		*/
-		const static float INITAL_SPEED = 0;
+		const static float INITIAL_SPEED;
 		/**
-			@brief Specifies by how much the inital speed can vary where speed = initial speed + (variance*n)
+			@brief Specifies by how much the INITIAL speed can vary where speed = initial speed + (variance*n)
 			where -1<=n<=1
 		*/
-		const static float INITIAL_SPEED_VARIANCE = 0;
+		const static float INITIAL_SPEED_VARIANCE;
 		/**	
 			@brief Specifies by how much the speed may change when acted upon by an
 			engineering department. 
 		*/
-		const static float SPEED_CHANGE_VARIANCE = 0;
+		const static float SPEED_CHANGE_VARIANCE;
 
 		/**
 			@brief Specifies the initial acceleration value that newly created cooling systems should start with before variance.
 		*/
-		const static float INITAL_ACCELERATION = 0;
+		const static float INITIAL_ACCELERATION;
 		/**
-			@brief Specifies by how much the inital acceleration can vary where speed = initial speed + (variance*n)
+			@brief Specifies by how much the INITIAL acceleration can vary where speed = initial speed + (variance*n)
 			where -1<=n<=1
 		*/
-		const static float INITAL_ACCELERATION_VARIANCE = 0;
+		const static float INITIAL_ACCELERATION_VARIANCE;
 		/**	
 			@brief Specifies by how much the acceleration may change when acted upon by an
 			engineering department. 
 		*/
-		const static float ACCELERATION_CHANGE_VARIANCE = 0;
+		const static float ACCELERATION_CHANGE_VARIANCE;
 
 		/**
 			@brief Specifies the initial handling value that newly created cooling systems should start with before variance.
 		*/
-		const static float INITIAL_HANDLING = 0;
+		const static float INITIAL_HANDLING;
 		/**	
 			@brief Specifies by how much the handling may change when acted upon by an
 			engineering department. 
 		*/
-		const static float INITIAL_HANDLING_VARIABNCE = 0;
+		const static float INITIAL_HANDLING_VARIANCE;
 		/**	
 			@brief Specifies by how much the handling may change when acted upon by an
 			engineering department. 
 		*/
-		const static float HANDLING_CHANGE_VARIANCE = 0;
+		const static float HANDLING_CHANGE_VARIANCE;
+
+	private:
+		/**
+			Constructor
+		*/
+		CoolingSystem();
+		/**
+			@brief The rate at which the cooling system can cool down an engine.
+		*/
+		float  coolingRate;
+
 };
 
 #endif

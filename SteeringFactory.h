@@ -11,7 +11,7 @@
 #define STEERINGFACTORY_H
 
 #include "CarPartFactory.h"
-#include "CarPart.h"
+#include "SteeringWheel.h"
 
 class SteeringFactory: public CarPartFactory {
 

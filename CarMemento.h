@@ -1,15 +1,13 @@
 /**
    @file CarMemento.h
    @class CarMemento
-   @authors Michael
-   @version 1.0.0
+   @authors Michael Timothy
+   @version 1.0.1
    @brief 
  */
 
 #ifndef CARMEMENTO_H
 #define CARMEMENTO_H
-
-#include "State.h"
 
 class CarMemento {
 
@@ -29,20 +27,20 @@ class CarMemento {
 			Returns the current stored state
 			@return
 		*/
-		State * getState();
+		//State * getState();
 
 		/**
 			Sets the currently stored state to the given parameter
 			@param
 		*/
-		void setState( State* );
+		//void setState( State* );
 		
 	private:
 	
 		/**
      		@brief Stores a pointer to a state object
 		*/
-		State* state;
+		//State* state;
 };
 
 #endif

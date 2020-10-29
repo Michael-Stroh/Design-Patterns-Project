@@ -11,6 +11,7 @@
 #define COOLINGFACTORY_H
 
 #include "CarPartFactory.h"
+#include "CoolingSystem.h"
 
 class CoolingFactory: public CarPartFactory {
 

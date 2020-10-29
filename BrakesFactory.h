@@ -11,6 +11,7 @@
 #define BRAKESFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Brakes.h"
 
 class BrakesFactory: public CarPartFactory {
 

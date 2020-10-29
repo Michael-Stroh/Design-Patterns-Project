@@ -11,6 +11,7 @@
 #define CARPART_H
 
 #include "Car.h"
+#include "utilities/Logger.h"
 #include <string>
 
 using namespace std;
@@ -26,25 +27,21 @@ class CarPart : public Car{
 	public:
 	
 		/**
-			Constructor
-		*/
-		CarPart();
-		
-		/**
 			A Constructor that takes in all of the necessary parameters
 			to intialize each member variable.
 			@param s is the speed.
 			@param h is the handling.
 			@param a is the acceleration.
+			@param n is the name of the part.
 			@param b is the brand of the part.
 		*/
-		CarPart(float, float, float, string);
+		CarPart(float, float, float, string, string);
 		
 		/**
 			Constructor for prototype method
 			@param part is the CarPart to be copied.
 		*/
-		CarPart( const Car& );
+		CarPart( Car& );
 
 		/**
 			Destructor
@@ -111,7 +108,39 @@ class CarPart : public Car{
 		*/
 		virtual void setAcceleration( float );
 
+		/**
+			Has no obvious use for most derived classes. Will be overridden in derived classes as they need
+			@param index
+			@param
+		*/
+		virtual void add(int, Car*);
+
+		/**
+			Has no obvious use for most derived classes. Will be overridden in derived classes as they need
+			@param index
+		*/
+		virtual void remove(int);
+
+		/**
+			@brief The maximum value for acceleration for any car part.
+		*/
+		static const float MAX_ACCELERATION_VALUE;
+		/**
+			@brief The maximum value for handling for any car part.
+		*/
+		const static float MAX_HANDLING_VALUE;
+		/**
+			@brief The maximum value for speed for any car part.
+		*/
+		const static float MAX_SPEED_VALUE;
+
 	protected:	//changed from private to protected
+
+		/**
+			Default Constructor, made private to restrict access to it and force a different constructor
+			to be used.
+		*/
+		CarPart();
 
 		/**
      		@brief stores what type of brand the CarPart
@@ -136,27 +165,7 @@ class CarPart : public Car{
 		/**
      		@brief Stores the acceleration of the car.
 		*/
-		float acceleration;
-	
-	private:
-		/**
-			Default Constructor, made private to restrict access to it and force a different constructor
-			to be used.
-		*/
-		CarPart();
-
-		/**
-			@brief The maximum value for acceleration for any car part.
-		*/
-		const static float MAX_ACCELERATION_VALUE = 100;
-		/**
-			@brief The maximum value for handling for any car part.
-		*/
-		const static float MAX_HANDLING_VALUE = 100;
-		/**
-			@brief The maximum value for speed for any car part.
-		*/
-		const static float MAX_SPEED_VALUE = 100;
+		float acceleration;	
 };
 
 #endif

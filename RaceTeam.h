@@ -10,13 +10,15 @@
 #define RACING_TEAM_H
 
 #include "Result.h"
-#include "GrandPrix.h"
+//#include "GrandPrix.h"
 #include "Driver.h"
 #include "Car.h"
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
+using namespace std;
 
+class GrandPrix;
 
 class RaceTeam {
 
@@ -62,7 +64,7 @@ class RaceTeam {
 			
 			@param
 		*/
-		void informGrandPrix( GrandPrix* );
+		void informGrandPrix( GrandPrix * );
 		
 	private:
 	

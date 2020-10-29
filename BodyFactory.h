@@ -11,6 +11,7 @@
 #define BODYFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Body.h"
 
 class BodyFactory: public CarPartFactory {
 

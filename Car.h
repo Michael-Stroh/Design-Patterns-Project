@@ -80,7 +80,7 @@ class Car {
 			Sets the stored handling to the given value
 			@param
 		*/
-		virtual void setHandling( int ) = 0;
+		virtual void setHandling( float ) = 0;
 
 		/**
 			Returns the stored speed
@@ -91,7 +91,7 @@ class Car {
 			Sets the stored handling to the given value
 			@param
 		*/
-		virtual void setSpeed( int ) = 0;
+		virtual void setSpeed( float ) = 0;
 
 		/**
 			Returns the acceleration handling
@@ -102,7 +102,7 @@ class Car {
 			Sets the stored handling to the given value
 			@param
 		*/
-		virtual void setAcceleration( int ) = 0;
+		virtual void setAcceleration( float ) = 0;
 };
 
 #endif

@@ -12,6 +12,7 @@
 #define ELECTRONICFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Electronics.h"
 
 class ElectronicFactory: public CarPartFactory {
 

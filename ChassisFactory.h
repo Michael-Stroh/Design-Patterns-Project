@@ -11,6 +11,7 @@
 #define CHASSISFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Chassis.h"
 
 class ChassisFactory: public CarPartFactory {
 

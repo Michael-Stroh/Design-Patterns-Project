@@ -24,66 +24,65 @@ class Chassis: public CarPart {
 			@param s is the speed.
 			@param h is the handling.
 			@param a is the acceleration.
-			@param n is the name of the part
 			@param b is the brand of the part
 		*/
-		Chassis(float, float, float, string, string);
+		Chassis(float, float, float, string);
 
 		/**
 			Constructor
 		*/
 		~Chassis();
 
+		/**
+			@brief Specifies the initial speed value that newly created chassis should start with before variance.
+		*/
+		const static float INITIAL_SPEED;
+		/**
+			@brief Specifies by how much the INITIAL speed can vary where speed = initial speed + (variance*n)
+			where -1<=n<=1
+		*/
+		const static float INITIAL_SPEED_VARIANCE;
+		/**	
+			@brief Specifies by how much the speed may change when acted upon by an
+			engineering department. 
+		*/
+		const static float SPEED_CHANGE_VARIANCE;
+
+		/**
+			@brief Specifies the initial acceleration value that newly created chassis should start with before variance.
+		*/
+		const static float INITIAL_ACCELERATION;
+		/**
+			@brief Specifies by how much the INITIAL acceleration can vary where speed = initial speed + (variance*n)
+			where -1<=n<=1
+		*/
+		const static float INITIAL_ACCELERATION_VARIANCE;
+		/**	
+			@brief Specifies by how much the acceleration may change when acted upon by an
+			engineering department. 
+		*/
+		const static float ACCELERATION_CHANGE_VARIANCE;
+
+		/**
+			@brief Specifies the initial handling value that newly created chassis should start with before variance.
+		*/
+		const static float INITIAL_HANDLING;
+		/**	
+			@brief Specifies by how much the handling may change when acted upon by an
+			engineering department. 
+		*/
+		const static float INITIAL_HANDLING_VARIANCE;
+		/**	
+			@brief Specifies by how much the handling may change when acted upon by an
+			engineering department. 
+		*/
+		const static float HANDLING_CHANGE_VARIANCE;
+
 	private:
 		/**
 			Default Constructor
 		*/
 		Chassis();
-
-		/**
-			@brief Specifies the initial speed value that newly created chassis should start with before variance.
-		*/
-		const static float INITAL_SPEED = 8;
-		/**
-			@brief Specifies by how much the inital speed can vary where speed = initial speed + (variance*n)
-			where -1<=n<=1
-		*/
-		const static float INITIAL_SPEED_VARIANCE = 1;
-		/**	
-			@brief Specifies by how much the speed may change when acted upon by an
-			engineering department. 
-		*/
-		const static float SPEED_CHANGE_VARIANCE = 0.5;
-
-		/**
-			@brief Specifies the initial acceleration value that newly created chassis should start with before variance.
-		*/
-		const static float INITAL_ACCELERATION = 8;
-		/**
-			@brief Specifies by how much the inital acceleration can vary where speed = initial speed + (variance*n)
-			where -1<=n<=1
-		*/
-		const static float INITAL_ACCELERATION_VARIANCE = 1;
-		/**	
-			@brief Specifies by how much the acceleration may change when acted upon by an
-			engineering department. 
-		*/
-		const static float ACCELERATION_CHANGE_VARIANCE = 0.5;
-
-		/**
-			@brief Specifies the initial handling value that newly created chassis should start with before variance.
-		*/
-		const static float INITIAL_HANDLING = 8;
-		/**	
-			@brief Specifies by how much the handling may change when acted upon by an
-			engineering department. 
-		*/
-		const static float INITIAL_HANDLING_VARIABNCE = 1;
-		/**	
-			@brief Specifies by how much the handling may change when acted upon by an
-			engineering department. 
-		*/
-		const static float HANDLING_CHANGE_VARIANCE = 0.5;
 };
 
 #endif

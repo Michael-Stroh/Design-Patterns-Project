@@ -12,6 +12,7 @@
 #include "CarPart.h"
 #include <string>
 #include<cstdlib>
+#include <ctime>
 
 class CarPartFactory {
 
@@ -39,12 +40,12 @@ class CarPartFactory {
 		/**
 			@brief A list of all the possible brands/companies that produce car parts.
 		*/
-		const static string brands [] = {"Volvo", "BMW", "Ferrari", "Mercedes", "McClaren", "Alfa Romeo", "RedBull" };
+		const static string brands [];
 
 		/**
 			@brief The number of elements int eh brands array
 		*/
-		const static int numBrands = 7;
+		const static int numBrands;
 
 		/**
 			@brief Generates the brand name of a car part using the brands array

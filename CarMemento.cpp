@@ -9,13 +9,3 @@ CarMemento::CarMemento() {
 CarMemento::~CarMemento() {
 
 }
-
-State* CarMemento::getState() {
-
-	return this->state;
-}
-
-void CarMemento::setState( State* state ) {
-
-	this->state = state;
-}

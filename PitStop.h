@@ -12,6 +12,7 @@
 
 #include "PitCrew.h"
 #include "Car.h"
+#include <vector>
 
 class PitStop {
 

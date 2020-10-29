@@ -21,16 +21,16 @@ CarPart::CarPart(float s, float h, float a, string n, string b)
 	brand = b;
 }
 
-CarPart::CarPart(Car& part) {
-	speed = part.speed;
-	handling = part.handling;
-	acceleration = part.acceleration;
-	name = part.name;
-	brand = part.brand;
+CarPart::CarPart( Car& part) {
+	speed = part.getSpeed();
+	handling = part.getHandling();
+	acceleration = part.getAcceleration();
+	name = ((CarPart)part).name;
+	brand = ((CarPart)part).brand;
 }
 
 CarPart *  CarPart::clone() {
-	return new CarPart(*this)
+	return new CarPart(*this);
 }
 
 //is subject to change should we decide to use a logger
@@ -38,9 +38,9 @@ void CarPart::print()
 {
 	Logger::magenta("Part ","-" + name);
 	Logger::magenta("Brand ", "-" + brand);
-	Logger::magenta("Speed Score ","-" + speed<);
-	Logger::magenta("Acceleration Score ", "-" + acceleration);
-	Logger::magenta("Handling Score ", "-" + handling);
+	Logger::magenta("Speed Score ","-" + to_string(speed));
+	Logger::magenta("Acceleration Score ", "-" + to_string(acceleration));
+	Logger::magenta("Handling Score ", "-" + to_string(handling));
 	
 }
 
@@ -85,3 +85,19 @@ void CarPart::setAcceleration(float newAcceleration)
 {
 	acceleration = newAcceleration;
 }
+
+void CarPart::add(int index, Car* c)
+{
+	Logger::log("Obselete Function Usage in CarPart", "Part of type " + name + "has no use for add function");
+}
+
+void CarPart::remove(int index)
+{
+	Logger::log("Obselete Function Usage in CarPart", "Part of type " + name + "has no use for remove function");
+}
+
+const float CarPart::MAX_ACCELERATION_VALUE = 100.0;
+
+const float CarPart::MAX_HANDLING_VALUE = 100.0;
+
+const float CarPart::MAX_SPEED_VALUE = 100.0;

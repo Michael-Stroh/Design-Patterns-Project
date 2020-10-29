@@ -12,6 +12,11 @@ AerodynamicsDepartment::AerodynamicsDepartment( float budget ): EngineeringDepar
 	throw "Not yet implemented";
 }
 
+AerodynamicsDepartment::~AerodynamicsDepartment()
+{
+	throw "Not yet implemented";
+}
+
 AerodynamicsDepartment::AerodynamicsDepartment( Simulation* state ): EngineeringDepartment( state ) {
 
 	// TODO - implement AerodynamicsDepartment::AerodynamicsDepartment

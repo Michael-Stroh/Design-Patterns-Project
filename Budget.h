@@ -9,7 +9,9 @@
 #ifndef BUDGET_H
 #define BUDGET_H
 
-#include "EngineeringDepartment.h"
+//#include "EngineeringDepartment.h"
+class EngineeringDepartment;
+
 
 class Budget {
 
@@ -35,13 +37,13 @@ class Budget {
 			Takes in an engineering department to attach to, to oberver
 			@param
 		*/
-		void attach( EngineeringDepartment* );
+		void attach( EngineeringDepartment * );
 
 		/**
 			Takes in an engineering department to detach from
 			@param
 		*/
-		void detach( EngineeringDepartment* );
+		void detach( EngineeringDepartment * );
 
 		/**
 			Notifies all the attached obervers of a change
@@ -68,7 +70,7 @@ class Budget {
 		/**
      		@brief A list of all the observers watching the budget
 		*/
-		EngineeringDepartment* observerList;
+		EngineeringDepartment * observerList;
 };
 
 #endif

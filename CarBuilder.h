@@ -18,12 +18,12 @@
 #include "EngineFactory.h"
 #include "ChassisFactory.h"
 #include "TransmissionFactory.h"
-#include "SteeringWheelFactory.h"
-#include "CoolingSystemFactory.h"
+#include "SteeringFactory.h"
+#include "CoolingFactory.h"
 #include "BodyFactory.h"
 #include "SuspensionFactory.h"
 #include "BrakesFactory.h"
-#include "ElectronicsFactory.h"
+#include "ElectronicFactory.h"
 
 using namespace std;
 

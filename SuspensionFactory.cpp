@@ -1,8 +1,8 @@
 #include "SuspensionFactory.h"
 
-SuspensionFactory::SuspensionFactory(): CarPartFactory() {
+SuspensionFactory::SuspensionFactory() : CarPartFactory() {
 
-
+}
 
 SuspensionFactory::~SuspensionFactory() {
 

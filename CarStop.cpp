@@ -37,6 +37,7 @@ Car* CarStop::getCar() {
 bool CarStop::setCar( Car* carChange ) {
 
 	car = carChange;
+	return true;
 }
 
 PitCrew* CarStop::getCrew() {
@@ -47,4 +48,5 @@ PitCrew* CarStop::getCrew() {
 bool CarStop::setCrew( PitCrew* crewChange ) {
 
 	crew = crewChange;
+	return true;
 }

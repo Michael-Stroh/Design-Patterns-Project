@@ -13,6 +13,7 @@
 #include "RaceTeam.h"
 #include "Result.h"
 #include "Circuit.h"
+#include "Race.h"
 
 class GrandPrix {
 
@@ -50,7 +51,7 @@ class GrandPrix {
 		/**
 			@brief 
 		*/
-		Race* race;
+		Race * race;
 };
 
 #endif

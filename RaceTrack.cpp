@@ -57,6 +57,7 @@ float RaceTrack::getWindForce() {
 float RaceTrack::setWindForce( float wind ) {
 
 	windForce = wind;
+	return windForce;
 }
 
 float RaceTrack::getSkill() {

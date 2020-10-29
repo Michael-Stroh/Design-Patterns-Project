@@ -6,6 +6,11 @@ AccelerationSimulation::AccelerationSimulation() {
 	throw "Not yet implemented";
 }
 
+AccelerationSimulation::~AccelerationSimulation()
+{
+	throw "Not yet implemented";
+}
+
 Simulation* AccelerationSimulation::simulate( CarComposite* car, Driver* driver ) {
 
 	// TODO - implement Acceleration Simulation::simulate

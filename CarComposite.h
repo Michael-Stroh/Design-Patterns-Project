@@ -39,7 +39,7 @@ class CarComposite : public Car{
 			Copy constructor for prototype design pattern
 			@param c is the car to be copied.
 		*/
-		CarComposite( const Car& );
+		CarComposite( const CarComposite& );
 
 		/**
 			Destructor
@@ -130,6 +130,14 @@ class CarComposite : public Car{
 			@param newAcceleration is not used.
 		*/
 		void setAcceleration( float );
+
+		/**
+			@brief A getter that returns the function at the specified index.
+			Should be used in conjucntion with the PartIndices enum.
+			@param index The specified index of the car part to fetch.
+			@return the car part at the specified index.
+		*/
+		Car * getPart(int);
 		
 	private:
 	
@@ -143,7 +151,7 @@ class CarComposite : public Car{
 			@brief A constant value that determines the number of CarParts
 			held int the carParts vector.
 		*/
-		const static int NUMPARTS = 9;
+		const static int NUMPARTS;
 };
 
 #endif

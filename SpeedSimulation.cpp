@@ -6,6 +6,11 @@ SpeedSimulation::SpeedSimulation(): Simulation() {
 	throw "Not yet implemented";
 }
 
+SpeedSimulation::~SpeedSimulation()
+{
+
+}
+
 Simulation* SpeedSimulation::simulate( CarComposite* car, Driver* driver ) {
 
 	// TODO - implement SpeedSimulation::simulate

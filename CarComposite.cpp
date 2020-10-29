@@ -10,10 +10,10 @@ CarComposite::CarComposite() {
 
 //The copy constructor, it clones every single part
 //of the passed in car and adds them to itself.
-CarComposite::CarComposite(Car& c) {
+CarComposite::CarComposite(const CarComposite& c) {
 
 	for(int i=0; i<NUMPARTS; ++i)
-		carParts[i] = c.get(i)->clone();
+		carParts[i] = ((CarComposite)c).getPart(i)->clone();	//check that this typecasting works
 
 }
 
@@ -47,9 +47,9 @@ void CarComposite::add(int index, Car * part) {
 		throw "CarComposite::add; index out of bounds";
 	else
 	{
-		if(carParts[i] != nullptr)	//an extra check to avoid memory leaks
-			delete carParts[i];
-		carParts[i] = part;
+		if(carParts[index] != nullptr)	//an extra check to avoid memory leaks
+			delete carParts[index];
+		carParts[index] = part;
 	}
 }
 
@@ -59,8 +59,8 @@ void CarComposite::remove(int index) {
 		throw "CarComposite::remove; index out of bounds";
 	else
 	{
-		delete carParts[i];
-		carParts[i] = nullptr;
+		delete carParts[index];
+		carParts[index] = nullptr;
 	}
 }
 
@@ -97,7 +97,7 @@ float CarComposite::getSpeed()
 	for(int i=0; i<carParts.size(); ++i)
 		speedAggregate += carParts[i]->getSpeed();
 
-	return speedAggregate * aeroDynamicMultiplier;
+	return speedAggregate;
 }
 
 void CarComposite::setSpeed(float newSpeed)
@@ -118,3 +118,16 @@ void CarComposite::setAcceleration(float newAcceleration)
 {
 	Logger::log("Obselete Function Usage in CarComposite", "setAcceleration should be called on an individual component, not the car itself");
 }
+
+
+Car* CarComposite::getPart(int index)
+{
+	if (index < 0 || index >= NUMPARTS)
+		throw "CarComposite::get : index out of bounds error.";
+	else
+	{
+		return carParts[index];
+	}
+}
+
+const int CarComposite::NUMPARTS = 9;

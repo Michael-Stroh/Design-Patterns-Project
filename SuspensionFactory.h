@@ -11,6 +11,7 @@
 #define SUSPENSIONFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Suspension.h"
 
 class SuspensionFactory: public CarPartFactory {
 
