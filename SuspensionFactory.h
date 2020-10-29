@@ -1,9 +1,10 @@
 /**
    @file SuspensionFactory.h
    @class SuspensionFactory
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A concrete factory responsible for creating the suspension of a car and ensuring its variables are
+   varied and set correctly.
 */
 
 #ifndef SUSPENSIONFACTORY_H

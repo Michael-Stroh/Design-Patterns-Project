@@ -2,19 +2,21 @@
 
 BrakesFactory::BrakesFactory(): CarPartFactory() {
 
-	// TODO - implement BrakesFactory::BrakesFactory
-	throw "Not yet implemented";
+
 }
 
 BrakesFactory::~BrakesFactory() {
 
-	// TODO - implement BrakesFactory::BrakesFactory
-	throw "Not yet implemented";
+	
 }
 
 CarPart* BrakesFactory::createPart() {
 
-	// TODO - implement BrakesFactory::createPart
-	throw "Not yet implemented";
+	string brand = generateBrandName();
+	float s = Brakes::INITIAL_SPEED + (rand()/10)*Brakes::INITIAL_SPEED_VARIANCE;
+	float a = Brakes::INITIAL_ACCELERATION + (rand()/10)*Brakes::INITIAL_ACCELERATION_VARIANCE;
+	float h = Brakes::INITIAL_HANDLING + (rand()/10)*Brakes::INITIAL_HANDLING_VARIANCE;
+	CarPart * part = new Brakes(s,h,a, brand);
+	return part;
 }
 

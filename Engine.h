@@ -118,7 +118,7 @@ class Engine: public CarPart {
 		/**
 			@brief The intial temperature value that a non-running engine is set to.
 		*/
-		const static int INITIAL_TEMPERATURE = 0.0; 
+		const static float INITIAL_TEMPERATURE = 100.0; 
 
 		/**
 			Constructor

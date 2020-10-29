@@ -1,9 +1,10 @@
 /**
    @file SteeringFactory.h
    @class SteeringFactory
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A concrete factory responsible for creating the steering wheel of a car and ensuring its variables are
+   varied and set correctly.
  */
 
 #ifndef STEERINGFACTORY_H

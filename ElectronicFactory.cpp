@@ -2,18 +2,19 @@
 
 ElectronicFactory::ElectronicFactory(): CarPartFactory() {
 
-	// TODO - implement ElectronicFactory::ElectronicFactory
-	throw "Not yet implemented";
+	
 }
 
 ElectronicFactory::~ElectronicFactory() {
 
-	// TODO - implement ElectronicFactory::ElectronicFactory
-	throw "Not yet implemented";
 }
 
 CarPart* ElectronicFactory::createPart() {
-
-	// TODO - implement ElectronicFactory::createPart
-	throw "Not yet implemented";
+	string brand = generateBrandName();
+	float s = Electronics::INITIAL_SPEED + (rand()/10)*Electronics::INITIAL_SPEED_VARIANCE;
+	float a = Electronics::INITIAL_ACCELERATION + (rand()/10)*Electronics::INITIAL_ACCELERATION_VARIANCE;
+	float h = Electronics::INITIAL_HANDLING + (rand()/10)*Electronics::INITIAL_HANDLING_VARIANCE;
+	CarPart * part = new Electronics(s,h,a, brand);
+	return part;
+	
 }
