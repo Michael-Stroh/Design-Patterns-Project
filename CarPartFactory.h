@@ -52,6 +52,12 @@ class CarPartFactory {
 			@return a randomly selected string from the brands array
 		*/
 		string generateBrandName();
+		/**
+			@brief Helper function for generating random numbers.
+			@return a random float between -1.0 and 1.0
+		*/
+		float generateRandomFraction();
+		
 };
 
 #endif

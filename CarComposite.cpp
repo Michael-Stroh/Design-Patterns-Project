@@ -3,9 +3,11 @@
 //The default constructor. Sets all parts to nullptr. Adding of parts
 //Will be handled By CarBuilder Class
 CarComposite::CarComposite() {
-
+	Logger::setDebug(true);
+	Logger::magenta("Default Constructor of CarComposite", "");
+	Logger::setDebug(false);
 	for(int i=0; i<NUMPARTS; ++i)
-			carParts[i] = nullptr;
+			carParts.push_back(nullptr);
 }
 
 //The copy constructor, it clones every single part
@@ -13,7 +15,7 @@ CarComposite::CarComposite() {
 CarComposite::CarComposite(const CarComposite& c) {
 
 	for(int i=0; i<NUMPARTS; ++i)
-		carParts[i] = ((CarComposite)c).getPart(i)->clone();	//check that this typecasting works
+		carParts.push_back( ((CarComposite)c).getPart(i)->clone() );	//check that this typecasting works
 
 }
 

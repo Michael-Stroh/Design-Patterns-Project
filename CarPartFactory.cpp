@@ -18,6 +18,12 @@ string CarPartFactory::generateBrandName()
 	return brands[ rand() % numBrands];
 }
 
+float CarPartFactory::generateRandomFraction()
+{
+	float randNum =( (rand() % 100) / 100.0) - ((rand() % 100) / 100.0);
+	return randNum;
+}
+
 
 const string CarPartFactory::brands[] = { "Volvo", "BMW", "Ferrari", "Mercedes", "McClaren", "Alfa Romeo", "RedBull" };
 

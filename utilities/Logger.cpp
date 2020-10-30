@@ -47,10 +47,10 @@ void Logger::blue(string heading, string message)
 
 void Logger::magenta(string heading, string message)
 {
-    cout << "\e[35m";
+    cout << "\033[35m";
     cout << "--- " << heading << " ---" << endl;
     cout << message << endl;
-    cout << "\e[39m";
+    cout << "\033[39m";
 }
 
 void Logger::cyan(string heading, string message)
