@@ -4,19 +4,18 @@
    @authors Alex
    @version 1.0.0
    @brief The ancestor of Result that will contain the results of a single race.
-   @todo: Implement freezeBottom5()
-   @todo: Implement freezeBottom10()
-   @todo: Implement apply107Rule()
-   @todo: Implement isQualified()
-   @todo: Implement isUnfrozen()
  */
 
 #ifndef RACERESULT_H
 #define RACERESULT_H
 
 #include "Result.h"
+#include "LapResult.h"
+#include "utilities/Logger.h"
 #include <string>
+#include <vector>
 #include <map>
+#include <algorithm>
 using namespace std;
 
 class RaceResult : public Result
@@ -28,18 +27,6 @@ public:
 		*/
 	RaceResult();
 
-public:
-	/**
-			Constructor
-		*/
-	RaceResult();
-
-	/**
-			Copy Constructor
-			@param[in] r: An instance of Result
-		*/
-	RaceResult(Result *);
-
 	/**
 			Destructor
 		*/
@@ -49,7 +36,7 @@ public:
 			
 			@param[in] r: An instance of LapResult, to be added to the total results of the race
 		*/
-	bool addLapTime(Result *);
+	void addResult(Result *);
 
 	/**
 			@brief Prints the formatted results of the race
@@ -57,31 +44,93 @@ public:
 	void print();
 
 	/**
-			@brief prints the results of the Driver's of the race (for the driver's championship)
+			@brief Prints the formatted grid positions for the race (if the race was a qualifying race)
 		*/
-	void printDrivers();
+	void printGridPositions();
 
 	/**
-			@brief prints the results of the Teams's of the race (for the teams's championship)
+			@brief Checks whether or not the driver has obtained a grid
 			
 		*/
-	void printTeams();
+	bool driverHasGridPosition(string);
+
+	/**
+			@brief Places the bottom X drivers without grid positions on the grid
+		*/
+	void placeBottomXOnGrid(int);
+
+	/**
+			@brief Applies the 107% rule to the qualifying drivers
+		*/
+	void apply107Rule();
+
+	/**
+			@brief Returns the vector containing the drivers and their respective positions
+		*/
+	vector<pair<string, int>> getDriverGridPositions();
+
+	/**
+			@brief Returns a vector containing the driver's names & their position in the race
+		*/
+	vector<pair<string, int>> getDriverResults();
+
+	/**
+			@brief Returns a vector containing the driver's names & their points earned in the race
+		*/
+	vector<pair<string, int>> getDriverPoints();
+
+	/**
+			@brief Returns a vector containing the teams and the points they earned in the race
+		*/
+	vector<pair<string, int>> getTeamPoints();
 
 private:
 	/**
 			@brief A collection of all the lapresults for the current race
 		*/
-	Result *lapResult;
-
-	/**
-			@brief A collection of all the lapresults for the teams for the current race
-		*/
-	map<string, int> totalTeamsLaptime;
+	vector<Result *> lapResults;
 
 	/**
 			@brief A collection of all the lapresults for the drivers for the current race
 		*/
-	map<string, int> totalDriversLaptime;
+	vector<pair<string, float>> totalDriversLaptime;
+
+	/**
+			@brief A collection of the fastest laptime for the drivers for the current race
+		*/
+	vector<pair<string, float>> driversFastestLaptime;
+
+	/**
+			@brief A vector containing the drivers and their grid positions
+		*/
+	vector<pair<string, int>> driverGridPositions;
+
+	/**
+			@brief A vector containing the drivers and their respective teams
+		*/
+	vector<pair<string, string>> driversTeams;
+
+	/**
+			@brief A helper function to sort the drivers in ascending order based on their laptimes
+		*/
+	void sortDrivers();
+
+	/**
+			@brief Removes the driver with the provided name from the grid
+		*/
+	void removeDriverFromGrid(string driverName);
+
+	/**
+			@brief Reassigns the grid positions, filling in gaps left by the 107 rule
+		*/
+	void reassignGridPositions();
+
+	/**
+			@brief Returns the team that a driver is driving for
+		*/
+	string getDriverTeam(string);
+
+	float polePositionFastestLap;
 };
 
 #endif
