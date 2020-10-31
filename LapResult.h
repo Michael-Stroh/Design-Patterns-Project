@@ -11,6 +11,7 @@
 
 #include "Result.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 class LapResult : public Result
