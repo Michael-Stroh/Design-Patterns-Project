@@ -1,9 +1,9 @@
 /**
    @file EngineeringDepartment.h
    @class EngineeringDepartment
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief An Interface for each of the Concrete Engineering Departments
  */
 
 
@@ -17,62 +17,68 @@ class EngineeringDepartment {
 
 	public:
 		
-		/**
-			Constructor
-		*/
-		EngineeringDepartment();
-
+		
 		/**
 			Constructor
 			@param budget
 		*/
-		EngineeringDepartment( float );
-
-		/**
-			Constructor
-			@param state
-		*/
-		EngineeringDepartment( Simulation* );
+		EngineeringDepartment(Budget*, float );
 
 		/**
 			Constructor
 			@param state
 			@param budget
+			@param budgetLimit
 		*/
-		EngineeringDepartment( Simulation*, float );
+		EngineeringDepartment( Simulation*, Budget * , float );
 
 		/**
-			Destructor
+			Destructor. Does NOT destroy the budget, that will be handled in the @link EngineeringCrew class.
 		*/
 		virtual ~EngineeringDepartment();
 
 		/**
-			
+			Sets this objects budget limit to the new specified budgetlimit.
+			@param newBudgetLimit is the new limit for this department.
 		*/
-		void updateBudget();
+		void updateBudgetLimit(float);
 
 		/**
-			
-			@return
+			Returns the budgetLimit that has been set for this department.
+			@return this department's budgetLimit.
 		*/
-		virtual Simulation* runSimulation() = 0;
+		float getBudgetLimit();
+
+		/**	
+			This function is responsible for 
+			@return The next simulation that is the next state of this department.
+		*/
+		virtual Simulation* runSimulation(CarComposite * ) = 0;
 		
-	private:
+	protected:
 	
 		/**
-			@brief 
+			@brief The state of the Department. Is used to determine what aspect of the part is going to be worked on next.
 		*/
-		Simulation* SimulationState;
+		Simulation* simulationState;
 		
 		/**
 			@brief 
 		*/
-		Budget* remainingBudget;
+		Budget * remainingBudget;
 		
 		/**
-			@brief 
+			@brief The specifies the lowest that the budget can reach before departments stop testing. 
+			Is set at start of race preparations for each race.
 		*/
-		int budgetLimit;
+		float budgetLimit;
+
+	private:
+		/**
+				Constructor
+			*/
+		EngineeringDepartment();
+
 };
 
 #endif
