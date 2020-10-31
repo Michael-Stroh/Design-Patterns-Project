@@ -15,7 +15,7 @@ RaceTrack::RaceTrack( string name, float dist, float wind ):
 }
 
 RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
-					  int corners, int RaceLaps ): Road( name ), dirct( dir ), distance( dist ), windForce( wind ),
+					  int corners, int RaceLaps ): Road( name ), direct( dir ), distance( dist ), windForce( wind ),
 					  laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
 
 }
@@ -31,7 +31,7 @@ void RaceTrack::print() {
 	dist << distance;
 	wind << windForce;
 
-	Logger::cyan( "Road raced", "The " + getName() + " road was raced with a distance of " + dist.str()
+	Logger::cyan( "Road raced", "The " + getName() + " road was raced " + getDirection() + " with a distance of " + dist.str()
 	+  ", a wind force of " + wind.str() + "." );
 }
 
@@ -92,15 +92,15 @@ void RaceTrack::setStraightDistance( float dist ) {
 
 string RaceTrack::getDirection() const {
 
-	switch ( dirct  ) {
+	switch ( direct  ) {
 
 		case clockwise: 		return "clockwise";
-		case anticlockwise: 	return "anticlockwise";
+		case anticlockwise: 	return "anti-clockwise";
 		default: 				return "Error";
 	}
 }
 
 void RaceTrack::setDirection( RaceTrack::direction dir ) {
 
-	dirct = dir;
+	direct = dir;
 }

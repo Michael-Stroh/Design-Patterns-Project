@@ -2,7 +2,7 @@
    @file RaceTrack.h
    @class RaceTrack
    @authors Michael
-   @version 1.3.0
+   @version 1.4.0
    @brief 
  */
 
@@ -170,7 +170,7 @@ class RaceTrack: public Road {
 		/**
 			@brief
 		*/
-        direction dirct = clockwise;
+        direction direct = clockwise;
 };
 
 #endif
