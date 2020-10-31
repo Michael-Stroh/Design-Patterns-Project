@@ -2,38 +2,31 @@
 
 LapResult::LapResult() : Result()
 {
-
-	// TODO - implement LapResult::LapResult
-	throw "Not yet implemented";
+	this->lapTime = 0;
+	this->driverName = "";
+	this->teamName = "";
 }
 
-LapResult::LapResult(string d, string s, float Time) : lapTime(Time)
+LapResult::LapResult(string d, string s, float Time) : Result(), lapTime(Time), driverName(d), teamName(s)
 {
-
-	// TODO - implement LapResult::LapResult
-	throw "Not yet implemented";
 }
 
 void LapResult::print()
 {
-	// TODO - implement LapResult::print
-	throw "Not yet implemented";
+	cout << this->driverName << " [" << this->teamName << "] - " << this->lapTime << endl;
 }
 
 float LapResult::getLapTime()
 {
-	// TODO - implement LapResult::getLapTime
-	throw "Not yet implemented";
+	return this->lapTime;
 }
 
 string LapResult::getDriverName()
 {
-	// TODO - implement LapResult::getDriverName
-	throw "Not yet implemented";
+	return this->driverName;
 }
 
 string LapResult::getTeamName()
 {
-	// TODO - implement LapResult::getTeamName
-	throw "Not yet implemented";
+	return this->teamName;
 }
