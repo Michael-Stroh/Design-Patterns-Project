@@ -1,9 +1,14 @@
 #include "RaceResult.h"
 using namespace std;
 
-bool sortBySecond(const pair<string, float> &a, const pair<string, float> &b)
+bool sortByAscending(const pair<string, float> &a, const pair<string, float> &b)
 {
 	return (a.second < b.second);
+}
+
+bool sortByDescending(const pair<string, float> &a, const pair<string, float> &b)
+{
+	return (a.second > b.second);
 }
 
 RaceResult::RaceResult()
@@ -86,7 +91,7 @@ void RaceResult::print()
 
 void RaceResult::printGridPositions()
 {
-	sort(driverGridPositions.begin(), driverGridPositions.end(), sortBySecond);
+	sort(driverGridPositions.begin(), driverGridPositions.end(), sortByAscending);
 	vector<pair<string, int>>::iterator it;
 	for (it = driverGridPositions.begin(); it != driverGridPositions.end(); ++it)
 	{
@@ -96,14 +101,14 @@ void RaceResult::printGridPositions()
 
 void RaceResult::sortDrivers()
 {
-	sort(totalDriversLaptime.begin(), totalDriversLaptime.end(), sortBySecond);
-	sort(driversFastestLaptime.begin(), driversFastestLaptime.end(), sortBySecond);
-	sort(driverGridPositions.begin(), driverGridPositions.end(), sortBySecond);
+	sort(totalDriversLaptime.begin(), totalDriversLaptime.end(), sortByAscending);
+	sort(driversFastestLaptime.begin(), driversFastestLaptime.end(), sortByAscending);
+	sort(driverGridPositions.begin(), driverGridPositions.end(), sortByAscending);
 }
 
 vector<pair<string, int>> RaceResult::getDriverGridPositions()
 {
-	sort(driverGridPositions.begin(), driverGridPositions.end(), sortBySecond);
+	sort(driverGridPositions.begin(), driverGridPositions.end(), sortByAscending);
 	return this->driverGridPositions;
 }
 
@@ -229,13 +234,24 @@ vector<pair<string, int>> RaceResult::getTeamPoints()
 	// Populate vector with all teams
 	for (it = driversTeams.begin(); it != driversTeams.end(); ++it)
 	{
-		teamPoints.push_back(make_pair(it->second, 0));
+		alreadyRecorded = false;
+		for (it2 = teamPoints.begin(); it2 != teamPoints.end(); ++it2)
+		{
+			if (it2->first == it->second)
+			{
+				alreadyRecorded = true;
+			}
+		}
+		if (!alreadyRecorded)
+		{
+			teamPoints.push_back(make_pair(it->second, 0));
+		}
 	}
 
 	// Add all the drivers points to the respective teams
 	for (it2 = teamPoints.begin(); it2 != teamPoints.end(); ++it2)
 	{
-		for (it3 = driverPoints.begin(); it3 != driverPoints.end(); ++it2)
+		for (it3 = driverPoints.begin(); it3 != driverPoints.end(); ++it3)
 		{
 			if (it2->first == this->getDriverTeam(it3->first))
 			{
@@ -243,7 +259,7 @@ vector<pair<string, int>> RaceResult::getTeamPoints()
 			}
 		}
 	}
-
+	sort(teamPoints.begin(), teamPoints.end(), sortByDescending);
 	return teamPoints;
 }
 
