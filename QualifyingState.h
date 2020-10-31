@@ -1,10 +1,11 @@
 /**
-   @file .h
-   @class 
+   @file QualifyingState.h
+   @class QualifyingState
    @authors Alex
    @version 1.0.0
    @brief The Qualfying state for the Race class.
    @details Responsible for performing the necessary steps to complete a qualfiying race.
+   @todo: runRace(): Account for if last lap puts timeLeft into negative
  */
 
 #ifndef QUALIFYINGSTATE_H
@@ -15,6 +16,7 @@
 #include "RaceTeam.h"
 #include "Circuit.h"
 #include "Result.h"
+#include "RaceResult.h"
 
 class QualifyingState : public RaceState
 {
@@ -37,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the qualfying race will take place.
 			@return The result of the qualfying race.
 		*/
-	Result *runRace(Result *, RaceTeam *, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
 
 private:
 	/**
