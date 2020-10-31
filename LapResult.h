@@ -55,6 +55,11 @@ public:
 		*/
 	string getTeamName();
 
+	/**
+			@brief Added to satisfy the implementation of the pure virtual method defined by Result, will not be used in this class
+		*/
+	void addResult(Result *);
+
 private:
 	/**
 			@brief The time taken for a driver to complete a lap.

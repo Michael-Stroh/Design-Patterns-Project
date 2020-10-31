@@ -1,14 +1,24 @@
 #include "LapResult.h"
 
-LapResult::LapResult() : Result()
+LapResult::LapResult()
 {
 	this->lapTime = 0;
 	this->driverName = "";
 	this->teamName = "";
 }
 
-LapResult::LapResult(string d, string s, float Time) : Result(), lapTime(Time), driverName(d), teamName(s)
+LapResult::LapResult(string d, string s, float time)
 {
+	this->driverName = d;
+	this->teamName = s;
+	this->lapTime = time;
+}
+
+LapResult::~LapResult()
+{
+	this->driverName = "";
+	this->teamName = "";
+	this->lapTime = 0.00;
 }
 
 void LapResult::print()
@@ -29,4 +39,8 @@ string LapResult::getDriverName()
 string LapResult::getTeamName()
 {
 	return this->teamName;
+}
+
+void LapResult::addResult(Result *r)
+{
 }
