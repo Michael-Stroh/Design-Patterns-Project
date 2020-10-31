@@ -25,21 +25,22 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> *teams, Circui
 	{
 		if (i == 2)
 		{
-			timeleft = 3600.00; // 1 hour stored as seconds
+			timeLeft = 3600.00; // 1 hour stored as seconds
 		}
 		else
 		{
-			timeleft = 5400.00; // 1.5 hours stored as seconds
+			timeLeft = 5400.00; // 1.5 hours stored as seconds
 		}
 		longestLapTime = 0;
-		// @todo: account for if last lap puts timeleft into the negative
-		while (timeleft > 0)
+		// @todo: account for if last lap puts timeLeft into the negative
+		while (timeLeft > 0)
 		{
 			for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
 			{
-				// @todo: account for multiple drivers per team
-				LapResult *lap = team->performLap();
-				raceResult->addResult(lap);
+				LapResult *lapA = team->performLap(0, this->circuit);
+				LapResult *lapB = team->performLap(1, this->circuit);
+				raceResult->addResult(lapA);
+				raceResult->addResult(lapB);
 				if (lap->getLapTime() > longestLapTime)
 				{
 					longestLapTime = lap->getLapTime();
