@@ -78,6 +78,20 @@ class Chassis: public CarPart {
 		*/
 		const static float HANDLING_CHANGE_VARIANCE;
 
+		/**
+			@brief The maximum value for acceleration for this car part.
+		*/
+		static const float MAX_ACCELERATION_VALUE;
+		/**
+			@brief The maximum value for handling for this car part.
+		*/
+		const static float MAX_HANDLING_VALUE;
+		/**
+			@brief The maximum value for speed for this car part.
+		*/
+		const static float MAX_SPEED_VALUE;
+
+
 	private:
 		/**
 			Default Constructor

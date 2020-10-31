@@ -3,7 +3,7 @@
    @class EngineeringDepartment
    @authors Michael Timothy
    @version 1.0.1
-   @brief An Interface for each of the Concrete Engineering Departments
+   @brief An Interface for each of the Concrete Engineering Departments that will improve the parts of the cars to be raced.
  */
 
 
@@ -11,7 +11,10 @@
 #define ENGINEERINGDEPARTMENT_H
 
 #include "Simulation.h"
+#include "AccelerationSimulation.h"
 #include "Budget.h"
+#include<cstdlib>
+#include <ctime>
 
 class EngineeringDepartment {
 
@@ -19,8 +22,8 @@ class EngineeringDepartment {
 		
 		
 		/**
-			Constructor
-			@param budget
+			@param budgetLimit a specific Department's budget limit.
+			@param budget the budget pointer that specifies the shared budget for each department
 		*/
 		EngineeringDepartment(Budget*, float );
 
@@ -53,7 +56,7 @@ class EngineeringDepartment {
 			This function is responsible for 
 			@return The next simulation that is the next state of this department.
 		*/
-		virtual Simulation* runSimulation(CarComposite * ) = 0;
+		virtual void runSimulation(CarComposite * ) = 0;
 		
 	protected:
 	
@@ -73,11 +76,13 @@ class EngineeringDepartment {
 		*/
 		float budgetLimit;
 
-	private:
 		/**
 				Constructor
 			*/
 		EngineeringDepartment();
+		
+
+
 
 };
 

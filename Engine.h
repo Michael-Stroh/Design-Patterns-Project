@@ -111,6 +111,21 @@ class Engine: public CarPart {
 		*/
 		const static float INITIAL_TEMPERATURE; 
 
+		/**
+			@brief The maximum value for acceleration for this car part.
+		*/
+		static const float MAX_ACCELERATION_VALUE;
+		/**
+			@brief The maximum value for handling for this car part.
+		*/
+		const static float MAX_HANDLING_VALUE;
+		/**
+			@brief The maximum value for speed for this car part.
+		*/
+		const static float MAX_SPEED_VALUE;
+
+
+
 		private:
 		/**
 			Constructor

@@ -18,6 +18,7 @@ EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, 
 
 EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
 {
+	simulationState = new AccelerationSimulation();
 	remainingBudget = budget;
 	this->budgetLimit = budgetLimit;
 }

@@ -29,12 +29,6 @@ class CarComposite : public Car{
 		*/
 		CarComposite();
 
-        /**
-            Constructor
-            @param
-        */
-        CarComposite( float );
-
 		/**
 			Copy constructor for prototype design pattern
 			@param c is the car to be copied.
@@ -64,7 +58,7 @@ class CarComposite : public Car{
 			@param index is the index to where the part is added.
 			@param part is the part to be added at index.
 		*/
-		void add( int, Car* );
+		void add( int, CarPart* );
 
 		/**
 			Gets the CarPart from the carPart vector at index. Throw
@@ -73,7 +67,7 @@ class CarComposite : public Car{
 
 			@param index is the index of the part to be fetched.
 		*/
-		Car * get(int) const;
+		CarPart * getPart(int) const;
 	
 		/**
 			Removes the CarPart at the given index. Throws index out of bounds
@@ -130,14 +124,6 @@ class CarComposite : public Car{
 			@param newAcceleration is not used.
 		*/
 		void setAcceleration( float );
-
-		/**
-			@brief A getter that returns the function at the specified index.
-			Should be used in conjucntion with the PartIndices enum.
-			@param index The specified index of the car part to fetch.
-			@return the car part at the specified index.
-		*/
-		Car * getPart(int);
 		
 	private:
 	
@@ -145,7 +131,7 @@ class CarComposite : public Car{
      		@brief A vector of all the car parts that make up the car.
      		Used in conjunction with the enum PartIndices in @link Car .
 		*/
-		vector<Car*> carParts;
+		vector<CarPart*> carParts;
 	
 		/**
 			@brief A constant value that determines the number of CarParts

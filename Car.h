@@ -62,8 +62,8 @@ class Car {
 			@param index
 			@param
 		*/
-		virtual void add( int, Car* ) = 0;
-
+		virtual void add( int, CarPart* ) = 0;
+		 
 		/**
 			Removes the car object at the given index
 			@param index

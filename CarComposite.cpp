@@ -14,8 +14,11 @@ CarComposite::CarComposite() {
 //of the passed in car and adds them to itself.
 CarComposite::CarComposite(const CarComposite& c) {
 
-	for(int i=0; i<NUMPARTS; ++i)
-		carParts.push_back( ((CarComposite)c).getPart(i)->clone() );	//check that this typecasting works
+	for (int i = 0; i < NUMPARTS; ++i)
+	{
+		CarPart * part = ((CarComposite)c).getPart(i)->clone();
+		carParts.push_back(part);
+	}
 
 }
 
@@ -44,7 +47,7 @@ void CarComposite::print() {
 }
 
 //should be used in conjunction with remove
-void CarComposite::add(int index, Car * part) {
+void CarComposite::add(int index, CarPart * part) {
 	if(index <0 || index >= NUMPARTS)
 		throw "CarComposite::add; index out of bounds";
 	else
@@ -122,7 +125,7 @@ void CarComposite::setAcceleration(float newAcceleration)
 }
 
 
-Car* CarComposite::getPart(int index)
+CarPart * CarComposite::getPart(int index) const
 {
 	if (index < 0 || index >= NUMPARTS)
 		throw "CarComposite::get : index out of bounds error.";

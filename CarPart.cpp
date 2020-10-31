@@ -21,7 +21,7 @@ CarPart::CarPart(float s, float h, float a, string n, string b)
 	brand = b;
 }
 
-CarPart::CarPart( Car& part) {
+CarPart::CarPart( CarPart & part) {
 	speed = part.getSpeed();
 	handling = part.getHandling();
 	acceleration = part.getAcceleration();
@@ -86,7 +86,7 @@ void CarPart::setAcceleration(float newAcceleration)
 	acceleration = newAcceleration;
 }
 
-void CarPart::add(int index, Car* c)
+void CarPart::add(int index, CarPart* c)
 {
 	Logger::log("Obselete Function Usage in CarPart", "Part of type " + name + "has no use for add function");
 }
@@ -96,8 +96,3 @@ void CarPart::remove(int index)
 	Logger::log("Obselete Function Usage in CarPart", "Part of type " + name + "has no use for remove function");
 }
 
-const float CarPart::MAX_ACCELERATION_VALUE = 100.0;
-
-const float CarPart::MAX_HANDLING_VALUE = 100.0;
-
-const float CarPart::MAX_SPEED_VALUE = 100.0;

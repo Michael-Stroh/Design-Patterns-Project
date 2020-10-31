@@ -11,6 +11,7 @@
 #define ENGINEDEPARTMENT_H
 
 #include "EngineeringDepartment.h"
+#include "Engine.h"
 
 class EngineDepartment: public EngineeringDepartment {
 
@@ -18,27 +19,17 @@ class EngineDepartment: public EngineeringDepartment {
 	
 		/**
 			Constructor
-		*/
-		EngineDepartment();
-
-		/**
-			Constructor
 			@param
 		*/
-		EngineDepartment( float );
+		EngineDepartment( Budget *, float );
 
-		/**
-			Constructor
-			@param
-		*/
-		EngineDepartment( Simulation* );
-
+	
 		/**
 			Constructor
 			@param
 			@param
 		*/
-		EngineDepartment( Simulation*, float );
+		EngineDepartment( Simulation*, Budget *, float );
 
 		/**
 			Destructor
@@ -46,10 +37,19 @@ class EngineDepartment: public EngineeringDepartment {
 		~EngineDepartment();
 
 		/**
-			
-			@return
+			Runs a simulation by cloning the old part, randomly changing its stats according to the values in the Engine class
+			and finally comparing the aggregate of the scores of the new and old part to see which is better. Swaps parts out if better,
+			else changes nothing. Deletes the part that is no longer necessary to avoid memory leaks.
+			@return The next simulation to run for this department.
 		*/
-		Simulation* runSimulation();
+		void runSimulation(CarComposite *);
+
+	private:
+		/**
+			Constructor
+		*/
+		EngineDepartment();
+
 };
 
 #endif

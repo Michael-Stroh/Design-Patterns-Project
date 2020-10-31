@@ -11,46 +11,42 @@
 
 #include "EngineeringDepartment.h"
 #include "Simulation.h"
+#include "Chassis.h"
 
 class ChassisDepartment: public EngineeringDepartment {
 
 
 	public:
-	
+		
 		/**
-			Constructor
+			Default Constructor should not be used.
 		*/
 		ChassisDepartment();
-
+		
 		/**
-			Constructor Constructor that takes a float for the budgetLimit as a parameter and stores it
-			@param budget
-		*/
-		ChassisDepartment( float );
-
-		/**
-			Constructor that takes a Simulation pointer as a parameter and stores it
+			Constructor
 			@param
 		*/
-		ChassisDepartment( Simulation* );
+		ChassisDepartment(Budget*, float);
 
 		/**
-			Constructor that takes pointers for the Simulation and budgetLimit and stores them
+			Constructor
 			@param
-			@param budget
+			@param
 		*/
-		ChassisDepartment( Simulation*, float );
+		ChassisDepartment(Simulation*, Budget*, float);
 
 		/**
 			Destructor
 		*/
 		~ChassisDepartment();
 
+
 		/**
 			Runs a chosen simulation and returns the object
 			@return
 		*/
-		Simulation* runSimulation();
+		void runSimulation(CarComposite * );
 };
 
 #endif

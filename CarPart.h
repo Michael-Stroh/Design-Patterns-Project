@@ -41,7 +41,7 @@ class CarPart : public Car{
 			Constructor for prototype method
 			@param part is the CarPart to be copied.
 		*/
-		CarPart( Car& );
+		CarPart( CarPart& );
 
 		/**
 			Destructor
@@ -50,7 +50,7 @@ class CarPart : public Car{
 
 		/**
 			Returns a clone/instantiation of the current CarPart object
-			@return a CarPart * (since a CarPart is a Car*).
+			@return a CarPart * 
 		*/
 		virtual CarPart *  clone();
 
@@ -113,7 +113,7 @@ class CarPart : public Car{
 			@param index
 			@param
 		*/
-		virtual void add(int, Car*);
+		virtual void add(int, CarPart*);
 
 		/**
 			Has no obvious use for most derived classes. Will be overridden in derived classes as they need
@@ -121,19 +121,7 @@ class CarPart : public Car{
 		*/
 		virtual void remove(int);
 
-		/**
-			@brief The maximum value for acceleration for any car part.
-		*/
-		static const float MAX_ACCELERATION_VALUE;
-		/**
-			@brief The maximum value for handling for any car part.
-		*/
-		const static float MAX_HANDLING_VALUE;
-		/**
-			@brief The maximum value for speed for any car part.
-		*/
-		const static float MAX_SPEED_VALUE;
-
+	
 	protected:	//changed from private to protected
 
 		/**

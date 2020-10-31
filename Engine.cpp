@@ -54,4 +54,10 @@ const float Engine::INITIAL_HANDLING_VARIANCE = 0.0;
 
 const float Engine::HANDLING_CHANGE_VARIANCE = 0.0;
 
-const  float Engine::INITIAL_TEMPERATURE = 100.0;
+const float Engine::INITIAL_TEMPERATURE = 100.0;
+
+const float Engine::MAX_ACCELERATION_VALUE = 100.0;
+
+const float Engine::MAX_HANDLING_VALUE = 0.0;
+
+const float Engine::MAX_SPEED_VALUE = 100.0;

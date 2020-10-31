@@ -1,37 +1,57 @@
 #include "ChassisDepartment.h"
 
-ChassisDepartment::ChassisDepartment():EngineeringDepartment() {
+ChassisDepartment::ChassisDepartment() : EngineeringDepartment() {
 
-	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
+
 }
 
-ChassisDepartment::ChassisDepartment( float budget ):EngineeringDepartment( budget ) {
+ChassisDepartment::ChassisDepartment(Budget* budget, float budgetLimit) : EngineeringDepartment(budget, budgetLimit)
+{
 
-	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
+
 }
 
-ChassisDepartment::ChassisDepartment( Simulation* state ): EngineeringDepartment( state ) {
 
-	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
+ChassisDepartment::ChassisDepartment(Simulation* state, Budget* budget, float budgetLimit) : EngineeringDepartment(state, budget, budgetLimit) {
+
+
 }
 
-ChassisDepartment::ChassisDepartment( Simulation* state, float budget ): EngineeringDepartment( state, budget ) {
+ChassisDepartment::~ChassisDepartment()
+{
 
-	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
+
 }
 
-ChassisDepartment::~ChassisDepartment() {
+void  ChassisDepartment::runSimulation(CarComposite* car)
+{
+	CarPart* Chassis = car->getPart(CHASSIS);
+	float variances[] = { Chassis::ACCELERATION_CHANGE_VARIANCE,
+						 Chassis::HANDLING_CHANGE_VARIANCE,
+						  Chassis::SPEED_CHANGE_VARIANCE
+	};
+	float max[] = { Chassis::MAX_ACCELERATION_VALUE,
+						 Chassis::MAX_HANDLING_VALUE,
+						  Chassis::MAX_SPEED_VALUE
 
-	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
-}
+	};
+	CarPart* potentialChassis = simulationState->simulate(Chassis, variances, max);
 
-Simulation* ChassisDepartment::runSimulation() {
 
-	// TODO - implement ChassisDepartment::runSimulation
-	throw "Not yet implemented";
+	float originalAggregate = Chassis->getAcceleration() + Chassis->getHandling() + Chassis->getSpeed();
+	float newAggregate = potentialChassis->getAcceleration() + potentialChassis->getHandling() + potentialChassis->getSpeed();
+
+	if (originalAggregate >= newAggregate) //old part is better
+	{
+		delete potentialChassis;
+	}
+	else	//new part is better
+	{
+		car->remove(CHASSIS);
+		car->add(CHASSIS, potentialChassis);
+	}
+
+	Simulation* nextState = simulationState->getNextState();
+	delete simulationState;
+	simulationState = nextState;
 }

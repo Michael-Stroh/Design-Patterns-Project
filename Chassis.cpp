@@ -36,3 +36,9 @@ const float Chassis::INITIAL_HANDLING = 8.0;
 const float Chassis::INITIAL_HANDLING_VARIANCE = 1.0;
 
 const float Chassis::HANDLING_CHANGE_VARIANCE = 0.5;
+
+const float Chassis::MAX_ACCELERATION_VALUE = 15;
+
+const  float Chassis::MAX_HANDLING_VALUE = 15;
+
+const  float Chassis::MAX_SPEED_VALUE = 15;
