@@ -2,7 +2,7 @@
    @file Iterator.h
    @class Iterator
    @authors Michael
-   @version 1.0.0
+   @version 1.1.0
    @brief 
  */
 
@@ -23,7 +23,7 @@ class Iterator {
 
 		/**
 			Constructor
-		 	@param
+		 	@param[out]
 		*/
 		Iterator( Road* );
 

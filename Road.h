@@ -23,7 +23,7 @@ class Road {
 
 		/**
 			Constructor
-			@param
+			@param[in]
 		*/
 		Road( string );
 
@@ -52,7 +52,7 @@ class Road {
 
 		/**
 
-			@param ChangeName
+			@param[in] ChangeName
 		*/
 		void setName( string );
 

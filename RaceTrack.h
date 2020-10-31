@@ -28,27 +28,27 @@ class RaceTrack: public Road {
 
 		/**
 			Constructor
-			@param name
+			@param[in] name
 		*/
 		RaceTrack( string );
 
 		/**
 			Constructor
-			@param name
-			@param dist
-			@param wind
+			@param[in] name
+			@param[in] dist
+			@param[in] wind
 		*/
 		RaceTrack( string, float, float );
 
          /**
             Constructor
-            @param name
-            @param dir
-            @param dist
-            @param wind
-            @param strDist
-            @param corners
-            @param RaceLaps
+            @param[in] name
+            @param[in] dir
+            @param[in] dist
+            @param[in] wind
+            @param[in] strDist
+            @param[in] corners
+            @param[in] RaceLaps
         */
          RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
 
@@ -76,7 +76,7 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@param dist
+			@param[in] dist
 		*/
 		void setDistance( float );
 
@@ -88,7 +88,7 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@param wind
+			@param[in] wind
 		*/
 		void setWindForce( float );
 
@@ -100,7 +100,7 @@ class RaceTrack: public Road {
 
 		/**
 
-			@param RaceLaps
+			@param[in] RaceLaps
 		*/
 		void setLaps( int );
 
@@ -112,7 +112,7 @@ class RaceTrack: public Road {
 
 		/**
 
-			@param corners
+			@param[in] corners
 		*/
 		void setCorners( int );
 
@@ -124,7 +124,7 @@ class RaceTrack: public Road {
 
 		/**
 
-			@param dist
+			@param[in] dist
 		*/
 		void setStraightDistance( float );
 
@@ -136,7 +136,7 @@ class RaceTrack: public Road {
 
 		/**
 
-			@param dir
+			@param[in] dir
 		*/
 		void setDirection( RaceTrack::direction );
 

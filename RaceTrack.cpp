@@ -1,4 +1,3 @@
-#include <iostream>
 #include "RaceTrack.h"
 
 RaceTrack::RaceTrack(): Road() {
@@ -31,8 +30,8 @@ void RaceTrack::print() {
 	dist << distance;
 	wind << windForce;
 
-	Logger::cyan( "Road raced", "The " + getName() + " road was raced " + getDirection() + " with a distance of " + dist.str()
-	+  ", a wind force of " + wind.str() + "." );
+	Logger::cyan( "Road raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str()
+	+  "km and a wind force of " + wind.str() + " units." );
 }
 
 Iterator* RaceTrack::createIterator() {

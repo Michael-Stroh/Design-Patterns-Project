@@ -24,7 +24,7 @@ class CompositeRoad: public Road {
 
 		/**
 			Constructor
-		 	@param RoadName
+		 	@param[in] RoadName
 		*/
 		CompositeRoad( string );
 
@@ -35,19 +35,19 @@ class CompositeRoad: public Road {
 
 		/**
 			Adds a road object to the tracks list
-			@param CreateRoad
+			@param[out] CreateRoad
 		*/
 		void addRoad( Road* );
 
 		/**
 			Removes a road object to the tracks list
-			@param RemoveRoad
+			@param[out] RemoveRoad
 		*/
 		void removeRoad( Road* );
 
         /**
             Removes a road object to the tracks list
-            @param RemoveRoad
+            @param[in] RemoveRoad
         */
         void removeRoad( const string& );
 

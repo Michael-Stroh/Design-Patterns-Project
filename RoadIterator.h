@@ -2,7 +2,7 @@
    @file RoadIterator.h
    @class RoadIterator
    @authors Michael
-   @version 1.0.0
+   @version 1.1.0
    @brief 
  */
 
@@ -22,7 +22,7 @@ class RoadIterator: public Iterator {
 
 		/**
 			Constructor
-		 	@param
+		 	@param[out]
 		*/
 		RoadIterator( Road* );
 
