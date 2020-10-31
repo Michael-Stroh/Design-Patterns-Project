@@ -5,6 +5,7 @@
    @version 1.0.0
    @brief The Official state for the Race class.
    @details Responsible for performing the necessary steps to complete an official race.
+   
  */
 
 #ifndef OFFICIALSTATE_H
@@ -14,6 +15,8 @@
 #include "RaceState.h"
 #include "RaceTeam.h"
 #include "Result.h"
+#include "RaceResult.h"
+#include "LapResult.h"
 #include "Circuit.h"
 
 class OfficialState : public RaceState
@@ -37,7 +40,7 @@ public:
 			@param Circuit: The circuit on which the official race will take place.
 			@return The result of the official race.
 		*/
-	Result *runRace(Result *, RaceTeam *, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
 
 private:
 	/**
