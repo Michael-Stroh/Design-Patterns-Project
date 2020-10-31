@@ -10,8 +10,6 @@
 #define SPEEDSIMULATION_H
 
 #include "Simulation.h"
-#include "CarComposite.h"
-#include "Driver.h"
 
 class SpeedSimulation: public Simulation {
 

@@ -21,6 +21,20 @@ class AggressiveDriving: public Driver {
 		AggressiveDriving();
 
 		/**
+			Constructor
+		 	@param
+		*/
+		AggressiveDriving( string );
+
+		/**
+			Constructor
+			@param
+			@param
+			@param
+		*/
+		AggressiveDriving( string, int, float );
+
+		/**
 			Destructor
 		*/
 		~AggressiveDriving();

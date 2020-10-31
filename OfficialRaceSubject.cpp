@@ -1,11 +1,18 @@
 #include "OfficialRaceSubject.h"
 
-OfficialRaceSubject::OfficialRaceSubject() {
+OfficialRaceSubject::OfficialRaceSubject(): Subject() {
+
 	// TODO - implement OfficialRaceSubject::OfficialRaceSubject
 	throw "Not yet implemented";
 }
 
-void OfficialRaceSubject::notify(RaceState* r) {
+OfficialRaceSubject::~OfficialRaceSubject() {
+
+
+}
+
+void OfficialRaceSubject::notify( RaceState* r ) {
+
 	// TODO - implement OfficialRaceSubject::notify
 	throw "Not yet implemented";
 }

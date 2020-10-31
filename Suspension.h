@@ -13,7 +13,6 @@
 
 class Suspension: public CarPart {
 
-
 	public:
 	
 		/**

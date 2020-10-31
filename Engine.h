@@ -22,6 +22,12 @@ class Engine: public CarPart {
 		Engine();
 
 		/**
+			Constructor
+		 	@param StartTemp
+		*/
+		Engine( int );
+
+		/**
 			Destructor
 		*/
 		~Engine();
@@ -36,7 +42,19 @@ class Engine: public CarPart {
 			@return
 		*/
 		float determineEffectiveSpeed();
-	
+
+		/**
+
+			@return
+		*/
+		int getTemp();
+
+		/**
+
+			@param ChangeTemp
+		*/
+			void setTemp( int );
+
 	private:
 		
 		/**

@@ -12,7 +12,7 @@
 
 #include "PitCrew.h"
 
-class PartReplacer : PitCrew {
+class PartReplacer: public PitCrew {
 
 	public:
 		

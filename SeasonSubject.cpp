@@ -1,11 +1,18 @@
 #include "SeasonSubject.h"
 
-SeasonSubject::SeasonSubject() {
+SeasonSubject::SeasonSubject(): Subject() {
+
 	// TODO - implement SeasonSubject::SeasonSubject
 	throw "Not yet implemented";
 }
 
-void SeasonSubject::notify(RaceState* r) {
+SeasonSubject::~SeasonSubject() {
+
+}
+
+
+void SeasonSubject::notify( RaceState* r ) {
+
 	// TODO - implement SeasonSubject::notify
 	throw "Not yet implemented";
 }

@@ -3,13 +3,15 @@
    @class CompositeRoad
    @authors Michael
    @version 1.0.0
-   @brief Composite Particpant which will hold the roads
+   @brief Composite participant which will hold the roads
  */
 
-#ifndef COMPOSITEROAD_H
-#define COMPOSITEROAD_H
+#ifndef CompositeRoad_H
+#define CompositeRoad_H
 
 #include "Road.h"
+
+#include <vector>
 
 class CompositeRoad: public Road {
 
@@ -18,22 +20,28 @@ class CompositeRoad: public Road {
 		/**
 			Constructor
 		*/
-		compositeRoad();
+		CompositeRoad();
+
+		/**
+			Constructor
+		 	@param RoadName
+		*/
+		CompositeRoad( string );
 
 		/**
 			Destructor
 		*/
-		~compositeRoad();
+		~CompositeRoad();
 
 		/**
 			Adds a road object to the tracks list
-			@param 
+			@param CreateRoad
 		*/
 		void addRoad( Road* );
 
 		/**
 			Removes a road object to the tracks list
-			@param
+			@param RemoveRoad
 		*/
 		void removeRoad( Road* );
 
@@ -47,7 +55,7 @@ class CompositeRoad: public Road {
 		/**
      		@brief Stores a list of tracks so it's easier to store and iterate through
 		*/
-		list<Road*> tracks;
+		vector<Road*> tracks;
 };
 
 #endif

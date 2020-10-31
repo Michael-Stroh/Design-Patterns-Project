@@ -23,7 +23,7 @@ class CarMemento {
 		/**
 			Destructor
 		*/
-		void ~CarMemento();
+		~CarMemento();
 
 		/**
 			Returns the current stored state
@@ -42,7 +42,7 @@ class CarMemento {
 		/**
      		@brief Stores a pointer to a state object
 		*/
-		State * state;
+		State* state;
 };
 
 #endif

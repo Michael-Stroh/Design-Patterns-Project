@@ -9,6 +9,10 @@
 #ifndef CAR_H
 #define CAR_H
 
+#include <iostream>
+
+using namespace std;
+
 class Car {
 
 	public:
@@ -26,7 +30,7 @@ class Car {
 		/**
 			Destructor
 		*/
-		~Car();
+		virtual ~Car();
 
 		/**
 			Makes and returns a clone of the current Car object
@@ -54,6 +58,7 @@ class Car {
 
 		/**
 			Returns the stored handling
+		 	@return
 		*/
 		virtual float getHandling() = 0;
 

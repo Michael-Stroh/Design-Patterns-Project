@@ -11,7 +11,7 @@
 #define PITSTOP_H
 
 #include "PitCrew.h"
-#include "car.h"
+#include "Car.h"
 
 class PitStop {
 
@@ -49,7 +49,7 @@ class PitStop {
 			
 			@param
 		*/
-		virtual bool setCar( car* ) = 0;
+		virtual bool setCar( Car* ) = 0;
 	
 	private:
 

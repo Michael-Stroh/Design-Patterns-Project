@@ -13,7 +13,6 @@
 
 class RaceSubject: public Subject {
 
-
 	public:
 	
 		/**

@@ -9,7 +9,7 @@
 #ifndef CHASSISFACTORY_H
 #define CHASSISFACTORY_H
 
-#incluide "CarPartFactory.h"
+#include "CarPartFactory.h"
 
 class ChassisFactory: public CarPartFactory {
 

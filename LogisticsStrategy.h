@@ -10,34 +10,30 @@
 #ifndef LOGISITICSSTRATEGY_H
 #define LOGISITICSSTRATEGY_H
 
-#include "Logisitics.h"
+#include "logistics.h"
 
 #include <vector> 
 
-class LogisiticsStrategy {
+class LogisticsStrategy {
 
 	public:
 		
 		/**
 			Constructor
 		*/
-		LogisiticsStrategy();
+		LogisticsStrategy();
 
 		/**
 			Destructor
 		*/
-		~LogisiticsStrategy();
-
-		void StartOfNewRace();
-
-		void EndOfRace();
+		~LogisticsStrategy();
 	
 	private:
 
 		/**
 			@brief 
 		*/
-		vector<Logisitics*> logisitics;
+		vector<Logistics*> logisitics;
 };
 
 #endif

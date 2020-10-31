@@ -1,11 +1,16 @@
 #include "Road.h"
 
-void Road::road() {
-	// TODO - implement Road::road
+Road::Road() {
+
+}
+
+Road::Road( string RoadName ): name( RoadName ) {
+
+	// TODO - implement Road::Road
 	throw "Not yet implemented";
 }
 
-Road::Road(string n) {
-	// TODO - implement Road::Road
-	throw "Not yet implemented";
+
+Road::~Road() {
+
 }

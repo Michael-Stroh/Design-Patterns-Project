@@ -10,7 +10,7 @@
 #define RACESTRATEGY_H
 
 #include "TyreStrategy.h"
-#include "PitCrewStrategy.h"
+#include "PitStopStrategy.h"
 #include "DriverStrategy.h"
 
 class RaceStrategy {
@@ -30,7 +30,7 @@ class RaceStrategy {
 		/**
 			
 		*/
-		void setPitCrewStrategy();
+		void setPitStopStrategy();
 
 		/**
 			
@@ -52,7 +52,7 @@ class RaceStrategy {
 		/**
 			@brief the variable that holds the pit crew strategy
 		*/
-		PitCrewStrategy* pitCrewStrategy;
+		PitStopStrategy* pitCrewStrategy;
 		
 		/**
 			@brief the variable that holds the driver strategy
