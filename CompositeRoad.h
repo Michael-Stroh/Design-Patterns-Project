@@ -55,7 +55,13 @@ class CompositeRoad: public Road {
 			Prints out details about the tracks list
 		*/
 		void print();
-	
+
+		/**
+
+			@return
+		*/
+		Iterator* createIterator();
+
 	private:
 	
 		/**

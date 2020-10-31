@@ -1,10 +1,10 @@
 #include "RaceTrack.h"
 
-RaceTrack::RaceTrack(): Road() {
+RaceTrack::RaceTrack(): Road(), distance( 0 ), windForce( 0 ), skill( 0 ) {
 
 }
 
-RaceTrack::RaceTrack( string name ): Road( name ) {
+RaceTrack::RaceTrack( string name ): Road( name ), distance( 0 ), windForce( 0 ), skill( 0 ) {
 
 }
 
