@@ -1,15 +1,22 @@
+#include <iostream>
 #include "RaceTrack.h"
 
-RaceTrack::RaceTrack(): Road(), distance( 0 ), windForce( 0 ), skill( 0 ) {
+RaceTrack::RaceTrack(): Road() {
 
 }
 
-RaceTrack::RaceTrack( string name ): Road( name ), distance( 0 ), windForce( 0 ), skill( 0 ) {
+RaceTrack::RaceTrack( string name ): Road( name ) {
 
 }
 
-RaceTrack::RaceTrack( string name, float dist, float wind, float RaceSkill ):
-					Road( name ), distance( dist ), windForce( wind ), skill( RaceSkill )  {
+RaceTrack::RaceTrack( string name, float dist, float wind ):
+					Road( name ), distance( dist ), windForce( wind ) {
+
+}
+
+RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
+					  int corners, int RaceLaps ): Road( name ), dirct( dir ), distance( dist ), windForce( wind ),
+					  laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
 
 }
 
@@ -19,14 +26,13 @@ RaceTrack::~RaceTrack() {
 
 void RaceTrack::print() {
 
-	stringstream dist, wind, skilled;
+	stringstream dist, wind;
 
 	dist << distance;
 	wind << windForce;
-	skilled << skill;
 
 	Logger::cyan( "Road raced", "The " + getName() + " road was raced with a distance of " + dist.str()
-	+  ", a wind force of " + wind.str() + "  and a skill of " + skilled.str() + " needed." );
+	+  ", a wind force of " + wind.str() + "." );
 }
 
 Iterator* RaceTrack::createIterator() {
@@ -54,12 +60,47 @@ void RaceTrack::setWindForce( float wind ) {
 	windForce = wind;
 }
 
-float RaceTrack::getSkill() const {
+int RaceTrack::getLaps() const {
 
-	return skill;
+	return laps;
 }
 
-void RaceTrack::setSkill( float RaceSkill ) {
+void RaceTrack::setLaps( int RaceLaps ) {
 
-	skill = RaceSkill;
+	laps = RaceLaps;
+}
+
+int RaceTrack::getCorners() const {
+
+	return numCorners;
+}
+
+void RaceTrack::setCorners( int corners ) {
+
+	numCorners = corners;
+}
+
+float RaceTrack::getStraightDistance() const {
+
+	return straightDistance;
+}
+
+void RaceTrack::setStraightDistance( float dist ) {
+
+	straightDistance = dist;
+}
+
+string RaceTrack::getDirection() const {
+
+	switch ( dirct  ) {
+
+		case clockwise: 		return "clockwise";
+		case anticlockwise: 	return "anticlockwise";
+		default: 				return "Error";
+	}
+}
+
+void RaceTrack::setDirection( RaceTrack::direction dir ) {
+
+	dirct = dir;
 }

@@ -33,8 +33,6 @@ void CompositeRoad::removeRoad( Road* RemoveRoad ) {
 
             Logger::cyan( "Success", "Road " + track->getName() + " was removed." );
 
-            delete track;
-
             tracks.erase( tracks.begin() + x );
             tracks.size();
 

@@ -2,7 +2,7 @@
    @file RaceTrack.h
    @class RaceTrack
    @authors Michael
-   @version 1.2.0
+   @version 1.3.0
    @brief 
  */
 
@@ -15,7 +15,12 @@
 class RaceTrack: public Road {
 
 	public:
-	
+
+		/**
+			@brief tracks can be reused and changes how the track is raced
+		*/
+		enum direction { clockwise = 0, anticlockwise = 1 };
+
 		/**
 			Constructor
 		*/
@@ -32,9 +37,20 @@ class RaceTrack: public Road {
 			@param name
 			@param dist
 			@param wind
-			@param RaceSkill
 		*/
-		RaceTrack( string, float, float, float );
+		RaceTrack( string, float, float );
+
+         /**
+            Constructor
+            @param name
+            @param dir
+            @param dist
+            @param wind
+            @param strDist
+            @param corners
+            @param RaceLaps
+        */
+         RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
 
 		/**
 			Destructor
@@ -72,38 +88,89 @@ class RaceTrack: public Road {
 
 		/**
 			
-			@return wind
+			@param wind
 		*/
 		void setWindForce( float );
 
 		/**
-			
+
 			@return
 		*/
-		float getSkill() const;
+		int getLaps() const;
 
 		/**
-			
-			@param RaceSkill
+
+			@param RaceLaps
 		*/
-		void setSkill( float );
+		void setLaps( int );
+
+		/**
+
+			@return
+		*/
+		int getCorners() const;
+
+		/**
+
+			@param corners
+		*/
+		void setCorners( int );
+
+		/**
+
+			@return
+		*/
+		float getStraightDistance() const;
+
+		/**
+
+			@param dist
+		*/
+		void setStraightDistance( float );
+
+		/**
+
+			@return
+		*/
+		string getDirection() const;
+
+		/**
+
+			@param dir
+		*/
+		void setDirection( RaceTrack::direction );
 
 	private:
-	
+
+        /**
+             @brief
+        */
+        int laps = 0;
+
 		/**
 			@brief
 		*/
-		float distance;
+		int numCorners = 0;
+
+        /**
+			@brief
+		*/
+		float distance = 0;
 		
 		/**
 			@brief
 		*/
-		float windForce;
-		
+		float windForce = 0;
+
+        /**
+            @brief
+        */
+        float straightDistance = 0;
+
 		/**
 			@brief
 		*/
-		float skill;
+        direction dirct = clockwise;
 };
 
 #endif
