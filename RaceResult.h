@@ -104,6 +104,7 @@ private:
 			@brief A vector containing the drivers and their grid positions
 		*/
 	vector<pair<string, int>> driverGridPositions;
+	vector<pair<string, int>> driverPoints;
 
 	/**
 			@brief A vector containing the drivers and their respective teams
