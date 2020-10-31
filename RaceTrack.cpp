@@ -1,4 +1,3 @@
-#include <sstream>
 #include "RaceTrack.h"
 
 RaceTrack::RaceTrack(): Road() {
@@ -27,7 +26,7 @@ void RaceTrack::print() {
 	skilled << skill;
 
 	Logger::cyan( "Road raced", "The " + getName() + " road was raced with a distance of " + dist.str()
-	+  ", a wind force of " + wind.str() + "  and a skill needed of " + skilled.str() + "." );
+	+  ", a wind force of " + wind.str() + "  and a skill of " + skilled.str() + " needed." );
 }
 
 Iterator* RaceTrack::createIterator() {

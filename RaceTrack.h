@@ -10,6 +10,7 @@
 #define RACETRACK_H
 
 #include "Road.h"
+#include <sstream>
 
 class RaceTrack: public Road {
 
