@@ -1,64 +1,84 @@
 #include "RaceSeasonResult.h"
 
-RaceSeasonResult::RaceSeasonResult() : Result()
+RaceSeasonResult::RaceSeasonResult()
 {
-
-	// TODO - implement RaceSeasonResult::RaceSeasonResult
-	throw "Not yet implemented";
-}
-
-RaceSeasonResult::RaceSeasonResult(Result *r, map<string, int> m, map<string, int> parameter) : Result()
-{
-
-	// TODO - implement RaceSeasonResult::RaceSeasonResult
-	throw "Not yet implemented";
-}
-
-RaceSeasonResult::RaceSeasonResult(Result *r) : Result()
-{
-
-	// TODO - implement RaceSeasonResult::RaceSeasonResult
-	throw "Not yet implemented";
+	this->grandPrixResults = vector<Result *>();
+	this->totalDriverPoints = vector<pair<string, int>>();
+	this->totalTeamPoints = vector<pair<string, int>>();
 }
 
 void RaceSeasonResult::addResult(Result *r)
 {
+	this->grandPrixResults.push_back(r);
 
-	// TODO - implement RaceSeasonResult::addResult
-	throw "Not yet implemented";
+	bool alreadyRecorded = false;
+	vector<pair<string, int>>::iterator it;
+	vector<pair<string, int>>::iterator it2;
+	GrandPrixResult *grandPrixResult = dynamic_cast<GrandPrixResult *>(r);
+	vector<pair<string, int>> inputDriverPoints = grandPrixResult->getDriverPoints();
+	vector<pair<string, int>> inputTeamPoints = grandPrixResult->getTeamPoints();
+
+	// Insert into drivers total points
+	for (it = inputDriverPoints.begin(); it != inputDriverPoints.end(); ++it)
+	{
+		alreadyRecorded = false;
+		for (it2 = this->totalDriverPoints.begin(); it2 != this->totalDriverPoints.end(); ++it2)
+		{
+			if (it->first == it2->first)
+			{
+				it2->second += it->second;
+				alreadyRecorded = true;
+				break;
+			}
+		}
+		if (!alreadyRecorded)
+		{
+			this->totalDriverPoints.push_back(make_pair(it->first, it->second));
+		}
+	}
+
+	// Insert into teams total points
+	for (it = inputTeamPoints.begin(); it != inputTeamPoints.end(); ++it)
+	{
+		alreadyRecorded = false;
+		for (it2 = this->totalTeamPoints.begin(); it2 != this->totalTeamPoints.end(); ++it2)
+		{
+			if (it->first == it2->first)
+			{
+				it2->second += it->second;
+				alreadyRecorded = true;
+				break;
+			}
+		}
+		if (!alreadyRecorded)
+		{
+			this->totalTeamPoints.push_back(make_pair(it->first, it->second));
+		}
+	}
 }
 
 void RaceSeasonResult::print()
 {
-
-	// TODO - implement RaceSeasonResult::print
-	throw "Not yet implemented";
+	this->printDrivers();
+	this->printTeams();
 }
 
 void RaceSeasonResult::printDrivers()
 {
-
-	// TODO - implement RaceSeasonResult::printDrivers
-	throw "Not yet implemented";
+	cout << "Drivers Championship: " << endl;
+	vector<pair<string, int>>::iterator it;
+	for (it = this->totalDriverPoints.begin(); it != this->totalDriverPoints.end(); ++it)
+	{
+		cout << it->first << " : " << it->second << " pts" << endl;
+	}
 }
 
 void RaceSeasonResult::printTeams()
 {
-
-	// TODO - implement RaceSeasonResult::printTeams
-	throw "Not yet implemented";
-}
-
-void RaceSeasonResult::setTeamTime(map<string, int> m)
-{
-
-	// TODO - implement RaceSeasonResult::setTeamTime
-	throw "Not yet implemented";
-}
-
-void RaceSeasonResult::setDriverTime(map<string, int> m)
-{
-
-	// TODO - implement RaceSeasonResult::setDriverTime
-	throw "Not yet implemented";
+	cout << "Constructors Championship: " << endl;
+	vector<pair<string, int>>::iterator it;
+	for (it = this->totalTeamPoints.begin(); it != this->totalTeamPoints.end(); ++it)
+	{
+		cout << it->first << " : " << it->second << " pts" << endl;
+	}
 }

@@ -3,15 +3,17 @@
    @class RaceSeasonResult
    @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The class that will store the results of an entire race season
  */
 
 #ifndef RACESEASONRESULT_H
 #define RACESEASONRESULT_H
 
 #include "Result.h"
-
-#include <map>
+#include "GrandPrixResult.h"
+#include <iostream>
+#include <vector>
+using namespace std;
 
 class RaceSeasonResult : public Result
 {
@@ -23,72 +25,45 @@ public:
 	RaceSeasonResult();
 
 	/**
-			Constructor
-			@param
-			@param
-			@param
-		*/
-	RaceSeasonResult(Result *, map<string, int>, map<string, int>);
-
-	/**
-			Constructor
-			@param
-		*/
-	RaceSeasonResult(Result *);
-
-	/**
 			Destructor
 		*/
 	~RaceSeasonResult();
 
 	/**
-			
-			@param
+			@param: An instance of GrandPrixResult
 		*/
 	void addResult(Result *);
 
 	/**
-			
-		*/
+		@brief: Prints out the results of the Drivers Championship and the Constructors Championship
+	*/
 	void print();
 
 	/**
-			
+		@brief: Prints out the results of the Drivers Championship
 		*/
 	void printDrivers();
 
 	/**
-			
+	    @brief: Prints out the results of the Constructors Championship
 		*/
 	void printTeams();
 
-	/**
-			
-			@param
-		*/
-	void setTeamTime(map<string, int>);
-
-	/**
-			
-			@param
-		*/
-	void setDriverTime(map<string, int>);
-
 private:
 	/**
-			@brief
+			@brief: Stores all of the individual grand prix results
 		*/
-	Result *grandPrixResults;
+	vector<Result *> grandPrixResults;
 
 	/**
-			@brief
+			@brief: Stores each of the drivers total points
 		*/
-	map<string, int> totalDriverPoints;
+	vector<pair<string, int>> totalDriverPoints;
 
 	/**
-			@brief
+			@brief: Stores each of the teams total points
 		*/
-	map<string, int> totalTeamPoints;
+	vector<pair<string, int>> totalTeamPoints;
 };
 
 #endif
