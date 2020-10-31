@@ -4,6 +4,11 @@
    @authors Alex
    @version 1.0.0
    @brief The ancestor of Result that will contain the results of a single race.
+   @todo: Implement freezeBottom5()
+   @todo: Implement freezeBottom10()
+   @todo: Implement apply107Rule()
+   @todo: Implement isQualified()
+   @todo: Implement isUnfrozen()
  */
 
 #ifndef RACERESULT_H
