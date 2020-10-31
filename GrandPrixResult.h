@@ -10,7 +10,7 @@
 #define GRANDPRIXRESULT_H
 
 #include "Result.h"
-
+#include "RaceResult.h"
 #include <map>
 #include <string>
 #include <vector>
@@ -24,12 +24,6 @@ public:
 		Constructor
 	*/
 	GrandPrixResult();
-
-	/**
-		Constructor
-		@param[in] r: An instance of RaceResult (intended to be an official race result)
-	*/
-	GrandPrixResult(Result *);
 
 	/**
 		Destructor
@@ -51,6 +45,21 @@ public:
 	*/
 	void printTeams();
 
+	/**
+		@param[in] r: An instance of RaceResult, to be added to the total results of the race
+	*/
+	void addResult(Result *);
+
+	/**
+		@brief Returns a vector containing the team points for the race
+	*/
+	vector<pair<string, int>> getTeamPoints();
+
+	/**
+		@brief Returns a vector containing the driver points for the race
+	*/
+	vector<pair<string, int>> getDriverPoints();
+
 private:
 	/**
 		@brief The result of the official race within a grand prix
@@ -60,12 +69,12 @@ private:
 	/**
 		@brief A collection of all the points for the drivers in the grand prix
 	*/
-	vector<map<string, int>> driverPoints;
+	vector<pair<string, int>> driverPoints;
 
 	/**
 		@brief A collection of all the points for the teams in the grand prix
 	*/
-	vector<map<string, int>> teamPoints;
+	vector<pair<string, int>> teamPoints;
 };
 
 #endif
