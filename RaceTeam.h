@@ -4,6 +4,7 @@
    @authors Michael
    @version 1.0.0
    @brief 
+   @todo: Implement performLap(int, circuit) with int for driver index and circuit for driving on
  */
 
 #ifndef RACING_TEAM_H
@@ -17,74 +18,72 @@
 #include "Strategies.h"
 #include "LapResult.h"
 
+class RaceTeam
+{
 
-class RaceTeam {
-
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceTeam();
-		
-		/**
+	RaceTeam();
+
+	/**
 			Destructor
 		*/
-		~RaceTeam();
-		
-		/**
+	~RaceTeam();
+
+	/**
 			
 			@param
 			@return
 		*/
-		LapResult* performLap( int );
+	LapResult *performLap(int);
 
-		/**
+	/**
 			
 			@param
 		*/
-		void updateSeasonResult( int );
+	void updateSeasonResult(int);
 
-		/**
+	/**
 			
 			@param
 		*/
-		void updateQualifyingRaceResult( int );
+	void updateQualifyingRaceResult(int);
 
-		/**
+	/**
 			
 			@param
 			@return
 		*/
-		bool updateOfficialRaceResult( Result* );
+	bool updateOfficialRaceResult(Result *);
 
-		/**
+	/**
 			
 			@param
 		*/
-		void informGrandPrix( GrandPrix* );
-		
-	private:
-	
-		/**
+	void informGrandPrix(GrandPrix *);
+
+private:
+	/**
 			@brief
 		*/
-		Driver* driver;
-		
-		/**
+	Driver *driver;
+
+	/**
 			@brief
 		*/
-		Car* car;
-		
-		/**
+	Car *car;
+
+	/**
 			@brief
 		*/
-		CarBuilder* builder;
-		
-		/**
+	CarBuilder *builder;
+
+	/**
 			@brief
 		*/
-		Strategies* Strategy;
+	Strategies *Strategy;
 };
 
 #endif
