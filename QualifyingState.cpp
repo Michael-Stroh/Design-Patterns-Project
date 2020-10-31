@@ -41,7 +41,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 		}
 		timeleft -= longestLapTime;
 	}
-	qualifyingResult->freezeBottom5();
+	qualifyingResult->placeBottomXOnGrid(5);
 
 	// Stage 2 - Top 15 teams
 	// 15 minutes long
@@ -51,11 +51,11 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 	{
 		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
 		{
-			if(qualifyingResult->isUnfronzen(team->getDriver(0)->getName()){
+			if(!qualifyingResult->driverHasGridPosition(team->getDriver(0)->getName()){
 				LapResult *lapA = team->performLap(0, this->circuit);
 				qualifyingResult->addResult(lapA);
 			}
-			if(qualifyingResult->isUnfronzen(team->getDriver(1)->getName()){
+			if(!qualifyingResult->driverHasGridPosition(team->getDriver(1)->getName()){
 				LapResult *lapB = team->performLap(1, this->circuit);
 				qualifyingResult->addResult(lapB);
 			}
@@ -66,7 +66,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 		}
 		timeleft -= longestLapTime;
 	}
-	qualifyingResult->freezeBottom10();
+	qualifyingResult->placeBottomXOnGrid(5);
 
 	// Stage 3 - Top 10 teams
 	// 12 minutes long
@@ -76,11 +76,11 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 	{
 		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
 		{
-			if(qualifyingResult->isUnfronzen(team->getDriver(0)->getName()){
+			if(!qualifyingResult->driverHasGridPosition(team->getDriver(0)->getName(), 10){
 				LapResult *lapA = team->performLap(0, this->circuit);
 				qualifyingResult->addResult(lapA);
 			}
-			if(qualifyingResult->isUnfronzen(team->getDriver(1)->getName()){
+			if(!qualifyingResult->driverHasGridPosition(team->getDriver(1)->getName(), 10){
 				LapResult *lapB = team->performLap(1, this->circuit);
 				qualifyingResult->addResult(lapB);
 			}
@@ -91,6 +91,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 		}
 		timeleft -= longestLapTime;
 	}
+	qualifyingResult->placeBottomXOnGrid(10);
 
 	qualifyingResult->apply107Rule();
 	return qualifyingResult;
