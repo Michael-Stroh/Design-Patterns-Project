@@ -37,7 +37,7 @@ void GrandPrixResult::printTeams()
 void GrandPrixResult::addResult(Result *r)
 {
 	RaceResult *raceResult = dynamic_cast<RaceResult *>(r);
-	this->officialRaceResult = raceResult;
+	this->officialRaceResult = r;
 	this->driverPoints = raceResult->getDriverPoints();
 	this->teamPoints = raceResult->getTeamPoints();
 }
