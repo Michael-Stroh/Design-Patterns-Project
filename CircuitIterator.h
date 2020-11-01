@@ -2,8 +2,9 @@
    @file CircuitIterator.h
    @class CircuitIterator
    @authors Michael
-   @version 1.1.0
-   @brief 
+   @version 1.2.0
+   @brief ConcreteIterator participant in the Iterator design pattern
+   @details helps traverse CompositeRoad in a linear order
  */
 
 #ifndef CircuitITERATOR_H
@@ -16,18 +17,18 @@ class CircuitIterator: public Iterator {
 	public:
 		
 		/**
-			Constructor
+			@brief Constructor
 		*/
 		CircuitIterator();
 
 		/**
-			Constructor
+			@brief Constructor
 		 	@param[out]
 		*/
 		CircuitIterator( Circuit* );
 
 		/**
-			Destructor
+			@brief Destructor
 		*/
 		~CircuitIterator();
 

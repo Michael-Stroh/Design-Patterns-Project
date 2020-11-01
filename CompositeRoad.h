@@ -3,7 +3,7 @@
    @class CompositeRoad
    @authors Michael
    @version 1.5.0
-   @brief Composite participant in the Composite design pattern.
+   @brief Composite and ConcreteAggregate participant in the Composite and Iterator design pattern.
    @details holds a group of RaceTrack objects( leaf participant ) and acts like a tree structure.
  */
 

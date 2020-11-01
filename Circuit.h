@@ -2,9 +2,9 @@
    @file Circuit.h
    @class Circuit
    @authors Michael
-   @version 1.4.0
-   @brief component participant in the composite design pattern
-   @details template that acts as an interface for the clients
+   @version 1.5.0
+   @brief Component and Aggregate participant in the Composite and Iterator design pattern
+   @details Template that acts as an interface for the clients
  */
 
 #ifndef Circuit_H

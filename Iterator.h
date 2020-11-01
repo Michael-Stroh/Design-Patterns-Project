@@ -2,8 +2,9 @@
    @file Iterator.h
    @class Iterator
    @authors Michael
-   @version 1.1.0
-   @brief 
+   @version 1.2.0
+   @brief Iterator participant in the Iterator design pattern
+   @details this is an abstract class, it is mostly used as a template
  */
 
 
@@ -17,18 +18,22 @@ class Iterator {
 	public:
 	
 		/**
-			Constructor
+			@brief Constructor
+		 	Creates the Object
 		*/
 		Iterator();
 
 		/**
-			Constructor
+			@brief Constructor
+		 	Creates the Object
+
 		 	@param[out]
 		*/
 		Iterator( Circuit* );
 
 		/**
-			Destructor
+			@brief Destructor
+		 	Frees the memory
 		*/
 		virtual ~Iterator();
 
