@@ -12,6 +12,7 @@
 
 #include "EngineeringDepartment.h"
 #include "Engine.h"
+#include "AccelerationSimulation.h"
 
 class EngineDepartment: public EngineeringDepartment {
 

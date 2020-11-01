@@ -41,8 +41,14 @@ class Simulation {
 		*/
 		virtual CarPart * simulate( CarPart *, float variance [] , float max[]) = 0;
 
+		/**
+			@brief
+		*/
 		virtual void simulate(Driver*) = 0;
 
+		/**
+			@brief Returns the next simulation that a department should run
+		*/
 		virtual Simulation* getNextState() = 0;
 
 		

@@ -7,8 +7,7 @@ EngineDepartment::EngineDepartment(): EngineeringDepartment() {
 
 EngineDepartment::EngineDepartment(Budget * budget, float budgetLimit ): EngineeringDepartment( budget, budgetLimit )
 {
-
-	
+	simulationState = new AccelerationSimulation();
 }
 
 
@@ -19,8 +18,7 @@ EngineDepartment::EngineDepartment( Simulation* state, Budget * budget, float bu
 
 EngineDepartment::~EngineDepartment()
 {
-
-
+	delete simulationState;
 }
 
 //Look into typeCasting, check for memory leaks!!
@@ -36,6 +34,7 @@ void  EngineDepartment::runSimulation(CarComposite * car)
 						  Engine::MAX_SPEED_VALUE
 
 	};
+
 	CarPart* potentialEngine = simulationState->simulate(engine, variances, max);
 
 

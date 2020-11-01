@@ -7,8 +7,7 @@ ChassisDepartment::ChassisDepartment() : EngineeringDepartment() {
 
 ChassisDepartment::ChassisDepartment(Budget* budget, float budgetLimit) : EngineeringDepartment(budget, budgetLimit)
 {
-
-
+	simulationState = new AccelerationSimulation();
 }
 
 
@@ -19,8 +18,7 @@ ChassisDepartment::ChassisDepartment(Simulation* state, Budget* budget, float bu
 
 ChassisDepartment::~ChassisDepartment()
 {
-
-
+	delete simulationState;
 }
 
 void  ChassisDepartment::runSimulation(CarComposite* car)

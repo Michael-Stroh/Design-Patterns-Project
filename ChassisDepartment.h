@@ -1,9 +1,9 @@
 /**
    @file ChassisDepartment.h
    @class ChassisDepartment
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief The Engineering Department responsible for improving the chassis of a car.
  */
 
 #ifndef CHASSISDEPARTMENT_H
@@ -17,11 +17,6 @@ class ChassisDepartment: public EngineeringDepartment {
 
 
 	public:
-		
-		/**
-			Default Constructor should not be used.
-		*/
-		ChassisDepartment();
 		
 		/**
 			Constructor
@@ -43,10 +38,15 @@ class ChassisDepartment: public EngineeringDepartment {
 
 
 		/**
-			Runs a chosen simulation and returns the object
-			@return
+			Runs a chosen simulation and replaces the chassis if it has improved.
 		*/
 		void runSimulation(CarComposite * );
+
+	private:
+		/**
+			Default Constructor should not be used.
+		*/
+		ChassisDepartment();
 };
 
 #endif

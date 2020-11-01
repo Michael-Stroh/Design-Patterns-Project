@@ -22,10 +22,10 @@ class EngineeringDepartment {
 		
 		
 		/**
-			@param budgetLimit a specific Department's budget limit.
 			@param budget the budget pointer that specifies the shared budget for each department
+			@param budgetLimit a specific Department's budget limit.
 		*/
-		EngineeringDepartment(Budget*, float );
+		EngineeringDepartment(Budget *, float );
 
 		/**
 			Constructor
@@ -63,7 +63,7 @@ class EngineeringDepartment {
 		/**
 			@brief The state of the Department. Is used to determine what aspect of the part is going to be worked on next.
 		*/
-		Simulation* simulationState;
+		Simulation * simulationState;
 		
 		/**
 			@brief 

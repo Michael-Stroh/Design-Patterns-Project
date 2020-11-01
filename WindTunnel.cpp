@@ -2,19 +2,14 @@
 
 WindTunnel::WindTunnel(): Simulation() {
 
-	// TODO - implement WindTunnel::WindTunnel
-	throw "Not yet implemented";
+	
 }
 
-WindTunnel::~WindTunnel() {
+WindTunnel::~WindTunnel() 
+{
 
 }
 
-Simulation* WindTunnel::simulate( CarComposite* car, Driver* driver ) {
-
-	// TODO - implement WindTunnel::simulate
-	throw "Not yet implemented";
-}
 
 int WindTunnel::getUsage() {
 
@@ -34,4 +29,29 @@ int WindTunnel::getAllowedUsage() {
 void WindTunnel::setAllowedUsage( int allowedUsed ) {
 
 	usageAllowed = allowedUsed;
+}
+
+CarPart* WindTunnel::simulate(CarPart* body, float variance[], float max[])
+{
+	Body* tempBody = (Body*)body;
+	Body* potentialBody = (Body * )body->clone();
+
+	float newAero = generateRandomFraction() * variance[0];
+	if (generateRandomFraction() < 0)
+		newAero *= -1;
+	newAero += tempBody->getAerodynamicMultiplier();
+	if (newAero <= max[0])
+		potentialBody->setAeroDynamicMultiplier(newAero);
+
+	return potentialBody;
+}
+
+void WindTunnel::simulate(Driver* driver)
+{
+
+}
+
+Simulation* WindTunnel::getNextState()
+{
+	return new WindTunnel();
 }

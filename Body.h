@@ -51,6 +51,10 @@ class Body: public CarPart {
 			engineering department. 
 		*/
 		const static float AERODYNAMICS_VARIANCE;
+		/**
+			@brief Specifies the maximum amount that the aerodynamicsMultiplier can attain
+		*/
+		const static float MAX_AERODYNAMICS;
 
 		/**
 			@brief Specifies the initial speed value that newly created bodys should start with before variance.

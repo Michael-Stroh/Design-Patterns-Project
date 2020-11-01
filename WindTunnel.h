@@ -12,6 +12,7 @@
 #include "Simulation.h"
 #include "CarComposite.h"
 #include "Driver.h"
+#include "Body.h"
 
 class WindTunnel : Simulation {
 
@@ -27,14 +28,6 @@ class WindTunnel : Simulation {
 			Destructor
 		*/
 		~WindTunnel();
-
-		/**
-			
-			@param
-			@param
-			@return
-		*/
-		Simulation* simulate( CarComposite*, Driver* );
 
 		/**
 
@@ -59,6 +52,21 @@ class WindTunnel : Simulation {
 			 @param
 		*/
 		void setAllowedUsage( int );
+
+		/**
+
+			@param
+			@param
+			@return
+		*/
+		CarPart* simulate(CarPart*, float[], float[]);
+
+		void simulate(Driver*);
+
+		/**
+			@brief Returns the next simulation that a department should run. In this case, this function will probably never be used.
+		*/
+		Simulation* getNextState();
 
 	private:
 	

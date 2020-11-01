@@ -2,35 +2,45 @@
 
 AerodynamicsDepartment::AerodynamicsDepartment(): EngineeringDepartment() {
 
-	// TODO - implement AerodynamicsDepartment::AerodynamicsDepartment
-	throw "Not yet implemented";
 }
 
-AerodynamicsDepartment::AerodynamicsDepartment( float budget ): EngineeringDepartment( budget ) {
+AerodynamicsDepartment::AerodynamicsDepartment(Budget* budget, float budgetLimit)
+{
 
-	// TODO - implement AerodynamicsDepartment::AerodynamicsDepartment
-	throw "Not yet implemented";
+}
+
+
+AerodynamicsDepartment::AerodynamicsDepartment(Budget * budget, float budgetLimit ): EngineeringDepartment( budget, budgetLimit ) 
+{
+
+	
 }
 
 AerodynamicsDepartment::~AerodynamicsDepartment()
 {
-	throw "Not yet implemented";
+	delete simulationState;
 }
 
-AerodynamicsDepartment::AerodynamicsDepartment( Simulation* state ): EngineeringDepartment( state ) {
 
-	// TODO - implement AerodynamicsDepartment::AerodynamicsDepartment
-	throw "Not yet implemented";
-}
+void AerodynamicsDepartment::runSimulation(CarComposite * car) {
 
-AerodynamicsDepartment::AerodynamicsDepartment( Simulation* state, float budget ): EngineeringDepartment( state, budget ) {
+	Body* body = (Body * ) (car->getPart(BODY));	//check the typeCasting since we need a Body pointer in particular
+	float variances[] = { Body::AERODYNAMICS_VARIANCE
+	};
+	float max[] = { Body::MAX_AERODYNAMICS
+	};
 
-	// TODO - implement AerodynamicsDepartment::AerodynamicsDepartment
-	throw "Not yet implemented";
-}
+	Body* potentialBody = (Body * ) (simulationState->simulate(body, variances, max));
 
-Simulation* AerodynamicsDepartment::runSimulation() {
+	if (potentialBody->getAerodynamicMultiplier() <= body->getAerodynamicMultiplier())
+	{
+		delete potentialBody;
+	}
+	else
+	{
+		car->remove(BODY);
+		car->add(BODY, potentialBody);
+	}
 
-	// TODO - implement AerodynamicsDepartment::runSimulation
-	throw "Not yet implemented";
+	//no need to change state since this Department will only ever use the wind tunnel.
 }

@@ -37,3 +37,9 @@ const  float Electronics::INITIAL_HANDLING = 8.0;
 const  float Electronics::INITIAL_HANDLING_VARIANCE = 1.0;
 
 const  float Electronics::HANDLING_CHANGE_VARIANCE = 0.5;
+
+const float Electronics::MAX_ACCELERATION_VALUE = 15;
+
+const  float Electronics::MAX_HANDLING_VALUE = 15;
+
+const  float Electronics::MAX_SPEED_VALUE = 15;
