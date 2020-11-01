@@ -63,7 +63,7 @@ class Circuit {
 	private:
 	
 		/**
-			@brief
+			@brief the name of the specific Circuit
 		*/
 		string name;
 };
