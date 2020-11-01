@@ -35,4 +35,6 @@ int main() {
 
     //Check if all the correct details are printed
     track->print();
+
+    delete track;
 }
