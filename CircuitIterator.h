@@ -11,6 +11,7 @@
 #define CircuitITERATOR_H
 
 #include "Iterator.h"
+class CompositeRoad;
 
 class CircuitIterator: public Iterator {
 
@@ -18,27 +19,31 @@ class CircuitIterator: public Iterator {
 		
 		/**
 			@brief Constructor
+		 	Creates the Object
 		*/
 		CircuitIterator();
 
 		/**
 			@brief Constructor
+		 	Creates the Object
+
 		 	@param[out]
 		*/
 		CircuitIterator( Circuit* );
 
 		/**
 			@brief Destructor
+		 	Frees the memory
 		*/
 		~CircuitIterator();
 
 		/**
-			
+			sets the index to the first element
 		*/
 		void first();
 
 		/**
-			
+			sets the index to the next element
 		*/
 		void next();
 		
@@ -48,9 +53,21 @@ class CircuitIterator: public Iterator {
 		void isDone();
 
 		/**
-			
+			returns the current element
 		*/
 		void currentItem();
+
+	private:
+
+		/**
+			@brief
+		*/
+		int index = 0;
+
+		/**
+			@brief
+		*/
+		const Circuit* array;
 };
 
 #endif

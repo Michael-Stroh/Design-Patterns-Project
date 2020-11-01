@@ -4,10 +4,6 @@ Iterator::Iterator() {
 
 }
 
-Iterator::Iterator( Circuit* track ) {
-
-}
-
 Iterator::~Iterator() {
 
 }

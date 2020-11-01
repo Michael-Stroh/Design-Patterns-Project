@@ -24,36 +24,28 @@ class Iterator {
 		Iterator();
 
 		/**
-			@brief Constructor
-		 	Creates the Object
-
-		 	@param[out]
-		*/
-		Iterator( Circuit* );
-
-		/**
 			@brief Destructor
 		 	Frees the memory
 		*/
 		virtual ~Iterator();
 
 		/**
-			
+			,pure virtual
 		*/
 		virtual void first() = 0;
 
 		/**
-			
+			,pure virtual
 		*/
 		virtual void next() = 0;
 
 		/**
-			
+			,pure virtual
 		*/
 		virtual void isDone() = 0;
 		
 		/**
-			
+			,pure virtual
 		*/
 		virtual void currentItem() = 0;
 };
