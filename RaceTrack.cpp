@@ -25,17 +25,20 @@ RaceTrack::~RaceTrack() {
 
 void RaceTrack::print() {
 
+    //convert the floats to a string
 	stringstream dist, wind;
 
 	dist << distance;
 	wind << windForce;
 
+	//output the details of the road/track
 	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str()
 	+  "km and a wind force of " + wind.str() + " units." );
 }
 
 Iterator* RaceTrack::createIterator() {
 
+    //create and return an iterator on the current object
     return ( new CircuitIterator( this ) );
 }
 
@@ -91,6 +94,7 @@ void RaceTrack::setStraightDistance( float dist ) {
 
 string RaceTrack::getDirection() const {
 
+    //determine which direction the car is going
 	switch ( direct  ) {
 
 		case clockwise: 		return "clockwise";
