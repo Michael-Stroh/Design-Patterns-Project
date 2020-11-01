@@ -4,7 +4,7 @@
    @authors Michael
    @version 1.5.0
    @brief leaf participant in the composite design pattern
-   @details
+   @details holds specific details about the road/track
  */
 
 #ifndef RACETRACK_H
@@ -151,32 +151,33 @@ class RaceTrack: public Circuit {
 	private:
 
         /**
-             @brief
+             @brief the amount of laps a car has to make on this road/track
         */
         int laps = 0;
 
 		/**
-			@brief
+			@brief  the amount of corner on this road/track
 		*/
 		int numCorners = 0;
 
         /**
-			@brief
+			@brief the total distance in Km of this road/track
 		*/
 		float distance = 0;
 		
 		/**
-			@brief
+			@brief the wind this road/track experiences
+		    this helps make it more realistic and slows cars down
 		*/
 		float windForce = 0;
 
         /**
-            @brief
+            @brief the total straight distance of this road/track
         */
         float straightDistance = 0;
 
 		/**
-			@brief
+			@brief the direction the cars are going to be going on this road/track
 		*/
         direction direct = clockwise;
 };
