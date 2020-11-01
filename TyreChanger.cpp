@@ -2,16 +2,20 @@
 
 TyreChanger::TyreChanger(): PitCrew() {
 
-	// TODO - implement TyreChanger::TyreChanger
-	throw "Not yet implemented";
 }
 
 TyreChanger::~TyreChanger() {
-
+	delete newTyre;
 }
 
-void TyreChanger::update() {
+TyreStrategy * TyreChanger::replacePart(TyreStrategy * tyre) {
 
-	// TODO - implement TyreChanger::update
-	throw "Not yet implemented";
+	
+	newTyre = myPitStop->changeTyre(tyre);
+	return newTyre;
+}
+
+TyreStrategy * TyreChanger::getNewTyre()
+{
+	return newTyre;
 }

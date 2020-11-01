@@ -10,8 +10,8 @@
 #define CARSTOP_H
 
 #include "PitStop.h"
-#include "PitCrew.h"
-#include "Car.h"
+
+#include <string>
 
 class CarStop: public PitStop {
 
@@ -24,7 +24,7 @@ class CarStop: public PitStop {
 
 		/**
 			Constructor
-		 	@param CarName
+		 	@param CarStopName
 		*/
 		CarStop( string );
 
@@ -34,55 +34,21 @@ class CarStop: public PitStop {
 		~CarStop();
 
 		/**
-			Sets the Car pointer to the parameter and indicates if it was successful
+		gets name to the parameter and indicates if it was successful
 			@return
 		*/
 		string getName();
 
 		/**
-			Sets the Car pointer to the parameter and indicates if it was successful
+			Sets name to the parameter and indicates if it was successful
 			@param CarName
 			@return
 		*/
 		void setName( string );
 
-		/**
-			Sets the Car pointer to the parameter and indicates if it was successful
-			@return
-		*/
-		Car* getCar();
-
-		/**
-			Sets the Car pointer to the parameter and indicates if it was successful
-			@param carChange
-			@return
-		*/
-		bool setCar( Car* );
-
-		/**
-		Sets the Car pointer to the parameter and indicates if it was successful
-		@return
-		*/
-		PitCrew* getCrew();
-
-		/**
-			Sets the Car pointer to the parameter and indicates if it was successful
-			@param crewChange
-			@return
-		*/
-		bool setCrew( PitCrew* );
+		
 
 	private:
-	
-		/**
-     		@brief Stores a pointer to a Car object
-		*/
-		Car* car;
-		
-		/**
-     		@brief Stores a pointer to a PitCrew object
-		*/
-		PitCrew* crew;
 		
 		/**
      		@brief Stores the name of the CarStop object

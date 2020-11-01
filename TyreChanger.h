@@ -26,9 +26,18 @@ class TyreChanger: public PitCrew {
 		~TyreChanger();
 
 		/**
-			
+			@param tyre
+			@brief change tyres
 		*/
-		void update();
+		TyreStrategy * replacePart(TyreStrategy *);
+		/**
+			@brief gets the newTyre
+		*/
+		TyreStrategy * getNewTyre();
+		
+	private:
+	
+		TyreStrategy * newTyre;
 };
 
 #endif
