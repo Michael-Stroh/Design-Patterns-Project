@@ -5,6 +5,11 @@
    @version 1.0.0
    @brief 
    @todo: Implement performLap(int, circuit) with int for driver index and circuit for driving on
+   @todo: Implement updateSeasonResult()
+   @todo: Implement informGrandPrixs()
+   @todo: Implement updateQualifyingResult()
+   @todo: Implement updateOfficialResult()
+   @todo: Implement setRaceState()
  */
 
 #ifndef RACING_TEAM_H

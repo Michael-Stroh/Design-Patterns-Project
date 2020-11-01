@@ -38,7 +38,6 @@ public:
 	/**
 			
 			@param[in]: Result: a result to be added and aggregated by the current result class. This will be a "lower level" result that will be added to other "lower level" results to form a single "higher level" result.
-			@todo Implement composite design pattern properly through out Result hierarchy
 		*/
 	virtual void addResult(Result *) = 0;
 

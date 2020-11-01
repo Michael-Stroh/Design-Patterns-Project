@@ -50,15 +50,11 @@ public:
 			@brief Runs the entire race season
 			@details Will iterate through the collection of GrandPrixs, running each individually calling the GrandPrix.runGrandPrix() method. This will return a result for each GrandPrix, which is added to the SeasonResult (thus aggregating each GrandPrixs result into a final RaceSeasonResult).
 			@return A RaceSeasonResult object, that can be used to access the results of the entire RaceSeason.
-			@todo Implement RaceSeasonResult::addResult
-			@todo Implement seasonSubject::notify(RaceSeasonResult)
 		*/
 	Result *runSeason();
 
 	/**
 			@brief Performs all necessary actions that occur before the Race Season begins.
-			@todo Implement seasonSubject::notify(vector<GrandPrix*>*)
-
 		*/
 	void prepareSeason();
 
