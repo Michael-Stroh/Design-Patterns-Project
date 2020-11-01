@@ -2,15 +2,15 @@
    @file CompositeRoad.h
    @class CompositeRoad
    @authors Michael
-   @version 1.3.0
-   @brief Composite participant which will hold the roads
+   @version 1.5.0
+   @brief Composite participant in the Composite design pattern.
+   @details holds a group of RaceTrack objects( leaf participant ) and acts like a tree structure.
  */
 
 #ifndef CompositeRoad_H
 #define CompositeRoad_H
 
 #include "Road.h"
-
 #include <vector>
 
 class CompositeRoad: public Road {
@@ -18,46 +18,50 @@ class CompositeRoad: public Road {
 	public:
 		
 		/**
-			Constructor
+			@brief Constructor
+		 	Creates the object
 		*/
 		CompositeRoad();
 
 		/**
-			Constructor
-		 	@param[in] RoadName
+			@brief Constructor
+		 	Creates the object with the given name
+		 	@param[in] RoadName used to identify the object
 		*/
 		CompositeRoad( string );
 
 		/**
-			Destructor
+			@brief Destructor
+		 	Frees all the memory
 		*/
 		~CompositeRoad();
 
 		/**
-			Adds a road object to the tracks list
-			@param[out] CreateRoad
+			Adds a road object to the tracks vector
+			@param[out] CreateRoad reference to the road we want to add
 		*/
 		void addRoad( Road* );
 
 		/**
-			Removes a road object to the tracks list
-			@param[out] RemoveRoad
+			Removes a road object to the tracks vector
+			@param[out] RemoveRoad reference to the road we want to remove
 		*/
 		void removeRoad( Road* );
 
         /**
-            Removes a road object to the tracks list
-            @param[in] RemoveRoad
+            Removes a road object to the tracks vector
+            @param[in] RemoveRoad reference to the help find road we want to remove
         */
         void removeRoad( const string& );
 
 		/**
-			Prints out details about the tracks list
+			Prints  out details, by calling each roads print, about the tracks list
 		*/
 		void print();
 
 		/**
-
+			Creates an iterator object with the current object so that it can be
+		 	traversed in a linear order
 			@return
 		*/
 		Iterator* createIterator();
@@ -65,9 +69,9 @@ class CompositeRoad: public Road {
 	private:
 	
 		/**
-     		@brief Stores a list of tracks so it's easier to store and iterate through
+     		@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		vector<Road*> tracks;
+		vector< Road* > tracks;
 };
 
 #endif

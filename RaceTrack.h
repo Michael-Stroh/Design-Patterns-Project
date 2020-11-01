@@ -63,7 +63,7 @@ class RaceTrack: public Road {
 		void print();
 
 		/**
-			
+
 			@return
 		*/
 		Iterator* createIterator();

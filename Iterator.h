@@ -30,7 +30,7 @@ class Iterator {
 		/**
 			Destructor
 		*/
-		~Iterator();
+		virtual ~Iterator();
 
 		/**
 			
