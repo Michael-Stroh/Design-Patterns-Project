@@ -10,13 +10,13 @@
 #ifndef CompositeRoad_H
 #define CompositeRoad_H
 
-#include "Road.h"
+#include "Circuit.h"
 #include <vector>
 
-class CompositeRoad: public Road {
+class CompositeRoad: public Circuit {
 
 	public:
-		
+
 		/**
 			@brief Constructor
 		 	Creates the object
@@ -38,19 +38,19 @@ class CompositeRoad: public Road {
 
 		/**
 			Adds a road object to the tracks vector
-			@param[out] CreateRoad reference to the road we want to add
+			@param[out] CreateRoad: reference to the road we want to add
 		*/
-		void addRoad( Road* );
+		void addRoad( Circuit* );
 
 		/**
 			Removes a road object to the tracks vector
-			@param[out] RemoveRoad reference to the road we want to remove
+			@param[out] RemoveRoad: reference to the road we want to remove
 		*/
-		void removeRoad( Road* );
+		void removeRoad( Circuit* );
 
         /**
             Removes a road object to the tracks vector
-            @param[in] RemoveRoad reference to the help find road we want to remove
+            @param[in] RemoveRoad: reference to the help find road we want to remove
         */
         void removeRoad( const string& );
 
@@ -62,16 +62,16 @@ class CompositeRoad: public Road {
 		/**
 			Creates an iterator object with the current object so that it can be
 		 	traversed in a linear order
-			@return
+			@return the created iterator on the current object
 		*/
 		Iterator* createIterator();
 
 	private:
-	
+
 		/**
      		@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		vector< Road* > tracks;
+		vector< Circuit* > tracks;
 };
 
 #endif

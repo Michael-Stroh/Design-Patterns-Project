@@ -2,17 +2,18 @@
    @file RaceTrack.h
    @class RaceTrack
    @authors Michael
-   @version 1.4.0
-   @brief 
+   @version 1.5.0
+   @brief leaf participant in the composite design pattern
+   @details
  */
 
 #ifndef RACETRACK_H
 #define RACETRACK_H
 
-#include "Road.h"
+#include "Circuit.h"
 #include <sstream>
 
-class RaceTrack: public Road {
+class RaceTrack: public Circuit {
 
 	public:
 
@@ -22,27 +23,27 @@ class RaceTrack: public Road {
 		enum direction { clockwise = 0, anticlockwise = 1 };
 
 		/**
-			Constructor
+			@brief Constructor
 		*/
 		RaceTrack();
 
 		/**
-			Constructor
-			@param[in] name
+			@brief Constructor
+			@param[in] name used to identify the object
 		*/
 		RaceTrack( string );
 
 		/**
-			Constructor
-			@param[in] name
+			@brief Constructor
+			@param[in] name used to identify the object
 			@param[in] dist
 			@param[in] wind
 		*/
 		RaceTrack( string, float, float );
 
          /**
-            Constructor
-            @param[in] name
+            @brief Constructor
+            @param[in] name used to identify the object
             @param[in] dir
             @param[in] dist
             @param[in] wind
@@ -53,18 +54,18 @@ class RaceTrack: public Road {
          RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
 
 		/**
-			Destructor
+			@brief Destructor
 		*/
 		~RaceTrack();
 
 		/**
-			
+			Prints  out details, by calling each Circuits print, about the tracks list
 		*/
 		void print();
 
 		/**
 
-			@return
+			@return the created iterator on the current object
 		*/
 		Iterator* createIterator();
 

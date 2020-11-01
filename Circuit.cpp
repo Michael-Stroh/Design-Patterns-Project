@@ -1,14 +1,24 @@
 #include "Circuit.h"
 
-Circuit::Circuit(): road() {
+Circuit::Circuit() {
 
 }
 
-Circuit::Circuit( Road* StartRoad ): road( StartRoad ) {
+Circuit::Circuit( string RoadName ): name( RoadName ) {
 
 }
+
 
 Circuit::~Circuit() {
 
-    delete road;
+}
+
+string Circuit::getName() {
+
+    return name;
+}
+
+void Circuit::setName( string ChangeName ) {
+
+    name = ChangeName;
 }

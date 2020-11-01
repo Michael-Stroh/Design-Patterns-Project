@@ -10,7 +10,7 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-class Road;
+class Circuit;
 
 class Iterator {
 
@@ -25,7 +25,7 @@ class Iterator {
 			Constructor
 		 	@param[out]
 		*/
-		Iterator( Road* );
+		Iterator( Circuit* );
 
 		/**
 			Destructor

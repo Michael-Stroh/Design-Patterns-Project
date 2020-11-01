@@ -4,7 +4,7 @@ Iterator::Iterator() {
 
 }
 
-Iterator::Iterator( Road* track ) {
+Iterator::Iterator( Circuit* track ) {
 
 }
 

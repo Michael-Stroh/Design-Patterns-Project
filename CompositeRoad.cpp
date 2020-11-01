@@ -1,10 +1,10 @@
 #include "CompositeRoad.h"
 
-CompositeRoad::CompositeRoad(): Road(), tracks() {
+CompositeRoad::CompositeRoad(): Circuit(), tracks() {
 
 }
 
-CompositeRoad::CompositeRoad( string RoadName ): Road( RoadName ), tracks() {
+CompositeRoad::CompositeRoad( string RoadName ): Circuit( RoadName ), tracks() {
 
 }
 
@@ -12,7 +12,7 @@ CompositeRoad::~CompositeRoad() {
 
     //go through each RaceTrack object stored
         //for ( auto& track : tracks ) {
-    for ( Road*& track : tracks ) {
+    for ( Circuit*& track : tracks ) {
 
         //free the memory
         delete track;
@@ -22,13 +22,13 @@ CompositeRoad::~CompositeRoad() {
     tracks.clear();
 }
 
-void CompositeRoad::addRoad( Road* CreateRoad ) {
+void CompositeRoad::addRoad( Circuit* CreateRoad ) {
 
     //add the given RaceTrack to the vector
 	tracks.push_back( CreateRoad );
 }
 
-void CompositeRoad::removeRoad( Road* RemoveRoad ) {
+void CompositeRoad::removeRoad( Circuit* RemoveRoad ) {
 
     /*
         The Road object must be deleted by the user
@@ -39,7 +39,7 @@ void CompositeRoad::removeRoad( Road* RemoveRoad ) {
 
     //go through each RaceTrack object stored
         //for ( auto& track : tracks ) {
-    for ( Road*& track : tracks ) {
+    for ( Circuit*& track : tracks ) {
 
         //check if current RaceTrack is what we are looking for
         if ( track->getName() == RemoveRoad->getName() ) {
@@ -69,7 +69,7 @@ void CompositeRoad::removeRoad( const string& RemoveRoad ) {
 
     //go through each RaceTrack object stored
      //for ( auto& track : tracks ) {
-    for ( Road*& track : tracks ) {
+    for ( Circuit*& track : tracks ) {
 
         //check if current RaceTrack is what we are looking for
         if ( track->getName() == RemoveRoad ) {
@@ -96,7 +96,7 @@ void CompositeRoad::print() {
 
     //go through each RaceTrack object stored
         //for ( auto& track : tracks ) {
-    for ( Road*& track : tracks ) {
+    for ( Circuit*& track : tracks ) {
 
         //call the print function to display the details
         track->print();
@@ -106,5 +106,5 @@ void CompositeRoad::print() {
 Iterator* CompositeRoad::createIterator() {
 
     //create and return an iterator on the current object
-    return ( new RoadIterator( this ) );
+    return ( new CircuitIterator( this ) );
 }

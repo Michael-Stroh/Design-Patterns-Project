@@ -9,7 +9,7 @@ int main() {
 
     //Test RaceTrack class
         //can at least a single road be made
-    Road* jack = new RaceTrack( "Bob", 2.1, 5.6 );
+    Circuit* jack = new RaceTrack( "Bob", 2.1, 5.6 );
 
     //Check if the correct details are printed
     jack->print();
