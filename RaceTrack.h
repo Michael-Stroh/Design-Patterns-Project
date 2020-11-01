@@ -24,120 +24,127 @@ class RaceTrack: public Circuit {
 
 		/**
 			@brief Constructor
+		    Creates the object
 		*/
 		RaceTrack();
 
 		/**
 			@brief Constructor
-			@param[in] name used to identify the object
+		    Creates the object with the given name
+
+			@param[in] name: used to identify the object
 		*/
 		RaceTrack( string );
 
 		/**
 			@brief Constructor
-			@param[in] name used to identify the object
-			@param[in] dist
-			@param[in] wind
+		    Creates the object with the given name, distance and windForce
+
+			@param[in] name: used to identify the object
+			@param[in] dist: given total distance
+			@param[in] wind: given amount of wind
 		*/
 		RaceTrack( string, float, float );
 
          /**
             @brief Constructor
             @param[in] name used to identify the object
-            @param[in] dir
-            @param[in] dist
-            @param[in] wind
-            @param[in] strDist
-            @param[in] corners
-            @param[in] RaceLaps
+            @param[in] dir: given direction cars will race
+            @param[in] dist: given total distance
+            @param[in] wind: given amount of wind
+            @param[in] strDist: given straight distance of the track
+            @param[in] corners: given amount of corners
+            @param[in] RaceLaps: given amount of laps
         */
          RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
 
 		/**
 			@brief Destructor
+		    Frees all the memory
 		*/
 		~RaceTrack();
 
 		/**
-			Prints  out details, by calling each Circuits print, about the tracks list
+			Prints out details about the current RaceTrack
 		*/
 		void print();
 
 		/**
-
+            Creates an iterator object with the current object so that it can be
+		 	traversed in a linear order
 			@return the created iterator on the current object
 		*/
 		Iterator* createIterator();
 
 		/**
-			
+			Returns the stored distance
 			@return
 		*/
 		float getDistance() const;
 
 		/**
-			
-			@param[in] dist
+			Sets the stored distance
+			@param[in] dist: given distance
 		*/
 		void setDistance( float );
 
 		/**
-			
+			Returns the stored wind
 			@return
 		*/
 		float getWindForce() const;
 
 		/**
-			
-			@param[in] wind
+			Sets the stored wind
+			@param[in] wind: given wind
 		*/
 		void setWindForce( float );
 
 		/**
-
+            Returns the stored amount of laps
 			@return
 		*/
 		int getLaps() const;
 
 		/**
-
-			@param[in] RaceLaps
+            Sets the stored amount of laps
+			@param[in] RaceLaps: given amount of laps
 		*/
 		void setLaps( int );
 
 		/**
-
+            Returns the stored amount of corners
 			@return
 		*/
 		int getCorners() const;
 
 		/**
-
-			@param[in] corners
+            Sets the stored amount of corners
+			@param[in] corners: given amount of corners
 		*/
 		void setCorners( int );
 
 		/**
-
+            Returns the stored straight distance
 			@return
 		*/
 		float getStraightDistance() const;
 
 		/**
-
-			@param[in] dist
+            Sets the stored straight distance
+			@param[in] dist: given straight distance
 		*/
 		void setStraightDistance( float );
 
 		/**
-
+            Returns the stored direction
 			@return
 		*/
 		string getDirection() const;
 
 		/**
-
-			@param[in] dir
+            Sets the stored direction
+			@param[in] dir: given direction
 		*/
 		void setDirection( RaceTrack::direction );
 
