@@ -26,10 +26,16 @@ void CircuitIterator::next() {
 
 bool CircuitIterator::isDone() {
 
+    //check if the current index is still in range
     return ( array->getSize() > index );
 }
 
 Circuit* CircuitIterator::currentItem() {
 
-    return NULL;
+    /*
+        find and return the current object
+        this will return the leaf participant( RaceTrack object )
+    */
+
+    return array->getRoad( index );
 }
