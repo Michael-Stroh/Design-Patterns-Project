@@ -3,11 +3,16 @@
    @class CarMemento
    @authors Michael Timothy
    @version 1.0.1
-   @brief 
+   @brief The class responsible for holding the stored states of each carPart that make up a car.
  */
 
 #ifndef CARMEMENTO_H
 #define CARMEMENTO_H
+
+#include "PartState.h"
+#include <vector>
+
+using namespace std;
 
 class CarMemento {
 
@@ -19,7 +24,7 @@ class CarMemento {
 		CarMemento();
 
 		/**
-			Destructor
+			@brief Destroys all of the memory allocated for each PartState.
 		*/
 		~CarMemento();
 
@@ -27,20 +32,22 @@ class CarMemento {
 			Returns the current stored state
 			@return
 		*/
-		//State * getState();
+		vector<PartState *>  getState();
 
 		/**
 			Sets the currently stored state to the given parameter
 			@param
+			@warning NEED TO BE CAREFUL THERE ARE NO MEMORY LEAKS!!!!
 		*/
-		//void setState( State* );
+		void setState(vector<PartState*>);
 		
 	private:
 	
 		/**
-     		@brief Stores a pointer to a state object
+     		@brief A vector that holds the satte of each part that makes up a car.
 		*/
-		//State* state;
+		vector<PartState*> state;
+		
 };
 
 #endif

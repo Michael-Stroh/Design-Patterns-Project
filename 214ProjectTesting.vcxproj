@@ -152,6 +152,7 @@
     <ClCompile Include="OfficialRaceSubject.cpp" />
     <ClCompile Include="OfficialState.cpp" />
     <ClCompile Include="PartReplacer.cpp" />
+    <ClCompile Include="PartState.cpp" />
     <ClCompile Include="PitCrew.cpp" />
     <ClCompile Include="PitStop.cpp" />
     <ClCompile Include="PitStopStrategy.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="OfficialRaceSubject.h" />
     <ClInclude Include="OfficialState.h" />
     <ClInclude Include="PartReplacer.h" />
+    <ClInclude Include="PartState.h" />
     <ClInclude Include="PitCrew.h" />
     <ClInclude Include="PitStop.h" />
     <ClInclude Include="PitStopStrategy.h" />

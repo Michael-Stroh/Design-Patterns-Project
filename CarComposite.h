@@ -2,7 +2,7 @@
    @file CarComposite.h
    @class CarComposite
    @authors Michael Timothy
-   @version 1.0.1
+   @version 1.0.3
    @brief The Composite Class of the Composite Design Pattern.
    Holds all of the parts that make up a car and implements the
    functions necessary to change them.
@@ -14,6 +14,7 @@
 #include "CarMemento.h"
 #include "CarPart.h"	//Contains Car.h so no need to include it here.
 #include <vector>
+#include "PartState.h"
 
 
 /*

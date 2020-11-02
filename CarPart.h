@@ -121,6 +121,8 @@ class CarPart : public Car{
 		*/
 		virtual void remove(int);
 
+
+
 	
 	protected:	//changed from private to protected
 
