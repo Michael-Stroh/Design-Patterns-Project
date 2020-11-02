@@ -39,7 +39,8 @@ void RaceTrack::print() {
 Iterator* RaceTrack::createIterator() {
 
     //create and return an iterator on the current object
-    return ( new CircuitIterator( this ) );
+    //return ( new CircuitIterator( this ) );
+	return nullptr;
 }
 
 float RaceTrack::getDistance() const {
@@ -106,4 +107,44 @@ string RaceTrack::getDirection() const {
 void RaceTrack::setDirection( RaceTrack::direction dir ) {
 
 	direct = dir;
+}
+
+bool RaceTrack::getEuro() const {
+
+	return isEuropean;
+}
+
+void RaceTrack::setEuro( bool euro ) {
+
+	isEuropean = euro;
+}
+
+float RaceTrack::getAvgPitStops() const {
+
+	return averagePitStop;
+}
+
+void RaceTrack::setAvgPitStops( float amount ) {
+
+	averagePitStop = amount;
+}
+
+string RaceTrack::getEndDate() const {
+
+	return endingDate;
+}
+
+void RaceTrack::setEndDate( string date ) {
+
+	endingDate = date;
+}
+
+string RaceTrack::getStartDate() const {
+
+	return startingDate;
+}
+
+void RaceTrack::setStartDate( string date ) {
+
+	startingDate = date;
 }

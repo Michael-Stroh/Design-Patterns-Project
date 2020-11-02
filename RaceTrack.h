@@ -148,6 +148,54 @@ class RaceTrack: public Circuit {
 		*/
 		void setDirection( RaceTrack::direction );
 
+		/**
+			Returns the basic location of the track
+			@return
+		*/
+		bool getEuro() const;
+
+		/**
+			Sets the basic location of the track
+			@param[in] euro: determines if the track is European or not
+		*/
+		void setEuro( bool );
+
+		/**
+			Returns the average amounts of pit-stops on the current track
+			@return
+		*/
+		float getAvgPitStops() const;
+
+		/**
+			Sets the baverage amounts of pit-stops on the current track
+			@param[in] amount: the average amount given
+		*/
+		void setAvgPitStops( float );
+
+		/**
+			Returns the ending Date that the track will be used
+			@return
+		*/
+		string getEndDate() const;
+
+		/**
+			Sets the ending Date that the track will be used
+			@param[in] date: the date the track will not be used from
+		*/
+		void setEndDate( string );
+
+		/**
+			Returns the starting Date that the track will be used
+			@return
+		*/
+		string getStartDate() const;
+
+		/**
+			Sets the starting Date that the track will be used
+			@param[in] date: the date the track will be used from
+		*/
+		void setStartDate( string );
+
 	private:
 
         /**
@@ -180,6 +228,26 @@ class RaceTrack: public Circuit {
 			@brief the direction the cars are going to be going on this road/track
 		*/
         direction direct = clockwise;
+
+		/**
+			@brief the basic location of the track
+		*/
+        bool isEuropean;
+
+		/**
+			@brief the average amount of pit-stops on the current track
+		*/
+        float averagePitStop;
+
+        /**
+			@brief the date the track will be used, month then date
+		*/
+        string endingDate;
+
+        /**
+			@brief the date the track will be used, month then date
+		*/
+        string startingDate;
 };
 
 #endif
