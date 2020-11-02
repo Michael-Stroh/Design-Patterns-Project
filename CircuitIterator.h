@@ -11,7 +11,7 @@
 #define CircuitITERATOR_H
 
 #include "Iterator.h"
-class CompositeRoad;
+#include "CompositeRoad.h"
 
 class CircuitIterator: public Iterator {
 
@@ -29,7 +29,7 @@ class CircuitIterator: public Iterator {
 
 		 	@param[out]
 		*/
-		CircuitIterator( Circuit* );
+		CircuitIterator( CompositeRoad* );
 
 		/**
 			@brief Destructor
@@ -50,7 +50,7 @@ class CircuitIterator: public Iterator {
 		/**
 			
 		*/
-		void isDone();
+        bool isDone();
 
 		/**
 			returns the current element
@@ -67,7 +67,7 @@ class CircuitIterator: public Iterator {
 		/**
 			@brief
 		*/
-		const Circuit* array;
+		CompositeRoad* array;
 };
 
 #endif

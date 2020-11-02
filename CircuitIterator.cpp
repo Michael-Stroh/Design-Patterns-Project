@@ -5,7 +5,7 @@ CircuitIterator::CircuitIterator(): Iterator() {
 
 }
 
-CircuitIterator::CircuitIterator( Circuit* track ): Iterator(), array( track ) {
+CircuitIterator::CircuitIterator( CompositeRoad* track ): Iterator(), array( track ) {
 
 
 }
@@ -24,9 +24,10 @@ void CircuitIterator::next() {
     index++;
 }
 
-void CircuitIterator::isDone() {
+bool CircuitIterator::isDone() {
 
-
+    array->print();
+    return false;
 }
 
 void CircuitIterator::currentItem() {

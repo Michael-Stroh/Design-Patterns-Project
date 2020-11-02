@@ -11,7 +11,7 @@
 #define Circuit_H
 
 #include <utilities/Logger.h>
-#include "CircuitIterator.h"
+class Iterator;
 
 class Circuit {
 

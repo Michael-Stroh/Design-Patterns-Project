@@ -12,6 +12,7 @@
 
 #include "Circuit.h"
 #include <vector>
+class CircuitIterator;
 
 class CompositeRoad: public Circuit {
 

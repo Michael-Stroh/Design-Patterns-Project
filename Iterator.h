@@ -11,8 +11,6 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-class Circuit;
-
 class Iterator {
 
 	public:
@@ -42,7 +40,7 @@ class Iterator {
 		/**
 			,pure virtual
 		*/
-		virtual void isDone() = 0;
+		virtual bool isDone() = 0;
 		
 		/**
 			,pure virtual

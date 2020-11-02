@@ -3,6 +3,7 @@
 #include "CompositeRoad.h"
 
 #include "iostream"
+#include "Iterator.h"
 
 int main() {
 
@@ -36,5 +37,10 @@ int main() {
     //Check if all the correct details are printed
     track->print();
 
+    Iterator* stop = jack->createIterator();
+
     delete track;
+
+
+
 }
