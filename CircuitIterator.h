@@ -38,34 +38,34 @@ class CircuitIterator: public Iterator {
 		~CircuitIterator();
 
 		/**
-			sets the index to the first element
+			Sets the index to the first element
 		*/
 		void first();
 
 		/**
-			sets the index to the next element
+			Sets the index to the next element
 		*/
 		void next();
 		
 		/**
-			
+			Determines if index is on the last element
 		*/
         bool isDone();
 
 		/**
-			returns the current element
+			Returns the current element
 		*/
-		void currentItem();
+		Circuit* currentItem();
 
 	private:
 
 		/**
-			@brief
+			@brief the current location the iterator will access
 		*/
 		int index = 0;
 
 		/**
-			@brief
+			@brief holds the data the iterator is accessing
 		*/
 		CompositeRoad* array;
 };

@@ -11,6 +11,8 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
+#include "Circuit.h"
+
 class Iterator {
 
 	public:
@@ -28,24 +30,24 @@ class Iterator {
 		virtual ~Iterator();
 
 		/**
-			,pure virtual
+			Sets the index to the first element, pure virtual
 		*/
 		virtual void first() = 0;
 
 		/**
-			,pure virtual
+			Sets the index to the next element, pure virtual
 		*/
 		virtual void next() = 0;
 
 		/**
-			,pure virtual
+			Determines if index is on the last element, pure virtual
 		*/
 		virtual bool isDone() = 0;
 		
 		/**
-			,pure virtual
+			, pure virtual
 		*/
-		virtual void currentItem() = 0;
+		virtual Circuit* currentItem() = 0;
 };
 
 #endif
