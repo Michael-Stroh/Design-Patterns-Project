@@ -13,6 +13,7 @@
 #include "Car.h"
 #include "utilities/Logger.h"
 #include <string>
+#include "PartState.h"
 
 using namespace std;
 
@@ -120,6 +121,15 @@ class CarPart : public Car{
 			@param index
 		*/
 		virtual void remove(int);
+
+		/**	
+			@brief Virtual since CoolingSystem needs to override this function.
+		*/
+		virtual PartState* createState();
+		/**
+			@brief Virtual since COolingSystem needs to override this function.
+		*/
+		virtual void setState(PartState * );
 
 
 

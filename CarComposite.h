@@ -86,6 +86,7 @@ class CarComposite : public Car{
 		/**
 			Sets the current object to the given Memento
 			@param
+			@warning Need to decide who deletes the carMemento. It can be done here, but for now it wont be.
 		*/
 		void setCarMemento( CarMemento* );
 

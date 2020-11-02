@@ -71,14 +71,20 @@ void CarComposite::remove(int index) {
 
 CarMemento* CarComposite::createCarMemento() {
 
-	// TODO - implement CarComposite::createCarMemento
-	throw "Not yet implemented";
+	vector<PartState*> vec;
+	for (int i = 0; i < NUMPARTS; ++i)
+	{
+		vec.push_back(carParts[i]->createState());
+	}
 }
 
+//seems simple and elegant.
 void CarComposite::setCarMemento( CarMemento* memento ) {
 
-	// TODO - implement CarComposite::setCarMemento
-	throw "Not yet implemented";
+	for (int i = 0; i < NUMPARTS; ++i)
+	{
+		carParts[i]->setState(memento->getState()[i]);
+	}
 }
 
 

@@ -96,3 +96,16 @@ void CarPart::remove(int index)
 	Logger::log("Obselete Function Usage in CarPart", "Part of type " + name + "has no use for remove function");
 }
 
+PartState* CarPart::createState()
+{
+	PartState* state = new PartState(acceleration, handling, speed);
+	return state;
+}
+
+//state will not be deleted here. Will be deleted in carComposite class.
+void CarPart::setState(PartState* state)
+{
+	this->acceleration = state->getAcceleration();
+	this->handling = state->getAcceleration();
+	this->speed = state->getSpeed();
+}

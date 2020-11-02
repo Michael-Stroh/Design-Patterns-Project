@@ -26,6 +26,20 @@ float CoolingSystem::getCoolingRate()
 	return coolingRate;
 }
 
+PartState* CoolingSystem::createState()
+{
+	PartState* state = new PartState(acceleration, handling, speed, coolingRate);
+	return state;
+}
+
+//state will not be deleted here. Will be deleted in carComposite class.
+void CoolingSystem::setState(PartState* state)
+{
+	this->acceleration = state->getAcceleration();
+	this->handling = state->getAcceleration();
+	this->speed = state->getSpeed();
+	this->coolingRate = state->getCoolingRate();
+}
 
 const float CoolingSystem::INITIAL_COOLINGRATE = 0.9;
 
