@@ -1,42 +1,52 @@
 #include "Art.h"
 
-Art::Art(): Car(), next( nullptr ) {
-
-	// TODO - implement Art::Art
-	throw "Not yet implemented";
+Art::Art(): CarPart(), next( nullptr ) {
+	//uses the CarPart default constructor but since it does not print/return any of those
+	//variables it should be fine
 }
 
-Art::Art( string desc ): Car(), artDescription( desc ) {
+Art::Art( string desc ): CarPart(), artDescription( desc ) {
 
-	// TODO - implement Art::Art
-	throw "Not yet implemented";
+	next = nullptr;
 }
 
 Art::~Art() {
 
-	//need to decide if next should be deleted here
+	delete next;	//will cause a chain reaction of deletions that results in all memory being deallocated correctly
 }
 
-void Art::print() {
+void Art::print()
+{
 
 	// TODO - implement Art::print
 	throw "Not yet implemented";
 }
 
-Art* Art::getNext() {
+CarPart * Art::getNext() {
 
 	return next;
 }
 
-void Art::setNext( Art* artWork ) {
+//remember that Art is a CarPart. This needs to be double checked
+void Art::setNext( CarPart * newNext ) 
+{
+	if (next == nullptr)
+	{
+		next = newNext;
+	}
+	else
+	{
+		Art* prev = nullptr;
+		Art* iter = this;
+		//REason why this loop works: Only CarParts that use the default constructor will have a brand of Volvo
+		//Thus when we come across a carPart that is volvo we know it is an Art*
+		while (iter->getBrand() != "NoBrand" &&  iter->next != nullptr)
+		{
+			prev = iter;
+			iter = (Art*)(iter->next);
+		}
 
 
-	if ( next ) {
-
-		next->setNext( artWork );
-	} else {
-
-		next = artWork;
 	}
 }
 

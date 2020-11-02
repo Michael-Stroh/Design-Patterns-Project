@@ -19,7 +19,7 @@ class PartState
 			@param
 			@param
 		*/
-		PartState(float, float, float, float coolingRate = -1);
+		PartState(float, float, float, float coolingRate = -1, float aerodynamicsMultiplier = -1);
 
 		~PartState();
 
@@ -30,6 +30,8 @@ class PartState
 		float getHandling();
 
 		float getCoolingRate();
+
+		float getAeroDynamicsMultiplier();
 
 
 	private:
@@ -49,6 +51,10 @@ class PartState
 			@brief
 		*/
 		float coolingRate;
+		/**
+			@brief
+		*/
+		float aerodynamicsMultiplier;
 
 };
 

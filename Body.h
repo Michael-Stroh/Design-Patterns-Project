@@ -33,9 +33,26 @@ class Body: public CarPart {
 		*/
 		~Body();
 		
+		/**
+			@brief
+		*/
 		float getAerodynamicMultiplier();
 
+		/**
+			@brief
+		*/
 		void setAeroDynamicMultiplier(float);
+
+		/**
+			@brief Overrides the corresponding function of the CarPart class to provide specialized functionality.
+		*/
+		PartState* createState();
+
+		/**
+			@brief Overrides the corresponding function of the CarPart class to provide specialized functionality.
+		*/
+		void setState(PartState* state);
+
 	
 		/*
      		@brief Specifies the initial aerodynamicsMultiplier value that newly created bodys should start

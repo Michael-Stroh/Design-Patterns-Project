@@ -4,7 +4,7 @@
 //that everything else should function.
 CarPart::CarPart() {
 
-	brand = "Volvo";	//wont be used elsewhere so if we see a volvo branded part we know there is
+	brand = "NoBrand";	//wont be used elsewhere so if we see a NoBrand branded part we know there is
 						//a problem
 	name = "GearBox";	//same reasoning as the brand
 	handling = 10;

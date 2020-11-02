@@ -25,6 +25,21 @@ void Body::setAeroDynamicMultiplier(float newAeroDynamicMultiplier)
 	aeroDynamicMultiplier = newAeroDynamicMultiplier;
 }
 
+PartState* Body::createState()
+{
+	PartState* state = new PartState(acceleration, handling, speed, -1, aeroDynamicMultiplier);
+	return state;
+}
+
+//state will not be deleted here. Will be deleted in carComposite class.
+void Body::setState(PartState* state)
+{
+	this->acceleration = state->getAcceleration();
+	this->handling = state->getAcceleration();
+	this->speed = state->getSpeed();
+	this->aeroDynamicMultiplier = state->getAeroDynamicsMultiplier();
+}
+
 const  float Body::INITIAL_AERODYNAMICS = 0.65;
 
 const  float Body::INITAL_AERODYNAMICS_VARIANCE = 0.02;

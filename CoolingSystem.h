@@ -45,12 +45,12 @@ class CoolingSystem: public CarPart {
 		float getCoolingRate(); 
 
 		/**
-			@brief Overrides the corresponding funciton of the CarPart class to provide specialized functionality.
+			@brief Overrides the corresponding function of the CarPart class to provide specialized functionality.
 		*/
 		PartState* createState();
 
 		/**
-			@brief Overrides the corresponding funciton of the CarPart class to provide specialized functionality.
+			@brief Overrides the corresponding function of the CarPart class to provide specialized functionality.
 		*/
 		void setState(PartState* state);
 
