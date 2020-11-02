@@ -108,3 +108,26 @@ Iterator* CompositeRoad::createIterator() {
     //create and return an iterator on the current object
     return ( new CircuitIterator( this ) );
 }
+
+int CompositeRoad::getSize() {
+
+    //return the size
+    return tracks.size();
+}
+
+Circuit* CompositeRoad::getRoad( int index ) {
+
+    //check if the vector is populated and the index is valid
+    if ( ( !tracks.empty() ) && ( index > 0 ) && ( index < tracks.size() ) ) {
+
+        //check if the index exists in the vector
+        if ( tracks[ index ] != nullptr ) {
+
+            //return the found object
+            return tracks[ index ];
+        }
+    }
+
+    //there was an error do no return anything
+    return nullptr;
+}

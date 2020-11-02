@@ -68,6 +68,19 @@ class CompositeRoad: public Circuit {
 		*/
 		Iterator* createIterator();
 
+		/**
+			 Determines the size of the tracks vector and returns it
+			 @return the size of the vector
+		*/
+		int getSize();
+
+		/**
+			 Finds the Circuit at a given index
+			 @param index: location to return from
+			 @return the specific Circuit in tracks
+		*/
+		Circuit* getRoad( int );
+
 	private:
 
 		/**

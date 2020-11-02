@@ -26,11 +26,10 @@ void CircuitIterator::next() {
 
 bool CircuitIterator::isDone() {
 
-    array->print();
-    return false;
+    return ( array->getSize() > index );
 }
 
-void CircuitIterator::currentItem() {
+Circuit* CircuitIterator::currentItem() {
 
-
+    return NULL;
 }

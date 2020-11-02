@@ -45,7 +45,7 @@ class Iterator {
 		virtual bool isDone() = 0;
 		
 		/**
-			, pure virtual
+			Returns the current element, pure virtual
 		*/
 		virtual Circuit* currentItem() = 0;
 };
