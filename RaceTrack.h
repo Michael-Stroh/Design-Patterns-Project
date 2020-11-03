@@ -13,30 +13,34 @@
 #include "Circuit.h"
 #include <sstream>
 
-class RaceTrack: public Circuit {
+class RaceTrack : public Circuit
+{
 
-	public:
-
-		/**
+public:
+	/**
 			@brief tracks can be reused and changes how the track is raced
 		*/
-		enum direction { clockwise = 0, anticlockwise = 1 };
+	enum direction
+	{
+		clockwise = 0,
+		anticlockwise = 1
+	};
 
-		/**
+	/**
 			@brief Constructor
 		    Creates the object
 		*/
-		RaceTrack();
+	RaceTrack();
 
-		/**
+	/**
 			@brief Constructor
 		    Creates the object with the given name
 
 			@param[in] name: used to identify the object
 		*/
-		RaceTrack( string );
+	RaceTrack(string);
 
-		/**
+	/**
 			@brief Constructor
 		    Creates the object with the given name, distance and windForce
 
@@ -44,9 +48,9 @@ class RaceTrack: public Circuit {
 			@param[in] dist: given total distance
 			@param[in] wind: given amount of wind
 		*/
-		RaceTrack( string, float, float );
+	RaceTrack(string, float, float);
 
-         /**
+	/**
             @brief Constructor
             @param[in] name used to identify the object
             @param[in] dir: given direction cars will race
@@ -56,198 +60,197 @@ class RaceTrack: public Circuit {
             @param[in] corners: given amount of corners
             @param[in] RaceLaps: given amount of laps
         */
-         RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
+	RaceTrack(string, RaceTrack::direction, float, float, float, int, int);
 
-		/**
+	/**
 			@brief Destructor
 		    Frees all the memory
 		*/
-		~RaceTrack();
+	~RaceTrack();
 
-		/**
+	/**
 			Prints out details about the current RaceTrack
 		*/
-		void print();
+	void print();
 
-		/**
+	/**
             Creates an iterator object with the current object so that it can be
 		 	traversed in a linear order
 			@return the created iterator on the current object
 		*/
-		Iterator* createIterator();
+	Iterator *createIterator();
 
-		/**
+	/**
 			Returns the stored distance
 			@return
 		*/
-		float getDistance() const;
+	float getDistance() const;
 
-		/**
+	/**
 			Sets the stored distance
 			@param[in] dist: given distance
 		*/
-		void setDistance( float );
+	void setDistance(float);
 
-		/**
+	/**
 			Returns the stored wind
 			@return
 		*/
-		float getWindForce() const;
+	float getWindForce() const;
 
-		/**
+	/**
 			Sets the stored wind
 			@param[in] wind: given wind
 		*/
-		void setWindForce( float );
+	void setWindForce(float);
 
-		/**
+	/**
             Returns the stored amount of laps
 			@return
 		*/
-		int getLaps() const;
+	int getLaps() const;
 
-		/**
+	/**
             Sets the stored amount of laps
 			@param[in] RaceLaps: given amount of laps
 		*/
-		void setLaps( int );
+	void setLaps(int);
 
-		/**
+	/**
             Returns the stored amount of corners
 			@return
 		*/
-		int getCorners() const;
+	int getCorners() const;
 
-		/**
+	/**
             Sets the stored amount of corners
 			@param[in] corners: given amount of corners
 		*/
-		void setCorners( int );
+	void setCorners(int);
 
-		/**
+	/**
             Returns the stored straight distance
 			@return
 		*/
-		float getStraightDistance() const;
+	float getStraightDistance() const;
 
-		/**
+	/**
             Sets the stored straight distance
 			@param[in] dist: given straight distance
 		*/
-		void setStraightDistance( float );
+	void setStraightDistance(float);
 
-		/**
+	/**
             Returns the stored direction
 			@return
 		*/
-		string getDirection() const;
+	string getDirection() const;
 
-		/**
+	/**
             Sets the stored direction
 			@param[in] dir: given direction
 		*/
-		void setDirection( RaceTrack::direction );
+	void setDirection(RaceTrack::direction);
 
-		/**
+	/**
 			Returns the basic location of the track
 			@return
 		*/
-		bool getEuro() const;
+	bool getEuro() const;
 
-		/**
+	/**
 			Sets the basic location of the track
 			@param[in] euro: determines if the track is European or not
 		*/
-		void setEuro( bool );
+	void setEuro(bool);
 
-		/**
+	/**
 			Returns the average amounts of pit-stops on the current track
 			@return
 		*/
-		float getAvgPitStops() const;
+	float getAvgPitStops() const;
 
-		/**
+	/**
 			Sets the baverage amounts of pit-stops on the current track
 			@param[in] amount: the average amount given
 		*/
-		void setAvgPitStops( float );
+	void setAvgPitStops(float);
 
-		/**
+	/**
 			Returns the ending Date that the track will be used
 			@return
 		*/
-		string getEndDate() const;
+	string getEndDate() const;
 
-		/**
+	/**
 			Sets the ending Date that the track will be used
 			@param[in] date: the date the track will not be used from
 		*/
-		void setEndDate( string );
+	void setEndDate(std::string);
 
-		/**
+	/**
 			Returns the starting Date that the track will be used
 			@return
 		*/
-		string getStartDate() const;
+	string getStartDate() const;
 
-		/**
+	/**
 			Sets the starting Date that the track will be used
 			@param[in] date: the date the track will be used from
 		*/
-		void setStartDate( string );
+	void setStartDate(string);
 
-	private:
-
-        /**
+private:
+	/**
              @brief the amount of laps a car has to make on this road/track
         */
-        int laps = 0;
+	int laps = 0;
 
-		/**
+	/**
 			@brief  the amount of corner on this road/track
 		*/
-		int numCorners = 0;
+	int numCorners = 0;
 
-        /**
+	/**
 			@brief the total distance in Km of this road/track
 		*/
-		float distance = 0;
-		
-		/**
+	float distance = 0;
+
+	/**
 			@brief the wind this road/track experiences
 		    this helps make it more realistic and slows cars down
 		*/
-		float windForce = 0;
+	float windForce = 0;
 
-        /**
+	/**
             @brief the total straight distance of this road/track
         */
-        float straightDistance = 0;
+	float straightDistance = 0;
 
-		/**
+	/**
 			@brief the direction the cars are going to be going on this road/track
 		*/
-        direction direct = clockwise;
+	direction direct = clockwise;
 
-		/**
+	/**
 			@brief the basic location of the track
 		*/
-        bool isEuropean;
+	bool isEuropean;
 
-		/**
+	/**
 			@brief the average amount of pit-stops on the current track
 		*/
-        float averagePitStop;
+	float averagePitStop;
 
-        /**
+	/**
 			@brief the date the track will be used, month then date
 		*/
-        string endingDate;
+	string endingDate;
 
-        /**
+	/**
 			@brief the date the track will be used, month then date
 		*/
-        string startingDate;
+	string startingDate;
 };
 
 #endif

@@ -10,64 +10,71 @@
 #ifndef CircuitITERATOR_H
 #define CircuitITERATOR_H
 
+#include "Circuit.h"
 #include "Iterator.h"
-#include "CompositeRoad.h"
 
-class CircuitIterator: public Iterator {
+class CompositeRoad;
 
-	public:
-		
-		/**
-			@brief Constructor
-		 	Creates the Object
-		*/
-		CircuitIterator();
+// Concrete iterator
+class CircuitIterator : public Iterator {
 
-		/**
-			@brief Constructor
-		 	Creates the Object
+        public:
 
-		 	@param[out]
-		*/
-		CircuitIterator( CompositeRoad* );
+                friend class CompositeRoad;
 
-		/**
-			@brief Destructor
-		 	Frees the memory
-		*/
-		~CircuitIterator();
+                /**
+                        @brief Constructor
+                        Creates the Object
+                */
+                CircuitIterator();
 
-		/**
-			Sets the index to the first element
-		*/
-		void first();
+                /**
+                        @brief Constructor
+                        Creates the Object
 
-		/**
-			Sets the index to the next element
-		*/
-		void next();
-		
-		/**
-			Determines if index is on the last element
-		*/
-        bool isDone();
+                        @param[out]
+                */
+                CircuitIterator(CompositeRoad *);
 
-		/**
-			Returns the current element
-		*/
-		Circuit* currentItem();
+                /**
+                        @brief Destructor
+                        Frees the memory
+                */
+                ~CircuitIterator();
 
-	private:
+                /**
+                    Sets the index to the first element
+                */
+                void first();
 
-		/**
-			@brief the current location the iterator will access
-		*/
-		int index = 0;
+                /**
+                    Sets the index to the next element
+                */
+                void next();
 
-		/**
-			@brief holds the data the iterator is accessing
-		*/
-		CompositeRoad* array;
+                /**
+                    Determines if index is on the last element
+                */
+                bool isDone();
+
+                /**
+                    Returns the current element
+                */
+                Circuit *currentItem();
+
+        private:
+
+                /**
+                    @brief the current location the iterator will access
+                */
+                int index = 0;
+
+                /**
+                    @brief holds the data the iterator is accessing
+                */
+                CompositeRoad *array;
 };
+
+#include "CompositeRoad.h"
 
 #endif
