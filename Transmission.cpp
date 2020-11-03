@@ -23,11 +23,11 @@ const  float Transmission::INITIAL_SPEED_VARIANCE = 1.5;
 
 const  float Transmission::SPEED_CHANGE_VARIANCE = 0.5;
 
-const  float Transmission::INITIAL_ACCELERATION = 15.0;
+const  float Transmission::INITIAL_ACCELERATION = 8.5;
 
-const  float Transmission::INITIAL_ACCELERATION_VARIANCE = 3.0;
+const  float Transmission::INITIAL_ACCELERATION_VARIANCE = 1.5;
 
-const  float Transmission::ACCELERATION_CHANGE_VARIANCE = 1.5;
+const  float Transmission::ACCELERATION_CHANGE_VARIANCE = 0.5;
 
 const  float Transmission::INITIAL_HANDLING = 0.0;
 

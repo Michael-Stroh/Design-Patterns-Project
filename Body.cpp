@@ -1,4 +1,5 @@
 #include "Body.h"
+#include <ctime>
 
 //Important to avoid integer division when trying to generate a fraction 0-1.0
 Body::Body() 

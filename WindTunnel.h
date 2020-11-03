@@ -1,9 +1,9 @@
 /**
    @file WindTunnel.h
    @class WindTunnel
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief  Used to improve the aerodynamics multiplier of the body of a car.
 */
 
 #ifndef WINDTUNNEL_H
@@ -14,7 +14,7 @@
 #include "Driver.h"
 #include "Body.h"
 
-class WindTunnel : Simulation {
+class WindTunnel : public Simulation {
 
 
 	public:

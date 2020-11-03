@@ -29,9 +29,9 @@ const  float Brakes::INITIAL_ACCELERATION_VARIANCE = 0.0;
 
 const  float Brakes::ACCELERATION_CHANGE_VARIANCE = 0.0;
 
-const  float Brakes::INITIAL_HANDLING = 13.0;
+const  float Brakes::INITIAL_HANDLING = 28.0; //max value is effectively 30
 
 const  float Brakes::INITIAL_HANDLING_VARIANCE = 2.0;
 
-const  float Brakes::HANDLING_CHANGE_VARIANCE = 1.0;
+const  float Brakes::HANDLING_CHANGE_VARIANCE = 0.0;
 

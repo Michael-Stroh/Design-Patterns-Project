@@ -10,6 +10,7 @@
 #define AERODYNAMICSDEPARTMENT_H
 
 #include "EngineeringDepartment.h"
+#include "WindTunnel.h"
 #include "Body.h"
 
 class AerodynamicsDepartment: public EngineeringDepartment {

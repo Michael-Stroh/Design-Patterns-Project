@@ -28,8 +28,8 @@ const  float SteeringWheel::INITIAL_ACCELERATION_VARIANCE = 0.0;
 
 const  float SteeringWheel::ACCELERATION_CHANGE_VARIANCE = 0.0;
 
-const  float SteeringWheel::INITIAL_HANDLING = 55.0;
+const  float SteeringWheel::INITIAL_HANDLING = 28.0;	//max value is effectively 30
 
-const  float SteeringWheel::INITIAL_HANDLING_VARIANCE = 5.0;
+const  float SteeringWheel::INITIAL_HANDLING_VARIANCE = 2.0;
 
-const  float SteeringWheel::HANDLING_CHANGE_VARIANCE = 3.0;
+const  float SteeringWheel::HANDLING_CHANGE_VARIANCE = 0.0;

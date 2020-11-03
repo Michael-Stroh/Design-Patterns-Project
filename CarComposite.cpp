@@ -4,7 +4,7 @@
 //Will be handled By CarBuilder Class
 CarComposite::CarComposite() {
 	Logger::setDebug(true);
-	Logger::magenta("Default Constructor of CarComposite", "");
+	Logger::debug("Default Constructor of CarComposite", "");
 	Logger::setDebug(false);
 	for(int i=0; i<NUMPARTS; ++i)
 			carParts.push_back(nullptr);
