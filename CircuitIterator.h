@@ -15,8 +15,8 @@
 
 class CompositeRoad;
 
-// Concrete iterator
-class CircuitIterator : public Iterator {
+
+class CircuitIterator: public Iterator {
 
         public:
 

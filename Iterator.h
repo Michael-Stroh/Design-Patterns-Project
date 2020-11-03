@@ -12,7 +12,6 @@
 
 #include "Circuit.h"
 
-// Iterator
 class Iterator {
 
     public:
@@ -47,7 +46,7 @@ class Iterator {
         /**
             Returns the current element, pure virtual
         */
-        //virtual Circuit* currentItem() = 0;
+        virtual Circuit* currentItem() = 0;
 };
 
 #endif

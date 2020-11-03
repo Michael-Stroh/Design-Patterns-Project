@@ -15,8 +15,7 @@
 
 class Circuit;
 
-// Concrete aggregate
-class CompositeRoad : public Circuit {
+class CompositeRoad: public Circuit {
 
 	public:
 

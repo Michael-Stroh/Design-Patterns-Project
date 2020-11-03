@@ -18,7 +18,7 @@ using namespace std;
 
 class Iterator;
 
-// Aggregate
+
 class Circuit {
 
     public:
