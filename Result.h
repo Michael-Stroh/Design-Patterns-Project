@@ -28,7 +28,7 @@ class Result {
 		/**
 			Constructor
 		*/
-		~Result();
+		virtual ~Result();
 
 		/**
 			

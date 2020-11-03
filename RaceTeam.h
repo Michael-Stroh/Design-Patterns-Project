@@ -9,7 +9,6 @@
 #ifndef RACING_TEAM_H
 #define RACING_TEAM_H
 
-#include "Result.h"
 #include "GrandPrix.h"
 #include "Driver.h"
 #include "Car.h"
