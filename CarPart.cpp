@@ -22,15 +22,29 @@ CarPart::CarPart(float s, float h, float a, string n, string b)
 }
 
 CarPart::CarPart( CarPart & part) {
-	speed = part.getSpeed();
-	handling = part.getHandling();
-	acceleration = part.getAcceleration();
-	name = ((CarPart)part).name;
-	brand = ((CarPart)part).brand;
+	Logger::setDebug(true);
+	
+	speed = part.speed;
+	
+	handling = part.handling;
+	
+	acceleration = part.acceleration;
+
+	name = (part).name;
+
+	brand = (part).brand;
+	
+	Logger::debug("CarPart copy constructor", "Post setting of new variables");
+	Logger::setDebug(false);
 }
 
 CarPart *  CarPart::clone() {
-	return new CarPart(*this);
+	Logger::setDebug(true);
+	Logger::debug("CarPart clone function:", this->name);
+	CarPart* newPart = new CarPart(*this);
+	Logger::setDebug(false);
+
+	return newPart;
 }
 
 //is subject to change should we decide to use a logger
@@ -106,6 +120,6 @@ PartState* CarPart::createState()
 void CarPart::setState(PartState* state)
 {
 	this->acceleration = state->getAcceleration();
-	this->handling = state->getAcceleration();
+	this->handling = state->getHandling();
 	this->speed = state->getSpeed();
 }

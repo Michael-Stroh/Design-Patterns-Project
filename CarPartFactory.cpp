@@ -20,7 +20,9 @@ string CarPartFactory::generateBrandName()
 
 float CarPartFactory::generateRandomFraction()
 {
-	float randNum =( (rand() % 100) / 100.0) - ((rand() % 100) / 100.0);
+	float randNum =( (rand() % 100) / 100.0);
+	if ((rand() % 100) / 100.0 < 0.5)
+		randNum *= -1;
 	return randNum;
 }
 

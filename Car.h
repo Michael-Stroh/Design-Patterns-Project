@@ -26,6 +26,7 @@ enum PartIndices { ENGINE =0, CHASSIS=1, TRANSMISSION=2,
 #include <iostream>
 
 using namespace std;
+class CarPart;
 
 class Car {
 

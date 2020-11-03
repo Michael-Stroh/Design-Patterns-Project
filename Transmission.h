@@ -4,7 +4,7 @@
    @authors Michael Timothy
    @version 1.0.2
    @brief Represents the transmissin of the car. Its purpose is to transfer the power of the engine into the 
-   		  motion of the wheels, thus it will provide speed and acceleration to the car.
+   		  motion of the wheels, thus it will provide speed and acceleration to the car. It provides 10% of the cars speed and acceleration
 */
 
 #ifndef TRANSMISSION_H

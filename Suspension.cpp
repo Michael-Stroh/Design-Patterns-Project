@@ -17,9 +17,9 @@ Suspension::~Suspension()
 
 }
 
-const float Suspension::INITIAL_SPEED = 8.0;
+const float Suspension::INITIAL_SPEED = 8.5;
 
-const  float Suspension::INITIAL_SPEED_VARIANCE = 1.0;
+const  float Suspension::INITIAL_SPEED_VARIANCE = 1.5;
 
 const  float Suspension::SPEED_CHANGE_VARIANCE = 0.5;
 

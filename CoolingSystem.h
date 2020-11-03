@@ -33,6 +33,18 @@ class CoolingSystem: public CarPart {
 		CoolingSystem(float, float, float, string);
 
 		/**
+			@brief A copy constructor to be used in conjuction with the custom clone function.
+
+		*/
+		CoolingSystem(CoolingSystem&);
+
+		/**
+			@brief overrides the clone function of the parent class to offer specialized functionality.
+			@return the new Cooling SYstem with its coolingrate set correctly
+		*/
+		CarPart* clone();
+
+		/**
 			@brief Sets the coolingRate to the specified value.
 			@param newCoolingRate is the new coolingRate.
 		*/

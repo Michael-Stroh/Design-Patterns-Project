@@ -20,9 +20,9 @@ CarPart::~CarPart()
 
 }
 
-const  float Electronics::INITIAL_SPEED = 8.0;
+const  float Electronics::INITIAL_SPEED = 8.5;
 
-const  float Electronics::INITIAL_SPEED_VARIANCE = 1.0;
+const  float Electronics::INITIAL_SPEED_VARIANCE = 1.5;
 
 const  float Electronics::SPEED_CHANGE_VARIANCE = 0.5;
 

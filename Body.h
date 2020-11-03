@@ -32,6 +32,18 @@ class Body: public CarPart {
 			Destructor
 		*/
 		~Body();
+
+		/**
+			@brief A copy constructor to be used in conjuction with the custom clone function.
+			@param part is the Body to use when initliazing the new Body.
+		*/
+		Body(Body&);
+
+		/**
+			@brief overrides the clone function of the parent class to offer specialized functionality.
+			@return the new Cooling SYstem with its coolingrate set correctly
+		*/
+		CarPart* clone();
 		
 		/**
 			@brief
@@ -41,7 +53,7 @@ class Body: public CarPart {
 		/**
 			@brief
 		*/
-		void setAeroDynamicMultiplier(float);
+		void setAerodynamicMultiplier(float);
 
 		/**
 			@brief Overrides the corresponding function of the CarPart class to provide specialized functionality.

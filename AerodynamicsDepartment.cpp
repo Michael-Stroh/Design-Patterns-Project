@@ -4,16 +4,16 @@ AerodynamicsDepartment::AerodynamicsDepartment(): EngineeringDepartment() {
 
 }
 
-AerodynamicsDepartment::AerodynamicsDepartment(Budget* budget, float budgetLimit)
-{
-
-}
-
-
 AerodynamicsDepartment::AerodynamicsDepartment(Budget * budget, float budgetLimit ): EngineeringDepartment( budget, budgetLimit ) 
 {
 
 	
+}
+
+AerodynamicsDepartment::AerodynamicsDepartment(Simulation * state, Budget* budget, float budgetLimit) : EngineeringDepartment(state, budget, budgetLimit)
+{
+
+
 }
 
 AerodynamicsDepartment::~AerodynamicsDepartment()

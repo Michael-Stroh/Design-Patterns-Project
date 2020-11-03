@@ -16,6 +16,25 @@ CoolingSystem::~CoolingSystem()
 
 }
 
+CoolingSystem::CoolingSystem(CoolingSystem& part)
+{
+	speed = part.speed;
+
+	handling = part.handling;
+
+	acceleration = part.acceleration;
+
+	name = (part).name;
+
+	brand = (part).brand;
+	coolingRate = part.coolingRate;
+}
+
+CarPart* CoolingSystem::clone()
+{
+	return new CoolingSystem(*this);
+}
+
 void CoolingSystem::setCoolingRate(float newCoolingRate)
 {
 	coolingRate = newCoolingRate;

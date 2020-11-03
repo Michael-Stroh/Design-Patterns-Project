@@ -2,8 +2,9 @@
    @file Engine.h
    @class Engine
    @authors Michael Timothy
-   @version 1.0.2
+   @version 1.0.3
    @brief The engine of the car. Its primary role will be to provide speed and acceleration to the car.
+	It provides 60% of the car's speed and acceleration.
  */
 
 
@@ -110,6 +111,18 @@ class Engine: public CarPart {
 			@brief The intial temperature value that a non-running engine is set to.
 		*/
 		const static float INITIAL_TEMPERATURE; 
+
+		/**
+			@brief Specifies by how much the tempreture of the engine decreasaes/decreases per lap according to how 
+			the driver drives
+		*/
+		const static float TEMPRETURE_INCREMENT_DECREMENT;
+
+		/**
+			@specifies the maximum tempreture that the engine can reach
+		*/
+		const static float MAX_TEMP; 
+
 
 		/**
 			@brief The maximum value for acceleration for this car part.

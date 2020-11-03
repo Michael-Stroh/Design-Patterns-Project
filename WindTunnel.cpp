@@ -41,7 +41,7 @@ CarPart* WindTunnel::simulate(CarPart* body, float variance[], float max[])
 		newAero *= -1;
 	newAero += tempBody->getAerodynamicMultiplier();
 	if (newAero <= max[0])
-		potentialBody->setAeroDynamicMultiplier(newAero);
+		potentialBody->setAerodynamicMultiplier(newAero);
 
 	return potentialBody;
 }

@@ -1,13 +1,20 @@
 #include "Body.h"
 
+//Important to avoid integer division when trying to generate a fraction 0-1.0
 Body::Body() 
 {
-	aeroDynamicMultiplier = INITIAL_AERODYNAMICS * (rand() / 10) * INITAL_AERODYNAMICS_VARIANCE;
+	float variance = (rand() % 100) / 100.0 * INITAL_AERODYNAMICS_VARIANCE;
+	if (rand() % 100 < 50)
+		variance *= -1;
+	aeroDynamicMultiplier = INITIAL_AERODYNAMICS + variance;
 }
 
 Body::Body(float s, float h, float a, string b) :CarPart(s, h, a, "Body", b)
 {
-	aeroDynamicMultiplier = INITIAL_AERODYNAMICS * (rand()/10)* INITAL_AERODYNAMICS_VARIANCE;
+	float variance = (rand() % 100) / 100.0 * INITAL_AERODYNAMICS_VARIANCE;
+	if (rand() % 100 < 50)
+		variance *= -1;
+	aeroDynamicMultiplier = INITIAL_AERODYNAMICS + variance;
 }
 
 Body::~Body()
@@ -15,12 +22,32 @@ Body::~Body()
 
 }
 
+Body::Body(Body& part)
+{
+	speed = part.speed;
+
+	handling = part.handling;
+
+	acceleration = part.acceleration;
+
+	name = (part).name;
+
+	brand = (part).brand;
+
+	aeroDynamicMultiplier = part.aeroDynamicMultiplier;
+}
+
+CarPart* Body::clone()
+{
+	return new Body(*this);
+}
+
 float Body::getAerodynamicMultiplier()
 {
 	return aeroDynamicMultiplier;
 }
 
-void Body::setAeroDynamicMultiplier(float newAeroDynamicMultiplier)
+void Body::setAerodynamicMultiplier(float newAeroDynamicMultiplier)
 {
 	aeroDynamicMultiplier = newAeroDynamicMultiplier;
 }
@@ -42,9 +69,9 @@ void Body::setState(PartState* state)
 
 const  float Body::INITIAL_AERODYNAMICS = 0.65;
 
-const  float Body::INITAL_AERODYNAMICS_VARIANCE = 0.02;
+const  float Body::INITAL_AERODYNAMICS_VARIANCE = 0.05;
 
-const  float Body::AERODYNAMICS_VARIANCE = 0.08;
+const  float Body::AERODYNAMICS_VARIANCE = 0.06;
 
 const float Body::MAX_AERODYNAMICS = 1.0;
 

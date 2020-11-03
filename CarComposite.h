@@ -2,7 +2,7 @@
    @file CarComposite.h
    @class CarComposite
    @authors Michael Timothy
-   @version 1.0.3
+   @version 1.1.3
    @brief The Composite Class of the Composite Design Pattern.
    Holds all of the parts that make up a car and implements the
    functions necessary to change them.
@@ -84,9 +84,9 @@ class CarComposite : public Car{
 		CarMemento* createCarMemento();
 
 		/**
-			Sets the current object to the given Memento
-			@param
-			@warning Need to decide who deletes the carMemento. It can be done here, but for now it wont be.
+			Sets the current object to the given Memento and deletes the memento that was passed in.
+			@param memento is the memento used to set the state of each part of the car.
+			
 		*/
 		void setCarMemento( CarMemento* );
 

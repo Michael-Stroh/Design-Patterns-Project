@@ -19,7 +19,7 @@ Chassis::~Chassis()
 }
 
 
-const float Chassis::INITIAL_SPEED = 8.0;
+const float Chassis::INITIAL_SPEED = 7.5;
 
 const float Chassis::INITIAL_SPEED_VARIANCE = 1.0;
 

@@ -3,13 +3,13 @@
 Budget::Budget() {
 
 	// TODO - implement Budget::Budget
-	throw "Not yet implemented";
+	
 }
 
 Budget::Budget( float max ): balance( max ) {
 
 	// TODO - implement Budget::Budget
-	throw "Not yet implemented";
+	
 }
 
 Budget::~Budget() {
