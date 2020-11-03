@@ -34,7 +34,7 @@ class CircuitIterator: public Iterator {
 
                         @param[out]
                 */
-                CircuitIterator(CompositeRoad *);
+                CircuitIterator( CompositeRoad* );
 
                 /**
                         @brief Destructor

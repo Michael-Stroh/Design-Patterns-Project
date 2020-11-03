@@ -33,7 +33,7 @@ class CompositeRoad: public Circuit {
 
 			@param[in] RoadName used to identify the object
 		*/
-		CompositeRoad(string);
+		CompositeRoad( string );
 
 		/**
 			@brief Destructor
@@ -45,19 +45,19 @@ class CompositeRoad: public Circuit {
 			Adds a road object to the tracks vector
 			@param[out] CreateRoad: reference to the road we want to add
 		*/
-		void addRoad(Circuit *);
+		void addRoad( Circuit * );
 
 		/**
 			Removes a road object to the tracks vector
 			@param[out] RemoveRoad: reference to the road we want to remove
 		*/
-		void removeRoad(Circuit *);
+		void removeRoad( Circuit * );
 
 		/**
 			Removes a road object to the tracks vector
 			@param[in] RemoveRoad: reference to the help find road we want to remove
 		*/
-		void removeRoad(const string &);
+		void removeRoad( const string & );
 
 		/**
 			Prints  out details, by calling each roads print, about the tracks list
@@ -82,7 +82,7 @@ class CompositeRoad: public Circuit {
 			@param index: location to return from
 			@return the specific Circuit in tracks
 		*/
-		Circuit *getRoad(int);
+		Circuit *getRoad( int );
 
 	private:
 

@@ -34,7 +34,7 @@ class Circuit {
             Creates the object with the given name
             @param[in] CircuitName used to identify the object
         */
-        Circuit(string);
+        Circuit( string );
 
         /**
             @brief Destructor
@@ -63,7 +63,7 @@ class Circuit {
             Changes the object's name to the given parameter
             @param[in] ChangeName: name to change to
         */
-        void setName(string);
+        void setName( string );
 
     private:
 
