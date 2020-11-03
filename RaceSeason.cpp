@@ -1,29 +1,84 @@
 #include "RaceSeason.h"
 
-Race_Season::Race_Season() {
+RaceSeason::RaceSeason()
+{
 
-	// TODO - implement Race Season::Race Season
-	throw "Not yet implemented";
+	this.grandPrixs = new vector<GrandPrix *>;
+	this.teams = new vector<RaceTeams *>;
+	this.result = new SeasonResult();
+	this.seasonSubject = new SeasonSubject();
 }
 
-Race_Season::~Race_Season() {
+RaceSeason::~RaceSeason()
+{
+	// Delete every instance of Grand Prix in the vector
+	for (vector<GrandPrix *>::iterator grandPrix = this.grandPrixs.begin(); it != this.grandPrixs.end(); ++it)
+	{
+		if (*grandPrix)
+		{
+			delete *grandPrix;
+		}
+	}
 
+	// Delete the instance of the Grand Prix vector
+	if (this.grandPrixs)
+	{
+		delete this->grandPrixs;
+	}
+
+	// Delete every instance of Race Team in the vector
+	for (vector<GrandPrix *>::iterator team = this.teams.begin(); it != this.teams.end(); ++it)
+	{
+		if (*team)
+		{
+			delete *team;
+		}
+	}
+
+	// Delete the instance of the Race Team vector
+	if (this.teams)
+	{
+		delete this->teams;
+	}
+
+	// Delete the instance of the RaceSeason result
+	if (this.result)
+	{
+		delete this->result;
+	}
+
+	// Delete the instance of the seasonSubject
+	if (this.seasonSubject)
+	{
+		delete this->seasonSubject;
+	}
 }
 
-Race_Season::Race_Season( GrandPrix* g, RaceTeam* t, Result* r, Subject* s ) {
+RaceSeason::RaceSeason(vector<GrandPrix *> *g, vector<RaceTeam *> *t, Result *r, Subject *s)
+{
 
-	// TODO - implement Race Season::Race Season
-	throw "Not yet implemented";
-}
+	this->grandPrixs = g;
+	this->teams = t;
+	this->result = r;
+	this->seasonSubjet = s;
 
-Result* Race_Season::runSeason() {
+	Result *RaceSeason::runSeason()
+	{
 
-	// TODO - implement Race Season::runSeason
-	throw "Not yet implemented";
-}
+		// Run each grand prix stored in the grandPrixs vector & add the results to the season's results
+		// Notify all the teams of the updated season result
 
-void Race_Season::prepareSeason() {
+		for (vector<GrandPrix *>::iterator grandPrix = this.grandPrixs.begin(); it != this.grandPrixs.end(); ++it)
+		{
+			this->result->addResult(**grandPrix->runGrandPrix(this->teams));
+			this->seasonSubject->notify(this->result);
+		}
+	}
 
-	// TODO - implement Race Season::prepareSeason
-	throw "Not yet implemented";
-}
+	void RaceSeason::prepareSeason()
+	{
+
+		// Notify all the teams of the grand prixs that will take place this season
+
+		this->seasonSubject->notify(this->grandPrixs);
+	}

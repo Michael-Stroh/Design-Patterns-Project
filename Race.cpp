@@ -1,29 +1,78 @@
 #include "Race.h"
 
-Race::Race() {
+Race::Race()
+{
 
-	// TODO - implement Race::Race
-	throw "Not yet implemented";
+	this->state = NULL;
+	this->result = NULL;
+	this->raceSubject = new raceSubject();
+	this->practiceState = new PracticeState();
+	this->qualifyingState = new QualifyingState();
+	this->officialState = new OfficialState();
 }
 
-Race::Race( RaceState* _state, RaceSubject* race ): state( _state ), raceSubject( race ) {
+Race::~Race()
+{
+	if (this->state)
+	{
+		delete this->state;
+	}
+	this->state = NULL;
 
-	// TODO - implement Race::Race
-	throw "Not yet implemented";
+	if (this->raceSubject)
+	{
+		delete this->raceSubject;
+	}
+	this->raceSubject = NULL;
+
+	if (this->result)
+	{
+		delete this->result;
+	}
+	this->result = NULL;
+
+	if (this->practiceState)
+	{
+		delete this->practiceState;
+	}
+	this->practiceState = NULL;
+
+	if (this->qualifyingState)
+	{
+		delete this->qualifyingState;
+	}
+	this->qualifyingState = NULL;
+
+	if (this->officialState)
+	{
+		delete this->officialState;
+	}
+	this->officialState = NULL;
 }
 
-Result* Race::runRace( Result* result, RaceTeam* teams, Circuit* circuit ) {
-
-	// TODO - implement Race::runRace
-	throw "Not yet implemented";
+Result *Race::runRace(Result *_result, vector<RaceTeam *> *teams, Circuit *circuit)
+{
+	this->result = this->state->runRace(_result, teams, circuit);
+	return this->result;
 }
 
-void Race::setState( RaceState* _state ) {
-
-	state = _state;
+void Race::setState(string _state)
+{
+	if (_state == "Practice")
+	{
+		this->state = practiceState;
+	}
+	else if (_state == "Qualifying")
+	{
+		this->state = qualifyingState;
+	}
+	else if (_state == "Official")
+	{
+		this->state = officialState;
+	}
 }
 
-void Race::setRaceSubject( RaceSubject* race ) {
-
-	raceSubject = race;
+void Race::setRaceSubject(RaceSubject *race)
+{
+	this->raceSubject = race;
 }

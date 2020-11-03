@@ -1,18 +1,19 @@
 #include "SeasonSubject.h"
 
-SeasonSubject::SeasonSubject(): Subject() {
-
-	// TODO - implement SeasonSubject::SeasonSubject
-	throw "Not yet implemented";
+SeasonSubject::SeasonSubject() : Subject()
+{
 }
 
-SeasonSubject::~SeasonSubject() {
-
+SeasonSubject::~SeasonSubject()
+{
 }
 
+void SeasonSubject::notify(vector<GrandPrix *> grandPrixs)
+{
 
-void SeasonSubject::notify( RaceState* r ) {
-
-	// TODO - implement SeasonSubject::notify
-	throw "Not yet implemented";
+	vector<RaceTeam *>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		it->informGrandPrixs(grandPrixs);
+	}
 }

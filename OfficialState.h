@@ -1,9 +1,11 @@
 /**
    @file OfficialState.h
    @class OfficialState
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The Official state for the Race class.
+   @details Responsible for performing the necessary steps to complete an official race.
+   
  */
 
 #ifndef OFFICIALSTATE_H
@@ -13,37 +15,38 @@
 #include "RaceState.h"
 #include "RaceTeam.h"
 #include "Result.h"
+#include "RaceResult.h"
+#include "LapResult.h"
 #include "Circuit.h"
 
-class OfficialState: public RaceState {
+class OfficialState : public RaceState
+{
 
-	public:
-
-		/**
+public:
+	/**
 			Constructor
 		*/
-		OfficialState();
+	OfficialState();
 
-		/**
+	/**
 			Constructor
 		*/
-		~OfficialState();
+	~OfficialState();
 
-		/**
+	/**
 			
-			@param
-			@param
-			@param
-			@return
+			@param Result: The results of the previous race (CANNOT be NULL in this case, will be used to complete the official race).
+			@param RaceTeam: The teams that will participate in the official race.
+			@param Circuit: The circuit on which the official race will take place.
+			@return The result of the official race.
 		*/
-		Result* runRace( Result*, RaceTeam*, Circuit* );
-		
-	private:
-		
-		/**
-			@brief
+	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
+
+private:
+	/**
+		@brief The subject that will allow all teams to be informed of any necessary information before or during the official race.
 		*/
-		OfficialRaceSubject* raceSubject;
+	OfficialRaceSubject *raceSubject;
 };
 
 #endif

@@ -1,95 +1,69 @@
 /**
    @file RaceSeasonResult.h
    @class RaceSeasonResult
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The class that will store the results of an entire race season
  */
 
 #ifndef RACESEASONRESULT_H
 #define RACESEASONRESULT_H
 
 #include "Result.h"
+#include "GrandPrixResult.h"
+#include <iostream>
+#include <vector>
+using namespace std;
 
-#include <map>
+class RaceSeasonResult : public Result
+{
 
-class RaceSeasonResult: public Result {
-
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceSeasonResult();
+	RaceSeasonResult();
 
-		/**
-			Constructor
-			@param
-			@param
-			@param
-		*/
-		RaceSeasonResult( Result*, map<string, int>, map<string, int> );
-
-		/**
-			Constructor
-			@param
-		*/
-		RaceSeasonResult( Result* );
-
-		/**
+	/**
 			Destructor
 		*/
-		~RaceSeasonResult();
+	~RaceSeasonResult();
 
-		/**
-			
-			@param
+	/**
+			@param: An instance of GrandPrixResult
 		*/
-		void addResult( Result* );
+	void addResult(Result *);
 
-		/**
-			
-		*/
-		void print();
+	/**
+		@brief: Prints out the results of the Drivers Championship and the Constructors Championship
+	*/
+	void print();
 
-		/**
-			
+	/**
+		@brief: Prints out the results of the Drivers Championship
 		*/
-		void printDrivers();
+	void printDrivers();
 
-		/**
-			
+	/**
+	    @brief: Prints out the results of the Constructors Championship
 		*/
-		void printTeams();
+	void printTeams();
 
-		/**
-			
-			@param
+private:
+	/**
+			@brief: Stores all of the individual grand prix results
 		*/
-		void setTeamTime( map<string, int> );
+	vector<Result *> grandPrixResults;
 
-		/**
-			
-			@param
+	/**
+			@brief: Stores each of the drivers total points
 		*/
-		void setDriverTime( map<string, int> );
+	vector<pair<string, int>> totalDriverPoints;
 
-	private:
-		
-		/**
-			@brief
+	/**
+			@brief: Stores each of the teams total points
 		*/
-		Result* grandPrixResults;
-		
-		/**
-			@brief
-		*/
-		map<string, int> totalDriverPoints;
-		
-		/**
-			@brief
-		*/
-		map<string, int> totalTeamPoints;
+	vector<pair<string, int>> totalTeamPoints;
 };
 
 #endif

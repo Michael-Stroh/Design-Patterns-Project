@@ -1,9 +1,9 @@
 /**
    @file SeasonSubject.h
    @class SeasonSubject
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The subject for a season, used to update racing teams of any pertinent information regarding the season
  */
 
 #ifndef SEASONSUBJECT_H
@@ -11,24 +11,24 @@
 
 #include "Subject.h"
 
-class SeasonSubject: public Subject {
+class SeasonSubject : public Subject
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		SeasonSubject();
+	SeasonSubject();
 
-		/**
+	/**
 			Constructor
 		*/
-		~SeasonSubject();
+	~SeasonSubject();
 
-		/**
-			Constructor
+	/**
+			@param: A vector containing all of the grand prixs for a season, used to inform the RaceTeams of the grandPrixs before the season starts
 		*/
-		void notify( RaceState* );
+	void notify(vector<GrandPrix *>);
 };
 
 #endif
