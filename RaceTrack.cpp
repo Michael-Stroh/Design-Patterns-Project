@@ -144,3 +144,4 @@ void RaceTrack::setStartDate( string date ) {
 
 	startingDate = date;
 }
+
