@@ -1,8 +1,8 @@
 /**
    @file GrandPrix.h
    @class GrandPrix
-   @authors Alex
-   @version 1.0.0
+   @authors Alex Michael
+   @version 1.3.0
    @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
    @todo: Add prepare/cleanup for race (tie in with observer, race subject)
  */
@@ -10,11 +10,11 @@
 #ifndef GRAND_PRIX_H
 #define GRAND_PRIX_H
 
-#include "Race.h"
-#include "RaceTeam.h"
 #include "GrandPrixResult.h"
+#include "RaceResult.h"
+#include "RaceTeam.h"
 #include "Circuit.h"
-#include <string>
+#include "Race.h"
 
 class GrandPrix {
 
@@ -46,6 +46,12 @@ class GrandPrix {
 		Result* runGrandPrix( vector< RaceTeam* >* );
 
 		/**
+			@brief Reads data from the given file to be able to create the Circuit
+			@param fileName
+		*/
+		void populateCircuit( string );
+
+		/**
 			@brief Displays the results of the Grand Prix
 		*/
 		void displayResult();
@@ -54,6 +60,7 @@ class GrandPrix {
 			@brief Sets the circuit on which the Grand Prix will take place.
 		*/
 		void setCircuit( Circuit* );
+
 
 	private:
 

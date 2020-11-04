@@ -27,7 +27,7 @@ public:
 	/**
 			Destructor
 		*/
-	~RaceState();
+	virtual ~RaceState();
 
 	/**
 			

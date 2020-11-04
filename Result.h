@@ -28,7 +28,7 @@ public:
 	/**
 			Constructor
 		*/
-	~Result();
+	virtual ~Result();
 
 	/**
 			

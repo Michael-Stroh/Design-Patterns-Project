@@ -1,5 +1,4 @@
 #include "GrandPrix.h"
-#include "RaceResult.h"
 
 GrandPrix::GrandPrix() {
 
@@ -41,6 +40,11 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* >* teams ) {
 	// Add official race's result to the grand prix's result, return the grand prix's result
 	this->result->addResult(officialResult);
 	return this->result;
+}
+
+void GrandPrix::populateCircuit( string fileName ) {
+
+
 }
 
 void GrandPrix::displayResult() {

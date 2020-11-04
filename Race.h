@@ -9,17 +9,13 @@
 #ifndef RACE_H
 #define RACE_H
 
-#include "RaceState.h"
 #include "RaceSubject.h"
 #include "Circuit.h"
 #include "RaceTeam.h"
-#include "Result.h"
 #include "PracticeState.h"
 #include "QualifyingState.h"
 #include "OfficialState.h"
 #include <vector>
-#include <string>
-using namespace std;
 
 class Race
 {
@@ -38,7 +34,7 @@ public:
 			- The private state instances
 
 		*/
-	~Race();
+	virtual ~Race();
 
 	/**
 			
@@ -51,9 +47,9 @@ public:
 
 	/**
 			
-			@param[in] s: A string describing the state to which the race must be set. Either "Practice", "Qualifying", or "Official"
+			@param[in] _state: A string describing the state to which the race must be set. Either "Practice", "Qualifying", or "Official"
 		*/
-	void setState(RaceState *);
+	void setState( string  );
 
 	/**
 			
@@ -65,7 +61,7 @@ private:
 	/**
 			@brief The current state that the race is in. Either "Practice", "Qualifying" or "Official"
 		*/
-	RaceState *state;
+	RaceState* state;
 
 	/**
 			@brief The Race Subject used to inform any racing teams of updates before or during the race.
