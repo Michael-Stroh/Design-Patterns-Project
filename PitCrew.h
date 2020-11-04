@@ -10,8 +10,7 @@
 #ifndef PITCREW_H
 #define PITCREW_H
 
-//#include "PitStop.h"
-class PitStop;			//forward declared since circular dependency
+class PitStop;
 
 class PitCrew {
 
@@ -31,7 +30,7 @@ class PitCrew {
 			
 			@param
 		*/
-		void registerWork( PitStop * );
+		void registerWork( PitStop* );
 
 		/**
 			
@@ -45,13 +44,11 @@ class PitCrew {
 		virtual void update() = 0;
 
 		/**
-
 		*/
 		bool getStatus();
 
 
 		/**
-
 		 	@param
 		*/
 		void getStatus( bool );
@@ -61,7 +58,7 @@ class PitCrew {
 		/**
 			@brief 
 		*/
-		PitStop * worksFor;
+		PitStop* worksFor;
 		
 		/**
 			@brief 

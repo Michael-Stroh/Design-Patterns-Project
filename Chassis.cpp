@@ -6,10 +6,8 @@ Chassis::Chassis()
 
 }
 
-
 Chassis::Chassis(float s, float h, float a, string b) : CarPart(s,h,a, "Chassis", b)
 {
-
 
 }
 

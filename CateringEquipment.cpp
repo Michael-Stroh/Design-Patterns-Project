@@ -15,7 +15,6 @@ CateringEquipment::CateringEquipment( string details ): Container( details ) {
 CateringEquipment::~CateringEquipment() {
 
 	// TODO - implement CateringEquipment::CateringEquipment
-	throw "Not yet implemented";
 }
 
 string CateringEquipment::getFood() {

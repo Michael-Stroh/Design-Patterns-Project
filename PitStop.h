@@ -14,6 +14,8 @@
 #include "Car.h"
 #include <vector>
 
+#include <vector>
+
 class PitStop {
 
 	public:

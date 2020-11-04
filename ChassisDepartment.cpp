@@ -11,9 +11,8 @@ ChassisDepartment::ChassisDepartment(Budget* budget, float budgetLimit) : Engine
 }
 
 
-ChassisDepartment::ChassisDepartment(Simulation* state, Budget* budget, float budgetLimit) : EngineeringDepartment(state, budget, budgetLimit) {
-
-
+ChassisDepartment::ChassisDepartment(Simulation* state, Budget* budget, float budgetLimit) : EngineeringDepartment(state, budget, budgetLimit) 
+{
 }
 
 ChassisDepartment::~ChassisDepartment()

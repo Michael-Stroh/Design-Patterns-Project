@@ -14,8 +14,6 @@ CarStop::CarStop( string CarName ): name( CarName ) {
 
 CarStop::~CarStop() {
 
-	// TODO - implement CarStop::~CarStop
-	throw "Not yet implemented";
 }
 
 string CarStop::getName() {
