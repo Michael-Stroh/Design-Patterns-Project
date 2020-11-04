@@ -11,9 +11,6 @@
 
 #include "RaceStrategy.h"
 #include "LogisticsStrategy.h"
-#include "Driver.h"
-#include "CompositeRoad.h"
-
 
 class Strategies {
 
@@ -35,18 +32,18 @@ class Strategies {
 			Destructor
 		*/
 		~Strategies();
-		
+
 		/**
 			
 			@return
 		*/
-		int getMonth();
+		int getLapNumber();
 
 		/**
 
 			@param
 		*/
-		void setMonth( int );
+		void setLapNumber( int );
 
 	private:
 	
@@ -62,8 +59,8 @@ class Strategies {
 		
 		/**
 			@brief
-		*/		
-		int month;
+		*/
+		int lapNumber;
 };
 
 #endif

@@ -10,10 +10,6 @@
 #define AGGRESSIVEDRIVING_H
 
 #include "Driver.h"
-#include <string>
-#include <iostream>
-
-using namespace std;
 
 class AggressiveDriving: public Driver {
 
@@ -23,16 +19,20 @@ class AggressiveDriving: public Driver {
 			Constructor
 		*/
 		AggressiveDriving();
-		
+
 		/**
 			Constructor
+		 	@param
 		*/
-		AggressiveDriving(string name, float a);
-		
+		AggressiveDriving( string );
+
 		/**
 			Constructor
+			@param
+			@param
+			@param
 		*/
-		AggressiveDriving(Driver* d);
+		AggressiveDriving( string, int, float );
 
 		/**
 			Destructor
@@ -43,7 +43,7 @@ class AggressiveDriving: public Driver {
 			Display the detials of the driver
 			@return
 		*/
-		void displayDriver() ;
+		string displayDriver();
 };
 
 #endif

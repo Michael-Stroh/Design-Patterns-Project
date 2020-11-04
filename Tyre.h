@@ -9,12 +9,6 @@
 #ifndef Tyre_H
 #define Tyre_H
 
-#include <string>
-#include <iostream>
-
-
-using namespace std;
-
 class Tyre {
 
 	public:
@@ -69,15 +63,6 @@ class Tyre {
 			@return
 		*/
 		float getPressure();
-		
-
-
-		/**
-			@return
-		*/
-		virtual string getType() =0;;
-		
-		
 
 		/**
 				
@@ -100,11 +85,6 @@ class Tyre {
 			@brief
 		*/
 		float pressure;
-		
-		/** 
-			@brief	
-		*/
-		string type;
-};	
+};
 
 #endif

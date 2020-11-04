@@ -1,27 +1,34 @@
 #include "PitCrew.h"
 
-PitCrew::PitCrew(): myID(0) {}
+PitCrew::PitCrew(): status( false ) {
+
+	// TODO - implement PitCrew::PitCrew
+	throw "Not yet implemented";
+}
 
 PitCrew::~PitCrew() {
-	delete myPitStop;
+
 }
 
 
-void PitCrew::registerAtPitStop(PitStop* pitstop) {
-	
-	myPitStop = pitstop;
-	myID = myPitStop->addCrewMember(this);
-	
+void PitCrew::registerWork(PitStop* p) {
+
+	// TODO - implement PitCrew::registerWork
+	throw "Not yet implemented";
 }
 
-void PitCrew::setID(int id) {
+void PitCrew::setCar(int i) {
 
-	myID = id;
+	// TODO - implement PitCrew::setCar
+	throw "Not yet implemented";
 }
 
-int PitCrew::getID() {
+void PitCrew::getStatus( bool changeStatus ) {
 
-	return myID;
+	status = changeStatus;
 }
 
+bool PitCrew::getStatus() {
 
+	return status;
+}

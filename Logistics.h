@@ -6,27 +6,33 @@
    @brief 
  */
 
-#ifndef LOGISTICS_H
-#define LOGISTICS_H
+#ifndef Logistics_H
+#define Logistics_H
 
 #include "Container.h"
-
-#include <string>
-#include <iostream>
-
-using namespace std;
 
 class Logistics {
 
 	public:
+	
 		/**
 			Constructor
-			@param string name of race
-			@param bool if european or not
 		*/
-		Logistics( string, bool );
+		Logistics();
 
+		/**
+			Constructor
+			@param
+		*/
+		Logistics( bool );
 
+		/**
+			Constructor
+			@param
+			@param
+			@param
+		*/
+		Logistics( Container*, Container*, Container* );
 
 		/**
 			Destructor
@@ -37,33 +43,29 @@ class Logistics {
 			
 			@return
 		*/
+		virtual Logistics* handlelogistics() = 0;
 
 	private:
 
 		/**
 			@brief 
 		*/
-		Container* garage;
+		Container* a;
 		
 		/**
 			@brief 
 		*/
-		Container* carComponents;
+		Container* b;
 		
 		/**
 			@brief 
 		*/
-		Container* catering;
+		Container* c;
 		
 		/**
 			@brief 
 		*/
 		bool isEuropean;
-		
-		/**
-			@brief
-		*/
-		string name;
 };
 
 #endif

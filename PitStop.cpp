@@ -1,30 +1,29 @@
 #include "PitStop.h"
-#include "PitCrew.h"
 
-PitStop::PitStop() : crewMemberID(0) {
+PitStop::PitStop() {
+
+	// TODO - implement PitStop::PitStop
+	throw "Not yet implemented";
 }
 
 PitStop::~PitStop() {
-	pitcrew.clear();
+
 }
 
-int PitStop::addCrewMember(PitCrew * crewMember) {
-	PitCrew * newMember = crewMember;
-	newMember->setID(crewMemberID++);
-	pitcrew.push_back(newMember);
-	return newMember->getID();
-	
+bool PitStop::attach( PitCrew* crew ) {
+
+	// TODO - implement PitStop::attach
+	throw "Not yet implemented";
 }
 
-TyreStrategy * PitStop::changeTyre(TyreStrategy * tyreStrategy)
-{
-	TyreStrategy * temp = tyreStrategy;
-	
-	vector<Tyre *> tyres = tyreStrategy->getTyres();
-	tyres.pop_back();
-	
-	temp->setTyres(tyres);
-	
-	return temp;
+bool PitStop::detach( PitCrew* crew ) {
+
+	// TODO - implement PitStop::detach
+	throw "Not yet implemented";
 }
 
+void PitStop::notify() {
+
+	// TODO - implement PitStop::notify
+	throw "Not yet implemented";
+}

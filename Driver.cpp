@@ -1,41 +1,51 @@
 #include "Driver.h"
 
 Driver::Driver() {
-	this->name = "";
-	this->aggression = 0;
-	this->specialMove = 0;
+
+	// TODO - implement Driver::Driver
+	throw "Not yet implemented";
 }
 
-Driver::Driver(string name, int aggr, float move) {
-	this->name = name;
-	this->aggression = aggr;
-	this->specialMove = move;
+Driver::Driver( string DriverName ): name(  DriverName ) {
+
+	// TODO - implement Driver::Driver
+	throw "Not yet implemented";
 }
 
-Driver::~Driver(){
+Driver::~Driver() {
+
+	// TODO - implement Driver::Driver
+	throw "Not yet implemented";
 }
 
-string Driver::getName() {
-	return this->name;
+Driver::Driver( string DriverName, int DriverAggression, float move ):
+			name( DriverName ), aggression( DriverAggression ), specialMove( move ) {
+
+	// TODO - implement Driver::Driver
+	throw "Not yet implemented";
 }
 
-void Driver::setName(string name) {
-	this->name = name;
+void Driver::setName( string DriverName ) {
+
+	this->name = DriverName;
 }
 
 int Driver::getAggression() {
+
 	return this->aggression;
 }
 
-void Driver::setAggression(int a) {
-	this->aggression = a;	
+void Driver::setAggression( int DriverAggression ) {
+
+	this->aggression = DriverAggression;
 }
 
 float Driver::getSpecialMove() {
+
 	return this->specialMove;
 }
 
-void Driver::setSpecialMove(float s) {
-	this->specialMove = s;
-}
+void Driver::setSpecialMove( float move ) {
 
+	this->specialMove = move;
+}

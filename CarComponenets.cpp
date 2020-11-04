@@ -1,10 +1,23 @@
 #include "CarComponenets.h"
 
 CarComponenets::CarComponenets(): Container() {
-	cout << "car components have been packed" << endl;
+	// TODO - implement CarComponenets::CarComponenets
+	throw "Not yet implemented";
+
+
+}
+
+CarComponenets::CarComponenets( string details ): Container() {
+
+    this->stored = details;
 }
 
 CarComponenets::~CarComponenets() {
 
+}
+
+string CarComponenets::getComponents() {
+
+	return this->stored;
 }
 

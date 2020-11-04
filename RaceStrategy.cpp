@@ -1,52 +1,25 @@
 #include "RaceStrategy.h"
 
+RaceStrategy::RaceStrategy() {
 
-RaceStrategy::RaceStrategy(Driver* driver, RaceTrack* rt) {
-	this->rt = rt;
-	this->driver = driver;
-	setTyreStrategy(rt);
-	setDriverStrategy(tyreStrategy);
-	setPitStopStrategy(tyreStrategy);
+	// TODO - implement RaceStrategy::RaceStrategy
+	throw "Not yet implemented";
 }
 
-/**
-*/
-void RaceStrategy::setPitStopStrategy(TyreStrategy* ts) {
-	pitStopStrategy = new PitStopStrategy(ts);
+void RaceStrategy::setPitStopStrategy() {
+
+	// TODO - implement RaceStrategy::setPitCrewStrategy
+	throw "Not yet implemented";
 }
 
+void RaceStrategy::setDriverStrategy() {
 
-void RaceStrategy::setDriverStrategy(TyreStrategy* ts) {
-	driverStrategy = new DriverStrategy(ts);
-	driverStrategy->setDriver(driver);
+	// TODO - implement RaceStrategy::setDriverStrategy
+	throw "Not yet implemented";
 }
 
-void RaceStrategy::setTyreStrategy(RaceTrack*  rt) {
-	tyreStrategy = new TyreStrategy(rt);
+void RaceStrategy::setTyreStrategy() {
+
+	// TODO - implement RaceStrategy::setTyreStrategy
+	throw "Not yet implemented";
 }
-
-/**
-			
-*/
-DriverStrategy*  RaceStrategy::getDriverStrategy(){
-	return driverStrategy;
-}		
-/**
-*/
-TyreStrategy* RaceStrategy::getTyreStrategy(){
-	return tyreStrategy;
-}
-		
-/**
-*/
-PitStopStrategy* RaceStrategy::getPitStopStrategy(){
-	return pitStopStrategy;
-}
-
-
-
-
-
-
-
-

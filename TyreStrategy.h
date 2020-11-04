@@ -1,7 +1,7 @@
 /**
    @file TyreStrategy.h
    @class TyreStrategy
-   @authors Brent
+   @authors Michael
    @version 1.0.0
    @brief 
 */
@@ -10,18 +10,8 @@
 #define TYRESTRATEGY_H
 
 #include "Tyre.h"
-#include "Soft.h"
-#include "Medium.h"
-#include "Hard.h"
-#include "RaceTrack.h"
 
 #include <vector>
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <math.h>
-
-#include <iostream>
 
 using namespace std;
 
@@ -33,7 +23,7 @@ class TyreStrategy {
 		/**
 			Constructor
 		*/
-		TyreStrategy(RaceTrack*  rt);
+		TyreStrategy();
 
 		/**
 			Constructor
@@ -51,43 +41,13 @@ class TyreStrategy {
 			@param
 		*/
 		void setTyres( vector<Tyre*> );
-		
-		
-		/**
-			@param
-		*/
-		int* getPitLaps();
-		
-		/**
-			@param
-		*/
-		void setPitLaps(int* arr);
-		
-		/**
-			@param
-		*/
-		int getNumPits();
-		
-		/**
-			@param
-		*/
-		void setNumPits(int arr);
-		
-		/**
-			
-		*/
-		void print();
-		
-		
-		
+
 	private:
 	
 		/**
 			@brief
 		*/
 		vector<Tyre*> tyres;
-		int* pitLaps;
-		int numPits;
 
 };
 

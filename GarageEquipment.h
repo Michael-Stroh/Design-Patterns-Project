@@ -11,9 +11,6 @@
 #define GARAGEEQUIPMENT_H
 
 #include "Container.h"
-#include <iostream>
-
-using namespace std;
 
 class GarageEquipment: public Container {
 
@@ -24,12 +21,22 @@ class GarageEquipment: public Container {
 		*/
 		GarageEquipment();
 
+		/**
+			Constructor
+			@param details
+		*/
+		GarageEquipment( string );
 
 		/**
 			Destructor
 		*/
 		~GarageEquipment();
 
+		/**
+			
+			@return
+		*/
+		string getTools();
 };
 
 #endif

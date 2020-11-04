@@ -1,29 +1,26 @@
 #include "Strategies.h"
 
-Strategies::Strategies(Driver* driver, CompositeRoad* cr) {
-	raceStrategy = new RaceStrategy(driver, cr->getRoad(0));
-	logisticsStrategy = new LogisticsStrategy();
-	month =0;
+Strategies::Strategies() {
+	// TODO - implement Strategies::Strategies
+	throw "Not yet implemented";
 }
 
 Strategies::~Strategies() {
 
 }
 
+Strategies::Strategies( RaceStrategy* r, LogisticsStrategy* l ) {
 
-int Strategies::getMonth(){
-	return month;
+	// TODO - implement Strategies::Strategies
+	throw "Not yet implemented";
 }
 
-void Strategies::nextMonth(){
-	month += 1;
-	checkLogisitics();
+int Strategies::getLapNumber() {
+
+	return this->lapNumber;
 }
 
-void Strategies::setMonth(int month){
-	this->month = month;
-}	
+void Strategies::setLapNumber( int num ) {
 
-void checkLogisitics(){
-
+	lapNumber = num;
 }
