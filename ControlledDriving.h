@@ -11,9 +11,10 @@
 
 #include "Driver.h"
 
+#include <string>
 #include <iostream>
-using namespace std;
 
+using namespace std;
 class ControlledDriving: public Driver {
 
 	public:
@@ -22,20 +23,16 @@ class ControlledDriving: public Driver {
 			Constructor
 		*/
 		ControlledDriving();
-
+		
 		/**
 			Constructor
-			 @param
 		*/
-		ControlledDriving( string );
-
+		ControlledDriving(string name, float a);
+		
 		/**
 			Constructor
-			@param
-			@param
-			@param
 		*/
-		ControlledDriving( string, int, float );
+		ControlledDriving(Driver* D);
 
 		/**
 			Destructor
@@ -46,7 +43,7 @@ class ControlledDriving: public Driver {
 			Displays the details of the driver
 			@return
 		*/
-		string displayDriver();
+		void displayDriver() ;
 };
 
 #endif

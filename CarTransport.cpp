@@ -9,6 +9,7 @@ CarTransport::CarTransport() {
 CarTransport::~CarTransport() {
 
 	// TODO - implement CarTransport::CarTransport
+	throw "Not yet implemented";
 }
 
 void CarTransport::transportCarToFactory() {
