@@ -1,3 +1,5 @@
+
+/*  
 #include <iostream>
 #include "utilities/Logger.h"
 #include "CarBuilder.h"
@@ -21,7 +23,7 @@ int main()
                    -print it
                    - if all goe well we can be sure that the builder and factory participants are doing their jobs
                    -we will also know that the car and all of its parts have a working print function
-    */
+    *
     Logger::magenta("Testing1","");
     CarBuilder* builder = new CarBuilder();
     CarComposite* car = builder->buildCar();
@@ -33,7 +35,7 @@ int main()
                -ensure original car still prints
                -If all this works we can be sure that all the copy constructors are working as needed
                -we can also be sure that all values of each car part are set correctly
-    */
+    *
    
     CarComposite* car2 = (CarComposite * ) car->clone();
     cout << "Car1 statistics" << endl;
@@ -54,7 +56,7 @@ int main()
             Test 3: -Ensuring the Car Memento Function works as it should
                     -no formal CareTaker will be used in this test.
 
-    */  
+    *  
     
     CarMemento* mem = car->createCarMemento();
     cout << "Printing out car1 statistics" << endl;
@@ -72,7 +74,7 @@ int main()
             Test 4: -Testing The Engineering aspects of the System.
                     -need to run simulations for each department
                  
-    */
+    *
     cout << "Statistics before running simulations:" << endl;
     printCarStatistics(car);
     cout << "Aerodynamics Multiplier: " << ((Body*)(car->getPart(BODY)))->getAerodynamicMultiplier() << endl;
@@ -127,7 +129,7 @@ int main()
     cout << "Max Handling: " << max[1] << endl;
     cout << "Max Speed: " << max[2] << endl;
     
-    */
+    *
 
     //add debug logging to the destructors for extra testing
     delete builder;
@@ -148,3 +150,4 @@ void printCarStatistics(CarComposite* car)
     cout << "Car total Handling: " << aggregateH << endl;
     cout << endl;
 }
+*/

@@ -1,4 +1,4 @@
-\/**
+/**
    @file GrandPrix.h
    @class GrandPrix
    @authors Alex
@@ -16,6 +16,7 @@
 #include "Circuit.h"
 #include <vector>
 #include <string>
+#include "Race.h"	//Included by Tim to enable compilation
 using namespace std;
 
 class GrandPrix

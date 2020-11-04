@@ -23,7 +23,7 @@
 #include "RaceSeasonResult.h"
 #include "GrandPrix.h"
 #include "Driver.h"
-#include "Car.h"
+#include "CarComposite.h" //changed from include Car.h by Tim
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
@@ -108,7 +108,7 @@ private:
 			@brief: 
 			@todo: Provide details on car member variable
 		*/
-	Car *car;
+	CarComposite *car;
 
 	/**
 			@brief
