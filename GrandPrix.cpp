@@ -5,11 +5,8 @@ GrandPrix::GrandPrix(): circuit( nullptr ), race( new Race() ), result( new Gran
     populateCircuit( "../Data/races.txt" );
 }
 
-GrandPrix::GrandPrix( Circuit* c ) {
+GrandPrix::GrandPrix( Circuit* c ): circuit( c ), race( new Race() ), result( new GrandPrixResult( ) ) {
 
-	this->circuit = c;
-	this->race = new Race();
-	this->result = new GrandPrixResult();
 }
 
 GrandPrix::~GrandPrix() {
