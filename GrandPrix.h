@@ -5,6 +5,7 @@
    @version 1.3.0
    @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
    @todo: Add prepare/cleanup for race (tie in with observer, race subject)
+   @todo: Finish circuit populate( will finish soon )
  */
 
 #ifndef GRAND_PRIX_H
@@ -49,7 +50,7 @@ class GrandPrix {
 			@brief Reads data from the given file to be able to create the Circuit
 			@param fileName
 		*/
-		void populateCircuit( const string& );
+		static void populateCircuit( const string& );
 
 		/**
 			@brief Displays the results of the Grand Prix
