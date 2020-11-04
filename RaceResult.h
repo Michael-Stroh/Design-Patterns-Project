@@ -28,6 +28,12 @@ public:
 	RaceResult();
 
 	/**
+			Copy Constructor
+			@param
+		*/
+	RaceResult( Result& );
+
+	/**
 			Destructor
 		*/
 	~RaceResult();

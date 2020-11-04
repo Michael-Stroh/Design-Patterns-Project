@@ -1,14 +1,15 @@
 #include "RaceResult.h"
 using namespace std;
 
-RaceResult::RaceResult()
-{
-	this->lapResults = vector<Result *>();
-	this->totalDriversLaptime = vector<pair<string, float>>();
-	this->driverGridPositions = vector<pair<string, int>>();
-	this->driversTeams = vector<pair<string, string>>();
-	this->polePositionFastestLap = 0.00;
+RaceResult::RaceResult(): Result(), polePositionFastestLap( 0.00 ), lapResults(), totalDriversLaptime(),
+                          driverGridPositions(), driversTeams() {
 }
+
+RaceResult::RaceResult( Result& result ) {
+
+
+}
+
 
 RaceResult::~RaceResult() {
 
@@ -16,12 +17,12 @@ RaceResult::~RaceResult() {
 
 bool sortByAscending(const pair<string, float> &a, const pair<string, float> &b)
 {
-	return (a.second < b.second);
+	return ( a.second < b.second );
 }
 
 bool sortByDescending(const pair<string, float> &a, const pair<string, float> &b)
 {
-	return (a.second > b.second);
+	return ( a.second > b.second );
 }
 
 
