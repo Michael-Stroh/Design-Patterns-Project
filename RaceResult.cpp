@@ -1,6 +1,19 @@
 #include "RaceResult.h"
 using namespace std;
 
+RaceResult::RaceResult()
+{
+	this->lapResults = vector<Result *>();
+	this->totalDriversLaptime = vector<pair<string, float>>();
+	this->driverGridPositions = vector<pair<string, int>>();
+	this->driversTeams = vector<pair<string, string>>();
+	this->polePositionFastestLap = 0.00;
+}
+
+RaceResult::~RaceResult() {
+
+}
+
 bool sortByAscending(const pair<string, float> &a, const pair<string, float> &b)
 {
 	return (a.second < b.second);
@@ -11,14 +24,7 @@ bool sortByDescending(const pair<string, float> &a, const pair<string, float> &b
 	return (a.second > b.second);
 }
 
-RaceResult::RaceResult()
-{
-	this->lapResults = vector<Result *>();
-	this->totalDriversLaptime = vector<pair<string, float>>();
-	this->driverGridPositions = vector<pair<string, int>>();
-	this->driversTeams = vector<pair<string, string>>();
-	this->polePositionFastestLap = 0.00;
-}
+
 
 void RaceResult::addResult(Result *r)
 {
