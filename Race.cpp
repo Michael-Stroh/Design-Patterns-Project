@@ -1,14 +1,8 @@
 #include "Race.h"
 
-Race::Race()
-{
+Race::Race(): state( nullptr ), result( nullptr ), raceSubject( new RaceSubject() ), practiceState( new PracticeState() )
+                ,qualifyingState( new QualifyingState() ), officialState( new OfficialState() ) {
 
-	this->state = nullptr;
-	this->result = nullptr;
-	this->raceSubject = new RaceSubject();
-	this->practiceState = new PracticeState();
-	this->qualifyingState = new QualifyingState();
-	this->officialState = new OfficialState();
 }
 
 Race::~Race() {
@@ -23,7 +17,7 @@ Race::~Race() {
 
 Result *Race::runRace( Result *_result, vector<RaceTeam *> *teams, Circuit *circuit )
 {
-	this->result = this->state->runRace(_result, teams, circuit);
+	this->result = this->state->runRace( _result, teams, circuit );
 	return this->result;
 }
 
