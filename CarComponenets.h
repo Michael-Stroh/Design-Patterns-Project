@@ -11,6 +11,10 @@
 
 #include "Container.h"
 
+#include <iostream>
+
+using namespace std;
+
 class CarComponenets: public Container {
 
 	public:
@@ -21,20 +25,10 @@ class CarComponenets: public Container {
 		CarComponenets();
 
 		/**
-			Constructor that takes in a string parameter to describe what  is being stored
-		*/
-		CarComponenets( string );
-
-		/**
 			Destructor
 		*/
 		~CarComponenets();
 
-		/**
-			Returns what is being stored
-			@return
-		*/
-		string getComponents();
 };
 
 #endif

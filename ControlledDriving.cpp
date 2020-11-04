@@ -1,32 +1,21 @@
 #include "ControlledDriving.h"
 
-ControlledDriving::ControlledDriving(): Driver() {
-	
-	// TODO - implement ControlledDriving::ControlledDriving
-	throw "Not yet implemented";
+ControlledDriving::ControlledDriving():Driver() {
+	cout << "Controlled driving" << endl;
+	setAggression(60);
 }
 
-ControlledDriving::ControlledDriving( string name): Driver( name ) {
-
-	// TODO - implement ControlledDriving::ControlledDriving
-	throw "Not yet implemented";
+ControlledDriving::ControlledDriving(string name, float specialMove): Driver(name, 60, specialMove){
+	cout << "Controlled Driving" << endl;
 }
 
-ControlledDriving::ControlledDriving( string name, int aggression, float move ): Driver( name, aggression, move ) {
-
-	// TODO - implement ControlledDriving::ControlledDriving
-	throw "Not yet implemented";
+ControlledDriving::ControlledDriving(Driver* d):Driver(d->getName(), 60, d->getSpecialMove()){
+	cout << "Controlled Driving" << endl;
 }
 
-
-ControlledDriving::~ControlledDriving() {
-
-	// TODO - implement ControlledDriving::ControlledDriving
-	throw "Not yet implemented";
+ControlledDriving::~ControlledDriving(){
 }
 
-string ControlledDriving::displayDriver() {
-
-	// TODO - implement ControlledDriving::displayDriver
-	throw "Not yet implemented";
+void ControlledDriving::displayDriver() {
+	cout <<"Name: "<< getName() << "\tSpecial Move: " << getSpecialMove() << "\tAggression: "<< getAggression() << "\tLevel: Controlled" << endl;
 }

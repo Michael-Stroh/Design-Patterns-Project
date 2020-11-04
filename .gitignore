@@ -32,3 +32,6 @@ algorithms/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+
+#clion files
+.xml

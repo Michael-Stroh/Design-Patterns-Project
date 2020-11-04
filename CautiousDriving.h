@@ -11,6 +11,12 @@
 
 #include "Driver.h"
 
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+
 class CautiousDriving: public Driver {
 
 	public:
@@ -19,20 +25,16 @@ class CautiousDriving: public Driver {
 			Constructor
 		*/
 		CautiousDriving();
-
+		
 		/**
 			Constructor
-		 	@param
 		*/
-		CautiousDriving( string  );
-
+		CautiousDriving(string name, float a);
+		
 		/**
 			Constructor
-			@param
-			@param
-			@param
 		*/
-		CautiousDriving( string, int, float );
+		CautiousDriving(Driver* d);
 
 		/**
 			Destructor
@@ -40,10 +42,10 @@ class CautiousDriving: public Driver {
 		~CautiousDriving();
 
 		/**
-			Displays and returns the details of the object
+			Displays the details of the object
 			@return
 		*/
-		string displayDriver();
+		void displayDriver();
 };
 
 #endif

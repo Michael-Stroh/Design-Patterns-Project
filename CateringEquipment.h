@@ -23,23 +23,10 @@ class CateringEquipment: public Container {
 		*/
 		CateringEquipment();
 
-
-		/**
-			Constructor that takes string for stored Items as a parameter and stores it
-			@param
-		*/
-		CateringEquipment( string );
-
 		/**
 			Destructor
 		*/
 		~CateringEquipment();
-
-		/**
-			Returns the stored item string
-			@param
-		*/
-		string getFood();
 };
 
 #endif

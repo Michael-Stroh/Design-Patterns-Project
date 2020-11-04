@@ -1,8 +1,9 @@
+
 int main()
 {
 	//Creation
-	GrandPrixs ** gps = createGrandPrixs();
-	RacingTeam ** teams = createAllTeams();
+	GrandPrix** gps = new GrandPrix();
+	RaceTeam ** teams = new  RaceTeam();
 	RaceSeason * raceSeason = new RaceSeason(teams, gps);
 
 	//Notification
