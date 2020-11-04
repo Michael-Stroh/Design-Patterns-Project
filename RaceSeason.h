@@ -7,8 +7,8 @@
    @todo: add runNextGrandPrix() method for running individual grand prixs
  */
 
-#ifndef RACE SEASON_H
-#define RACE SEASON_H
+#ifndef RACE_SEASON_H
+#define RACE_SEASON_H
 
 #include "GrandPrix.h"
 #include "RaceTeam.h"
