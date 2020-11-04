@@ -1,41 +1,40 @@
 #include "RaceTeam.h"
 
-RaceTeam::RaceTeam() {
-
-
-}
-
-RaceTeam::~RaceTeam() {
-
-
-}
-
-LapResult* RaceTeam::performLap( int circuit ) {
-
-	// TODO - implement Racing Team::performLap
+RaceTeam::RaceTeam()
+{
 	throw "Not yet implemented";
 }
 
-void RaceTeam::updateSeasonResult( int Result ) {
-
-	// TODO - implement Racing Team::updateSeasonResult
+RaceTeam::~RaceTeam()
+{
 	throw "Not yet implemented";
 }
 
-void RaceTeam::updateQualifyingRaceResult( int Result ) {
-
-	// TODO - implement Racing Team::updateQualifyingRaceResult
+LapResult *RaceTeam::performLap(int driverIndex, Circuit *circuit)
+{
+	// drivers[driverIndex] drive on circuit
+	// return lapresult
 	throw "Not yet implemented";
 }
 
-bool RaceTeam::updateOfficialRaceResult( Result* r ) {
-
-	// TODO - implement Racing Team::updateOfficialRaceResult
-	throw "Not yet implemented";
+void RaceTeam::informSeasonResult(Result *result)
+{
+	this->seasonResult = dynamic_cast<RaceSeasonResult *>(result);
 }
 
-void RaceTeam::informGrandPrix( GrandPrix* g ) {
+void RaceTeam::updateQualifyingRaceResult(Result *result)
+{
 
-	// TODO - implement Racing Team::informGrandPrix
-	throw "Not yet implemented";
+	this->qualifyingRaceResult = dynamic_cast<RaceResult *>(result);
+}
+
+bool RaceTeam::updateOfficialRaceResult(Result *result)
+{
+
+	this->officialRaceResult = dynamic_cast<RaceResult *>(result);
+}
+
+void RaceTeam::informGrandPrix(vector<GrandPrix *> g)
+{
+	this->grandPrixs = g;
 }

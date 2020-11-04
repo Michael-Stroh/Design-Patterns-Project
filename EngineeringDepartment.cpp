@@ -1,35 +1,41 @@
 #include "EngineeringDepartment.h"
 
-EngineeringDepartment::EngineeringDepartment() {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+//should never be used
+EngineeringDepartment::EngineeringDepartment() 
+{
+	simulationState = nullptr;
+	remainingBudget = nullptr;
+	budgetLimit = 0;
 }
 
-EngineeringDepartment::EngineeringDepartment( float budget ): budgetLimit( budget ) {
 
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, float budgetLimit)
+{
+	simulationState = state;
+	remainingBudget = budget;
+	this->budgetLimit = budgetLimit;
 }
 
-EngineeringDepartment::EngineeringDepartment( Simulation* state ): SimulationState( state ) {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
+{
+	simulationState = new AccelerationSimulation();
+	remainingBudget = budget;
+	this->budgetLimit = budgetLimit;
 }
 
-EngineeringDepartment::EngineeringDepartment(Simulation* state, float budget): SimulationState( state ), budgetLimit( budget ) {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::~EngineeringDepartment() 
+{
+	delete simulationState;
+	simulationState = nullptr;
 }
 
-EngineeringDepartment::~EngineeringDepartment() {
-
+void EngineeringDepartment::updateBudgetLimit(float newBudgetLimit) 
+{
+	budgetLimit = newBudgetLimit;
 }
 
-void EngineeringDepartment::updateBudget() {
-
-	// TODO - implement EngineeringDepartment::updateBudget
-	throw "Not yet implemented";
+float EngineeringDepartment::getBudgetLimit()
+{
+	return budgetLimit;
 }
+

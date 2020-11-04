@@ -1,47 +1,46 @@
 #include "LapResult.h"
 
-LapResult::LapResult(): Result() {
-
-	// TODO - implement LapResult::LapResult
-	throw "Not yet implemented";
+LapResult::LapResult()
+{
+	this->lapTime = 0;
+	this->driverName = "";
+	this->teamName = "";
 }
 
-LapResult::LapResult( float Time ): lapTime( Time ) {
-
-	// TODO - implement LapResult::LapResult
-	throw "Not yet implemented";
+LapResult::LapResult(string d, string s, float time)
+{
+	this->driverName = d;
+	this->teamName = s;
+	this->lapTime = time;
 }
 
-LapResult::LapResult( string name ): teamName( name ) {
-
+LapResult::~LapResult()
+{
+	this->driverName = "";
+	this->teamName = "";
+	this->lapTime = 0.00;
 }
 
-LapResult::LapResult( string name, float Time ): teamName( name ), lapTime( Time ) {
-
+void LapResult::print()
+{
+	cout << this->driverName << " [" << this->teamName << "] - " << this->lapTime << endl;
 }
 
-LapResult::~LapResult() {
-
+float LapResult::getLapTime()
+{
+	return this->lapTime;
 }
 
-bool LapResult::addLapTime( Result* r ) {
-
-	// TODO - implement LapResult::addLapTime
-	throw "Not yet implemented";
+string LapResult::getDriverName()
+{
+	return this->driverName;
 }
 
-void LapResult::print() {
-
-	// TODO - implement LapResult::print
-	throw "Not yet implemented";
+string LapResult::getTeamName()
+{
+	return this->teamName;
 }
 
-string LapResult::getTeamName() {
-
-	return teamName;
-}
-
-void LapResult::setTeamName( string name ) {
-
-	teamName = name;
+void LapResult::addResult(Result *r)
+{
 }

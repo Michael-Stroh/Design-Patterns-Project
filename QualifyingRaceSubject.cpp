@@ -1,17 +1,18 @@
 #include "QualifyingRaceSubject.h"
 
-QualifyingRaceSubject::QualifyingRaceSubject(): Subject() {
-
-	// TODO - implement QualifyingRaceSubject::QualifyingRaceSubject
-	throw "Not yet implemented";
+QualifyingRaceSubject::QualifyingRaceSubject() : Subject()
+{
 }
 
-QualifyingRaceSubject::~QualifyingRaceSubject() {
-
+QualifyingRaceSubject::~QualifyingRaceSubject()
+{
 }
 
-void QualifyingRaceSubject::notify( RaceState* r ) {
-
-	// TODO - implement QualifyingRaceSubject::notify
-	throw "Not yet implemented";
+void QualifyingRaceSubject::notify(RaceState *r)
+{
+	vector<RaceTeam *>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		it->updateQualfyingRaceResult(r);
+	}
 }

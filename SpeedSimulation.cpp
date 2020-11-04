@@ -2,12 +2,34 @@
 
 SpeedSimulation::SpeedSimulation(): Simulation() {
 
-	// TODO - implement SpeedSimulation::SpeedSimulation
-	throw "Not yet implemented";
+	
 }
 
-Simulation* SpeedSimulation::simulate( CarComposite* car, Driver* driver ) {
+SpeedSimulation::~SpeedSimulation()
+{
 
-	// TODO - implement SpeedSimulation::simulate
-	throw "Not yet implemented";
+}
+
+CarPart* SpeedSimulation::simulate(CarPart* carPart, float variance[], float max[])
+{
+	CarPart* proposedPart = carPart->clone();
+	float change = generateRandomFraction() * variance[2];
+	if (generateRandomFraction() < 0)
+		change *= -1;
+	change += carPart->getSpeed();
+	if (change <= max[2])
+		proposedPart->setSpeed(change);
+
+	return proposedPart;
+}
+
+void SpeedSimulation::simulate(Driver* driver)
+{
+
+}
+
+
+Simulation* SpeedSimulation::getNextState()
+{
+	return new SpeedSimulation();
 }

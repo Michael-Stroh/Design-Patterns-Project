@@ -11,35 +11,26 @@
 #define ELECTRONICSDEPARTMENT_H
 
 #include "EngineeringDepartment.h"
+#include "Electronics.h"
 
-class ElectronicsDepartment: public EngineeringDepartment {
+class ElectronicsDepartment : public EngineeringDepartment {
 
 	public:
 		
 		/**
-			Constructor
-		*/
-		ElectronicsDepartment();
+		Constructor
+		@param
+	*/
+		ElectronicsDepartment(Budget*, float);
 
-		/**
-			Constructor
-			@param budget
-		*/
-		ElectronicsDepartment( float );
-
-		/**
-			Constructor
-			@param
-		*/
-		ElectronicsDepartment( Simulation* );
 
 		/**
 			Constructor
 			@param
 			@param
 		*/
-		ElectronicsDepartment( Simulation*, float );
-
+		ElectronicsDepartment(Simulation*, Budget*, float);
+	
 		/**
 			Destructor
 		*/
@@ -49,7 +40,14 @@ class ElectronicsDepartment: public EngineeringDepartment {
 			
 			@return
 		*/
-		Simulation* runSimulation();
+		void runSimulation(CarComposite * );
+
+	private:
+		/**
+			Constructor
+		*/
+		ElectronicsDepartment();
+
 };
 
 #endif

@@ -9,10 +9,8 @@
 
 #ifndef PITCREW_H
 #define PITCREW_H
-//collegue
 
-#include "TyreStrategy.h"
-#include "PitStop.h"
+class PitStop;
 
 class PitCrew {
 
@@ -26,45 +24,46 @@ class PitCrew {
 		/**
 			Destructor
 		*/
-		virtual ~PitCrew();
+		~PitCrew();
 
 		/**
 			
-			@param pitstop
+			@param
 		*/
-		void registerAtPitStop( PitStop* );
+		void registerWork( PitStop* );
 
 		/**
-
+			
+			@param
 		*/
-		int getID();
-
-
-		/**
-
-		 	@param id
-		*/
-		void setID(int);
+		void setCar( int );
 		
 		/**
-
 			
 		*/
-		
-		virtual TyreStrategy * replacePart(TyreStrategy *) = 0;
-		
+		virtual void update() = 0;
 
-	protected:
+		/**
+		*/
+		bool getStatus();
+
+
+		/**
+		 	@param
+		*/
+		void getStatus( bool );
+
+	private:
 
 		/**
 			@brief 
 		*/
-		PitStop * myPitStop;
+		PitStop* worksFor;
 		
 		/**
 			@brief 
 		*/
-		int myID;
+		bool status;
 };
 
 #endif
