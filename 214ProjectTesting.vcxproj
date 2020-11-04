@@ -174,7 +174,7 @@
     <ClCompile Include="SeasonSubject.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Soft.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TimMain.cpp" />
     <ClCompile Include="SpeedSimulation.cpp" />
     <ClCompile Include="SteeringFactory.cpp" />
     <ClCompile Include="SteeringWheel.cpp" />
