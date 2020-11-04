@@ -18,10 +18,8 @@
 #ifndef RACING_TEAM_H
 #define RACING_TEAM_H
 
-#include "Result.h"
 #include "RaceResult.h"
 #include "RaceSeasonResult.h"
-#include "GrandPrix.h"
 #include "Driver.h"
 #include "Car.h"
 #include "CarBuilder.h"
@@ -29,7 +27,10 @@
 #include "LapResult.h"
 #include "Circuit.h"
 #include <vector>
+
 using namespace std;
+
+class GrandPrix;
 
 class RaceTeam
 {
@@ -76,7 +77,7 @@ public:
 			@brief: Updates the internal representation of all the GrandPrixs, so that the team can prepare
 			@param[in]: A vector containing all GrandPrixs that will occur in a season
 		*/
-	void informGrandPrix(vector<GrandPrix *>);
+	void informGrandPrix( vector< GrandPrix* > );
 
 private:
 	/**
