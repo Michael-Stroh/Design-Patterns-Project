@@ -1,9 +1,10 @@
 /**
    @file Simulation.h
    @class Simulation
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.2
+   @brief An interface that all derived Simulations will have to implement. In general, simulations are responsible for improving the parts
+   of a car.
  */
 
 #ifndef SIMULATION_H

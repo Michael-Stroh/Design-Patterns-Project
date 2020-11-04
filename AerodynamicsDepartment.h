@@ -1,9 +1,9 @@
 /**
    @file AerodynamicsDepartment.h
    @class AerodynamicsDepartment
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.2
+   @brief The Department responsible for making changes and improvements the Body of the car
  */
 
 #ifndef AERODYNAMICSDEPARTMENT_H

@@ -3,8 +3,8 @@
    @class CarBuilder
    @authors Michael Timothy 
    @version 1.0.1
-   @brief A Builder class that is responsible for building the initial cars that racing teams will then
-   us and upgrade.
+   @brief A Builder class that is responsible for building the initial cars (CarComposite) that racing teams will then
+   use and upgrade.
  */
 
 #ifndef CARBUILDER_H

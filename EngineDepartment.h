@@ -3,7 +3,7 @@
    @class EngineDepartment
    @authors Michael
    @version 1.0.2
-   @brief The Department responsible for making changes and improvements to the engine of a car.
+   @brief The Department responsible for making changes and improvements to the Engine of a car.
  */
 
 

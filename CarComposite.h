@@ -126,6 +126,17 @@ class CarComposite : public Car{
 			@param newAcceleration is not used.
 		*/
 		void setAcceleration( float );
+
+		/**
+			@brief A function that is used to simulate the car running a race. Specifically, it updates the tempreture
+			of the engine of the car.
+		*/
+		void runLap();
+
+		/**
+			@brief A function used to reset the car after the race by resetting the tempreture of its engine.
+		*/
+		void resetAfterRace();
 		
 	private:
 	

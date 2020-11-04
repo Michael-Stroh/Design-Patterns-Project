@@ -22,6 +22,7 @@ class EngineeringDepartment {
 		
 		
 		/**
+			Constructor
 			@param budget the budget pointer that specifies the shared budget for each department
 			@param budgetLimit a specific Department's budget limit.
 		*/
@@ -29,9 +30,9 @@ class EngineeringDepartment {
 
 		/**
 			Constructor
-			@param state
-			@param budget
-			@param budgetLimit
+			@param state is the initialSimulationState of the EngineeringDepartment
+			@param budget budget the budget pointer that specifies the shared budget for each department
+			@param budgetLimit budgetLimit a specific Department's budget limit.
 		*/
 		EngineeringDepartment( Simulation*, Budget * , float );
 
@@ -53,13 +54,14 @@ class EngineeringDepartment {
 		float getBudgetLimit();
 
 		/**	
-			This function is responsible for 
-			@return The next simulation that is the next state of this department.
+			This function is responsible for running a simulation
+			@param car is the CarComposite to make improvements to.
 		*/
 		virtual void runSimulation(CarComposite * ) = 0;
 
 		/**
-			@brief
+			@brief Updates
+			@param newRemainingBudget is the new balance for the remainingBudget
 		*/
 		void updateRemainingBudget(float);
 		
@@ -71,18 +73,19 @@ class EngineeringDepartment {
 		Simulation * simulationState;
 		
 		/**
-			@brief 
+			@brief The shared Budget object that is responsible for updating the remainingBudget of each EngineeringDepartment
+			when it changes during simulations.
 		*/
 		Budget * budget;
 		
 		/**
-			@brief The limit that the budget can
+			@brief The remaining budget for EngineeringDepartments
 		*/
 		float remainingBudget;
 
 		/**
 			@brief The specifies the lowest that the budget can reach before departments stop testing. 
-			Is set at start of race preparations for each race to allow for a certain amount of workk to be done without 
+			Is set at start of race preparations for each race to allow for a certain amount of work to be done without 
 			exhausting the budget too soon.
 		*/
 		float budgetLimit;
@@ -94,7 +97,7 @@ class EngineeringDepartment {
 
 		/**
 				Constructor
-			*/
+		*/
 		EngineeringDepartment();
 		
 

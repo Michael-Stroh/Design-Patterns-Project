@@ -3,8 +3,8 @@
    @class CarPart
    @authors Michael Timothy
    @version 1.0.2
-   @brief An interface that each CarPart must adhere to. CarParts are held
-   		in the @link CarComposite class. 
+   @brief An interface that each car part must adhere to. CarParts are held
+   		in the CarComposite class. 
  */
 
 #ifndef CARPART_H
