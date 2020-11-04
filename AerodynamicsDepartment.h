@@ -10,6 +10,8 @@
 #define AERODYNAMICSDEPARTMENT_H
 
 #include "EngineeringDepartment.h"
+#include "WindTunnel.h"
+#include "Body.h"
 
 class AerodynamicsDepartment: public EngineeringDepartment {
 
@@ -17,27 +19,17 @@ class AerodynamicsDepartment: public EngineeringDepartment {
 	
 		/**
 			Constructor
-		*/
-		AerodynamicsDepartment();
-
-		/**
-			Constructor that takes in a parameter for the budget
-			@param budgetLimit
-		*/
-		AerodynamicsDepartment( float );
-
-		/**
-			Constructor that takes in a paramter for the Somulation object
 			@param
 		*/
-		AerodynamicsDepartment( Simulation* );
+		AerodynamicsDepartment(Budget*, float);
+
 
 		/**
-			Constructor that takes in a paramter for the Somulation object and budget
+			Constructor
 			@param
-			@param budgetLimit
+			@param
 		*/
-		AerodynamicsDepartment( Simulation*, float );
+		AerodynamicsDepartment(Simulation*, Budget*, float);
 
 		/**
 			Destructor
@@ -48,7 +40,15 @@ class AerodynamicsDepartment: public EngineeringDepartment {
 			Runs the simulation class and returns a pointer to the object
 			@return
 		*/
-		Simulation* runSimulation();
+		void runSimulation(CarComposite * car);
+
+	private:
+
+		/**
+			Constructor
+		*/
+		AerodynamicsDepartment();
+
 };
 
 #endif

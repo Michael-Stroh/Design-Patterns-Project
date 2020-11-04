@@ -1,17 +1,17 @@
 /**
    @file Art.h
    @class Art
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A Decorator class that models the artwork that makes up the body of the car. 
  */
 
 #ifndef ART_H
 #define ART_H
 
-#include "Car.h"
+#include "CarPart.h"
 
-class Art: public Car {
+class Art {
 
 	public:
 	
@@ -37,17 +37,18 @@ class Art: public Car {
 		void print();
 
 		/**
-
+			@brief Returns the next pointer (either another Art * or the actual Body *) of this object.
 		*/
-		Art* getNext();
+		CarPart * getNext();
 
 		/**
-
+			@brief Appends another art wor to the linked list of artworks
 		*/
-		void setNext( Art* );
+		void setNext( CarPart * );
+	
 
 		/**
-
+			
 		*/
 		string getDescription();
 
@@ -56,12 +57,14 @@ class Art: public Car {
 		*/
 		void setDescription( string );
 
+	
+
 	private:
 	
 		/**
      		@brief holds a pointer to the next ArtCompnonet stored
 		*/
-		Art* next;
+		CarPart * next;
 		//ArtComponent* next;
 
 		/**
