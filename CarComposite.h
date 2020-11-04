@@ -1,21 +1,27 @@
 /**
    @file CarComposite.h
    @class CarComposite
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.1.3
+   @brief The Composite Class of the Composite Design Pattern.
+   Holds all of the parts that make up a car and implements the
+   functions necessary to change them.
  */
 
 #ifndef CARCOMPOSITE_H
 #define CARCOMPOSITE_H
 
 #include "CarMemento.h"
-#include "Tyre.h"
-#include "Car.h"
-
+#include "CarPart.h"	//Contains Car.h so no need to include it here.
 #include <vector>
+#include "PartState.h"
 
-class CarComposite {
+
+/*
+	Removed all Tyre related things. Thats Brents problem now 	(͡ ° ͜ʖ ͡ °)
+*/
+
+class CarComposite : public Car{
 
 	public:
 		
@@ -24,16 +30,11 @@ class CarComposite {
 		*/
 		CarComposite();
 
-        /**
-            Constructor
-            @param
-        */
-        CarComposite( float );
-
 		/**
 			Copy constructor for prototype design pattern
+			@param c is the car to be copied.
 		*/
-		CarComposite( Car& );
+		CarComposite( const CarComposite& );
 
 		/**
 			Destructor
@@ -41,57 +42,104 @@ class CarComposite {
 		~CarComposite();
 
 		/**
-			Returns a clone of the current Car object
-			@return
+			Returns a clone of the current Car object.
+			@return a CarComposite * (which is of Type Car).
 		*/
 		Car* clone();
 
 		/**
-			Prints out details about the Car object
+			Prints out details about the Car object based on each of the parts
+			it holds.
 		*/
 		void print();
 
 		/**
-			Adds the given car object to the given index
-			@param index
-			@param
+			Adds the given car object to the given index. Must remove the part
+			at the index first to ensure there are no memory leaks.
+			@param index is the index to where the part is added.
+			@param part is the part to be added at index.
 		*/
-		void add( int, Car* );
+		void add( int, CarPart* );
+
+		/**
+			Gets the CarPart from the carPart vector at index. Throw
+			index out of bounds error. Const since it is used
+			in the copy constructor.
+
+			@param index is the index of the part to be fetched.
+		*/
+		CarPart * getPart(int) const;
 	
 		/**
-			Removes the car object at the given index
-			@param index
+			Removes the CarPart at the given index. Throws index out of bounds
+			error.
+			@param index is the index of the part to be removed.
 		*/
 		void remove( int );
 
 		/**
 			Creates a Memento of the current object and returns it
-			@return
+			@return a Memento * for the caretaker to hold.
 		*/
 		CarMemento* createCarMemento();
 
 		/**
-			Sets the current object to the given Memento
-			@param
+			Sets the current object to the given Memento and deletes the memento that was passed in.
+			@param memento is the memento used to set the state of each part of the car.
+			
 		*/
 		void setCarMemento( CarMemento* );
+
+		/**
+			Returns the sum of the handling scores for each owned carPart.
+			@return the logical total handling score of the car.
+		*/
+		float getHandling();
+
+		/**
+			ObseleteFunctin for class CarComposite
+			@param newHandling is not used.
+		*/
+		void setHandling( float );
+
+		/**
+			Returns the sum of the speed scores for each owned carPart multiplied by the car's 
+			aerodynamics score.
+			@return the logical total speed score of the car.
+		*/
+		float getSpeed();
+
+		/**
+			ObseleteFunctin for class CarComposite
+			@param newSpeed is not used.
+		*/
+		void setSpeed( float );
+
+		/**
+			Returns the sum of the acceleration scores for each owned carPart.
+			@return the logical total acceleration score of the car.
+		*/
+		 float getAcceleration();
+
+		/**
+			ObseleteFunctin for class CarComposite
+			@param newAcceleration is not used.
+		*/
+		void setAcceleration( float );
 		
 	private:
 	
 		/**
-     		@brief a Vector of all the Car objects
+     		@brief A vector of all the car parts that make up the car.
+     		Used in conjunction with the enum PartIndices in @link Car .
 		*/
-		vector<Car*> carParts;
+		vector<CarPart*> carParts;
 	
 		/**
-     		@brief how AreoDynamic the Car is
+			@brief A constant value that determines the number of CarParts
+			held int the carParts vector.
 		*/
-		float aeroDynamicMultiplier;
-		
-		/**
-     		@brief A pointer to the Tyres the car uses
-		*/
-		Tyre** tyres;
+		const static int NUMPARTS;
 };
 
 #endif

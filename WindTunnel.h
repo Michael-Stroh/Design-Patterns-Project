@@ -1,9 +1,9 @@
 /**
    @file WindTunnel.h
    @class WindTunnel
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief  Used to improve the aerodynamics multiplier of the body of a car.
 */
 
 #ifndef WINDTUNNEL_H
@@ -12,8 +12,9 @@
 #include "Simulation.h"
 #include "CarComposite.h"
 #include "Driver.h"
+#include "Body.h"
 
-class WindTunnel : Simulation {
+class WindTunnel : public Simulation {
 
 
 	public:
@@ -27,14 +28,6 @@ class WindTunnel : Simulation {
 			Destructor
 		*/
 		~WindTunnel();
-
-		/**
-			
-			@param
-			@param
-			@return
-		*/
-		Simulation* simulate( CarComposite*, Driver* );
 
 		/**
 
@@ -59,6 +52,21 @@ class WindTunnel : Simulation {
 			 @param
 		*/
 		void setAllowedUsage( int );
+
+		/**
+
+			@param
+			@param
+			@return
+		*/
+		CarPart* simulate(CarPart*, float[], float[]);
+
+		void simulate(Driver*);
+
+		/**
+			@brief Returns the next simulation that a department should run. In this case, this function will probably never be used.
+		*/
+		Simulation* getNextState();
 
 	private:
 	

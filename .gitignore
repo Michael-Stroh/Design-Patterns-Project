@@ -27,3 +27,8 @@ algorithms/
 
 # the .vscode directory
 .vscode/
+#visual studio related files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
