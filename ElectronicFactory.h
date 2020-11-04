@@ -1,9 +1,10 @@
 /**
    @file ElectronicFactory.h
    @class ElectronicFactory
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A concrete factory responsible for creating the engine of a car and ensuring its variables are
+   varied and set correctly.
  */
 
 
@@ -11,6 +12,7 @@
 #define ELECTRONICFACTORY_H
 
 #include "CarPartFactory.h"
+#include "Electronics.h"
 
 class ElectronicFactory: public CarPartFactory {
 

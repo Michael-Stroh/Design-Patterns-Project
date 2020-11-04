@@ -9,7 +9,10 @@
 #ifndef SUBJECT_H
 #define SUBJECT_H
 
-#include "RaceState.h"
+//#include "RaceState.h"
+#include "RaceTeam.h"
+
+class RaceState;
 
 class Subject {
 

@@ -1,4 +1,4 @@
-/**
+\/**
    @file GrandPrix.h
    @class GrandPrix
    @authors Alex
