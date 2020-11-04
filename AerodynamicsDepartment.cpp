@@ -24,6 +24,16 @@ AerodynamicsDepartment::~AerodynamicsDepartment()
 
 void AerodynamicsDepartment::runSimulation(CarComposite * car) {
 
+	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
+		return;
+	else
+	{
+		remainingBudget -= costPerSimulation;
+		budget->setBudget(remainingBudget);
+		budget->notifyAll();
+	}
+
+
 	Body* body = (Body * ) (car->getPart(BODY));	//check the typeCasting since we need a Body pointer in particular
 	float variances[] = { Body::AERODYNAMICS_VARIANCE
 	};

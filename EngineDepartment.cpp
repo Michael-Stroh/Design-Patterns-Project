@@ -24,6 +24,16 @@ EngineDepartment::~EngineDepartment()
 //Look into typeCasting, check for memory leaks!!
 void  EngineDepartment::runSimulation(CarComposite * car) 
 {
+
+	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
+		return;
+	else
+	{
+		remainingBudget -= costPerSimulation;
+		budget->setBudget(remainingBudget);
+		budget->notifyAll();
+	}
+
 	CarPart* engine = car->getPart(ENGINE); 
 	float variances[] = { Engine::ACCELERATION_CHANGE_VARIANCE,
 						 Engine::HANDLING_CHANGE_VARIANCE,

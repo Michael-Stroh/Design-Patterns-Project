@@ -57,6 +57,11 @@ class EngineeringDepartment {
 			@return The next simulation that is the next state of this department.
 		*/
 		virtual void runSimulation(CarComposite * ) = 0;
+
+		/**
+			@brief
+		*/
+		void updateRemainingBudget(float);
 		
 	protected:
 	
@@ -68,13 +73,24 @@ class EngineeringDepartment {
 		/**
 			@brief 
 		*/
-		Budget * remainingBudget;
+		Budget * budget;
 		
 		/**
+			@brief The limit that the budget can
+		*/
+		float remainingBudget;
+
+		/**
 			@brief The specifies the lowest that the budget can reach before departments stop testing. 
-			Is set at start of race preparations for each race.
+			Is set at start of race preparations for each race to allow for a certain amount of workk to be done without 
+			exhausting the budget too soon.
 		*/
 		float budgetLimit;
+
+		/**
+			@brief The cost to run one simulation.
+		*/
+		const static float costPerSimulation;
 
 		/**
 				Constructor

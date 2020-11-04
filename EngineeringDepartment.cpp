@@ -4,23 +4,26 @@
 EngineeringDepartment::EngineeringDepartment() 
 {
 	simulationState = nullptr;
-	remainingBudget = nullptr;
+	remainingBudget = 0;
 	budgetLimit = 0;
+	this->budget = nullptr;
 }
 
 
 EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, float budgetLimit)
 {
 	simulationState = state;
-	remainingBudget = budget;
+	this->budget = budget;
 	this->budgetLimit = budgetLimit;
+	remainingBudget = budget->getBudget();
 }
 
 EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
 {
 	simulationState = new AccelerationSimulation();
-	remainingBudget = budget;
+	this->budget = budget;
 	this->budgetLimit = budgetLimit;
+	remainingBudget = budget->getBudget();
 }
 
 EngineeringDepartment::~EngineeringDepartment() 
@@ -39,3 +42,9 @@ float EngineeringDepartment::getBudgetLimit()
 	return budgetLimit;
 }
 
+void EngineeringDepartment::updateRemainingBudget(float newRemainingBudget)
+{
+	remainingBudget = newRemainingBudget;
+}
+
+const float EngineeringDepartment::costPerSimulation = 100; 
