@@ -1,10 +1,13 @@
 
+#include "GrandPrix.h"
+#include "RaceTeam.h"
+#include "RaceSeason.h"
 
 int main()
 {
 	//Creation
-	GrandPrixs ** gps = createGrandPrixs();
-	RacingTeam ** teams = createAllTeams();
+	GrandPrix** gps = new GrandPrix();
+	RaceTeam ** teams = new  RaceTeam();
 	RaceSeason * raceSeason = new RaceSeason(teams, gps);
 
 	//Notification
