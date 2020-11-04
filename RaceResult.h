@@ -23,12 +23,6 @@ class RaceResult : public Result {
 		RaceResult();
 
 		/**
-			Copy Constructor
-			@param result: holds the object we want to copy from
-		*/
-		RaceResult( Result& );
-
-		/**
 			Destructor
 		*/
 		~RaceResult();
@@ -132,7 +126,7 @@ class RaceResult : public Result {
 		string getDriverTeam( string );
 
 		/**
-			@brief holds the psotion for the fastest lap
+			@brief holds the position for the fastest lap
 		*/
 		float polePositionFastestLap;
 

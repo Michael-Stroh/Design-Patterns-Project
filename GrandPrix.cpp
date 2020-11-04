@@ -24,11 +24,11 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* >* teams ) {
 
     // Perform the practice race
     this->race->setState( "Practice" );
-    RaceResult* practiceResult = new RaceResult( this->race->runRace( nullptr, teams, this->circuit ) );
+    Result* practiceResult = this->race->runRace( nullptr, teams, this->circuit );
 
     // Perform the qualifying race
     this->race->setState( "Qualifying" );
-    RaceResult* qualifyingResult = new RaceResult( this->race->runRace( nullptr, teams, this->circuit ) );
+    Result* qualifyingResult = this->race->runRace( nullptr, teams, this->circuit );
 
     // Perform the official race
     this->race->setState( "Official" );
