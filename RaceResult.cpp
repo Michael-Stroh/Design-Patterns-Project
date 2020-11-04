@@ -1,17 +1,17 @@
 #include "RaceResult.h"
-using namespace std;
 
 RaceResult::RaceResult(): Result(), polePositionFastestLap( 0.00 ), lapResults(), totalDriversLaptime(),
                           driverGridPositions(), driversTeams() {
 }
 
-RaceResult::RaceResult( Result& result ) {
+RaceResult::RaceResult( Result& result ): Result() {
 
-
+	//polePositionFastestLap = result
 }
 
 
 RaceResult::~RaceResult() {
+
 
 }
 
@@ -24,8 +24,6 @@ bool sortByDescending(const pair<string, float> &a, const pair<string, float> &b
 {
 	return ( a.second > b.second );
 }
-
-
 
 void RaceResult::addResult(Result *r)
 {

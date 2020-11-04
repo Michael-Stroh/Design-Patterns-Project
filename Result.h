@@ -11,6 +11,8 @@
 
 #include <vector>
 #include <string>
+#include <map>
+#include "utilities/Logger.h"
 
 using namespace std;
 
