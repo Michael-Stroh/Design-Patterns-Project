@@ -32,7 +32,7 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* >* teams ) {
 
     // Perform the official race
     this->race->setState( "Official" );
-    RaceResult* officialResult = new RaceResult( this->race->runRace( qualifyingResult, teams, this->circuit ) );
+    Result* officialResult = this->race->runRace( qualifyingResult, teams, this->circuit );
 
     // Add official race's result to the grand prix's result, return the grand prix's result
     this->result->addResult( officialResult );
@@ -40,9 +40,31 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* >* teams ) {
 
 }
 
-void GrandPrix::populateCircuit( string fileName ) {
+void GrandPrix::populateCircuit( const string& fileName ) {
 
+    string line;
+    ifstream file;
 
+    //file.open("../Data/races.txt");
+    file.open(fileName );
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            int pos =0;
+            int size = line.size();
+            cout << size << endl;
+            string temp = line;
+            for( int i =0 ; i <  10; i++){
+                pos = temp.find_first_of('|' );
+                cout << temp.substr(1,pos-1) << endl;
+                temp = temp.substr(pos+1, size);
+            }
+        }
+    }
+    else {
+        cout << "file not found" << endl;
+    }
+
+    file.close();
 }
 
 void GrandPrix::displayResult() {

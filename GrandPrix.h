@@ -13,8 +13,8 @@
 #include "GrandPrixResult.h"
 #include "RaceResult.h"
 #include "RaceTeam.h"
-#include "Circuit.h"
 #include "Race.h"
+#include <fstream>
 
 class GrandPrix {
 
@@ -49,7 +49,7 @@ class GrandPrix {
 			@brief Reads data from the given file to be able to create the Circuit
 			@param fileName
 		*/
-		void populateCircuit( string );
+		void populateCircuit( const string& );
 
 		/**
 			@brief Displays the results of the Grand Prix
@@ -67,7 +67,7 @@ class GrandPrix {
 		/**
 			@brief The circuit on which all of the races during this Grand Prix will take place.
 		*/
-		Circuit *circuit;
+		Circuit* circuit;
 
 		/**
 			@brief The race(s) that will take place during this Grand Prix. Will change state from "practice" to "qualifying" to "official" as required.
@@ -77,7 +77,7 @@ class GrandPrix {
 		/**
 			@brief The result of the Grand Prix.
 		*/
-		Result *result;
+		Result* result;
 };
 
 #endif
