@@ -14,17 +14,11 @@ Race::Race()
 Race::~Race() {
 
     delete state;
-
     delete raceSubject;
-
     delete result;
-
     delete practiceState;
-
     delete qualifyingState;
-
     delete officialState;
-
 }
 
 Result *Race::runRace( Result *_result, vector<RaceTeam *> *teams, Circuit *circuit )
