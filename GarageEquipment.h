@@ -10,10 +10,8 @@
 #ifndef GARAGEEQUIPMENT_H
 #define GARAGEEQUIPMENT_H
 
-#include <iostream>
-#include <string>
-
 #include "Container.h"
+#include <iostream>
 
 using namespace std;
 
@@ -26,22 +24,12 @@ class GarageEquipment: public Container {
 		*/
 		GarageEquipment();
 
-		/**
-			Constructor
-			@param details
-		*/
-		GarageEquipment( string );
 
 		/**
 			Destructor
 		*/
 		~GarageEquipment();
 
-		/**
-			
-			@return
-		*/
-		string getTools();
 };
 
 #endif

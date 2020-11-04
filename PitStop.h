@@ -6,12 +6,16 @@
    @brief 
  */
 
-
+//mediator
 #ifndef PITSTOP_H
 #define PITSTOP_H
 
-#include "PitCrew.h"
-#include "Car.h"
+#include "TyreStrategy.h"
+#include <vector>
+
+class PitCrew;
+
+using namespace std;
 
 class PitStop {
 
@@ -25,38 +29,27 @@ class PitStop {
 		/**
 			Destructor
 		*/
-		~PitStop();
+		virtual ~PitStop();
 
 		/**
 			
-			@param
+			@param crewMember
 		*/
-		bool attach( PitCrew* );
-
+		int addCrewMember(PitCrew *);
+		
 		/**
 			
-			@param
+			@param tyreStrategy
 		*/
-		bool detach( PitCrew* );
-
-		/**
-			
-			@param
-		*/
-		void notify();
-
-		/**
-			
-			@param
-		*/
-		virtual bool setCar( Car* ) = 0;
-	
-	private:
+		TyreStrategy * changeTyre(TyreStrategy *);
+		
+	protected:
 
 		/**
 			@brief 
 		*/
-		vector<PitCrew*> pitcrew;
+		vector <PitCrew*> pitcrew;
+		int crewMemberID;
 };
 
 #endif

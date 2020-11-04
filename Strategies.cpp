@@ -1,24 +1,29 @@
 #include "Strategies.h"
 
-Strategies::Strategies() {
-	raceStrategy = new RaceStrategy();
-	logisiticStrategy = new logisiticStrategy();
+Strategies::Strategies(Driver* driver, CompositeRoad* cr) {
+	raceStrategy = new RaceStrategy(driver, cr->getRoad(0));
+	logisticsStrategy = new LogisticsStrategy();
+	month =0;
 }
 
-Strategies::Strategies(RaceStrategy* r, LogisticStrategy* l) {
-	// TODO - implement Strategies::Strategies
-	this->raceStrategy = r;
-	this->logisiticStrategy = l;
+Strategies::~Strategies() {
+
 }
 
-int Strategies::getLapNumber() {
-	return this->lapNumber;
+
+int Strategies::getMonth(){
+	return month;
 }
 
-void Strategies::checkLogistics() {
-	//todo check after each race for need of logisitics, + before the season will start
+void Strategies::nextMonth(){
+	month += 1;
+	checkLogisitics();
 }
 
-void  Strategies::setRaceStrategy(RaceStrategy* rs) {
-	this->raceStrategy = rs;
+void Strategies::setMonth(int month){
+	this->month = month;
+}	
+
+void checkLogisitics(){
+
 }

@@ -1,22 +1,24 @@
 #include "Soft.h"
 
-Soft::Soft() {
-	setDurability(50);
-	setGrip(150);
-	setPressure(1.5);
-	cout << "Soft tyre\tD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
+Soft::Soft(): Tyre(60, 100, 1.2) {
+	cout << "soft tyre created" << endl;
+	this->type = "Soft";
 }
 
-Soft::Soft(int durability, int grip, float pressure) {
-	setDurability(durability);
-	setGrip(grip);
-	setPressure(pressure);
-	cout << "Soft tyre\tD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
+Soft::Soft( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
+	cout << "soft tyre created" << endl;
+	this->type = "Soft";
+}
+
+Soft::~Soft() {
+
 }
 
 void Soft::usage() {
-	int durability = getDurability();
-	// TODO - implement Soft::usage
-	throw "Not yet implemented";
+	setDurability(getDurability() /*distance of lap*/);
+	setGrip(getGrip() -1);
+}
+string Soft::getType() {
+	return this->type;
 }
 

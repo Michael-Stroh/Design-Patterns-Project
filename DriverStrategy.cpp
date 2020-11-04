@@ -1,25 +1,68 @@
 #include "DriverStrategy.h"
 
 DriverStrategy::DriverStrategy() {
-
-	// TODO - implement DriverStrategy::DriverStrategy
-	throw "Not yet implemented";
+	
 }
 
-DriverStrategy::DriverStrategy( Driver* driver ): raceDriver( driver ) {
-
-	// TODO - implement DriverStrategy::DriverStrategy
-	throw "Not yet implemented";
+DriverStrategy::DriverStrategy(Driver* d) {
+	this->raceDriver = d;
 }
 
-DriverStrategy::~DriverStrategy() {
+DriverStrategy::DriverStrategy(TyreStrategy* tyre){
+	this->tyreStrategy = tyre;
+}
 
-	// TODO - implement DriverStrategy::DriverStrategy
-	throw "Not yet implemented";
+vector<Driver*> DriverStrategy::decideStrategy(){
+	
+	vector<Tyre*> tyres = tyreStrategy->getTyres();
+	int size = (int) tyres.capacity();
+	
+	vector<Driver*> drive;
+	drive.reserve(size);
+	Driver* temp;
+	
+	for( int i = 0 ; i < size; i++ ){
+		string type = tyres.at(i)->getType();
+		if( type == "Soft" ){
+			temp = new AggressiveDriving(raceDriver);
+			drive.push_back(temp );
+		}else if( type == "Medium" ){
+		 	temp = new ControlledDriving(raceDriver);
+		 	drive.push_back(temp);
+		}else if( type == "Hard" ) {
+		 	temp = new CautiousDriving(raceDriver);
+		 	drive.push_back(temp);
+		}else{
+			cout << "error" << endl;
+		}
+	}
+	drivers = drive;
+	return drive;
 }
 
 void DriverStrategy::displayDriver() {
-
-	// TODO - implement DriverStrategy::displayDriver
-	throw "Not yet implemented";
+	raceDriver->displayDriver();
 }
+
+Driver* DriverStrategy::getDriver(){
+	return raceDriver;
+}
+
+
+void DriverStrategy::setDriver(Driver* d){
+	this->raceDriver = d;
+}
+
+void DriverStrategy::changeStrategy(){
+	drivers.pop_back();
+	this->drivers = drivers;
+}
+
+
+
+
+
+
+
+
+

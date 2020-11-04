@@ -1,15 +1,10 @@
 #include "GarageEquipment.h"
 
-GarageEquipment::GarageEquipment() {
-	cout << "Garage equipment has been placed into the container"
+GarageEquipment::GarageEquipment(): Container() {
+	cout <<"Garage equipement has been placed into a container" << endl;
 }
 
-GarageEquipment::GarageEquipment(string s) {
-	// TODO - implement GarageEquipment::GarageEquipment
-	throw "Not yet implemented";
+GarageEquipment::~GarageEquipment() {
+
 }
 
-string GarageEquipment::getTools() {
-	// TODO - implement GarageEquipment::getTools
-	throw "Not yet implemented";
-}

@@ -1,90 +1,110 @@
 /**
-   @file TyreType.h
-   @class TyreType
+   @file Tyre.h
+   @class Tyre
    @authors Michael
    @version 1.0.0
    @brief 
 */
 
-#ifndef TYRETYPE_H
-#define TYRETYPE_H
+#ifndef Tyre_H
+#define Tyre_H
 
-class TyreType {
+#include <string>
+#include <iostream>
+
+
+using namespace std;
+
+class Tyre {
 
 	public:
 	
 		/**
 			Constructor
 		*/
-		TyreType();
+		Tyre();
 
 		/**
 			Constructor
-			@param durability
-			@param grip rating
-			@param pressure
+			@param StartDurability
+			@param StartGrip
+			@param StartPressure
 		*/
-		TyreType( int, int, float );
+		Tyre( int, int, float );
 
 		/**
 			Destructor
 		*/
-		~TyreType();
+		virtual ~Tyre();
 
 		/**
 		
-			@return durability
+			@return
 		*/
 		int getDurability();
 
 		/**
-			@param durability
+			@param
 		*/
 		void setDurability( int );
 
 		/**
-			@return grip rating
+			@return
 		*/
 		int getGrip();
 
 		/**
 			
-			@param grip rating
+			@param
 		*/
 		void setGrip( int );
 
 		/**
 			
-			@param pressure value
+			@param
 		*/
 		void setPressure( float );
 
 		/**
-			@return pressure of the tyre
+			@return
 		*/
 		float getPressure();
+		
+
 
 		/**
-				calculates the wear and tear of the tyre, will also "blow-up" tyre if durability is to low
+			@return
+		*/
+		virtual string getType() =0;;
+		
+		
+
+		/**
+				
 		*/
 		virtual void usage() = 0;
 		
 	private:
 		
 		/**
-			@brief durability of the tyre
+			@brief
 		*/
 		int durability;
 		
 		/**
-			@brief grip of the tyre, depending on the durability
+			@brief
 		*/
 		int grip;
 		
 		/**
-			@brief the pressure of the tyre 
+			@brief
 		*/
 		float pressure;
-};
+		
+		/** 
+			@brief	
+		*/
+		string type;
+};	
 
 #endif

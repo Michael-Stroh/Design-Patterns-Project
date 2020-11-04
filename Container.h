@@ -1,7 +1,7 @@
 /**
    @file Container.h
    @class Container
-   @authors Brent
+   @authors Michael
    @version 1.0.0
    @brief 
  */
@@ -23,34 +23,9 @@ class Container {
 		Container();
 
 		/**
-			Constructor
-		 	@param
-		*/
-		Container( string );
-
-		/**
 			Destructor
 		*/
 		virtual ~Container();
-
-		/**
-
-		*/
-		string getStored();
-
-		/**
-
-		 	@param
-		 	@return
-		*/
-		void setStored( string );
-
-	protected:
-
-		/**
-			@brief
-		*/
-		string stored;
 };
 
 #endif

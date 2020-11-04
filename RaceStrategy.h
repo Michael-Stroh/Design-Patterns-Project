@@ -12,6 +12,8 @@
 #include "TyreStrategy.h"
 #include "PitStopStrategy.h"
 #include "DriverStrategy.h"
+#include "RaceTrack.h"
+#include "Circuit.h"
 
 class RaceStrategy {
 	
@@ -20,7 +22,7 @@ class RaceStrategy {
 		/**
 			Constructor
 		*/
-		RaceStrategy();
+		RaceStrategy(Driver* driver, RaceTrack*  rt);
 
 		/**
 			Destructor
@@ -30,17 +32,43 @@ class RaceStrategy {
 		/**
 			
 		*/
-		void setPitStopStrategy();
+		void setPitStopStrategy(TyreStrategy* ts);
+		
 
 		/**
 			
 		*/
-		void setDriverStrategy();
+		void setDriverStrategy(TyreStrategy* ts);
 
 		/**
 			
 		*/
-		void setTyreStrategy();
+		void setTyreStrategy(RaceTrack*  rt);
+		
+		/**
+			
+		*/
+		DriverStrategy*  getDriverStrategy();
+		
+		/**
+			
+		*/
+		TyreStrategy* getTyreStrategy();
+		
+		/**
+			
+		*/
+		void setDriver(Driver* d);
+		
+		/**
+			
+		*/
+		Driver* getDriver();
+		
+		/**
+			
+		*/
+		PitStopStrategy* getPitStopStrategy();
 		
 	private:
 	
@@ -52,12 +80,27 @@ class RaceStrategy {
 		/**
 			@brief the variable that holds the pit crew strategy
 		*/
-		PitStopStrategy* pitCrewStrategy;
+		PitStopStrategy* pitStopStrategy;
 		
 		/**
 			@brief the variable that holds the driver strategy
 		*/
 		DriverStrategy* driverStrategy;
+		
+		/**
+			@brief the variable that holds the driver
+		*/
+		Driver* driver;
+		
+		/**
+			@brief the variable that holds the race track
+		*/
+		RaceTrack* rt;
+		
+		/**
+			@brief name of the race to keep track of what strategy is for what
+		*/
+		string name;
 
 };
 

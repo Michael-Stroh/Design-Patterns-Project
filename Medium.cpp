@@ -1,21 +1,24 @@
 #include "Medium.h"
 
-Medium::Medium() {
-	setDurability(100);
-	setGrip(60);
-	setPressure(15154);
-	cout << "Medium tyreD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
-	throw "Not yet implemented";
+Medium::Medium(): Tyre(90,60,1.25) {
+	cout << "Medium tyre created" << endl;
+	this->type = "Medium";
 }
 
-Medium::Medium(int durability, int grip, float pressure) {
-	setDurability(durability);
-	setGrip(grip);
-	setPressure(pressure);
-	cout << "Medium tyreD:\t" << getDurability() << "\tG:\t" << getGrip() << "\tP:\t" << getPressure() << endl;
+Medium::Medium( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
+	cout << "Medium tyre created" << endl;
+	this->type = "Medium";
+}
+
+Medium::~Medium() {
+
 }
 
 void Medium::usage() {
-	// TODO - implement Medium::usage
-	throw "Not yet implemented";
+	setDurability(getDurability() /*distance of lap*/);
+	setGrip(getGrip() -1);
+}
+
+string Medium::getType() {
+	return this->type;
 }

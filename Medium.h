@@ -10,13 +10,14 @@
 #ifndef MEDIUM_H
 #define MEDIUM_H
 
-#include <iostream>
+#include "Tyre.h"
 
-#include "TyreType.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-class Medium: public TyreType {
+class Medium: public Tyre {
 
 	public:
 		
@@ -27,6 +28,9 @@ class Medium: public TyreType {
 
 		/**
 			Constructor
+		 	@param durability
+		 	@param grip
+		 	@param pressure
 		*/
 		Medium( int, int, float );
 
@@ -39,6 +43,11 @@ class Medium: public TyreType {
 			Constructor
 		*/
 		void usage();
+		
+		string getType();
+		
+		private:
+			string type;
 };
 
 #endif

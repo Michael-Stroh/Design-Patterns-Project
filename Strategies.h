@@ -10,7 +10,10 @@
 #define STRATEGIES_H
 
 #include "RaceStrategy.h"
-#include "LogisticStrategy.h"
+#include "LogisticsStrategy.h"
+#include "Driver.h"
+#include "CompositeRoad.h"
+
 
 class Strategies {
 
@@ -21,18 +24,30 @@ class Strategies {
 		*/
 		Strategies();
 
+		/**
+			Constructor
+			@param
+			@param
+		*/
+		Strategies( RaceStrategy*, LogisticsStrategy* );
 
 		/**
 			Destructor
 		*/
 		~Strategies();
-
+		
 		/**
 			
 			@return
 		*/
-		int getLapNumber();
-		
+		int getMonth();
+
+		/**
+
+			@param
+		*/
+		void setMonth( int );
+
 	private:
 	
 		/**
@@ -43,12 +58,12 @@ class Strategies {
 		/**
 			@brief
 		*/
-		LogisticStrategy* logisiticStrategy;
+		LogisticsStrategy* logisticsStrategy;
 		
 		/**
 			@brief
-		*/
-		int lapNumber;
+		*/		
+		int month;
 };
 
 #endif

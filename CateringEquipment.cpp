@@ -1,16 +1,9 @@
 #include "CateringEquipment.h"
 
-CateringEquipment::CateringEquipment() {
-	cout << "Catering equipement has been placed"
-	throw "Not yet implemented";
+CateringEquipment::CateringEquipment(): Container() {
+	cout << "Cater equipment has been packed into a container" << endl;
 }
 
-CateringEquipment::CateringEquipment(string s) {
-	// TODO - implement CateringEquipment::CateringEquipment
-	throw "Not yet implemented";
+CateringEquipment::~CateringEquipment() {
 }
 
-string CateringEquipment::getFood() {
-	// TODO - implement CateringEquipment::getFood
-	throw "Not yet implemented";
-}

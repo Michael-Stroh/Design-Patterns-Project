@@ -10,9 +10,14 @@
 #ifndef HARD_H
 #define HARD_H
 
-#include "TyreType.h"
+#include "Tyre.h"
 
-class Hard: public TyreType {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Hard: public Tyre {
 
 	public:
 		
@@ -30,14 +35,18 @@ class Hard: public TyreType {
 		Hard( int, int, float );
 
 		/**
-			Destructor
+			Desstructor
 		*/
+		~Hard();
 
 		/**
 			
 		*/
 		void usage();
-
+		
+		string getType();
+	private:
+		string type;
 };
 
 #endif
