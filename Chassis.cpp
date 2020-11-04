@@ -9,7 +9,6 @@ Chassis::Chassis(): CarPart() {
 Chassis::~Chassis() {
 
 	// TODO - implement Chassis::Chassis
-	throw "Not yet implemented";
 }
 
 void Chassis::print() {

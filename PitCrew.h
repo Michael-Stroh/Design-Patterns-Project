@@ -10,7 +10,7 @@
 #ifndef PITCREW_H
 #define PITCREW_H
 
-#include "PitStop.h"
+class PitStop;
 
 class PitCrew {
 

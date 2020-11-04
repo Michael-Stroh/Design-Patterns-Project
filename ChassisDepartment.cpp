@@ -27,7 +27,6 @@ ChassisDepartment::ChassisDepartment( Simulation* state, float budget ): Enginee
 ChassisDepartment::~ChassisDepartment() {
 
 	// TODO - implement ChassisDepartment::ChassisDepartment
-	throw "Not yet implemented";
 }
 
 Simulation* ChassisDepartment::runSimulation() {
