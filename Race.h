@@ -79,7 +79,7 @@ private:
 	PracticeState *practiceState;
 
 	/**
-		@brief A pointer to an instance of QualfyingState, used to update the race's state
+		@brief A pointer to an instance of QualifyingState, used to update the race's state
 	*/
 	QualifyingState *qualifyingState;
 
