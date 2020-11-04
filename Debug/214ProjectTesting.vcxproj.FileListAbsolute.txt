@@ -1,2 +1,0 @@
-D:\Documents\1Studies\2nd Year\2nd Semester\COS214\Pracs\Prac1\Task1\Design-Patterns-Project\Debug\214ProjectTesting.exe
-D:\Documents\1Studies\2nd Year\2nd Semester\COS214\Pracs\Prac1\Task1\Design-Patterns-Project\Debug\214ProjectTesting.pdb
