@@ -4,6 +4,7 @@
    @authors Alex
    @version 1.0.0
    @brief Responsible for running all of the Grand Prixs in a season and ensuring all participating teams are aware of the season before it starts as well keeping them updated on its progress while it takes place.
+   @todo: add runNextGrandPrix() method for running individual grand prixs
  */
 
 #ifndef RACE SEASON_H
@@ -33,7 +34,7 @@ public:
 			@param[in] r: An instantiated (but not yet containing any information) RaceSeasonResult that will be added to as the RaceSeason unfolds.
 			@param[in] s: The SeasonSubject, used to notify RaceTeams of the particulars of the RaceSeason before or during the season.
 		*/
-	RaceSeason(vecotr<GrandPrix *>, RaceTeam *, Result *, Subject *);
+	RaceSeason(vector<GrandPrix *>, RaceTeam *, Result *, Subject *);
 
 	/**
 			Destructor

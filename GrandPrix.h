@@ -4,6 +4,7 @@
    @authors Alex
    @version 1.0.0
    @brief Responsible for running the practice, qualifying & official races that take place on a specific circuit during a Grand Prix. 
+   @todo: Add prepare/cleanup for race (tie in with observer, race subject)
  */
 
 #ifndef GRAND PRIX_H
@@ -14,6 +15,7 @@
 #include "GrandPrixResult.h"
 #include "Circuit.h"
 #include <vector>
+#include <string>
 using namespace std;
 
 class GrandPrix
