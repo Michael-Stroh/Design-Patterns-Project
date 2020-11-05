@@ -39,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the official race will take place.
 			@return The result of the official race.
 		*/
-	Result *runRace( Result*, vector< RaceTeam* >, RaceTrack* );
+	Result* runRace( Result*, vector< RaceTeam* >, RaceTrack* );
 
 private:
 	/**

@@ -16,30 +16,29 @@
 using namespace std;
 
 class RaceTeam;
-class RaceState;
+//class RaceState;		//why
 
-class RaceState
-{
+class RaceState {
 
-public:
-	/**
-			Constructor
-		*/
-	RaceState();
+	public:
+		/**
+				Constructor
+			*/
+		RaceState();
 
-	/**
-			Destructor
-		*/
-	virtual ~RaceState();
+		/**
+				Destructor
+			*/
+		virtual ~RaceState();
 
-	/**
-			
-			@param Result: The results of the previous race (will be used within the function if necessary).
-			@param RaceTeam: The teams that will participate in the race.
-			@param Circuit: The circuit on which the race will take place.
-			@return The result for the race.
-		*/
-	virtual Result *runRace(Result *, vector<RaceTeam *>, Circuit *) = 0;
+		/**
+
+				@param Result: The results of the previous race (will be used within the function if necessary).
+				@param RaceTeam: The teams that will participate in the race.
+				@param Circuit: The circuit on which the race will take place.
+				@return The result for the race.
+			*/
+		virtual Result* runRace( Result *, vector<RaceTeam *>, RaceTrack* ) = 0;
 };
 
 #endif

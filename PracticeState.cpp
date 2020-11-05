@@ -8,7 +8,7 @@ PracticeState::~PracticeState() {
 
 }
 
-Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, Circuit *circuit)
+Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
 	//TODO: there is no return
 
