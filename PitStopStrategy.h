@@ -59,7 +59,7 @@ class PitStopStrategy {
 			
 			@return
 		*/
-		int getLap();
+		int getLap() const;
 		
 	private:
 
