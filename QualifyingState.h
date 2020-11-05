@@ -39,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the qualfying race will take place.
 			@return The result of the qualfying race.
 		*/
-	Result *runRace(Result *, vector<RaceTeam *>, Circuit *);
+	Result *runRace( Result*, vector< RaceTeam* >, RaceTrack* );
 
 private:
 	/**
