@@ -1,7 +1,5 @@
 #include "LogisticsStrategy.h"
 
-LogisticsStrategy::LogisticsStrategy(RaceTrack* rt) {
-	this->rt = rt;
 LogisticsStrategy::LogisticsStrategy(vector<RaceTrack*> races) {
 	this->races = races;
 	setDates(races);
@@ -51,8 +49,6 @@ LogisticsStrategy::~LogisticsStrategy() {
 	names.clear();
 }
 
-void LogisticsStrategy::endOfRace(){
-	
 void LogisticsStrategy::endOfRace(string name){
 	for(int i = tracker; i < 20; i++){
 		if(name == dates.at(20 - i)){
@@ -63,19 +59,6 @@ void LogisticsStrategy::endOfRace(string name){
 	tracker++;
 }
 
-void LogisticsStrategy::newMonthNewLog(int month){
-	int threeMonth = month+3;
-	int oneMonth = month +1;
-	int i =0;
-	while( i < 21){
-		if(getMonth(rt->getStartDate()) == oneMonth){
-			if(rt->getEuro() == true){
-				logisitics.push_back(new Logistics(rt->getName(), true));
-			}
-		}else if(getMonth(rt->getStartDate()) == threeMonth){
-			if(rt->getEuro() == false){
-				logisitics.push_back(new Logistics(rt->getName(), false));
-			}
 int LogisticsStrategy::getMonth(string date){
 		int pos = date.find_first_of('-');
 		return stoi(date.substr(0, pos));
@@ -87,12 +70,8 @@ RaceTrack* LogisticsStrategy::getRace(string name){
 			return races.at(i);
 		}
 	}
-
 }
 
-int LogisticsStrategy::getMonth(string date){
-	int pos = date.find_first_of('-');
-	return stoi(date.substr(0,pos));
 Logistics* LogisticsStrategy::getLogistics(string name){
 	for( int i =1; i < (int)logisitics.capacity(); i++){
 		if(name == logisitics.at(i)->getName()){
