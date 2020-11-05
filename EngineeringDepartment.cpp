@@ -55,3 +55,8 @@ void EngineeringDepartment::setBudget(Budget* budget)
 }
 
 const float EngineeringDepartment::costPerSimulation = 100; 
+
+void EngineeringDepartment::update()
+{
+	remainingBudget = budget->getBudget();
+}

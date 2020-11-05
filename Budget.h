@@ -1,16 +1,19 @@
 /**
    @file Budget.h
    @class Budget
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Kayla
+   @version 1.0.1
+   @brief observes any change in budget across the engineering departments and notifies said departments to update their budgets
  */
 
 #ifndef BUDGET_H
 #define BUDGET_H
 
-class EngineeringDepartment;
+#include <vector>
 
+using namespace std;
+
+class EngineeringDepartment;
 
 class Budget {
 
@@ -34,18 +37,19 @@ class Budget {
 
 		/**
 			Takes in an engineering department to attach to, to oberver
-			@param
+			@param observer
 		*/
-		void attach( EngineeringDepartment * );
+		void attach( EngineeringDepartment* );
 
 		/**
 			Takes in an engineering department to detach from
-			@param
+			@param e
 		*/
-		void detach( EngineeringDepartment * );
+		void detach( EngineeringDepartment* );
 
 		/**
 			Notifies all the attached obervers of a change
+			@must be used immediantly after useBudget is called, this ensures the budget is balanced.
 		*/
 		void notifyAll();
 
@@ -56,6 +60,7 @@ class Budget {
 
 		/**
 			Sets the allocated budget
+			@param amount
 		*/
 		void setBudget( float );
 
@@ -67,9 +72,9 @@ class Budget {
 		float balance;
 	
 		/**
-     		@brief A list of all the observers watching the budget
+     		@brief A vector of all the observers watching the budget
 		*/
-		EngineeringDepartment * observerList;
+		vector<EngineeringDepartment*> observerList;
 };
 
 #endif

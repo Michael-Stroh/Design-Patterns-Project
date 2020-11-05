@@ -1,7 +1,7 @@
 /**
    @file EngineeringDepartment.h
    @class EngineeringDepartment
-   @authors Michael Timothy
+   @authors Michael Timothy Kayla
    @version 1.0.1
    @brief An Interface for each of the Concrete Engineering Departments that will improve the parts of the cars to be raced.
  */
@@ -70,6 +70,11 @@ class EngineeringDepartment {
 			@param newRemainingBudget is the new balance for the remainingBudget
 		*/
 		void updateRemainingBudget(float);
+
+		/**
+			@brief Updates the remainingBudget of the department after being used.
+		*/
+		void update();
 		
 	protected:
 	

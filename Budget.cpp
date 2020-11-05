@@ -1,39 +1,47 @@
 #include "Budget.h"
+#include "EngineeringDepartment.h"
+
 
 Budget::Budget() {
-
-	// TODO - implement Budget::Budget
-	
+	balance = 0;
 }
 
 Budget::Budget( float max ): balance( max ) {
 
-	// TODO - implement Budget::Budget
-	
 }
 
 Budget::~Budget() {
-
-	// TODO - implement Budget::~Budget
-	//throw "Not yet implemented";
+	observerList.clear();
 }
 
 void Budget::attach( EngineeringDepartment* observer ) {
 
-	// TODO - implement Budget::attach
-	//throw "Not yet implemented";
+	observerList.push_back(observer);
 }
 
 void Budget::detach( EngineeringDepartment* e ) {
 
-	// TODO - implement Budget::detach
-	//throw "Not yet implemented";
+	bool found = false;
+	vector<EngineeringDepartment*>::iterator it = observerList.begin();
+	while((it != observerList.end()) && !found)
+	{
+		if(*it == e)
+		{
+			found = true;
+			observerList.erase(it);
+		}
+		++it;
+	}
 }
 
 void Budget::notifyAll() {
 
-	// TODO - implement Budget::notifyAll
-	//throw "Not yet implemented";
+	if(!observerList.empty())
+	{
+		std::vector<EngineeringDepartment *>::iterator it = observerList.begin();
+		for(;it != observerList.end();it++)
+			(*it)->update();	
+	}
 }
 
 float Budget::getBudget() {
