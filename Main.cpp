@@ -2,15 +2,13 @@
 #include "RaceTeam.h"
 #include "RaceSeason.h"
 
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
 
 	cout << "Successful compilation" << endl;
-
-
-
-
-
-
 
 	/*
 	                ******IDEA ALGORITHM******
@@ -47,49 +45,32 @@ void prepareForNextRace( RaceTeam* team, string days ) {
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////                 This is from Brent's Strategy.                                               ////////
+////////            I took it out from there as it does not make sense to read it in from there       ////////
+////////            I want to talk about this, if it should go there I will work on it more           ////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+string trim( string temp ) {
+
+    temp.erase(0, temp.erase(temp.find_last_not_of( "\t\n\v\f\r " )+1).find_first_not_of( "\t\n\v\f\r " ) );
+    return temp;
+}
+
 void populateCircuit( const string& fileName ) {
 
-	ifstream file;
-
-	file.open( "../Data/races.txt" );
-	file.open( fileName );
-	if ( file.is_open() ) {
-
-		string line;
-		while ( getline( file, line ) ) {
-
-			int pos = 0;
-			int size = line.size();
-			cout << size << endl;
-			string temp = line;
-
-			for ( int i = 0; i < 10; i++ ) {
-
-				pos = temp.find_first_of( '|' );
-				cout << temp.substr( 1, pos - 1 ) << endl;
-				temp = temp.substr( pos + 1, size );
-			}
-		}
-	} else {
-		cout << "file not found" << endl;
-	}
-
-	file.close();
-
-
-	/*
-
-
-	 	string line;
+	string line;
     ifstream file;
 
-	file.open("../Data/races.txt");
-	if (file.is_open()) {
-        while (getline(file, line)) {
+    file.open( fileName );
+	if ( file.is_open() ) {
+
+        while ( getline(file, line) ) {
+
 			int pos =0;
 			int size = line.size();
 			string name, direction, startingDate, endingDate, euro;
-			float disLap, wind, longestStraight, fastestLap,averagePitStop;
+			float disLap, wind = 0, longestStraight, fastestLap,averagePitStop;
 			int numCorners, numLaps;
 
 
@@ -139,34 +120,40 @@ void populateCircuit( const string& fileName ) {
 			direction = trim(temp.substr(0,pos-1));
 			temp = temp.substr(pos+1, size);
 
-			RaceTrack* tmp;
-			if(direction == "clockwise"){
-				tmp = new RaceTrack(name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners,numLaps);
-			}else if (direction == "anticlockwise"){
-				tmp = new RaceTrack(name, RaceTrack::direction::anticlockwise, disLap, wind,longestStraight, numCorners,numLaps);
-			}else{
-				cout << "Error: " << direction << endl;
+			RaceTrack* tmp = nullptr;
+			if ( direction == "clockwise" ) {
+
+			    tmp = new RaceTrack(name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners,numLaps);
+			} else if ( direction == "anticlockwise" ) {
+
+			    tmp = new RaceTrack(name, RaceTrack::direction::anticlockwise, disLap, wind,longestStraight, numCorners,numLaps);
+			} else {
+
+                Logger::cyan( "Error", "Wrong direction given.");
 			}
-			tmp->setStartDate(startingDate);
-			tmp->setEndDate(endingDate);
-			bool maybe;
-			euro = trim(euro);
-			if(euro =="true"){
+
+			tmp->setStartDate( startingDate );
+			tmp->setEndDate( endingDate );
+			bool maybe = true;
+			euro = trim( euro );
+
+			if ( euro =="true" ) {
+
 				maybe = true;
-			}else if(euro == "false"){
+			} else if ( euro == "false" ) {
+
 				maybe = false;
-			}else{
-				cout << "Error: "<< euro << endl;
+			} else {
+
+                Logger::cyan( "Error", "The file not found.");
 			}
-			tmp->setAvgPitStops(averagePitStop);
-			tmp->setEuro(maybe);
-			races.push_back(tmp);
+			tmp->setAvgPitStops( averagePitStop );
+			tmp->setEuro( maybe );
 		}
     }
     else {
-        cout << "file not found" << endl;
-    }
 
-	*/
+        Logger::cyan( "Error", "The file not found.");
+    }
 
 }

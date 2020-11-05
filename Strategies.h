@@ -48,11 +48,11 @@ class Strategies {
 			
 			@return
 		*/
-		int getMonth();
+		static int getMonth();
 
 		/**
 
-			@param
+			@param date
 		*/
 		void setMonth( int );
 		
@@ -73,10 +73,7 @@ class Strategies {
 				
 		/**
 		*/
-		void setLogisitics();
-		/**
-		*/
-		string trim(string temp);
+		void setLogistics();
 				
 		/**
 		*/
