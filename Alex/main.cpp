@@ -81,6 +81,11 @@ int main()
         // rsr->print();
 
         // Testing the race season & grand prix
+
+        vector<GrandPrix *> grandPrixs = vector<GrandPrix *>();
+
+        grandPrixs.push_back(new GrandPrix());
+
         RaceSeason *raceSeason = new RaceSeason();
     }
     catch (char const *s)

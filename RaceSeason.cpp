@@ -54,8 +54,6 @@ RaceSeason::~RaceSeason()
 	this->seasonSubject = nullptr;
 }
 
-
-
 Result *RaceSeason::runSeason()
 {
 
