@@ -65,19 +65,28 @@ int LogisticsStrategy::getMonth(string date){
 }
 
 RaceTrack* LogisticsStrategy::getRace(string name){
+
+	//TODO: return type/value
+
 	for( int i =0; i < (int)races.capacity(); i++){
 		if(races.at(i)->getName() == name){
 			return races.at(i);
 		}
 	}
+
+	return nullptr;
 }
 
 Logistics* LogisticsStrategy::getLogistics(string name){
+
+	//TODO: return type/value
 	for( int i =1; i < (int)logisitics.capacity(); i++){
 		if(name == logisitics.at(i)->getName()){
 			return logisitics.at(i);
 		}
 	}
+
+	return nullptr;
 }
 
 
