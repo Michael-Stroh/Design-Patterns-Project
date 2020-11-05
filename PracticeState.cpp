@@ -54,4 +54,5 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, Circuit
 			timeLeft -= longestLapTime;
 		}
 	}
+	return raceResult;
 }

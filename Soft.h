@@ -37,6 +37,7 @@ class Soft: public Tyre {
 			
 		*/
 		void usage();
+
 };
 
 #endif

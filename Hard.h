@@ -12,11 +12,6 @@
 
 #include "Tyre.h"
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 class Hard: public Tyre {
 
 	public:
@@ -43,10 +38,6 @@ class Hard: public Tyre {
 			
 		*/
 		void usage();
-		
-		string getType();
-	private:
-		string type;
 };
 
 #endif

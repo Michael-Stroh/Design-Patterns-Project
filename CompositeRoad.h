@@ -30,7 +30,6 @@ class CompositeRoad: public Circuit {
 		/**
 			@brief Constructor
 			Creates the object with the given name
-
 			@param[in] RoadName used to identify the object
 		*/
 		CompositeRoad( string );
@@ -89,7 +88,7 @@ class CompositeRoad: public Circuit {
 		/**
 			@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		std::vector<Circuit *> tracks; //RaceTracks?
+		vector<Circuit *> tracks;
 };
 
 #include "Circuit.h"
