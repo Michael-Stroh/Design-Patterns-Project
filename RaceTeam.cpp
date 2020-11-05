@@ -5,14 +5,9 @@
 RaceTeam::RaceTeam()
 {
 	/*
-		Tim's Portion: The Construction of the Car Builder and the Car/s followed by the construction of the Engineering Departments
+		Tim's Portion: The Construction of the Engineering Crew that will create and improve the cars.
 	*/
-		builder = new CarBuilder();
-		car = builder->buildCar();
-		departments.push_back(new EngineDepartment(nullptr, 0));		//These values may have to change
-		departments.push_back(new ElectronicsDepartment(nullptr, 0));
-		departments.push_back(new ChassisDepartment(nullptr, 0));
-		departments.push_back(new AerodynamicsDepartment(nullptr, 0));
+		engineeringCrew = new EngineeringCrew();
 	/*
 		End Of Tim's Portion
 	*/
@@ -20,16 +15,7 @@ RaceTeam::RaceTeam()
 
 RaceTeam::~RaceTeam()
 {
-	/*
-		Tim's Portion: The Construction of the Car Builder and the Car/s followed by the construction of the Engineering Departments
-	*/
-	delete builder;
-	delete car;
-	for (int i = 0; i < departments.size(); ++i)
-		delete departments[i];
-	/*
-		End Of Tim's Portion
-	*/
+	
 }
 
 LapResult *RaceTeam::performLap(int driverIndex, Circuit *circuit)

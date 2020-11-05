@@ -1,7 +1,7 @@
 /**
    @file Racing_Team.h
    @class Racing_Team
-   @authors Michael
+   @authors Michael Timothy 
    @version 1.0.0
    @brief 
    @todo: Implement constructor
@@ -24,11 +24,7 @@
 #include "RaceSeasonResult.h"
 #include "Driver.h"
 #include "CarComposite.h" //changed from include Car.h by Tim
-#include "Budget.h"		  //Included by Tim since Engineering Departments need a budget
-#include "AerodynamicsDepartment.h"
-#include "EngineDepartment.h"
-#include "ElectronicsDepartment.h"
-#include "ChassisDepartment.h"
+#include "EngineeringCrew.h"
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
@@ -150,12 +146,7 @@ private:
 		*/
 	CarComposite *car;
 
-	/**
-			@brief
-			@todo: Provide details on the builder member variable
 
-		*/
-	CarBuilder *builder;
 
 	/**
 			@brief
@@ -173,7 +164,7 @@ private:
 	/**
 		@brief a vector of all of the Engineering Departments that will work on the car throughout the year.
 	*/
-	vector<EngineeringDepartment*> departments;
+	EngineeringCrew* engineeringCrew;
 
 	/**	
 		@breif specified the amount of money allocated for engineering purposes for each Grand Prix

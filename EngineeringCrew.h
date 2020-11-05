@@ -1,9 +1,10 @@
 /**
    @file EngineeringCrew.h
    @class EngineeringCrew
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.1
+   @brief A class responsible for building the car as well as updating the cars
+   @warning update me
  */
 
 
@@ -12,6 +13,11 @@
 
 #include "Car.h"
 #include "EngineeringDepartment.h"
+#include "Budget.h"		  //Included by Tim since Engineering Departments need a budget
+#include "AerodynamicsDepartment.h"
+#include "EngineDepartment.h"
+#include "ElectronicsDepartment.h"
+#include "ChassisDepartment.h"
 
 class EngineeringCrew {
 
@@ -68,6 +74,13 @@ class EngineeringCrew {
 			@brief 
 		*/
 		Car* nextSeasonCar;
+
+		/**
+		@brief
+		@todo: Provide details on the builder member variable
+
+		*/
+		CarBuilder* builder;
 		
 		/**
 			@brief 
