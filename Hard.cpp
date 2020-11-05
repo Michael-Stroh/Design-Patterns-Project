@@ -21,9 +21,3 @@ void Hard::usage() {
 	setDurability(getDurability() /*distance of lap*/);
 	setGrip(getGrip() -1);
 }
-
-string Hard::getType() {
-
-	return this->type;
-}
-

@@ -38,11 +38,6 @@ class Hard: public Tyre {
 			
 		*/
 		void usage();
-
-		/**
-
-		*/
-		string getType();
 };
 
 #endif

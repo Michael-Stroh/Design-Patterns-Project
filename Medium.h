@@ -38,12 +38,6 @@ class Medium: public Tyre {
 
 		*/
 		void usage();
-
-		/**
-
-		 	@return
-		*/
-		string getType();
 };
 
 #endif
