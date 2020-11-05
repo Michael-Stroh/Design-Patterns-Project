@@ -30,7 +30,8 @@ void RaceTrack::print() {
 	dist << distance;
 	wind << windForce;
 	//output the details of the road/track
-	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str() + "km and a wind force of " + wind.str() + " units." );
+	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str() +
+	"km per lap and a wind force of " + wind.str() + " units." );
 }
 
 Iterator *RaceTrack::createIterator() {
