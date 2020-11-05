@@ -19,6 +19,7 @@ RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float w
 }
 
 RaceTrack::~RaceTrack() {
+
 }
 
 void RaceTrack::print() {
