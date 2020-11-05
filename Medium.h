@@ -12,11 +12,6 @@
 
 #include "Tyre.h"
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 class Medium: public Tyre {
 
 	public:
@@ -40,14 +35,15 @@ class Medium: public Tyre {
 		~Medium();
 
 		/**
-			Constructor
+
 		*/
 		void usage();
-		
+
+		/**
+
+		 	@return
+		*/
 		string getType();
-		
-		private:
-			string type;
 };
 
 #endif
