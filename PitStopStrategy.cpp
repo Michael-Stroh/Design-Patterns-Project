@@ -9,6 +9,7 @@ PitStopStrategy::PitStopStrategy( TyreStrategy* tyreStart ): tyres( tyreStart ),
 }
 
 PitStopStrategy::~PitStopStrategy() {
+
 	delete tyres;
 }
 
@@ -17,9 +18,13 @@ bool PitStopStrategy::CheckForPitStop() {
 
 	int* pits = tyres->getPitLaps();
 	cout << tyres->getNumPits() << endl;
-	for(int i =0; i < tyres->getNumPits(); i++){
-		if(pits[i] == currentLap){
-			return true;
+
+	for ( int i = 0; i < tyres->getNumPits(); i++ ){
+
+		if ( pits[ i ] == currentLap ) {
+
+            return true;
+
 		}
 	}
 	return false;
@@ -27,7 +32,7 @@ bool PitStopStrategy::CheckForPitStop() {
 
 void PitStopStrategy::CallPitStop() {
 
-	ps->changeTyre(tyres);
+	ps->changeTyre( tyres );
 }
 
 void PitStopStrategy::IncrementLap(){
