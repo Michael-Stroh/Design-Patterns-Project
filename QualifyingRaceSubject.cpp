@@ -12,6 +12,8 @@ void QualifyingRaceSubject::notify( RaceState* r ) {
 
 	vector<RaceTeam *>::iterator it;
 	for ( it = this->observerList.begin(); it != this->observerList.end(); ++it ) {
-		it->updateQualfyingRaceResult(r);
+
+		// TODO: fix whatever is causing this
+		//it->updateQualfyingRaceResult(r);
 	}
 }
