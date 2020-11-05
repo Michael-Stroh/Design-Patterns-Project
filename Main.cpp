@@ -51,11 +51,7 @@ int main() {
             deleteEverything();
 	 */
 }
-void prepareForNextRace( team, days) {
-	for ( int i = 0; i < numTeams; ++ i ) {
-		teams[ i ]->prepareForNextRace(); //Brent strategy call once lekker
-	}
-*/
+
 
 void prepareForNextRace( RaceTeam* team, string days ) {
 
