@@ -1,18 +1,17 @@
 #include "QualifyingRaceSubject.h"
 
-QualifyingRaceSubject::QualifyingRaceSubject() : Subject()
-{
+QualifyingRaceSubject::QualifyingRaceSubject() : Subject() {
+
 }
 
-QualifyingRaceSubject::~QualifyingRaceSubject()
-{
+QualifyingRaceSubject::~QualifyingRaceSubject() {
+
 }
 
-void QualifyingRaceSubject::notify(RaceState *r)
-{
+void QualifyingRaceSubject::notify( RaceState* r ) {
+
 	vector<RaceTeam *>::iterator it;
-	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
-	{
+	for ( it = this->observerList.begin(); it != this->observerList.end(); ++it ) {
 		it->updateQualfyingRaceResult(r);
 	}
 }
