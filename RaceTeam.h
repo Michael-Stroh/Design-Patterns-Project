@@ -45,6 +45,12 @@ public:
 	RaceTeam();
 
 	/**
+	 	@brief: Value constructor taking a string as a teamname (for testing purposes only)
+		@todo: Remove from final implementation
+	*/
+	RaceTeam(string);
+
+	/**
 			Destructor
 		*/
 	~RaceTeam();
@@ -171,6 +177,12 @@ private:
 		@warning this amount still needs to be calibrated
 	*/
 	const static float moneyPerGrandPrix;
+
+	/**
+		@brief: A string containing the name of the team for identification during testing
+		@todo: Remove from final implementation
+	*/
+	string teamName;
 };
 
 #endif

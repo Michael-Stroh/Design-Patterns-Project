@@ -32,6 +32,12 @@ class Driver {
 		Driver( string, int, float );
 
 		/**
+			@brief: Value constructor that sets the drivers name for identification purposes during testing
+			@todo: Remove from final implementation
+		*/
+		Driver(string);
+
+		/**
 			Destructor
 		*/
 		virtual ~Driver();
@@ -71,11 +77,12 @@ class Driver {
 			@param
 		*/
 		void setSpecialMove( float );
-		
+
 		/**
-			
+			REMOVED FOR TESTING PURPOSES
+			@todo: Uncomment in final implementation
 		*/
-		virtual void displayDriver() = 0;
+		// virtual void displayDriver() = 0;
 	
 	private:
 		

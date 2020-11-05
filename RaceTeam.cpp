@@ -13,6 +13,16 @@ RaceTeam::RaceTeam()
 	*/
 }
 
+RaceTeam::RaceTeam(string teamName){
+
+	// FOR TESTING PURPOSES ONLY
+
+	this->teamName = teamName;
+	this->drivers = vector<Driver *>();
+	this->drivers.push_back(new Driver(teamName + " : Driver 1"));
+	this->drivers.push_back(new Driver(teamName + " : Driver 2"));
+}
+
 RaceTeam::~RaceTeam()
 {
 	
