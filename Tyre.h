@@ -10,15 +10,9 @@
 #define Tyre_H
 
 #include <string>
-<<<<<<< HEAD
 #include <vector>
 #include <iostream>
 
-=======
-#include <iostream>
-
-
->>>>>>> BrentsBranch
 using namespace std;
 
 class Tyre {
@@ -47,7 +41,7 @@ class Tyre {
 		
 			@return durability of tyre
 		*/
-		int getDurability();
+		int getDurability() const;
 
 		/**
 			@param durability of tyre
@@ -57,7 +51,7 @@ class Tyre {
 		/**
 			@return the grip of tyre
 		*/
-		int getGrip();
+		int getGrip() const;
 
 		/**
 			
@@ -74,22 +68,12 @@ class Tyre {
 		/**
 			@return
 		*/
-		float getPressure();
-		
-
-
-		/**
-			@return virtual pure method which returns the type of tyre
-		*/
-		virtual string getType() =0;;
-		
-		
+		float getPressure() const;
 
 		/**
 			calculates the usage of the wheel
 			@param the distance of a lap
 		*/
-<<<<<<< HEAD
 		virtual void usage() = 0;
 
 		/**
@@ -104,12 +88,8 @@ class Tyre {
 		*/
 		string getType();
 
-	protected:
-=======
-		virtual void usage(int) = 0;
 		
 	private:
->>>>>>> BrentsBranch
 		
 		/**
 			@brief durability of the tyre
@@ -125,17 +105,14 @@ class Tyre {
 			@brief the pressure of the tyre
 		*/
 		float pressure;
-<<<<<<< HEAD
 
 		/**
 			@brief
 		*/
 		string type;
 };
-=======
 		
 	
-};	
->>>>>>> BrentsBranch
+};
 
 #endif
