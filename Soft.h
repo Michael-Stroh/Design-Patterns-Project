@@ -34,9 +34,10 @@ class Soft: public Tyre {
 		~Soft();
 
 		/**
-			
+
+		    @param
 		*/
-		void usage();
+		void usage( int );
 
 };
 

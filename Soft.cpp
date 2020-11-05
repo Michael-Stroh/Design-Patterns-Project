@@ -1,6 +1,6 @@
 #include "Soft.h"
 
-Soft::Soft(): Tyre( 50, 40, 1.25 ){
+Soft::Soft(): Tyre( 60, 100, 1.2 ){
 
 
 }
@@ -15,9 +15,9 @@ Soft::~Soft() {
 
 }
 
-void Soft::usage() {
+void Soft::usage( int distance ) {
 
-	setDurability(getDurability() /*distance of lap*/);
+    setDurability(getDurability() / distance);
 	setGrip(getGrip() -1);
 
 }
