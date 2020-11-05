@@ -29,7 +29,12 @@ class TyreStrategy {
 
 
 	public:
-		
+
+		/**
+			Constructor
+		*/
+		TyreStrategy();
+
 		/**
 			Constructor
 		 	@param rt
