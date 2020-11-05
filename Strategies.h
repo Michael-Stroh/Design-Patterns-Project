@@ -57,7 +57,12 @@ class Strategies {
 		void setMonth( int );
 		
 		/**
-			called at the end of race for logistics and keeping track of races
+			create race track vector;
+		*/
+		void createRaces();
+		
+		/**
+		called at the end of race for logisitics and keeping track of races
 		*/
 		void endOfRace(string name);
 		
