@@ -15,6 +15,9 @@
 #include <vector>
 using namespace std;
 
+class RaceTeam;
+class RaceState;
+
 class RaceState
 {
 
@@ -27,7 +30,7 @@ public:
 	/**
 			Destructor
 		*/
-	~RaceState();
+	virtual ~RaceState();
 
 	/**
 			
@@ -36,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the race will take place.
 			@return The result for the race.
 		*/
-	virtual Result *runRace(Result *, vector<RaceTeam *> *, Circuit *) = 0;
+	virtual Result *runRace(Result *, vector<RaceTeam *>, Circuit *) = 0;
 };
 
 #endif

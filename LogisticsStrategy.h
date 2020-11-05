@@ -10,7 +10,7 @@
 #ifndef LOGISITICSSTRATEGY_H
 #define LOGISITICSSTRATEGY_H
 
-#include "logistics.h"
+#include "Logistics.h"
 #include "RaceTrack.h"
 
 #include <vector> 

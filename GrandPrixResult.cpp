@@ -7,7 +7,11 @@ GrandPrixResult::GrandPrixResult()
 	this->teamPoints = vector<pair<string, int>>();
 }
 
-void GrandPrixResult::print()
+GrandPrixResult::~GrandPrixResult(){
+
+}
+
+	void GrandPrixResult::print()
 {
 	cout << "Drivers Championship: " << endl;
 	this->printDrivers();

@@ -2,18 +2,19 @@
    @file RaceSeason.h
    @class RaceSeason
    @authors Alex
-   @version 1.0.0
+   @version 1.1.0
    @brief Responsible for running all of the Grand Prixs in a season and ensuring all participating teams are aware of the season before it starts as well keeping them updated on its progress while it takes place.
    @todo: add runNextGrandPrix() method for running individual grand prixs
  */
 
-#ifndef RACE SEASON_H
-#define RACE SEASON_H
+#ifndef RACE_SEASON_H
+#define RACE_SEASON_H
 
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "GrandPrixResult.h"
 #include "Subject.h"
+#include "SeasonSubject.h"
 #include <vector>
 using namespace std;
 
@@ -34,7 +35,7 @@ public:
 			@param[in] r: An instantiated (but not yet containing any information) RaceSeasonResult that will be added to as the RaceSeason unfolds.
 			@param[in] s: The SeasonSubject, used to notify RaceTeams of the particulars of the RaceSeason before or during the season.
 		*/
-	RaceSeason(vector<GrandPrix *>, RaceTeam *, Result *, Subject *);
+	RaceSeason(vector<GrandPrix *>, vector<RaceTeam *>);
 
 	/**
 			Destructor
@@ -78,7 +79,7 @@ private:
 	/**
 			@brief The Season Subject, to which each racing team attaches so that they can be informed of any pertinent information regarding the Race Season.
 		*/
-	Subject *seasonSubject;
+	SeasonSubject *seasonSubject;
 };
 
 #endif

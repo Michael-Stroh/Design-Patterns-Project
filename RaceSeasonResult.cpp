@@ -7,6 +7,10 @@ RaceSeasonResult::RaceSeasonResult()
 	this->totalTeamPoints = vector<pair<string, int>>();
 }
 
+RaceSeasonResult::~RaceSeasonResult(){
+	
+}
+
 void RaceSeasonResult::addResult(Result *r)
 {
 	this->grandPrixResults.push_back(r);

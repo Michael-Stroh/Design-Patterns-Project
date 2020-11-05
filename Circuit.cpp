@@ -21,3 +21,7 @@ void Circuit::setName( string ChangeName ) {
 
     name = ChangeName;
 }
+
+float Circuit::getLapDistance(){
+    throw "Not yet implemented";
+}

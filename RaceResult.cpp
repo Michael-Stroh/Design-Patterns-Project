@@ -1,23 +1,22 @@
 #include "RaceResult.h"
-using namespace std;
+
+RaceResult::RaceResult(): Result(), polePositionFastestLap( 0.00 ), lapResults(), totalDriversLaptime(),
+                          driverGridPositions(), driversTeams() {
+}
+
+RaceResult::~RaceResult() {
+
+
+}
 
 bool sortByAscending(const pair<string, float> &a, const pair<string, float> &b)
 {
-	return (a.second < b.second);
+	return ( a.second < b.second );
 }
 
 bool sortByDescending(const pair<string, float> &a, const pair<string, float> &b)
 {
-	return (a.second > b.second);
-}
-
-RaceResult::RaceResult()
-{
-	this->lapResults = vector<Result *>();
-	this->totalDriversLaptime = vector<pair<string, float>>();
-	this->driverGridPositions = vector<pair<string, int>>();
-	this->driversTeams = vector<pair<string, string>>();
-	this->polePositionFastestLap = 0.00;
+	return ( a.second > b.second );
 }
 
 void RaceResult::addResult(Result *r)
@@ -315,4 +314,8 @@ string RaceResult::getDriverTeam(string driverName)
 		}
 	}
 	return "not found";
+}
+
+bool RaceResult::isQualified(string driverName){
+	throw "Not yet implemented";
 }

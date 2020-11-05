@@ -1,56 +1,29 @@
-
-/**
-   @file 
-   @class 
-   @authors 
-   @version
-   @brief
-   @warning Must Add Details Here
-
- */
-
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "RaceSeason.h"
 
-vector<GrandPrix *> createGrandPrixArray(int numGrandPrixs);
-RaceTeam ** createRaceTeamArray(int numTeams);
-
-int main()
-{
-	cout << "successful Compilation" << endl;
+int main() {
 	//Creation
-	int numGrandPrixs = 0;
-	int numTeams = 0;
-	vector<GrandPrix *> gps = createGrandPrixArray(numGrandPrixs);
-	RaceTeam ** teams = createRaceTeamArray(numTeams);
-	//RaceSeason * raceSeason = new RaceSeason(teams, gps);
-
+	/*GrandPrix** gps;
+	RaceTeam** teams;
+	//RaceSeason * raceSeason = new RaceSeason( teams, gps );
+	RaceSeason* raceSeason = new RaceSeason();
 	//Notification
-	//raceSeason->prepareSeason();
-
+	raceSeason->prepareSeason();
 	//RaceLoop
-	for (int i = 0; i < numGrandPrixs; ++i)
-	{
-		//prepareForNextRace(teams, days); //do Engineering
-		//raceSeason->runNextRace(); 		//run race
-		//printCurrentGrandprixResult();
+	int numGrandPrixs = 0;
+	for ( int i = 0; i < numGrandPrixs; ++ i ) {
+		prepareForNextRace( teams, days ); //do Engineering
+		raceSeason->runNextRace();        //run race
+		printCurrentGrandprixResult();
 	}
-
-	//raceSeason->printFinalResults();
-
+	raceSeason->printFinalResults();
 	//deletion
-	return 0;
+	deleteEverything();
 }
-
-vector<GrandPrix*> createGrandPrixArray(int numGrandPrixs)
-{
-	vector<GrandPrix*> vec;
-
-	return vec;
-}
-
-RaceTeam** createRaceTeamArray(int numTeams)
-{
-	return nullptr;
+void prepareForNextRace( team, days) {
+	for ( int i = 0; i < numTeams; ++ i ) {
+		teams[ i ]->prepareForNextRace(); //Brent strategy call once lekker
+	}
+*/
 }
