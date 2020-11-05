@@ -21,9 +21,10 @@ class RaceStrategy {
 		
 		/**
 			Constructor
+		 	@param drive
+		 	@param track
 		*/
-		RaceStrategy();
-		RaceStrategy(Driver* driver, RaceTrack*  rt);
+		RaceStrategy( Driver* , RaceTrack* );
 
 		/**
 			Destructor
@@ -31,27 +32,23 @@ class RaceStrategy {
 		~RaceStrategy();
 
 		/**
-			
 			makes the pitstop strategy and sets it
-			@param tyre strategy
+			@param strategy
 		*/
-		void setPitStopStrategy();
-		void setPitStopStrategy(TyreStrategy* ts);
+		void setPitStopStrategy( TyreStrategy* );
+		
 
 		/**
-			
 			makes the driver strategy and sets it
-			@param tyre strategy
+			@param strategy
 		*/
-		void setDriverStrategy();
-		void setDriverStrategy(TyreStrategy* ts);
+		void setDriverStrategy( TyreStrategy* );
 
 		/**
-			
 			makes the tyre strategy and sets it
-			@param RaceTrack
+			@param track
 		*/
-		void setTyreStrategy(RaceTrack*  rt);
+		void setTyreStrategy( RaceTrack* );
 		
 		/**
 			returns the driver strategy
@@ -65,14 +62,14 @@ class RaceStrategy {
 		
 		/**
 			set the driver
-			@param the driving 
+			@param drive
 		*/
-		void setDriver(Driver* d);
+		void setDriver( Driver* );
 		
 		/**
 			returns the driver that was set
+		 	@return
 		*/
-		void setTyreStrategy();
 		Driver* getDriver();
 		
 		/**
@@ -83,23 +80,19 @@ class RaceStrategy {
 	private:
 	
 		/**
-			@brief
 			@brief the variable that holds the tyre strategy
 		*/
-		TyreStrategy* tyreStrategy;
+		TyreStrategy* tyreStrategy{};
 		
 		/**
-			@brief
 			@brief the variable that holds the pit crew strategy
 		*/
-		PitStopStrategy* pitCrewStrategy;
-		PitStopStrategy* pitStopStrategy;
+		PitStopStrategy* pitStopStrategy{};
 		
 		/**
-			@brief
 			@brief the variable that holds the driver strategy
 		*/
-		DriverStrategy* driverStrategy;
+		DriverStrategy* driverStrategy{};
 		
 		/**
 			@brief the variable that holds the driver
