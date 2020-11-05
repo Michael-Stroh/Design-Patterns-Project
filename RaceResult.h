@@ -78,6 +78,11 @@ class RaceResult : public Result {
 		*/
 		vector< pair< string, int>> getTeamPoints();
 
+		/**
+			@brief Returns whether or not a driver has qualified for the current qualifying race
+		*/
+		bool isQualified(string);
+
 	private:
 		/**
 			@brief A collection of all the lapresults for the current race

@@ -5,12 +5,13 @@
    @version 1.5.0
    @brief Component and Aggregate participant in the Composite and Iterator design pattern
    @details Template that acts as an interface for the clients
+   @todo: Implement getLapDistance()
  */
 
 #ifndef Circuit_H
 #define Circuit_H
 
-#include <utilities/Logger.h>
+#include "utilities/Logger.h"
 #include <sstream>
 #include <iostream>
 
@@ -64,6 +65,11 @@ class Circuit {
             @param[in] ChangeName: name to change to
         */
         void setName( string );
+
+        /**
+            @brief Returns the length of 1 single lap
+        */
+        float getLapDistance();
 
     private:
 

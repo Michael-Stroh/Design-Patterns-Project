@@ -17,6 +17,9 @@
 #include "Race.h"
 #include <fstream>
 
+class RaceTeam;
+class Race;
+
 class GrandPrix {
 
 	public:
@@ -44,7 +47,7 @@ class GrandPrix {
 			@param teams: All of the teams that will be participating in a Grand Prix.
 			@return An instance of GrandPrixResult, containing the results of the final official race of the Grand Prix.
 		*/
-		Result* runGrandPrix( vector< RaceTeam* >* );
+		Result* runGrandPrix( vector< RaceTeam* >);
 
 		/**
 			@brief Reads data from the given file to be able to create the Circuit

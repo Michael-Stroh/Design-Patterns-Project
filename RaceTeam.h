@@ -13,6 +13,8 @@
    @todo: Implement updateOfficialResult()
    @todo: Implement setRaceState()
    @todo: Implement performLap()
+   @todo: Implement setRaceState()
+   @todo: Implement getDriver()
  */
 
 #ifndef RACING_TEAM_H
@@ -27,10 +29,10 @@
 #include "LapResult.h"
 #include "Circuit.h"
 #include <vector>
-
 using namespace std;
 
 class GrandPrix;
+class RaceState;
 
 class RaceTeam
 {
@@ -77,13 +79,25 @@ public:
 			@brief: Updates the internal representation of all the GrandPrixs, so that the team can prepare
 			@param[in]: A vector containing all GrandPrixs that will occur in a season
 		*/
-	void informGrandPrix( vector< GrandPrix* > );
+	void informGrandPrixs( vector< GrandPrix* > );
+
+	/**
+			@brief: Updates the internal representation of the state of the current race
+			@param[in]: The state that the team should be informed of
+		*/
+	void setRaceState(RaceState*);
+
+	/**
+			@brief: Returns a pointer to a driver at index i
+			@param[in]: The index of the driver to be returned
+		*/
+	Driver *getDriver(int);
 
 private:
 	/**
 			@brief: A vector containing all the grand prixs that will take place during a season
 		*/
-	vector<Driver *> grandPrixs;
+	vector<GrandPrix *> grandPrixs;
 
 	/**
 			@brief: A vector containing the 2 drivers that drive per team

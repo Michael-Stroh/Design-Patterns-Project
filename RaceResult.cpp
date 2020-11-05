@@ -315,3 +315,7 @@ string RaceResult::getDriverTeam(string driverName)
 	}
 	return "not found";
 }
+
+bool RaceResult::isQualified(string driverName){
+	throw "Not yet implemented";
+}

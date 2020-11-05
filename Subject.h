@@ -45,7 +45,7 @@ public:
 		*/
 	virtual void notify(RaceState *) = 0;
 
-private:
+protected:
 	/**			
 			@brief A vector containing all of the observers for the class
 		*/

@@ -13,6 +13,6 @@ void RaceSubject::notify(RaceState *r)
 	vector<RaceTeam *>::iterator it;
 	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
 	{
-		it->setRaceState(r);
+		(*it)->setRaceState(r);
 	}
 }

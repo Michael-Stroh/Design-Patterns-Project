@@ -18,7 +18,7 @@ GrandPrix::~GrandPrix() {
 	delete result;
 }
 
-Result* GrandPrix::runGrandPrix( vector< RaceTeam* >* teams ) {
+Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
 
     // Perform the practice race
     this->race->setState( "Practice" );

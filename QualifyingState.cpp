@@ -1,7 +1,8 @@
 #include "QualifyingState.h"
 
-QualifyingState::QualifyingState() : RaceState(), qualifyingRaceSubject(new QualifyingRaceSubject())
+QualifyingState::QualifyingState() : RaceState()
 {
+	this->qualifyingRaceSubject = new RaceSubject();
 }
 
 QualifyingState::~QualifyingState()
@@ -13,12 +14,12 @@ QualifyingState::~QualifyingState()
 	this->qualifyingRaceSubject = NULL;
 }
 
-Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circuit *circuit)
+Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, Circuit *circuit)
 {
 
 	float timeLeft;
 	float longestLapTime;
-	RaceResult qualifyingResult = new RaceResult();
+	RaceResult *qualifyingResult = new RaceResult();
 
 	// 3 stage "knockout" system
 
@@ -28,18 +29,22 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 	longestLapTime = 0;
 	while (timeLeft > 0)
 	{
-		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
+		for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 		{
-			LapResult *lapA = team->performLap(0, this->circuit);
-			LapResult *lapB = team->performLap(1, this->circuit);
+			LapResult *lapA = (*team)->performLap(0, circuit);
+			LapResult *lapB = (*team)->performLap(1, circuit);
 			qualifyingResult->addResult(lapA);
 			qualifyingResult->addResult(lapB);
-			if (lap->getLapTime() > longestLapTime)
+			if (lapA->getLapTime() > longestLapTime)
 			{
-				longestLapTime = lap->getLapTime();
+				longestLapTime = lapA->getLapTime();
+			}
+			if (lapB->getLapTime() > longestLapTime)
+			{
+				longestLapTime = lapB->getLapTime();
 			}
 		}
-		timeleft -= longestLapTime;
+		timeLeft -= longestLapTime;
 	}
 	qualifyingResult->placeBottomXOnGrid(5);
 
@@ -49,22 +54,26 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 	longestLapTime = 0;
 	while (timeLeft > 0)
 	{
-		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
+		for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 		{
-			if(!qualifyingResult->driverHasGridPosition(team->getDriver(0)->getName()){
-				LapResult *lapA = team->performLap(0, this->circuit);
+			if(!qualifyingResult->driverHasGridPosition((*team)->getDriver(0)->getName())){
+				LapResult *lapA = (*team)->performLap(0, circuit);
 				qualifyingResult->addResult(lapA);
+				if (lapA->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapA->getLapTime();
+				}
 			}
-			if(!qualifyingResult->driverHasGridPosition(team->getDriver(1)->getName()){
-				LapResult *lapB = team->performLap(1, this->circuit);
+			if(!qualifyingResult->driverHasGridPosition((*team)->getDriver(1)->getName())){
+				LapResult *lapB = (*team)->performLap(1, circuit);
 				qualifyingResult->addResult(lapB);
-			}
-			if (lap->getLapTime() > longestLapTime)
-			{
-				longestLapTime = lap->getLapTime();
+				if (lapB->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapB->getLapTime();
+				}
 			}
 		}
-		timeleft -= longestLapTime;
+		timeLeft -= longestLapTime;
 	}
 	qualifyingResult->placeBottomXOnGrid(5);
 
@@ -74,22 +83,26 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> *teams, Circ
 	longestLapTime = 0;
 	while (timeLeft > 0)
 	{
-		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
+		for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 		{
-			if(!qualifyingResult->driverHasGridPosition(team->getDriver(0)->getName(), 10){
-				LapResult *lapA = team->performLap(0, this->circuit);
+			if(!qualifyingResult->driverHasGridPosition((*team)->getDriver(0)->getName())){
+				LapResult *lapA = (*team)->performLap(0, circuit);
 				qualifyingResult->addResult(lapA);
+				if (lapA->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapA->getLapTime();
+				}
 			}
-			if(!qualifyingResult->driverHasGridPosition(team->getDriver(1)->getName(), 10){
-				LapResult *lapB = team->performLap(1, this->circuit);
+			if(!qualifyingResult->driverHasGridPosition((*team)->getDriver(1)->getName())){
+				LapResult *lapB = (*team)->performLap(1, circuit);
 				qualifyingResult->addResult(lapB);
-			}
-			if (lap->getLapTime() > longestLapTime)
-			{
-				longestLapTime = lap->getLapTime();
+				if (lapB->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapB->getLapTime();
+				}
 			}
 		}
-		timeleft -= longestLapTime;
+		timeLeft -= longestLapTime;
 	}
 	qualifyingResult->placeBottomXOnGrid(10);
 
