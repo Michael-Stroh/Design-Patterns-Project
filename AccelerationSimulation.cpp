@@ -2,12 +2,33 @@
 
 AccelerationSimulation::AccelerationSimulation() {
 
-	// TODO - implement Acceleration Simulation::Acceleration SImulation
-	throw "Not yet implemented";
+	
 }
 
-Simulation* AccelerationSimulation::simulate( CarComposite* car, Driver* driver ) {
+AccelerationSimulation::~AccelerationSimulation()
+{
+	
+}
 
-	// TODO - implement Acceleration Simulation::simulate
-	throw "Not yet implemented";
+void AccelerationSimulation::simulate(Driver* driver)
+{
+
+}
+
+CarPart* AccelerationSimulation::simulate(CarPart* carPart, float variance[], float max[])
+{
+	CarPart* proposedPart = carPart->clone();
+	float change = generateRandomFraction() * variance[0];
+	if (generateRandomFraction() < 0)
+		change *= -1;
+	change += carPart->getAcceleration();
+	if(change <= max[0])
+		proposedPart->setAcceleration(change);
+
+	return proposedPart;
+}
+
+Simulation* AccelerationSimulation::getNextState()
+{
+	return new HandlingSimulation();
 }

@@ -23,8 +23,11 @@ TyreStrategy * PitStop::changeTyre(TyreStrategy * tyreStrategy)
 	vector<Tyre *> tyres = tyreStrategy->getTyres();
 	tyres.pop_back();
 	
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> origin/master
 	temp->setTyres(tyres);
 	
 	return temp;

@@ -1,23 +1,29 @@
 #include "Subject.h"
 
-Subject::Subject() {
+Subject::Subject()
+{
 
-	// TODO - implement Subject::Subject
-	throw "Not yet implemented";
+	this->observerList = vector<RaceTeam *>();
 }
 
-Subject::~Subject() {
-
+Subject::~Subject()
+{
 }
 
-void Subject::attach( RaceTeam* r ) {
+void Subject::attach(RaceTeam *r)
+{
 
-	// TODO - implement Subject::attach
-	throw "Not yet implemented";
+	this->observerList.push_back(r);
 }
 
-void Subject::detach( RaceTeam* r ) {
-
-	// TODO - implement Subject::detach
-	throw "Not yet implemented";
+void Subject::detach(RaceTeam *r)
+{
+	vector<RaceTeam *>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		if (*it == r)
+		{
+			this->observerList.erase(it);
+		}
+	}
 }

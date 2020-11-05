@@ -1,60 +1,57 @@
 #include "GrandPrixResult.h"
 
-GrandPrixResult::GrandPrixResult(): Result() {
-
-	// TODO - implement GrandPrixResult::GrandPrixResult
-	throw "Not yet implemented";
+GrandPrixResult::GrandPrixResult()
+{
+	this->officialRaceResult = new RaceResult();
+	this->driverPoints = vector<pair<string, int>>();
+	this->teamPoints = vector<pair<string, int>>();
 }
 
-GrandPrixResult::GrandPrixResult( Result* r ): Result() {
-
-	// TODO - implement GrandPrixResult::GrandPrixResult
-	throw "Not yet implemented";
-}
-
-GrandPrixResult::GrandPrixResult( Result* r, map<string, int> m ): Result() {
-
-	// TODO - implement GrandPrixResult::GrandPrixResult
-	throw "Not yet implemented";
-}
-
-GrandPrixResult::~GrandPrixResult() {
+GrandPrixResult::~GrandPrixResult(){
 
 }
 
-
-bool GrandPrixResult::addLapTime( Result* r ) {
-
-	// TODO - implement GrandPrixResult::addLapTime
-	throw "Not yet implemented";
+	void GrandPrixResult::print()
+{
+	cout << "Drivers Championship: " << endl;
+	this->printDrivers();
+	cout << "Constructors Championship: " << endl;
+	this->printTeams();
 }
 
-void GrandPrixResult::print() {
+void GrandPrixResult::printDrivers()
+{
 
-	// TODO - implement GrandPrixResult::print
-	throw "Not yet implemented";
+	vector<pair<string, int>>::iterator it;
+	for (it = this->driverPoints.begin(); it != this->driverPoints.end(); ++it)
+	{
+		cout << it->first << ": " << it->second << " pts" << endl;
+	}
 }
 
-void GrandPrixResult::printDrivers() {
-
-	// TODO - implement GrandPrixResult::printDrivers
-	throw "Not yet implemented";
+void GrandPrixResult::printTeams()
+{
+	vector<pair<string, int>>::iterator it;
+	for (it = this->teamPoints.begin(); it != this->teamPoints.end(); ++it)
+	{
+		cout << it->first << ": " << it->second << " pts" << endl;
+	}
 }
 
-void GrandPrixResult::printTeams() {
-
-	// TODO - implement GrandPrixResult::printTeams
-	throw "Not yet implemented";
+void GrandPrixResult::addResult(Result *r)
+{
+	RaceResult *raceResult = dynamic_cast<RaceResult *>(r);
+	this->officialRaceResult = r;
+	this->driverPoints = raceResult->getDriverPoints();
+	this->teamPoints = raceResult->getTeamPoints();
 }
 
-void GrandPrixResult::setTeamTime( map<string, int> m ) {
-
-	// TODO - implement GrandPrixResult::setTeamTime
-	throw "Not yet implemented";
+vector<pair<string, int>> GrandPrixResult::getTeamPoints()
+{
+	return this->teamPoints;
 }
 
-void GrandPrixResult::setDriverTime( map<string, int> m ) {
-
-	// TODO - implement GrandPrixResult::setDriverTime
-	throw "Not yet implemented";
+vector<pair<string, int>> GrandPrixResult::getDriverPoints()
+{
+	return this->driverPoints;
 }

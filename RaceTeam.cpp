@@ -1,41 +1,80 @@
 #include "RaceTeam.h"
+#include "GrandPrix.h"
+#include "RaceState.h"
 
-RaceTeam::RaceTeam() {
-
-
+RaceTeam::RaceTeam()
+{
+	/*
+		Tim's Portion: The Construction of the Engineering Crew that will create and improve the cars.
+	*/
+		engineeringCrew = new EngineeringCrew();
+	/*
+		End Of Tim's Portion
+	*/
 }
 
-RaceTeam::~RaceTeam() {
-
-
+RaceTeam::~RaceTeam()
+{
+	
 }
 
-LapResult* RaceTeam::performLap( int circuit ) {
-
-	// TODO - implement Racing Team::performLap
+LapResult *RaceTeam::performLap(int driverIndex, Circuit *circuit)
+{
+	// drivers[driverIndex] drive on circuit
+	// return lapresult
 	throw "Not yet implemented";
 }
 
-void RaceTeam::updateSeasonResult( int Result ) {
+void RaceTeam::informSeasonResult(Result *result)
+{
+	this->seasonResult = dynamic_cast<RaceSeasonResult *>(result);
+}
 
-	// TODO - implement Racing Team::updateSeasonResult
+void RaceTeam::updateQualifyingRaceResult(Result *result)
+{
+
+	this->qualifyingRaceResult = dynamic_cast<RaceResult *>(result);
+}
+
+void RaceTeam::updateOfficialRaceResult(Result *result)
+{
+
+	this->officialRaceResult = dynamic_cast<RaceResult *>(result);
+}
+
+void RaceTeam::informGrandPrixs(vector<GrandPrix *> g)
+{
+	this->grandPrixs = g;
+}
+
+void RaceTeam::setRaceState(RaceState* s){
 	throw "Not yet implemented";
 }
 
-void RaceTeam::updateQualifyingRaceResult( int Result ) {
-
-	// TODO - implement Racing Team::updateQualifyingRaceResult
+Driver *RaceTeam::getDriver(int i){
 	throw "Not yet implemented";
 }
 
-bool RaceTeam::updateOfficialRaceResult( Result* r ) {
+float RaceTeam::getCarLapTime(int index, Circuit* circuit)
+{
+	float ans = 0;
+	throw "Not Implemented Yet";
 
-	// TODO - implement Racing Team::updateOfficialRaceResult
-	throw "Not yet implemented";
+	return ans;
 }
 
-void RaceTeam::informGrandPrix( GrandPrix* g ) {
+float RaceTeam::getDriverLapTime(int index, Circuit* circuit)
+{
+	float ans = 0;
+	throw "Not Implemented Yet";
 
-	// TODO - implement Racing Team::informGrandPrix
-	throw "Not yet implemented";
+	return ans;
 }
+
+
+Budget* RaceTeam::createSeasonBudget()
+{
+	throw "Not Implemented Yet";
+}
+
+const float RaceTeam::moneyPerGrandPrix = 1000;	//Subject to change

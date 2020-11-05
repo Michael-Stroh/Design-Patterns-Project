@@ -1,37 +1,133 @@
 #include "CompositeRoad.h"
 
-CompositeRoad::CompositeRoad(): Road() {
+CompositeRoad::CompositeRoad() : Circuit(), tracks() {
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
 }
 
-CompositeRoad::CompositeRoad( string RoadName ) : Road( RoadName ) {
+CompositeRoad::CompositeRoad( string RoadName ) : Circuit( RoadName ), tracks(){
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
 }
 
 CompositeRoad::~CompositeRoad() {
 
-	// TODO - implement CompositeRoad::CompositeRoad
-	throw "Not yet implemented";
+    //go through each RaceTrack object stored
+    //for ( auto& track : tracks ) {
+    for ( Circuit *track : tracks ) {
+
+        //free the memory
+        delete track;
+    }
+
+    //empty and resize the vector
+    tracks.clear();
 }
 
-void CompositeRoad::addRoad( Road* CreateRoad ) {
+void CompositeRoad::addRoad( Circuit *CreateRoad ) {
 
-	// TODO - implement CompositeRoad::addRoad
-	throw "Not yet implemented";
+    //add the given RaceTrack to the vector
+    tracks.push_back( CreateRoad );
 }
 
-void CompositeRoad::removeRoad( Road* RemoveRoad ) {
+void CompositeRoad::removeRoad( Circuit *RemoveRoad ) {
 
-	// TODO - implement CompositeRoad::removeRoad
-	throw "Not yet implemented";
+    /*
+        The Road object must be deleted by the user
+     */
+
+    //counter
+    int x = 0;
+
+    //go through each RaceTrack object stored
+    //for ( auto& track : tracks ) {
+    for ( Circuit *track : tracks ) {
+
+        //check if current RaceTrack is what we are looking for
+        if ( track->getName() == RemoveRoad->getName() ) {
+
+            //output the RaceTrack has been found
+            Logger::cyan( "Success", "Road " + track->getName() + " was removed." );
+
+            //remove the RaceTrack and resize the vector
+            tracks.erase( tracks.begin() + x );
+            tracks.size();
+
+            return;
+        }
+
+        //increment the counter
+        x++;
+    }
+
+    //output the given RaceTrack object was not found
+    Logger::cyan( "Error", "Road " + RemoveRoad->getName() + " was not found." );
+}
+
+void CompositeRoad::removeRoad( const string &RemoveRoad ) {
+
+    //counter
+    int x = 0;
+
+    //go through each RaceTrack object stored
+    //for ( auto& track : tracks ) {
+    for ( Circuit *&track : tracks ) {
+
+        //check if current RaceTrack is what we are looking for
+        if ( track->getName() == RemoveRoad ) {
+
+            //output the RaceTrack has been found and delete the object
+            Logger::cyan( "Success", "Road " + track->getName() + " was removed." );
+            delete track;
+
+            //remove the RaceTrack and resize the vector
+            tracks.erase( tracks.begin() + x );
+            tracks.size();
+            return;
+        }
+
+        //increment the counter
+        x++;
+    }
+
+    //output the given RaceTrack name was not found
+    Logger::cyan( "Error", "Road " + RemoveRoad + " was not found." );
 }
 
 void CompositeRoad::print() {
 
-	// TODO - implement CompositeRoad::print
-	throw "Not yet implemented";
+    //go through each RaceTrack object stored
+    //for ( auto& track : tracks ) {
+    for ( Circuit *&track : tracks ) {
+
+        //call the print function to display the details
+        track->print();
+    }
+}
+
+Iterator *CompositeRoad::createIterator() {
+
+    //create and return an iterator on the current object
+    return ( new CircuitIterator( this ) );
+}
+
+int CompositeRoad::getSize() {
+
+    //return the size
+    return tracks.size();
+}
+
+Circuit *CompositeRoad::getRoad( int index ) {
+
+    //check if the vector is populated and the index is valid
+    if ( ( !tracks.empty() ) && ( index > 0 ) && ( index < tracks.size() ) ) {
+
+        //check if the index exists in the vector
+        if ( tracks[ index ] != nullptr ) {
+
+            //return the found object
+            return tracks[ index ];
+        }
+    }
+
+    //there was an error do no return anything
+    return nullptr;
 }

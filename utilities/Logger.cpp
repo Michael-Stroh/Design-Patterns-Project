@@ -5,6 +5,8 @@
 #include <iostream>
 using namespace std;
 
+bool Logger::isDebug = false;
+
 void Logger::log(string heading, string message)
 {
     cout << "--- " << heading << " ---" << endl;
@@ -45,10 +47,10 @@ void Logger::blue(string heading, string message)
 
 void Logger::magenta(string heading, string message)
 {
-    cout << "\e[35m";
+    cout << "\033[35m";
     cout << "--- " << heading << " ---" << endl;
     cout << message << endl;
-    cout << "\e[39m";
+    cout << "\033[39m";
 }
 
 void Logger::cyan(string heading, string message)
@@ -57,6 +59,20 @@ void Logger::cyan(string heading, string message)
     cout << "--- " << heading << " ---" << endl;
     cout << message << endl;
     cout << "\e[39m";
+}
+
+void Logger::debug(string heading, string message)
+{
+    if (Logger::isDebug)
+    {
+        cout << "[debug] --- " << heading << " ---" << endl;
+        cout << "[debug] " << message << endl;
+    }
+}
+
+void Logger::setDebug(bool debug)
+{
+    Logger::isDebug = debug;
 }
 
 #endif

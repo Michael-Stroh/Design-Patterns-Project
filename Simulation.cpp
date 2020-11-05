@@ -2,10 +2,15 @@
 
 Simulation::Simulation() {
 
-	// TODO - implement Simulation::Simulation
-	throw "Not yet implemented";
+	
 }
 
 Simulation::~Simulation() {
 
+}
+
+float Simulation::generateRandomFraction()
+{
+	float randNum = ((rand() % 100) / 100.0) - ((rand() % 100) / 100.0);
+	return randNum;
 }

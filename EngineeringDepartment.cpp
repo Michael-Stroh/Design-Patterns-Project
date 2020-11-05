@@ -1,35 +1,57 @@
 #include "EngineeringDepartment.h"
 
-EngineeringDepartment::EngineeringDepartment() {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+//should never be used
+EngineeringDepartment::EngineeringDepartment() 
+{
+	simulationState = nullptr;
+	remainingBudget = 0;
+	budgetLimit = 0;
+	this->budget = nullptr;
 }
 
-EngineeringDepartment::EngineeringDepartment( float budget ): budgetLimit( budget ) {
 
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, float budgetLimit)
+{
+	simulationState = state;
+	this->budget = budget;
+	this->budgetLimit = budgetLimit;
+	remainingBudget = budget->getBudget();
 }
 
-EngineeringDepartment::EngineeringDepartment( Simulation* state ): SimulationState( state ) {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
+{
+	simulationState = new AccelerationSimulation();
+	this->budget = budget;
+	this->budgetLimit = budgetLimit;
+	remainingBudget = budget->getBudget();
 }
 
-EngineeringDepartment::EngineeringDepartment(Simulation* state, float budget): SimulationState( state ), budgetLimit( budget ) {
-
-	// TODO - implement EngineeringDepartment::EngineeringDepartment
-	throw "Not yet implemented";
+EngineeringDepartment::~EngineeringDepartment() 
+{
+	delete simulationState;
+	simulationState = nullptr;
 }
 
-EngineeringDepartment::~EngineeringDepartment() {
-
+void EngineeringDepartment::updateBudgetLimit(float newBudgetLimit) 
+{
+	budgetLimit = newBudgetLimit;
 }
 
-void EngineeringDepartment::updateBudget() {
-
-	// TODO - implement EngineeringDepartment::updateBudget
-	throw "Not yet implemented";
+float EngineeringDepartment::getBudgetLimit()
+{
+	return budgetLimit;
 }
+
+void EngineeringDepartment::updateRemainingBudget(float newRemainingBudget)
+{
+	remainingBudget = newRemainingBudget;
+}
+
+void EngineeringDepartment::setBudget(Budget* budget)
+{
+	if (this->budget != nullptr)
+		delete this->budget;
+	this->budget = budget;
+}
+
+const float EngineeringDepartment::costPerSimulation = 100; 

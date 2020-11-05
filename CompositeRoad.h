@@ -2,60 +2,96 @@
    @file CompositeRoad.h
    @class CompositeRoad
    @authors Michael
-   @version 1.0.0
-   @brief Composite participant which will hold the roads
+   @version 1.5.0
+   @brief Composite and ConcreteAggregate participant in the Composite and Iterator design pattern.
+   @details holds a group of RaceTrack objects( leaf participant ) and acts like a tree structure.
  */
 
 #ifndef CompositeRoad_H
 #define CompositeRoad_H
 
-#include "Road.h"
-
+#include "CircuitIterator.h"
 #include <vector>
 
-class CompositeRoad: public Road {
+class Circuit;
+
+class CompositeRoad: public Circuit {
 
 	public:
-		
+
+		friend class CircuitIterator;
+
 		/**
-			Constructor
+			@brief Constructor
+			Creates the object
 		*/
 		CompositeRoad();
 
 		/**
-			Constructor
-		 	@param RoadName
+			@brief Constructor
+			Creates the object with the given name
+
+			@param[in] RoadName used to identify the object
 		*/
 		CompositeRoad( string );
 
 		/**
-			Destructor
+			@brief Destructor
+			Frees all the memory
 		*/
 		~CompositeRoad();
 
 		/**
-			Adds a road object to the tracks list
-			@param CreateRoad
+			Adds a road object to the tracks vector
+			@param[out] CreateRoad: reference to the road we want to add
 		*/
-		void addRoad( Road* );
+		void addRoad( Circuit * );
 
 		/**
-			Removes a road object to the tracks list
-			@param RemoveRoad
+			Removes a road object to the tracks vector
+			@param[out] RemoveRoad: reference to the road we want to remove
 		*/
-		void removeRoad( Road* );
+		void removeRoad( Circuit * );
 
 		/**
-			Prints out details about the tracks list
+			Removes a road object to the tracks vector
+			@param[in] RemoveRoad: reference to the help find road we want to remove
+		*/
+		void removeRoad( const string & );
+
+		/**
+			Prints  out details, by calling each roads print, about the tracks list
 		*/
 		void print();
-	
-	private:
-	
+
 		/**
-     		@brief Stores a list of tracks so it's easier to store and iterate through
+			Creates an iterator object with the current object so that it can be
+			traversed in a linear order
+			@return the created iterator on the current object
 		*/
-		vector<Road*> tracks;
+		Iterator *createIterator();
+
+		/**
+			Determines the size of the tracks vector and returns it
+			@return the size of the vector
+		*/
+		int getSize();
+
+		/**
+			Finds the Circuit at a given index
+			@param index: location to return from
+			@return the specific Circuit in tracks
+		*/
+		Circuit *getRoad( int );
+
+	private:
+
+		/**
+			@brief a group of RaceTracks so it's easier to store and iterate through
+		*/
+		std::vector<Circuit *> tracks;
 };
+
+#include "Circuit.h"
 
 #endif

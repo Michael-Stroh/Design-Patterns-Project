@@ -2,18 +2,26 @@
 
 Circuit::Circuit() {
 
-	// TODO - implement Circuit::Circuit
-	throw "Not yet implemented";
+}
+
+Circuit::Circuit( string RoadName ) : name( RoadName ){
+
 }
 
 Circuit::~Circuit() {
 
-	// TODO - implement Circuit::Circuit
-	throw "Not yet implemented";
 }
 
-Circuit::Circuit( Road* StartRoad ): road( StartRoad ) {
+string Circuit::getName() {
 
-	// TODO - implement Circuit::Circuit
-	throw "Not yet implemented";
+    return name;
+}
+
+void Circuit::setName( string ChangeName ) {
+
+    name = ChangeName;
+}
+
+float Circuit::getLapDistance(){
+    throw "Not yet implemented";
 }

@@ -1,18 +1,18 @@
 #include "OfficialRaceSubject.h"
 
-OfficialRaceSubject::OfficialRaceSubject(): Subject() {
-
-	// TODO - implement OfficialRaceSubject::OfficialRaceSubject
-	throw "Not yet implemented";
+OfficialRaceSubject::OfficialRaceSubject() : Subject()
+{
 }
 
-OfficialRaceSubject::~OfficialRaceSubject() {
-
-
+OfficialRaceSubject::~OfficialRaceSubject()
+{
 }
 
-void OfficialRaceSubject::notify( RaceState* r ) {
-
-	// TODO - implement OfficialRaceSubject::notify
-	throw "Not yet implemented";
+void OfficialRaceSubject::notify(Result *r)
+{
+	vector<RaceTeam *>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		it->updateOfficialRaceResult(r);
+	}
 }

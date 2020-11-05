@@ -1,90 +1,176 @@
 /**
    @file Racing_Team.h
    @class Racing_Team
-   @authors Michael
+   @authors Michael Timothy 
    @version 1.0.0
    @brief 
+   @todo: Implement constructor
+   @todo: Implement destructor
+   @todo: Implement performLap(int, circuit) with int for driver index and circuit for driving on
+   @todo: Implement updateSeasonResult()
+   @todo: Implement informGrandPrixs()
+   @todo: Implement updateQualifyingResult()
+   @todo: Implement updateOfficialResult()
+   @todo: Implement setRaceState()
+   @todo: Implement performLap()
+   @todo: Implement setRaceState()
+   @todo: Implement getDriver()
  */
 
 #ifndef RACING_TEAM_H
 #define RACING_TEAM_H
 
-#include "Result.h"
-#include "GrandPrix.h"
+#include "RaceResult.h"
+#include "RaceSeasonResult.h"
 #include "Driver.h"
-#include "Car.h"
+#include "CarComposite.h" //changed from include Car.h by Tim
+#include "EngineeringCrew.h"
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
+#include "Circuit.h"
+#include <vector>
+using namespace std;
 
+class GrandPrix;
+class RaceState;
 
-class RaceTeam {
+class RaceTeam
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceTeam();
-		
-		/**
+	RaceTeam();
+
+	/**
 			Destructor
 		*/
-		~RaceTeam();
-		
-		/**
-			
-			@param
-			@return
-		*/
-		LapResult* performLap( int );
+	~RaceTeam();
 
-		/**
-			
-			@param
+	/**
+	 		@brief: The method that will handle the team performing a lap on the circuit with a specific driver
+			@param[in]: int: The index of the driver and car to be performing the lap
+			@param[in]: Circuit*: The circuit on which the lap will take place
+			@return: The results of the lap
 		*/
-		void updateSeasonResult( int );
+	LapResult *performLap(int, Circuit *);
 
-		/**
-			
-			@param
-		*/
-		void updateQualifyingRaceResult( int );
+	/**
+		@brief A function to be called inside of the performaLap function. It takes in a circuit and , based on the circuits description
+		and the statistics of the car at index i, determines how well the car performs relative to the best time for this circuit.
+		@param[in]: int: the index of the car to perform the lap.
+		@param[in]: circuit: the circuit on which the lap must be run.
+		@todo figure out where the best value fo r the time of thiscircuit comes from.
+	*/
+	float getCarLapTime(int , Circuit *);
 
-		/**
-			
-			@param
-			@return
-		*/
-		bool updateOfficialRaceResult( Result* );
+	/**
+		@brief Brent
+	*/
+	float getDriverLapTime(int, Circuit *);
 
-		/**
-			
-			@param
+	/**
+			@brief: Sets the internal representation of the entire season's result
+			@details: Only needs to be notified once, the pointer is then updated accordingly
+			@param[in]: The current season's result
 		*/
-		void informGrandPrix( GrandPrix* );
-		
-	private:
-	
-		/**
+	void informSeasonResult(Result *);
+
+	/**
+			@brief: Updates the internal representation of the qualifying race's result, so that the team can adjust its strategy accordingly
+			@param[in]: The current (qualifying) race's result
+		*/
+	void updateQualifyingRaceResult(Result *);
+
+	/**
+	 		@brief: Updates the internal representation of the official race's result, so that the team can adjust its strategy accordingly
+			@param[in]: The current (official) race's result
+		*/
+	void updateOfficialRaceResult(Result *);
+
+	/**
+			@brief: Updates the internal representation of all the GrandPrixs, so that the team can prepare
+			@param[in]: A vector containing all GrandPrixs that will occur in a season
+			@warning Brent
+	*/
+	void informGrandPrixs( vector< GrandPrix* > );
+
+	/**
+			@brief: Updates the internal representation of the state of the current race
+			@param[in]: The state that the team should be informed of
+		*/
+	void setRaceState(RaceState*);
+
+	/**
+			@brief: Returns a pointer to a driver at index i
+			@param[in]: The index of the driver to be returned
+		*/
+	Driver *getDriver(int);
+
+	/**
+		@brief A function for Kayla to implement to/change that should be used in the constructor of the RaceTeam
+	*/
+	Budget * createSeasonBudget();
+
+private:
+	/**
+			@brief: A vector containing all the grand prixs that will take place during a season
+		*/
+	vector<GrandPrix *> grandPrixs;
+
+	/**
+			@brief: A vector containing the 2 drivers that drive per team
+		*/
+	vector<Driver *> drivers;
+
+	/**
+			@brief: The internal representation of the results of the current official race
+		*/
+	Result *officialRaceResult;
+
+	/**
+			@brief: The internal representation of the results of the current qualifying race
+		*/
+	Result *qualifyingRaceResult;
+
+	/**
+			@brief: The internal representation of the results of the current season
+		*/
+	Result *seasonResult;
+
+	/**
+			@brief: 
+			@todo: Provide details on car member variable
+		*/
+	CarComposite *car;
+
+
+
+	/**
 			@brief
+			@todo: Provide details on the strategy member variable
+
 		*/
-		Driver* driver;
-		
-		/**
-			@brief
-		*/
-		Car* car;
-		
-		/**
-			@brief
-		*/
-		CarBuilder* builder;
-		
-		/**
-			@brief
-		*/
-		Strategies* Strategy;
+	Strategies *Strategy;
+
+	/**
+		@brief represents the shared budget for the engineering Departments. Might be removed at a later stage
+		@warning determine if we keep this or not
+	*/
+	Budget* budget;
+
+	/**
+		@brief a vector of all of the Engineering Departments that will work on the car throughout the year.
+	*/
+	EngineeringCrew* engineeringCrew;
+
+	/**	
+		@breif specified the amount of money allocated for engineering purposes for each Grand Prix
+		@warning this amount still needs to be calibrated
+	*/
+	const static float moneyPerGrandPrix;
 };
 
 #endif

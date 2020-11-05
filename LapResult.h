@@ -1,84 +1,78 @@
 /**
    @file LapResult.h
    @class LapResult
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The ancestor of Result that will contain the lowest possible recordable result: the time taken to perform a lap.
  */
-
 
 #ifndef LAPRESULT_H
 #define LAPRESULT_H
 
 #include "Result.h"
+#include <iostream>
 
-class LapResult: public Result {
+class LapResult : public Result
+{
 
-	public:
-		
-		/**
+public:
+	/**
 			Constructor
 		*/
-		LapResult();
+	LapResult();
 
-		/**
-			Constructor
-		 	@param Time
+	/**
+			@param[in] d: The driver who completed the lap's name
+			@param[in] t: The team who the driver is currently driving for's team
+			@param[in] f: The time taken to complete a lap
 		*/
-		LapResult( float );
+	LapResult(string, string, float);
 
-		/**
-			Constructor
-			 @param name
-		*/
-		LapResult( string );
-
-		/**
-				Constructor
-				@param name
-				@param Time
-			*/
-		LapResult( string, float );
-
-		/**
+	/**
 			Destructor
 		*/
-		~LapResult();
+	~LapResult();
 
-		/**
-			
-			@param
-			@return
-		*/
-		bool addLapTime( Result* );
-
-		/**
+	/**
 			
 		*/
-		void print();
+	void print();
 
-		/**
-
+	/**
+			@return The laptime for the current lap.
 		*/
-		string getTeamName();
+	float getLapTime();
 
-		/**
-
-		 	@param name
+	/**
+			@return The driver who completed the current lap's name.
 		*/
-		void setTeamName( string );
+	string getDriverName();
 
-	private:
+	/**
+			@return The name of the team for which the driver who complete the current lap drives.
+		*/
+	string getTeamName();
 
-		/**
-			@brief 
+	/**
+			@brief Added to satisfy the implementation of the pure virtual method defined by Result, will not be used in this class
 		*/
-		float lapTime;
-		
-		/**
-			@brief 
+	void addResult(Result *);
+
+private:
+	/**
+			@brief The time taken for a driver to complete a lap.
 		*/
-		string teamName;
+	float lapTime;
+
+	/**
+			@brief The name of the team for which the driver is currently driving.
+		*/
+	string teamName;
+
+	/**
+			@brief The name of the driver who just completed the lap.
+		*/
+	string driverName;
 };
 
 #endif

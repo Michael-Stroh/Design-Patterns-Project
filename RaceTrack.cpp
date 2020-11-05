@@ -1,70 +1,147 @@
 #include "RaceTrack.h"
 
-RaceTrack::RaceTrack(): Road() {
+RaceTrack::RaceTrack(): Circuit() {
 
 }
-RaceTrack::RaceTrack( string name ): Road( name ) {
 
-	// TODO - implement RaceTrack::RaceTrack
-	throw "Not yet implemented";
+RaceTrack::RaceTrack( string name ): Circuit( name ) {
 }
 
-RaceTrack::RaceTrack( string name, float dist, float wind, float RaceSkill ):
-					Road( name ), distance( dist ), windForce( wind ), skill( RaceSkill )  {
+RaceTrack::RaceTrack( string name, float dist, float wind ): Circuit( name ), distance( dist ), windForce( wind ) {
+}
 
-	// TODO - implement RaceTrack::RaceTrack
-	throw "Not yet implemented";
+RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
+					 int corners, int RaceLaps ): Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
+												  laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
 }
 
 RaceTrack::~RaceTrack() {
-
 }
-
 
 void RaceTrack::print() {
 
-	// TODO - implement RaceTrack::print
-	throw "Not yet implemented";
+	//convert the floats to a string
+	stringstream dist, wind;
+
+	dist << distance;
+	wind << windForce;
+	//output the details of the road/track
+	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str() + "km and a wind force of " + wind.str() + " units." );
 }
 
-void RaceTrack::timeToFinish() {
+Iterator *RaceTrack::createIterator() {
 
-	// TODO - implement RaceTrack::timeToFinish
-	throw "Not yet implemented";
+	//create and return an iterator on the current object
+	//return ( new CircuitIterator( this ) );
+	return nullptr;
 }
 
-Iterator* RaceTrack::createIterator() {
+float RaceTrack::getDistance() const {
 
-	// TODO - implement RaceTrack::createIterator
-	throw "Not yet implemented";
-}
-
-float RaceTrack::getDistance() {
-
-	return this->distance;
+	return distance;
 }
 
 void RaceTrack::setDistance( float dist ) {
 
-	this->distance = dist;
+	distance = dist;
 }
 
-float RaceTrack::getWindForce() {
+float RaceTrack::getWindForce() const {
 
-	return this->windForce;
+	return windForce;
 }
 
-float RaceTrack::setWindForce( float wind ) {
+void RaceTrack::setWindForce( float wind ) {
 
 	windForce = wind;
 }
 
-float RaceTrack::getSkill() {
+int RaceTrack::getLaps() const {
 
-	return this->skill;
+	return laps;
 }
 
-void RaceTrack::setSkill( float RaceSkill ) {
+void RaceTrack::setLaps( int RaceLaps ) {
 
-	this->skill = RaceSkill;
+	laps = RaceLaps;
 }
+
+int RaceTrack::getCorners() const {
+
+	return numCorners;
+}
+
+void RaceTrack::setCorners( int corners ) {
+
+	numCorners = corners;
+}
+
+float RaceTrack::getStraightDistance() const {
+
+	return straightDistance;
+}
+
+void RaceTrack::setStraightDistance( float dist ) {
+
+	straightDistance = dist;
+}
+
+string RaceTrack::getDirection() const {
+
+	//determine which direction the car is going
+	switch ( direct ) {
+
+		case clockwise:
+			return "clockwise";
+		case anticlockwise:
+			return "anti-clockwise";
+		default:
+			return "Error";
+	}
+}
+
+void RaceTrack::setDirection( RaceTrack::direction dir ) {
+
+	direct = dir;
+}
+
+bool RaceTrack::getEuro() const {
+
+	return isEuropean;
+}
+
+void RaceTrack::setEuro( bool euro ) {
+
+	isEuropean = euro;
+}
+
+float RaceTrack::getAvgPitStops() const {
+
+	return averagePitStop;
+}
+
+void RaceTrack::setAvgPitStops( float amount ) {
+
+	averagePitStop = amount;
+}
+
+string RaceTrack::getEndDate() const {
+
+	return endingDate;
+}
+
+void RaceTrack::setEndDate( string date ) {
+
+	endingDate = date;
+}
+
+string RaceTrack::getStartDate() const {
+
+	return startingDate;
+}
+
+void RaceTrack::setStartDate( string date ) {
+
+	startingDate = date;
+}
+

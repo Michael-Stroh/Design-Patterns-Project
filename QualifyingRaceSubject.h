@@ -1,9 +1,9 @@
 /**
    @file QualifyingRaceSubject.h
    @class QualifyingRaceSubject
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The subject for a qualifying race, used to update racing teams of any pertinent information regarding the qualifying race
  */
 
 #ifndef QUALIFYINGRACESUBJECT_H
@@ -12,25 +12,25 @@
 #include "Subject.h"
 #include "RaceState.h"
 
-class QualifyingRaceSubject: public Subject {
+class QualifyingRaceSubject : public Subject
+{
 
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		QualifyingRaceSubject();
+	QualifyingRaceSubject();
 
-		/**
+	/**
 			Destructor
 		*/
-		~QualifyingRaceSubject();
+	~QualifyingRaceSubject();
 
-		/**
+	/**
 			
-			@param
+			@param: The results of a qualifying race, used to inform teams of what's going on during/after the qualifying race
 		*/
-		void notify( RaceState* );
+	void notify(Result *);
 };
 
 #endif

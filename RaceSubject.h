@@ -1,9 +1,9 @@
 /**
    @file RaceSubject.h
    @class RaceSubject
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The subject for a race, used to update racing teams of any pertinent information regarding the race
  */
 
 #ifndef RACESUBJECT_H
@@ -11,25 +11,25 @@
 
 #include "Subject.h"
 
-class RaceSubject: public Subject {
+class RaceSubject : public Subject
+{
 
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		RaceSubject();
+	RaceSubject();
 
-		/**
+	/**
 			Destructor
 		*/
-		~RaceSubject();
+	~RaceSubject();
 
-		/**
+	/**
 			
-			@param
+			@param An instance of RaceState, used to notify all observers of any changes
 		*/
-		void notify( RaceState* );
+	void notify(RaceState *);
 };
 
 #endif

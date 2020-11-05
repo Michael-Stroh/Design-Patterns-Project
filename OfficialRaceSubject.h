@@ -1,36 +1,35 @@
 /**
    @file OfficialRaceSubject.h
    @class OfficialRaceSubject
-   @authors Michael
+   @authors Alex
    @version 1.0.0
-   @brief 
+   @brief The subject for an official race, used to update racing teams of any pertinent information regarding the official race
  */
-
 
 #ifndef OFFICIALRACESUBJECT_H
 #define OFFICIALRACESUBJECT_H
 
 #include "Subject.h"
 
-class OfficialRaceSubject: public Subject {
+class OfficialRaceSubject : public Subject
+{
 
-	public:
-	
-		/**
+public:
+	/**
 			Constructor
 		*/
-		OfficialRaceSubject();
+	OfficialRaceSubject();
 
-		/**
+	/**
 			Destructor
 		*/
-		~OfficialRaceSubject();
+	~OfficialRaceSubject();
 
-		/**
+	/**
 			Constructor
-			@param
+			@param: The results of an official race, used to inform teams of what's going on during/after the race
 		*/
-		void notify( RaceState* );
+	void notify(Result *);
 };
 
 #endif
