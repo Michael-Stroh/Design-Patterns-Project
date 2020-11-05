@@ -1,7 +1,7 @@
 /**
    @file logistics.h
    @class logistics
-   @authors Michael
+   @authors Brent
    @version 1.0.0
    @brief 
  */
@@ -37,6 +37,8 @@ class Logistics {
 			
 			@return
 		*/
+		
+		string getName();
 
 	private:
 
