@@ -1,4 +1,4 @@
-_o_files = main.o Logger.o Result.o LapResult.o RaceSeason.o RaceSeasonResult.o SeasonSubject.o GrandPrix.o RaceTeam.o GrandPrixResult.o Subject.o Race.o EngineeringCrew.o RaceResult.o RaceSubject.o PracticeState.o QualifyingState.o OfficialState.o 
+_o_files = main.o Logger.o Result.o LapResult.o RaceSeason.o RaceSeasonResult.o SeasonSubject.o GrandPrix.o RaceTeam.o GrandPrixResult.o Subject.o Race.o EngineeringCrew.o RaceResult.o RaceSubject.o PracticeState.o QualifyingState.o OfficialState.o RaceState.o Driver.o
 o_files = $(patsubst %,$(OBJDIR)/%,$(_o_files))
 OBJDIR = obj
 
