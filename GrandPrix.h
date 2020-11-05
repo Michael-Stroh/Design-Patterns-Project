@@ -13,6 +13,7 @@
 
 #include "GrandPrixResult.h"
 #include "RaceResult.h"
+#include "RaceTrack.h"
 #include "RaceTeam.h"
 #include "Race.h"
 #include <fstream>
@@ -30,8 +31,9 @@ class GrandPrix {
 
 		/**
 			Value Constructor
+		 	@param track: The given RaceTrack for the GrandPrix
 		*/
-		GrandPrix( Circuit* );
+		GrandPrix( RaceTrack* );
 
 		/**
 			Destructor
@@ -70,7 +72,7 @@ class GrandPrix {
 		/**
 			@brief The circuit on which all of the races during this Grand Prix will take place.
 		*/
-		Circuit* circuit;
+		RaceTrack* circuit;
 
 		/**
 			@brief The race(s) that will take place during this Grand Prix. Will change state from "practice" to "qualifying" to "official" as required.
