@@ -5,14 +5,17 @@ RaceTrack::RaceTrack(): Circuit() {
 }
 
 RaceTrack::RaceTrack( string name ): Circuit( name ) {
+
 }
 
 RaceTrack::RaceTrack( string name, float dist, float wind ): Circuit( name ), distance( dist ), windForce( wind ) {
+
 }
 
 RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
 					 int corners, int RaceLaps ): Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
 												  laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
+
 }
 
 RaceTrack::~RaceTrack() {
