@@ -52,3 +52,8 @@ string Tyre::getType() {
 	return type;
 }
 
+void Tyre::usage( int distance ) {
+
+	setDurability( getDurability() / distance );
+	setGrip( getGrip() -1);
+}

@@ -1,34 +1,17 @@
 #include "Medium.h"
 
-Medium::Medium(): Tyre(90,60,1.25) {
-<<<<<<< HEAD
+Medium::Medium(): Tyre( 90,60,1.25 ) {
 
 	cout << "Medium tyre created" << endl;
-=======
->>>>>>> BrentsBranch
-	this->type = "Medium";
+	setType( "Medium" );
 }
 
 Medium::Medium( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
-<<<<<<< HEAD
 
 	cout << "Medium tyre created" << endl;
-=======
->>>>>>> BrentsBranch
-	this->type = "Medium";
+    setType( "Medium" );
 }
 
 Medium::~Medium() {
 
-}
-
-<<<<<<< HEAD
-void Medium::usage() {
-
-	setDurability(getDurability() /*distance of lap*/);
-=======
-void Medium::usage(int distance) {
-	setDurability(getDurability() / distance);
->>>>>>> BrentsBranch
-	setGrip(getGrip() -1);
 }

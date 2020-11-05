@@ -77,18 +77,23 @@ class Tyre {
 		virtual void usage() = 0;
 
 		/**
-
-		 @param typeTyre
+			sets the type of wheel
+		 	@param typeTyre
 		*/
 		void setType( string );
 
 		/**
-
-		 @return
+			returns the type of wheel
+		 	@return
 		*/
 		string getType();
 
-		
+		/**
+			calculates the usage per lap
+			@param distance of a lap
+		*/
+		void usage( int );
+
 	private:
 		
 		/**
@@ -107,7 +112,7 @@ class Tyre {
 		float pressure;
 
 		/**
-			@brief
+			@brief type of tyre
 		*/
 		string type;
 };

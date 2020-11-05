@@ -23,9 +23,9 @@ class Hard: public Tyre {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+		 	@param grip
+		 	@param pressure
 		*/
 		Hard( int, int, float );
 
@@ -34,23 +34,6 @@ class Hard: public Tyre {
 		*/
 		~Hard();
 
-		/**
-			calculates the usage per lap
-			@param distance of a lap
-		*/
-<<<<<<< HEAD
-		void usage();
-=======
-		void usage(int);
-		
-		/**
-			returns the type of wheel
-		*/
-		string getType();
-	private:
-	/** type of tyre */
-		string type;
->>>>>>> BrentsBranch
 };
 
 #endif
