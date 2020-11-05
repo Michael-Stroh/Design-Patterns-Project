@@ -21,8 +21,3 @@ void Soft::usage() {
 	setGrip(getGrip() -1);
 
 }
-
-string Soft::getType() {
-
-	return this->type;
-}

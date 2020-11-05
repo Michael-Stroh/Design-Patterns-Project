@@ -76,8 +76,15 @@ class Tyre {
 
 		/**
 
+		 @param typeTyre
 		*/
-		virtual string getType() = 0;
+		void setType( string );
+
+		/**
+
+		 @return
+		*/
+		string getType();
 
 	protected:
 		

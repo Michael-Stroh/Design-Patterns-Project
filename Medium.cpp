@@ -21,9 +21,3 @@ void Medium::usage() {
 	setDurability(getDurability() /*distance of lap*/);
 	setGrip(getGrip() -1);
 }
-
-string Medium::getType() {
-
-	return this->type;
-}
-

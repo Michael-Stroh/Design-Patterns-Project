@@ -46,3 +46,13 @@ void Tyre::setPressure( float StartPressure ) {
 
 	this->pressure = StartPressure;
 }
+
+void Tyre::setType( string typeTyre ) {
+
+	type = typeTyre;
+}
+
+string Tyre::getType() {
+
+	return type;
+}
