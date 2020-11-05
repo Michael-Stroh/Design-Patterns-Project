@@ -111,8 +111,5 @@ class Tyre {
 		*/
 		string type;
 };
-		
-	
-};
 
 #endif
