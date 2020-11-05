@@ -59,11 +59,7 @@ Driver *RaceTeam::getDriver(int i){
 float RaceTeam::getCarLapTime(int index, Circuit* circuit)
 {
 	float ans = 0;
-	CarComposite* car = new CarComposite();
-	float handling = car->getAcceleration();
-	float handling = car->getAcceleration();
-	float handling = car->getAcceleration();
-
+	throw "Not Implemented Yet";
 
 	return ans;
 }
