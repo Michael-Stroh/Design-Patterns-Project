@@ -7,8 +7,8 @@ Soft::Soft(): Tyre( 50, 40, 1.25 ){
 
 Soft::Soft( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
 
-	// TODO - implement Soft::Soft
-
+	cout << "Soft tyre created" << endl;
+	this->type = "Soft";
 }
 
 Soft::~Soft() {
