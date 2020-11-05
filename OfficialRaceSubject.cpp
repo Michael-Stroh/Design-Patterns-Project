@@ -13,6 +13,6 @@ void OfficialRaceSubject::notify(Result *r)
 	vector<RaceTeam *>::iterator it;
 	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
 	{
-		it->updateOfficialRaceResult(r);
+		(*it)->updateOfficialRaceResult(r);
 	}
 }
