@@ -15,6 +15,7 @@ RaceSeason::RaceSeason(vector<GrandPrix *> g, vector<RaceTeam *> t)
 	this->teams = t;
 	this->result = new RaceSeasonResult();
 	this->seasonSubject = new SeasonSubject();
+	this->grandPrixIterator = this->grandPrixs.begin();
 }
 
 RaceSeason::~RaceSeason()
@@ -56,24 +57,24 @@ RaceSeason::~RaceSeason()
 
 
 
-Result *RaceSeason::runSeason()
-{
+void RaceSeason::runNextGrandPrix(){
+	this->result->addResult((*this->grandPrixIterator)->runGrandPrix(this->teams));
+}
 
-	// Run each grand prix stored in the grandPrixs vector & add the results to the season's results
-	// Notify all the teams of the updated season result
-
-	for (vector<GrandPrix *>::iterator grandPrix = this->grandPrixs.begin(); grandPrix != this->grandPrixs.end(); ++grandPrix)
-	{
-		this->result->addResult((*grandPrix)->runGrandPrix(this->teams));
-		this->seasonSubject->notify(this->result);
-	}
-	return this->result;
+bool RaceSeason::hasNextGrandPrix(){
+	return (this->grandPrixIterator == this->grandPrixs.end());
 }
 
 void RaceSeason::prepareSeason()
 {
 
 	// Notify all the teams of the grand prixs that will take place this season
-
 	this->seasonSubject->notify(this->grandPrixs);
+
+	// Provide all teams with the result of the season
+	this->seasonSubject->notify(this->result);
+}
+
+Result* RaceSeason::getResult(){
+	return this->result;
 }
