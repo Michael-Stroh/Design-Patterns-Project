@@ -12,6 +12,7 @@
 #define ENGINEERINGCREW_H
 
 #include "Car.h"
+#include "CarBuilder.h"
 #include "EngineeringDepartment.h"
 #include "Budget.h"		  //Included by Tim since Engineering Departments need a budget
 #include "AerodynamicsDepartment.h"
