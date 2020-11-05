@@ -1,16 +1,17 @@
 #include "PracticeState.h"
-#include "RaceTeam.h"
 
-PracticeState::PracticeState() : RaceState()
-{
+PracticeState::PracticeState() : RaceState() {
+
 }
 
-PracticeState::~PracticeState()
-{
+PracticeState::~PracticeState() {
+
 }
 
 Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, Circuit *circuit)
 {
+	//TODO: there is no return
+
 	// 3 practice sessions
 	// #1 & #2 are 1.5 hours long, #3 is 1 hour long
 
@@ -54,4 +55,6 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, Circuit
 			timeLeft -= longestLapTime;
 		}
 	}
+
+	return nullptr;
 }
