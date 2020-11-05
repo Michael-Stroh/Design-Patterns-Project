@@ -64,7 +64,7 @@ class GrandPrix {
 		/**
 			@brief Sets the circuit on which the Grand Prix will take place.
 		*/
-		void setCircuit( Circuit* );
+		void setCircuit( RaceTrack* );
 
 
 	private:

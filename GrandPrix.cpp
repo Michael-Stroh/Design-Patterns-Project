@@ -73,7 +73,7 @@ void GrandPrix::displayResult() {
 	result->print();
 }
 
-void GrandPrix::setCircuit( Circuit* changeCircuit ) {
+void GrandPrix::setCircuit( RaceTrack* changeCircuit ) {
 
 	circuit = changeCircuit;
 }
