@@ -45,26 +45,37 @@ class PitStopStrategy {
 		void CallPitStop();
 		
 		/**
-			
 
 		*/
 		void IncrementLap();
 		
 		/**
 			
-
+			@param laps
 		*/
-		void setLap(int laps);
+		void setLap( int );
 		
 		/**
 			
-
+			@return
 		*/
 		int getLap();
 		
 	private:
+
+		/**
+			@brief
+		*/
 		TyreStrategy* tyres;
+
+		/**
+			@brief
+		*/
 		int currentLap;
+
+		/**
+			@brief
+		*/
 		PitStop* ps;
 };
 
