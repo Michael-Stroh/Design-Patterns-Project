@@ -71,12 +71,6 @@ class Tyre {
 		float getPressure() const;
 
 		/**
-			calculates the usage of the wheel
-			@param the distance of a lap
-		*/
-		virtual void usage() = 0;
-
-		/**
 			sets the type of wheel
 		 	@param typeTyre
 		*/

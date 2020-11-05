@@ -15,8 +15,6 @@
 #include "Hard.h"
 #include "RaceTrack.h"
 
-<<<<<<< HEAD
-=======
 #include <vector>
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,7 +25,6 @@
 
 using namespace std;
 
->>>>>>> BrentsBranch
 class TyreStrategy {
 
 
@@ -35,8 +32,9 @@ class TyreStrategy {
 		
 		/**
 			Constructor
+		 	@param rt
 		*/
-		TyreStrategy(RaceTrack*  rt);
+		TyreStrategy( RaceTrack* );
 
 		/**
 			Constructor
@@ -81,17 +79,22 @@ class TyreStrategy {
 		*/
 		void print();
 		
-		
-		
 	private:
 	
 		/**
 			@brief
 		*/
 		vector<Tyre*> tyres;
-		int* pitLaps;
-		int numPits;
 
+		/**
+			@brief
+		*/
+		int* pitLaps;
+
+		/**
+			@brief
+		*/
+		int numPits;
 };
 
 #endif

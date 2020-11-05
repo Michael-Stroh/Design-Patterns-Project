@@ -1,9 +1,5 @@
 #include "TyreStrategy.h"
 
-TyreStrategy::TyreStrategy() {
-
-	// TODO - implement TyreStrategy::TyreStrategy
-	throw "Not yet implemented";
 TyreStrategy::TyreStrategy(RaceTrack*  rt) {
 	srand(time(NULL));
 	int raceDistance =  rt->getLaps() * rt->getDistance();
@@ -47,13 +43,11 @@ TyreStrategy::TyreStrategy(RaceTrack*  rt) {
 }
 
 TyreStrategy::~TyreStrategy() {
-
 	tyres.clear();
 	delete pitLaps;
 }
 
 vector<Tyre*> TyreStrategy::getTyres() {
-
 	return tyres;
 }
 
@@ -89,5 +83,4 @@ void TyreStrategy::print(){
 		prev = pitLaps[i];
 	}
 
-	tyres = newTyre;
 }
