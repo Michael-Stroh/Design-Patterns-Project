@@ -34,9 +34,7 @@ class Driver {
 		/**
 			Destructor
 		*/
-		~Driver();
-
-		
+		virtual ~Driver();
 
 		/**
 			
