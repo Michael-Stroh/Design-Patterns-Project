@@ -11,8 +11,7 @@ CompositeRoad::CompositeRoad( string RoadName ) : Circuit( RoadName ), tracks(){
 CompositeRoad::~CompositeRoad() {
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
-    for ( Circuit *track : tracks ) {
+    for ( Circuit* track : tracks ) {
 
         //free the memory
         delete track;
@@ -38,7 +37,6 @@ void CompositeRoad::removeRoad( RaceTrack* RemoveRoad ) {
     int x = 0;
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
     for ( Circuit* track : tracks ) {
 
         //check if current RaceTrack is what we are looking for
@@ -68,7 +66,6 @@ void CompositeRoad::removeRoad( const string &RemoveRoad ) {
     int x = 0;
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
     for ( RaceTrack*& track : tracks ) {
 
         //check if current RaceTrack is what we are looking for

@@ -11,6 +11,7 @@
 #define ITERATOR_H
 
 #include "Circuit.h"
+#include "RaceTrack.h"
 
 class Iterator {
 
