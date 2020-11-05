@@ -16,7 +16,7 @@ PitStopStrategy::~PitStopStrategy() {
 
 bool PitStopStrategy::CheckForPitStop() {
 
-	int* pits = tyres->getPitLaps();
+	/*int* pits = tyres->getPitLaps();
 	cout << tyres->getNumPits() << endl;
 
 	for ( int i = 0; i < tyres->getNumPits(); i++ ){
@@ -26,7 +26,7 @@ bool PitStopStrategy::CheckForPitStop() {
             return true;
 
 		}
-	}
+	}*/
 	return false;
 }
 
