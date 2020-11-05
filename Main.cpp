@@ -53,8 +53,7 @@ void prepareForNextRace( RaceTeam* team, string days ) {
 
 string trim( string temp ) {
 
-    string nono = "\t\n\v\f\r ";
-    temp.erase(0, temp.erase(temp.find_last_not_of(nono)+1).find_first_not_of( nono ) );
+    temp.erase(0, temp.erase(temp.find_last_not_of( "\t\n\v\f\r " )+1).find_first_not_of( "\t\n\v\f\r " ) );
     return temp;
 }
 
