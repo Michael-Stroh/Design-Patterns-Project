@@ -7,6 +7,7 @@
 #include "../GrandPrix.h"
 #include "../RaceSeason.h"
 #include "../Race.h"
+#include "../Circuit.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -80,7 +81,7 @@ int main()
         // rsr->print();
 
         // Testing the race season & grand prix
-        
+        RaceSeason *raceSeason = new RaceSeason();
     }
     catch (char const *s)
     {
