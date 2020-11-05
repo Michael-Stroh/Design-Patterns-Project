@@ -2,6 +2,14 @@
 #include "RaceTeam.h"
 #include "RaceSeason.h"
 
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <cstring>
+#include <string.h>
+#include <algorithm>
+using namespace std;
+
 int main() {
 
 	cout << "Successful compilation" << endl;
@@ -49,7 +57,7 @@ void prepareForNextRace( RaceTeam* team, string days ) {
 
 void populateCircuit( const string& fileName ) {
 
-	ifstream file;
+	/*ifstream file;
 
 	file.open( "../Data/races.txt" );
 	file.open( fileName );
@@ -74,13 +82,10 @@ void populateCircuit( const string& fileName ) {
 		cout << "file not found" << endl;
 	}
 
-	file.close();
+	file.close();*/
 
 
-	/*
-
-
-	 	string line;
+	string line;
     ifstream file;
 
 	file.open("../Data/races.txt");
@@ -164,9 +169,16 @@ void populateCircuit( const string& fileName ) {
 		}
     }
     else {
-        cout << "file not found" << endl;
+        Logger::cyan( "Error", "The file not found.");
     }
 
-	*/
 
+
+}
+
+
+string Strategies::trim(string temp){
+    string nono = "\t\n\v\f\r ";
+    temp.erase(0, temp.erase(temp.find_last_not_of(nono)+1).find_first_not_of(nono));
+    return temp;
 }
