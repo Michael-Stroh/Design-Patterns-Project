@@ -44,7 +44,7 @@ class Race {
 				@param[in] circuit: The circuit on which the current race will take place.
 				@return
 			*/
-		Result *runRace(Result *, vector<RaceTeam *>, Circuit* );
+		Result* runRace( Result *, vector<RaceTeam *>, RaceTrack* );
 
 		/**
 

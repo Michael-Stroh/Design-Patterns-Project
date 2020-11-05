@@ -33,11 +33,6 @@ class Soft: public Tyre {
 		*/
 		~Soft();
 
-		/**
-			
-		*/
-		void usage();
-
 };
 
 #endif

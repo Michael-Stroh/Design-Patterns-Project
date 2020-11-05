@@ -1,6 +1,7 @@
 /**
    @file logistics.h
    @class logistics
+   @authors Michael
    @authors Brent
    @version 1.0.0
    @brief 

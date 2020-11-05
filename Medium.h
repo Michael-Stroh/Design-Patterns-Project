@@ -34,10 +34,6 @@ class Medium: public Tyre {
 		*/
 		~Medium();
 
-		/**
-
-		*/
-		void usage();
 };
 
 #endif

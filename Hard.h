@@ -23,9 +23,9 @@ class Hard: public Tyre {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+		 	@param grip
+		 	@param pressure
 		*/
 		Hard( int, int, float );
 
@@ -34,10 +34,6 @@ class Hard: public Tyre {
 		*/
 		~Hard();
 
-		/**
-			
-		*/
-		void usage();
 };
 
 #endif

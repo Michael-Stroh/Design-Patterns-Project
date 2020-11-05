@@ -1,39 +1,48 @@
 #include "Strategies.h"
 
 Strategies::Strategies(){
+
 	createRaces();
 	setLogisitics();
 }
 
 Strategies::~Strategies() {
+
 	races.clear();
 }
 
 void Strategies::setRaceStrategy(Driver* driver, string name){
+
 	raceStrategy = new RaceStrategy(driver, logisticsStrategy->getRace(name));
 }
 
 void Strategies::endOfRace(string name){
+
 	//delete raceStrategy;
 	logisticsStrategy->endOfRace(name);
 }
 
 RaceStrategy* Strategies::getRaceStrategy(){
+
 	return raceStrategy;
 }
 
 void Strategies::setLogisitics(){
+
 	logisticsStrategy =  new LogisticsStrategy(races);
 }
 
 void Strategies::print(){
+
 	for( int i =0; i < 21; i++){
+
 		RaceTrack* temp = races.at(i);
 		cout << temp->getName() << " " << temp->getDistance() << " " << temp->getLaps() << endl;
 	}
 }
 
-void Strategies::createRaces(){	
+void Strategies::createRaces(){
+
 	string line;
     ifstream file;
 

@@ -1,5 +1,9 @@
 #include "TyreStrategy.h"
 
+TyreStrategy::TyreStrategy() {
+
+}
+
 TyreStrategy::TyreStrategy(RaceTrack*  rt) {
 	srand(time(NULL));
 	int raceDistance =  rt->getLaps() * rt->getDistance();

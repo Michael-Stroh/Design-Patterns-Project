@@ -10,22 +10,23 @@
 #ifndef PITSTOPSTRATEGY_H
 #define PITSTOPSTRATEGY_H
 
-#include <iostream>
-
 #include "TyreStrategy.h"
-#include "Tyre.h"
 #include "PitStop.h"
-
-using namespace std;
 
 class PitStopStrategy {
 
 	public:
-	
+
+		/**
+				Constructor
+		*/
+		PitStopStrategy( );
+
 		/**
 			Constructor
+		 	@param tyreStart
 		*/
-		PitStopStrategy(TyreStrategy* tyre);
+		PitStopStrategy( TyreStrategy* );
 
 		/**
 			Destructor
@@ -44,26 +45,37 @@ class PitStopStrategy {
 		void CallPitStop();
 		
 		/**
-			
 
 		*/
 		void IncrementLap();
 		
 		/**
 			
-
+			@param laps
 		*/
-		void setLap(int laps);
+		void setLap( int );
 		
 		/**
 			
-
+			@return
 		*/
-		int getLap();
+		int getLap() const;
 		
 	private:
+
+		/**
+			@brief
+		*/
 		TyreStrategy* tyres;
+
+		/**
+			@brief
+		*/
 		int currentLap;
+
+		/**
+			@brief
+		*/
 		PitStop* ps;
 };
 
