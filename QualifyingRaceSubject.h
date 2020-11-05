@@ -30,7 +30,7 @@ public:
 			
 			@param: The results of a qualifying race, used to inform teams of what's going on during/after the qualifying race
 		*/
-	void notify( RaceState* );
+	void notify( Result* );
 };
 
 #endif

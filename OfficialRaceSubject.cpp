@@ -12,7 +12,6 @@ void OfficialRaceSubject::notify( Result *r ) {
 
 	for ( vector< RaceTeam* >::iterator it = observerList.begin(); it != observerList.end(); ++ it ) {
 
-		// TODO: fix whatever is wrong with this
-		//it->updateOfficialRaceResult( r );
+        ( *it )->updateOfficialRaceResult( r );
 	}
 }
