@@ -10,7 +10,6 @@ PracticeState::~PracticeState() {
 
 Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
-	//TODO: there is no return
 
 	// 3 practice sessions
 	// #1 & #2 are 1.5 hours long, #3 is 1 hour long
@@ -56,5 +55,5 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTra
 		}
 	}
 
-	return nullptr;
+    return raceResult;
 }
