@@ -11,10 +11,6 @@
 
 #include "Tyre.h"
 
-#include <vector>
-
-using namespace std;
-
 class TyreStrategy {
 
 
