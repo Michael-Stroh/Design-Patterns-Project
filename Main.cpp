@@ -5,6 +5,7 @@
 int main() {
 
 	cout << "Successful compilation" << endl;
+
 	//Creation
 	/*GrandPrix** gps;
 	RaceTeam** teams;
@@ -24,7 +25,9 @@ int main() {
 	deleteEverything();
 }
 void prepareForNextRace( team, days) {
+
 	for ( int i = 0; i < numTeams; ++ i ) {
+
 		teams[ i ]->prepareForNextRace(); //Brent strategy call once lekker
 	}
 */
