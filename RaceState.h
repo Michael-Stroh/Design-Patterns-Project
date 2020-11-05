@@ -16,14 +16,13 @@
 using namespace std;
 
 class RaceTeam;
-//class RaceState;		//why
 
 class RaceState {
 
 	public:
 		/**
 				Constructor
-			*/
+		*/
 		RaceState();
 
 		/**

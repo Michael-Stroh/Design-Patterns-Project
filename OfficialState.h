@@ -36,7 +36,7 @@ public:
 			
 			@param Result: The results of the previous race (CANNOT be NULL in this case, will be used to complete the official race).
 			@param RaceTeam: The teams that will participate in the official race.
-			@param Circuit: The circuit on which the official race will take place.
+			@param RaceTrack: The circuit on which the official race will take place.
 			@return The result of the official race.
 		*/
 	Result* runRace( Result*, vector< RaceTeam* >, RaceTrack* );
