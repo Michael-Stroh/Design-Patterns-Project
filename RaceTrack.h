@@ -5,8 +5,6 @@
    @version 1.5.0
    @brief leaf participant in the composite design pattern
    @details holds specific details about the road/track
-   @todo: think about the constructors
-   @todo: add the bestLap time
  */
 
 #ifndef RACETRACK_H
