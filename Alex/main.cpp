@@ -105,6 +105,11 @@ int main()
 
         RaceSeason *raceSeason = new RaceSeason(grandPrixs, raceTeams);
 
+        while(raceSeason->hasNextGrandPrix()){
+            raceSeason->runNextGrandPrix();
+        }
+
+        raceSeason->getResult()->print();
     }
     catch (char const *s)
     {

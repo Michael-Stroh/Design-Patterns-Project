@@ -10,6 +10,7 @@
 #ifndef RACE_SEASON_H
 #define RACE_SEASON_H
 
+#include "utilities/Logger.h"
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "GrandPrixResult.h"

@@ -58,6 +58,7 @@ RaceSeason::~RaceSeason()
 
 
 void RaceSeason::runNextGrandPrix(){
+	Logger::debug("Race Season initiating Grand Prix", "");
 	this->result->addResult((*this->grandPrixIterator)->runGrandPrix(this->teams));
 }
 
