@@ -37,37 +37,6 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
 
 }
 
-void GrandPrix::populateCircuit( const string& fileName ) {
-
-    ifstream file;
-
-    file.open( "../Data/races.txt" );
-    if ( file.is_open() ) {
-
-        string line;
-        while ( getline( file, line ) ) {
-
-            int pos = 0;
-            int size = line.size();
-            cout << size << endl;
-            string temp = line;
-
-            for ( int i = 0; i < 10; i++ ) {
-
-                pos = temp.find_first_of( '|' );
-                cout << temp.substr( 1, pos - 1 ) << endl;
-                temp = temp.substr( pos + 1, size );
-            }
-        }
-    } else {
-        cout << "file not found" << endl;
-    }
-
-    file.close();
-
-
-}
-
 void GrandPrix::displayResult() {
 
 	result->print();
