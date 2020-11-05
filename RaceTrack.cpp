@@ -148,3 +148,13 @@ void RaceTrack::setStartDate( string date ) {
 	startingDate = date;
 }
 
+float RaceTrack::getAvgLapTime() const {
+
+	return averageLapTime;
+}
+
+void RaceTrack::setAvgLapTime( float time ) {
+
+	averageLapTime = time;
+}
+

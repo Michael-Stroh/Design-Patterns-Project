@@ -202,6 +202,18 @@ class RaceTrack: public Circuit {
 		*/
 		void setStartDate( string );
 
+		/**
+			Returns the average amount of time to complete the track
+			@return
+		*/
+		float getAvgLapTime() const;
+
+		/**
+			Sets the average amount of time to complete the track
+			@param[in] time: the time to complete the track in seconds
+		*/
+		void setAvgLapTime( float );
+
 	private:
 
 		/**
@@ -215,7 +227,7 @@ class RaceTrack: public Circuit {
 		int numCorners = 0;
 
 		/**
-			@brief the total distance in Km of this road/track
+			@brief the total distance in Km of a single lap of the track
 		*/
 		float distance = 0;
 
@@ -231,19 +243,19 @@ class RaceTrack: public Circuit {
 		float straightDistance = 0;
 
 		/**
-			@brief the direction the cars are going to be going on this road/track
+			@brief the average amount of pit-stops on the current track
 		*/
-		direction direct = clockwise;
+		float averagePitStop;
+
+		/**
+			@brief the average amount of it takes to complete this track
+		*/
+		float averageLapTime;
 
 		/**
 			@brief the basic location of the track
 		*/
 		bool isEuropean;
-
-		/**
-			@brief the average amount of pit-stops on the current track
-		*/
-		float averagePitStop;
 
 		/**
 			@brief the date the track will be used, month then date
@@ -254,6 +266,13 @@ class RaceTrack: public Circuit {
 			@brief the date the track will be used, month then date
 		*/
 		string startingDate;
+
+		/**
+			@brief the direction the cars are going to be going on this road/track
+		*/
+		direction direct = clockwise;
+
+
 };
 
 #endif
