@@ -59,10 +59,11 @@ RaceSeason::~RaceSeason()
 
 void RaceSeason::runNextGrandPrix(){
 	this->result->addResult((*this->grandPrixIterator)->runGrandPrix(this->teams));
+	++this->grandPrixIterator;
 }
 
 bool RaceSeason::hasNextGrandPrix(){
-	return (this->grandPrixIterator == this->grandPrixs.end());
+	return (this->grandPrixIterator != this->grandPrixs.end());
 }
 
 void RaceSeason::prepareSeason()
