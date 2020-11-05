@@ -4,6 +4,9 @@ Tyre::Tyre() {
 
 	// TODO - implement Tyre::Tyre
 	throw "Not yet implemented";
+	setDurability(0);
+	setGrip(0);
+	setPressure(0);
 }
 
 Tyre::Tyre( int StartDurability, int StartGrip, float StartPressure ):
@@ -56,3 +59,8 @@ string Tyre::getType() {
 
 	return type;
 }
+=======
+
+
+
+>>>>>>> BrentsBranch

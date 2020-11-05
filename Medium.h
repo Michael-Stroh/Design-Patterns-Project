@@ -35,9 +35,15 @@ class Medium: public Tyre {
 		~Medium();
 
 		/**
+<<<<<<< HEAD
 
 		*/
 		void usage();
+=======
+			calculates the usage per lap
+			@param distance of a lap
+		*/
+		void usage(int);
 };
 
 #endif

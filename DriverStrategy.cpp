@@ -12,6 +12,12 @@ DriverStrategy::DriverStrategy(TyreStrategy* tyre){
 	this->tyreStrategy = tyre;
 }
 
+DriverStrategy::~DriverStrategy(){
+	drivers.clear();
+	delete raceDriver;
+	delete tyreStrategy;
+}
+
 vector<Driver*> DriverStrategy::decideStrategy(){
 	
 	vector<Tyre*> tyres = tyreStrategy->getTyres();
@@ -41,7 +47,13 @@ vector<Driver*> DriverStrategy::decideStrategy(){
 }
 
 void DriverStrategy::displayDriver() {
+	cout << "Orginal:" << endl;
 	raceDriver->displayDriver();
+	cout << "Driver strategy: " << endl;
+	for( int i =0; i < tyreStrategy->getNumPits(); i++){
+		drivers.at(i)->displayDriver();
+	}
+	cout << endl;
 }
 
 Driver* DriverStrategy::getDriver(){

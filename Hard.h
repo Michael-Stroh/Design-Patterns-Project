@@ -35,9 +35,13 @@ class Hard: public Tyre {
 		~Hard();
 
 		/**
-			
+			calculates the usage per lap
+			@param distance of a lap
 		*/
+<<<<<<< HEAD
 		void usage();
+=======
+		void usage(int);
 };
 
 #endif
