@@ -40,13 +40,18 @@ class Medium: public Tyre {
 		~Medium();
 
 		/**
-			Constructor
+			calculates the usage per lap
+			@param distance of a lap
 		*/
-		void usage();
+		void usage(int);
 		
+		/**
+			returns the type of wheel
+		*/
 		string getType();
 		
 		private:
+		/** type of tyre */
 			string type;
 };
 

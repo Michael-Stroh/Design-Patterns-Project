@@ -1,12 +1,10 @@
 #include "Medium.h"
 
 Medium::Medium(): Tyre(90,60,1.25) {
-	cout << "Medium tyre created" << endl;
 	this->type = "Medium";
 }
 
 Medium::Medium( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
-	cout << "Medium tyre created" << endl;
 	this->type = "Medium";
 }
 
@@ -14,8 +12,8 @@ Medium::~Medium() {
 
 }
 
-void Medium::usage() {
-	setDurability(getDurability() /*distance of lap*/);
+void Medium::usage(int distance) {
+	setDurability(getDurability() / distance);
 	setGrip(getGrip() -1);
 }
 

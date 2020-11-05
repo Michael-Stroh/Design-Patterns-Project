@@ -9,6 +9,12 @@
 #ifndef Tyre_H
 #define Tyre_H
 
+#include <string>
+#include <iostream>
+
+
+using namespace std;
+
 class Tyre {
 
 	public:
@@ -33,23 +39,23 @@ class Tyre {
 
 		/**
 		
-			@return
+			@return durability of tyre
 		*/
 		int getDurability();
 
 		/**
-			@param
+			@param durability of tyre
 		*/
 		void setDurability( int );
 
 		/**
-			@return
+			@return the grip of tyre
 		*/
 		int getGrip();
 
 		/**
 			
-			@param
+			@param the grip value
 		*/
 		void setGrip( int );
 
@@ -63,28 +69,40 @@ class Tyre {
 			@return
 		*/
 		float getPressure();
+		
+
 
 		/**
-				
+			@return virtual pure method which returns the type of tyre
 		*/
-		virtual void usage() = 0;
+		virtual string getType() =0;;
+		
+		
+
+		/**
+			calculates the usage of the wheel
+			@param the distance of a lap
+		*/
+		virtual void usage(int) = 0;
 		
 	private:
 		
 		/**
-			@brief
+			@brief durability of the tyre
 		*/
 		int durability;
 		
 		/**
-			@brief
+			@brief the grip fo the tyre
 		*/
 		int grip;
 		
 		/**
-			@brief
+			@brief the pressure of the tyre
 		*/
 		float pressure;
-};
+		
+	
+};	
 
 #endif

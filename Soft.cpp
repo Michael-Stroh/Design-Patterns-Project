@@ -1,23 +1,23 @@
 #include "Soft.h"
 
-Soft::Soft(): Tyre() {
-
-	// TODO - implement Soft::Soft
-	throw "Not yet implemented";
+Soft::Soft(): Tyre(60, 100, 1.2) {
+	this->type = "Soft";
 }
 
 Soft::Soft( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
-
-	// TODO - implement Soft::Soft
-	throw "Not yet implemented";
+	this->type = "Soft";
 }
 
 Soft::~Soft() {
 
 }
 
-void Soft::usage() {
-
-	// TODO - implement Soft::usage
-	throw "Not yet implemented";
+void Soft::usage(int distance) {
+	setDurability(getDurability() / distance);
+	setGrip(getGrip() -1);
 }
+
+string Soft::getType() {
+	return this->type;
+}
+

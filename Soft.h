@@ -11,6 +11,11 @@
 
 #include "Tyre.h"
 
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 class Soft: public Tyre {
 
 	public:
@@ -34,9 +39,19 @@ class Soft: public Tyre {
 		~Soft();
 
 		/**
-			
+			returns the type of wheel
 		*/
-		void usage();
+		string getType();
+		
+		/**
+			calculates the usage per lap
+			@param distance of a lap
+		*/
+		void usage(int );
+		
+		private:
+		/** type of tyre */
+			string type;
 };
 
 #endif

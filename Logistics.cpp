@@ -20,3 +20,7 @@ Logistics::~Logistics() {
 	delete catering;
 	delete carComponents;
 }
+
+string Logistics::getName(){
+	return name;
+}
