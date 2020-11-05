@@ -1,15 +1,14 @@
 #include "OfficialRaceSubject.h"
 
-OfficialRaceSubject::OfficialRaceSubject() : Subject()
-{
+OfficialRaceSubject::OfficialRaceSubject() : Subject() {
+
 }
 
-OfficialRaceSubject::~OfficialRaceSubject()
-{
+OfficialRaceSubject::~OfficialRaceSubject() {
+
 }
 
 void OfficialRaceSubject::notify( Result *r ) {
-
 
 	for ( vector< RaceTeam* >::iterator it = observerList.begin(); it != observerList.end(); ++ it ) {
 

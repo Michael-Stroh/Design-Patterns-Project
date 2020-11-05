@@ -14,7 +14,7 @@ QualifyingState::~QualifyingState()
 	this->qualifyingRaceSubject = NULL;
 }
 
-Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, Circuit *circuit)
+Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
 
 	float timeLeft;
