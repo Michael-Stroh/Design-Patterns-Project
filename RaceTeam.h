@@ -147,7 +147,6 @@ private:
 	CarComposite *car;
 
 
-
 	/**
 			@brief
 			@todo: Provide details on the strategy member variable

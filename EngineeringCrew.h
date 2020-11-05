@@ -7,13 +7,13 @@
    @warning update me
  */
 
-
 #ifndef ENGINEERINGCREW_H
 #define ENGINEERINGCREW_H
 
 #include "Car.h"
+#include "CarBuilder.h"
 #include "EngineeringDepartment.h"
-#include "Budget.h"		  //Included by Tim since Engineering Departments need a budget
+#include "Budget.h"					  //Included by Tim since Engineering Departments need a budget
 #include "AerodynamicsDepartment.h"
 #include "EngineDepartment.h"
 #include "ElectronicsDepartment.h"
@@ -80,7 +80,7 @@ class EngineeringCrew {
 		@todo: Provide details on the builder member variable
 
 		*/
-		CarBuilder* builder;
+		CarBuilder * builder;
 		
 		/**
 			@brief 

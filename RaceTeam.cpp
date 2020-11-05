@@ -55,10 +55,15 @@ Driver *RaceTeam::getDriver(int i){
 	throw "Not yet implemented";
 }
 
+//Cicruit should be Composite Road for iterator
 float RaceTeam::getCarLapTime(int index, Circuit* circuit)
 {
 	float ans = 0;
-	throw "Not Implemented Yet";
+	CarComposite* car = new CarComposite();
+	float handling = car->getAcceleration();
+	float handling = car->getAcceleration();
+	float handling = car->getAcceleration();
+
 
 	return ans;
 }

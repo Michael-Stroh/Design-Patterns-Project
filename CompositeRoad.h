@@ -89,7 +89,7 @@ class CompositeRoad: public Circuit {
 		/**
 			@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		std::vector<Circuit *> tracks;
+		std::vector<Circuit *> tracks; //RaceTracks?
 };
 
 #include "Circuit.h"
