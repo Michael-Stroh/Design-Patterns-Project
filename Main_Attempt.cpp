@@ -3,6 +3,8 @@
 #include "RaceSeason.h"
 
 int main() {
+
+	cout << "Successful compilation" << endl;
 	//Creation
 	/*GrandPrix** gps;
 	RaceTeam** teams;

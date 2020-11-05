@@ -8,6 +8,7 @@ CarComposite::CarComposite() {
 	Logger::setDebug(false);
 	for(int i=0; i<NUMPARTS; ++i)
 			carParts.push_back(nullptr);
+	fuel = 0;
 }
 
 //The copy constructor, it clones every single part
@@ -23,6 +24,7 @@ CarComposite::CarComposite(const CarComposite& c) {
 		carParts.push_back(part);
 		Logger::setDebug(false);
 	}
+	fuel = 0;
 
 }
 
@@ -119,7 +121,9 @@ float CarComposite::getSpeed()
 	for(int i=0; i<carParts.size(); ++i)
 		speedAggregate += carParts[i]->getSpeed();
 
-	return speedAggregate;
+	Body* b = (Body*)(this->getPart(BODY));
+
+	return speedAggregate * b->getAerodynamicMultiplier();
 }
 
 void CarComposite::setSpeed(float newSpeed)
@@ -150,6 +154,65 @@ CarPart * CarComposite::getPart(int index) const
 	{
 		return carParts[index];
 	}
+}
+
+void CarComposite::runLap(int difficulty)
+{
+	Engine* e = (Engine*)(this->getPart(ENGINE));
+	CoolingSystem* c = (CoolingSystem*)(this->getPart(COOLINGSYSTEM));
+	float coolingRate = c->getCoolingRate();
+	float currentTemp = e->getTemperature();
+	float maxTemp = Engine::MAX_TEMP;
+	float newTemp;
+
+	switch (difficulty)
+	{
+		//Case 0 means only cool down the car
+		case 0:
+			newTemp = currentTemp - coolingRate;
+			if (newTemp < Engine::INITIAL_TEMPERATURE)
+				e->setTemperature(Engine::INITIAL_TEMPERATURE);
+			else { e->setTemperature(newTemp); }
+			break;
+
+		//case 1 means heat and cool down the car
+		case 1:
+			newTemp = currentTemp - coolingRate + Engine::TEMPRETURE_INCREMENT_DECREMENT;
+			if (newTemp < Engine::INITIAL_TEMPERATURE)
+				e->setTemperature(Engine::INITIAL_TEMPERATURE);
+			else if (newTemp > Engine::MAX_TEMP)
+				e->setTemperature(Engine::MAX_TEMP);
+			else e->setTemperature(newTemp);
+			break;
+
+		//case 2 means only heat the car
+		case 2:
+			newTemp = currentTemp + Engine::TEMPRETURE_INCREMENT_DECREMENT;
+			if (newTemp < Engine::INITIAL_TEMPERATURE)
+				e->setTemperature(Engine::INITIAL_TEMPERATURE);
+			else if (newTemp > Engine::MAX_TEMP)
+				e->setTemperature(Engine::MAX_TEMP);
+			else e->setTemperature(newTemp);
+
+			break;
+	}
+	
+}
+
+void CarComposite::resetAfterRace()
+{
+	Engine* e = (Engine*)(this->getPart(ENGINE));
+	e->setTemperature(Engine::INITIAL_TEMPERATURE);
+}
+
+float CarComposite::getFuel()
+{
+	return fuel;
+}
+
+void CarComposite::setFuel(float newFuel)
+{
+	fuel = newFuel;
 }
 
 const int CarComposite::NUMPARTS = 9;

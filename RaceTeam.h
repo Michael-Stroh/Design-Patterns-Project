@@ -24,6 +24,11 @@
 #include "RaceSeasonResult.h"
 #include "Driver.h"
 #include "CarComposite.h" //changed from include Car.h by Tim
+#include "Budget.h"		  //Included by Tim since Engineering Departments need a budget
+#include "AerodynamicsDepartment.h"
+#include "EngineDepartment.h"
+#include "ElectronicsDepartment.h"
+#include "ChassisDepartment.h"
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
@@ -50,11 +55,25 @@ public:
 
 	/**
 	 		@brief: The method that will handle the team performing a lap on the circuit with a specific driver
-			@param[in]: int: The index of the driver to be performing the lap
+			@param[in]: int: The index of the driver and car to be performing the lap
 			@param[in]: Circuit*: The circuit on which the lap will take place
 			@return: The results of the lap
 		*/
 	LapResult *performLap(int, Circuit *);
+
+	/**
+		@brief A function to be called inside of the performaLap function. It takes in a circuit and , based on the circuits description
+		and the statistics of the car at index i, determines how well the car performs relative to the best time for this circuit.
+		@param[in]: int: the index of the car to perform the lap.
+		@param[in]: circuit: the circuit on which the lap must be run.
+		@todo figure out where the best value fo r the time of thiscircuit comes from.
+	*/
+	float getCarLapTime(int , Circuit *);
+
+	/**
+		@brief Brent
+	*/
+	float getDriverLapTime(int, Circuit *);
 
 	/**
 			@brief: Sets the internal representation of the entire season's result
@@ -78,7 +97,8 @@ public:
 	/**
 			@brief: Updates the internal representation of all the GrandPrixs, so that the team can prepare
 			@param[in]: A vector containing all GrandPrixs that will occur in a season
-		*/
+			@warning Brent
+	*/
 	void informGrandPrixs( vector< GrandPrix* > );
 
 	/**
@@ -92,6 +112,11 @@ public:
 			@param[in]: The index of the driver to be returned
 		*/
 	Driver *getDriver(int);
+
+	/**
+		@brief A function for Kayla to implement to/change that should be used in the constructor of the RaceTeam
+	*/
+	Budget * createSeasonBudget();
 
 private:
 	/**
@@ -138,6 +163,23 @@ private:
 
 		*/
 	Strategies *Strategy;
+
+	/**
+		@brief represents the shared budget for the engineering Departments. Might be removed at a later stage
+		@warning determine if we keep this or not
+	*/
+	Budget* budget;
+
+	/**
+		@brief a vector of all of the Engineering Departments that will work on the car throughout the year.
+	*/
+	vector<EngineeringDepartment*> departments;
+
+	/**	
+		@breif specified the amount of money allocated for engineering purposes for each Grand Prix
+		@warning this amount still needs to be calibrated
+	*/
+	const static float moneyPerGrandPrix;
 };
 
 #endif

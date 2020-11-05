@@ -47,4 +47,11 @@ void EngineeringDepartment::updateRemainingBudget(float newRemainingBudget)
 	remainingBudget = newRemainingBudget;
 }
 
+void EngineeringDepartment::setBudget(Budget* budget)
+{
+	if (this->budget != nullptr)
+		delete this->budget;
+	this->budget = budget;
+}
+
 const float EngineeringDepartment::costPerSimulation = 100; 

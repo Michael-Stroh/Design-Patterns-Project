@@ -42,6 +42,12 @@ class EngineeringDepartment {
 		virtual ~EngineeringDepartment();
 
 		/**
+			@brief Sets the budget of the department to the specified object
+			@param budget is the shared Budget this department makes use of
+		*/
+		void setBudget(Budget*);
+
+		/**
 			Sets this objects budget limit to the new specified budgetlimit.
 			@param newBudgetLimit is the new limit for this department.
 		*/
