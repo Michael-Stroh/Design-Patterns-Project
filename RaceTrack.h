@@ -83,7 +83,7 @@ class RaceTrack: public Circuit {
 		Iterator *createIterator();
 
 		/**
-			Returns the stored distance
+			Returns the stored distance of a single lap
 			@return
 		*/
 		float getDistance() const;

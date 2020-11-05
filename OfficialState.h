@@ -17,7 +17,6 @@
 #include "Result.h"
 #include "RaceResult.h"
 #include "LapResult.h"
-#include "Circuit.h"
 
 class OfficialState : public RaceState
 {
@@ -40,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the official race will take place.
 			@return The result of the official race.
 		*/
-	Result *runRace(Result *, vector<RaceTeam *>, Circuit *);
+	Result *runRace( Result*, vector< RaceTeam* >, RaceTrack* );
 
 private:
 	/**
