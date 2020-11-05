@@ -1,7 +1,6 @@
 /**
    @file Strategies.h
    @class Strategies
-   @authors Michael
    @authors Brent
    @version 1.0.0
    @brief 

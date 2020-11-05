@@ -45,7 +45,6 @@ TyreStrategy* RaceStrategy::getTyreStrategy(){
 	return tyreStrategy;
 }
 
-
 PitStopStrategy* RaceStrategy::getPitStopStrategy(){
 
 	return pitStopStrategy;
