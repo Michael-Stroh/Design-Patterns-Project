@@ -22,6 +22,7 @@ Medium::~Medium() {
 
 }
 
+<<<<<<< HEAD
 void Medium::usage() {
 
 	setDurability(getDurability() /*distance of lap*/);

@@ -45,26 +45,22 @@ class Tyre {
 
 		/**
 		
-			@return
 			@return durability of tyre
 		*/
 		int getDurability();
 
 		/**
-			@param
 			@param durability of tyre
 		*/
 		void setDurability( int );
 
 		/**
-			@return
 			@return the grip of tyre
 		*/
 		int getGrip();
 
 		/**
 			
-			@param
 			@param the grip value
 		*/
 		void setGrip( int );
@@ -90,7 +86,6 @@ class Tyre {
 		
 
 		/**
-				
 			calculates the usage of the wheel
 			@param the distance of a lap
 		*/
@@ -117,19 +112,16 @@ class Tyre {
 >>>>>>> BrentsBranch
 		
 		/**
-			@brief
 			@brief durability of the tyre
 		*/
 		int durability;
 		
 		/**
-			@brief
 			@brief the grip fo the tyre
 		*/
 		int grip;
 		
 		/**
-			@brief
 			@brief the pressure of the tyre
 		*/
 		float pressure;

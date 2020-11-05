@@ -1,7 +1,6 @@
 /**
    @file TyreStrategy.h
    @class TyreStrategy
-   @authors Michael
    @authors Brent
    @version 1.0.0
    @brief 
@@ -37,7 +36,6 @@ class TyreStrategy {
 		/**
 			Constructor
 		*/
-		TyreStrategy();
 		TyreStrategy(RaceTrack*  rt);
 
 		/**
@@ -56,7 +54,6 @@ class TyreStrategy {
 			@param
 		*/
 		void setTyres( vector<Tyre*> );
-
 		
 		
 		/**
