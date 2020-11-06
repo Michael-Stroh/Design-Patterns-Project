@@ -18,7 +18,7 @@ RaceTeam::~RaceTeam()
 	
 }
 
-LapResult *RaceTeam::performLap(int driverIndex, Circuit *circuit)
+LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 {
 	// drivers[driverIndex] drive on circuit
 	// return lapresult
@@ -55,7 +55,7 @@ Driver *RaceTeam::getDriver(int i){
 	throw "Not yet implemented";
 }
 
-float RaceTeam::getCarLapTime(int index, Circuit* circuit)
+float RaceTeam::getCarLapTime(int index, RaceTrack* circuit)
 {
 	float ans = 0;
 	throw "Not Implemented Yet";
@@ -63,7 +63,7 @@ float RaceTeam::getCarLapTime(int index, Circuit* circuit)
 	return ans;
 }
 
-float RaceTeam::getDriverLapTime(int index, Circuit* circuit)
+float RaceTeam::getDriverLapTime(int index, RaceTrack* circuit)
 {
 	float ans = 0;
 	throw "Not Implemented Yet";

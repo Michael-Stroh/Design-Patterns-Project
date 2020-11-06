@@ -69,7 +69,7 @@ public:
 	/**
 		@brief Brent
 	*/
-	float getDriverLapTime(int, Circuit *);
+	float getDriverLapTime(int, RaceTrack *);
 
 	/**
 			@brief: Sets the internal representation of the entire season's result
