@@ -7,25 +7,25 @@
 using namespace std;
 
 //Main Helper Functions
-vector<GrandPrix*> createGrandPrixs(Circuit* circuit);
-vector<RaceTeam* > createRaceTeams(int numberOfTeams);
-Circuit * populateCircuit(const string& fileName);		//NB MIKE: need to change this function to return a circuit *
-void prepareForNextRace(vector<RaceTeam*> team, GrandPrix* gp);
+vector<GrandPrix*> createGrandPrixs( CompositeRoad* );
+vector<RaceTeam* > createRaceTeams( int );
+CompositeRoad* populateCircuit( const string& );
+void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
 
 int main() {
 
 	cout << "Successful compilation" << endl;
 
-	int numberOfTeams = 10;
-	string circuitFileName = "";
+	int numberOfTeams = 10;								//Should this not be 5??
 
-	//******IDEA ALGORITHM******
+
 			//Creation
-			Circuit * circuit = populateCircuit( "Data/races.txt" );						//Mike -create these function definitions
-			vector<GrandPrix*> grandPrixs = createGrandPrixs(circuit);	//Alex 
-			vector<RaceTeam*>  raceTeams = createRaceTeams(numberOfTeams);		    //Tim
-			RaceSeason * raceSeason = new RaceSeason( grandPrixs, raceTeams);
+			CompositeRoad* circuit = populateCircuit( "Data/races.txt" );						//Mike -create these function definitions
+
+			vector< GrandPrix* > grandPrixs = createGrandPrixs(circuit);	//Alex
+			vector< RaceTeam* >  raceTeams = createRaceTeams(numberOfTeams);		    //Tim
+			RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams);
 	
 
 			//Notification
@@ -39,18 +39,17 @@ int main() {
 				endGrandPrix();									//Brent: Do what needs be done for logistics after a grandprix.
 			}
 			raceSeason->getResult()->print();					//Alex double check this printss nicely
-			//deletion
-															//Mike Will handle Deletion
-	 
-	//Delete me, here for Testing purposes
-	while (true)
-	{
 
-	}
+
+			/*
+			 	Deletion
+				Mike Will handle Deletion
+			*/
+
 }
 
-vector<GrandPrix*> createGrandPrixs(Circuit* circuit)
-{
+vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
+
 	vector<GrandPrix*> vec;
 
 	/*
@@ -59,8 +58,8 @@ vector<GrandPrix*> createGrandPrixs(Circuit* circuit)
 	return vec;
 }
 
-vector<RaceTeam* > createRaceTeams(int numberOfTeams)
-{
+vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
+
 	vector<RaceTeam*> vec;
 
 	/*
@@ -69,7 +68,7 @@ vector<RaceTeam* > createRaceTeams(int numberOfTeams)
 	return vec;
 }
 
-void prepareForNextRace(vector<RaceTeam*> team,	GrandPrix * gp) {
+void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix * gp ) {
 
 	/*
 		Brents Portion
@@ -84,8 +83,8 @@ void prepareForNextRace(vector<RaceTeam*> team,	GrandPrix * gp) {
 		Tim's potrion
 	*/
 	
-	for ( int i = 0; i < team.size(); ++ i ) 
-	{
+	for ( int i = 0; i < team.size(); ++ i ) {
+
 			team[ i ]->prepareForNextRace(); 
 	}
 	
@@ -95,30 +94,19 @@ void prepareForNextRace(vector<RaceTeam*> team,	GrandPrix * gp) {
 	*/
 }
 
-void endGrandPrix()
-{
+void endGrandPrix() {
+
 	//Brent to go Ham
 	//for each team
 }
 
+string trim( string temp ) {
 
-/*
-	Funtions to implement for main
-*/
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////                 This is from Brent's Strategy.                                               ////////
-////////            I took it out from there as it does not make sense to read it in from there       ////////
-////////            I want to talk about this, if it should go there I will work on it more           ////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-string trim(string temp) {
-
-	temp.erase(0, temp.erase(temp.find_last_not_of("\t\n\v\f\r ") + 1).find_first_not_of("\t\n\v\f\r "));
+	temp.erase( 0, temp.erase( temp.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
 	return temp;
 }
 
-Circuit *  populateCircuit(const string& fileName) {
+CompositeRoad*  populateCircuit( const string& fileName ) {
 
 	string line;
 	ifstream file;
@@ -137,88 +125,87 @@ Circuit *  populateCircuit(const string& fileName) {
 
 			string temp = line;
 
-			pos = temp.find_first_of('|');
-			name = trim(temp.substr(0, pos - 1));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			name = trim( temp.substr( 0, pos - 1 ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			fastestLap = stof(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			fastestLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			disLap = stof(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			disLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			numLaps = stoi(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			numLaps = stoi( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			longestStraight = stof(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			longestStraight = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			numCorners = stoi(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			numCorners = stoi( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			startingDate = trim(temp.substr(0, pos - 1));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			startingDate = trim( temp.substr( 0, pos - 1 ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			endingDate = temp.substr(0, pos - 1);
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			endingDate = temp.substr( 0, pos - 1 );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			averagePitStop = stof(trim(temp.substr(0, pos - 1)));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			averagePitStop = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			euro = trim(temp.substr(0, pos - 1));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			euro = trim( temp.substr( 0, pos - 1 ) );
+			temp = temp.substr( pos + 1, size );
 
-			pos = temp.find_first_of('|');
-			direction = trim(temp.substr(0, pos - 1));
-			temp = temp.substr(pos + 1, size);
+			pos = temp.find_first_of( '|' );
+			direction = trim( temp.substr( 0, pos - 1 ) );
+			temp = temp.substr( pos + 1, size );
 
 			RaceTrack* tmp = nullptr;
-			if (direction == "clockwise") {
+			if ( direction == "clockwise" ) {
 
-				tmp = new RaceTrack(name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners, numLaps);
+				tmp = new RaceTrack( name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners,
+									 numLaps );
+			} else if ( direction == "anticlockwise" ) {
+
+				tmp = new RaceTrack( name, RaceTrack::direction::anticlockwise, disLap, wind, longestStraight,
+									 numCorners, numLaps );
+			} else {
+
+				Logger::cyan( "Error", "Wrong direction given." );
 			}
-			else if (direction == "anticlockwise") {
 
-				tmp = new RaceTrack(name, RaceTrack::direction::anticlockwise, disLap, wind, longestStraight, numCorners, numLaps);
-			}
-			else {
-
-				Logger::cyan("Error", "Wrong direction given.");
-			}
-
-			tmp->setStartDate(startingDate);
-			tmp->setEndDate(endingDate);
+			tmp->setStartDate( startingDate );
+			tmp->setEndDate( endingDate );
 			bool maybe = true;
-			euro = trim(euro);
+			euro = trim( euro );
 
-			if (euro == "true") {
+			if ( euro == "true" ) {
 
 				maybe = true;
-			}
-			else if (euro == "false") {
+			} else if ( euro == "false" ) {
 
 				maybe = false;
-			}
-			else {
+			} else {
 
-				Logger::cyan("Error", "The file not found.");
+				Logger::cyan( "Error", "The file not found." );
 			}
-			tmp->setAvgPitStops(averagePitStop);
-			tmp->setEuro(maybe);
+			tmp->setAvgPitStops( averagePitStop );
+			tmp->setEuro( maybe );
 		}
 	}
 	else {
 
-		Logger::cyan("Error", "The file not found.");
+		Logger::cyan( "Error", "The file not found." );
+
 	}
 
 	return nullptr;
