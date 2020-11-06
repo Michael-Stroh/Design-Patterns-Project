@@ -37,7 +37,7 @@ int main() {
 			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
-		raceSeason->getResult()->print();															//Alex double check this prints nicely
+		raceSeason->getResult()->print();															//Alex: is now printing nicely
 
 
 		/*
