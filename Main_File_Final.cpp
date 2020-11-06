@@ -24,7 +24,7 @@ int main() {
 		circuit = new CompositeRoad();
 		//call the function to read the circuits in from the file
 		populateCircuit("Data/races.txt" );
-
+                /// TODO: the file path will change depending what files are stored in which folders
 
 		//test to see if the RaceTracks were created
 		/*circuit->determineMaxValues();
@@ -34,10 +34,10 @@ int main() {
 		circuit->print();
 		cout << endl << endl;*/
 
-				/// TODO: the file path will change depending what files are stored in which folders
 
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs();                              //Alex: done
+
+		vector< GrandPrix* > grandPrixs = createGrandPrixs();                                    //Alex: done
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
@@ -125,8 +125,7 @@ void endGrandPrix() {
 
 string trim( string line ) {
 
-	line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
-	return line;
+	return line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
 }
 
 void  populateCircuit( const string& fileName ) {
