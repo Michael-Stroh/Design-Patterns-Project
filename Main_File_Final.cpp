@@ -20,8 +20,8 @@ int main() {
 		//Creation
 		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                                //Alex
-		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                            //Tim
+		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex
+		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
 
@@ -37,7 +37,7 @@ int main() {
 			grandPrixs[ i ]->displayResult();                    									//Alex, Make sure it uses logger
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
-		raceSeason->getResult()->print();															//Alex double check this printss nicely
+		raceSeason->getResult()->print();															//Alex double check this prints nicely
 
 
 		/*
@@ -110,10 +110,10 @@ CompositeRoad*  populateCircuit( const string& fileName ) {
 	string line;
 	ifstream file;
 
-	file.open(fileName);
-	if (file.is_open()) {
+	file.open( fileName.c_str() );
+	if ( file.is_open() ) {
 
-		while (getline(file, line)) {
+		while ( getline(file, line ) ) {
 
 			int pos = 0;
 			int size = line.size();
