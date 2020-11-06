@@ -111,10 +111,10 @@ void endGrandPrix() {
 	//for each team
 }
 
-string trim( string temp ) {
+string trim( string line ) {
 
-	temp.erase( 0, temp.erase( temp.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
-	return temp;
+	line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
+	return line;
 }
 
 void  populateCircuit( const string& fileName ) {
@@ -139,69 +139,69 @@ void  populateCircuit( const string& fileName ) {
 		while ( getline(file, line ) ) {
 
 			//variables to hold the data read from the file
-			float wind = 0, dist, straightDist, bestLap, pitStop;
+			float wind, dist, straightDist, bestLap, pitStop;
 			int size = line.size(), pos, numCorners, numLaps;
 			string name, direction, startDate, endDate, euro;
 
+			//find the value for the name
+			pos = line.find_first_of( '|' );
+			name = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
 
-			string temp = line;
+			//find the value for best lap time
+			pos = line.find_first_of( '|' );
+			bestLap = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value, the name
-			pos = temp.find_first_of( '|' );
-			name = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for distance of a lap
+			pos = line.find_first_of( '|' );
+			dist = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value, the name
-			pos = temp.find_first_of( '|' );
-			bestLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for number of laps the track will be raced
+			pos = line.find_first_of( '|' );
+			numLaps = stoi( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			dist = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for straight distance of the track
+			pos = line.find_first_of( '|' );
+			straightDist = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			numLaps = stoi( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for the number of corners on the track
+			pos = line.find_first_of( '|' );
+			numCorners = stoi( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			straightDist = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for starting date the track will be used for
+			pos = line.find_first_of( '|' );
+			startDate = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			numCorners = stoi( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for ending date the track will not be used for
+			pos = line.find_first_of( '|' );
+			endDate = line.substr( 0, pos - 1 );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			startDate = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for the average amount of pit stops made on the track
+			pos = line.find_first_of( '|' );
+			pitStop = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			endDate = temp.substr( 0, pos - 1 );
-			temp = temp.substr( pos + 1, size );
+			//find the value for if the track is in Europe or not
+			pos = line.find_first_of( '|' );
+			euro = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			pitStop = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
+			//find the value for the direction the track will be raced in
+			pos = line.find_first_of( '|' );
+			direction = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
 
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			euro = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-			//find the first value,
-			pos = temp.find_first_of( '|' );
-			direction = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-
+			//find the value for wind on the track
+			pos = line.find_first_of( '|' );
+			wind = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
 
 			//determine the enum direction from the string value
