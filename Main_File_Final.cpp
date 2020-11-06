@@ -26,8 +26,8 @@ int main() {
 		populateCircuit("Data/races.txt" );
 
 		//test to see if the RaceTracks were created
-		circuit->print();
-		cout << endl << endl;
+		/*circuit->print();
+		cout << endl << endl;*/
 
 				/// TODO: the file path will change depending what files are stored in which folders
 
