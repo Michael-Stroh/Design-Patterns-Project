@@ -1,9 +1,9 @@
 /**
    @file CautiousDriving.h
    @class CautiousDriving
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef CAUTIOUSDRIVING_H
@@ -17,35 +17,44 @@
 using namespace std;
 
 
-class CautiousDriving: public Driver {
+class CautiousDriving : public Driver {
 
-	public:
-		
-		/**
-			Constructor
-		*/
-		CautiousDriving();
-		
-		/**
-			Constructor
-		*/
-		CautiousDriving(string name, float a);
-		
-		/**
-			Constructor
-		*/
-		CautiousDriving(Driver* d);
+public:
 
-		/**
-			Destructor
-		*/
-		~CautiousDriving();
+	/**
+		Constructor
+	*/
+	CautiousDriving();
 
-		/**
-			Displays the details of the object
-			@return
-		*/
-		void displayDriver();
+	/**
+		Constructor
+	*/
+	CautiousDriving(string name, float);
+	/**
+		Constructor
+	*/
+	CautiousDriving(Driver* d);
+
+	/**
+		Destructor
+	*/
+	~CautiousDriving();
+
+	/**
+		Displays the details of the object
+		@return
+	*/
+	void displayDriver();
+
+	/**
+		@brief gets the type of driving
+		@return string of the driving type
+	*/
+	string getType();
+
+private:
+	/** @brief type of the driver object*/
+	string type;
 };
 
 #endif

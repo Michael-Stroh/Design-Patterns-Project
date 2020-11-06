@@ -1,4 +1,10 @@
 #include "RaceSeasonResult.h"
+#include <algorithm>
+
+bool sortByDescending(const pair<string, int> &a, const pair<string, int> &b)
+{
+	return (a.second > b.second);
+}
 
 RaceSeasonResult::RaceSeasonResult()
 {
@@ -59,6 +65,8 @@ void RaceSeasonResult::addResult(Result *r)
 			this->totalTeamPoints.push_back(make_pair(it->first, it->second));
 		}
 	}
+	sort(this->totalDriverPoints.begin(), this->totalDriverPoints.end(), sortByDescending);
+	sort(this->totalTeamPoints.begin(), this->totalTeamPoints.end(), sortByDescending);
 }
 
 void RaceSeasonResult::print()

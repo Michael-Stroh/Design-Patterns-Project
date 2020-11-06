@@ -1,9 +1,9 @@
 /**
    @file ControlledDriving.h
    @class ControlledDriving
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef CONTROLLEDDRIVING_H
@@ -15,35 +15,44 @@
 #include <iostream>
 
 using namespace std;
-class ControlledDriving: public Driver {
+class ControlledDriving : public Driver {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		ControlledDriving();
-		
-		/**
-			Constructor
-		*/
-		ControlledDriving(string name, float a);
-		
-		/**
-			Constructor
-		*/
-		ControlledDriving(Driver* D);
+public:
 
-		/**
-			Destructor
-		*/
-		~ControlledDriving();
+	/**
+		Constructor
+	*/
+	ControlledDriving();
 
-		/**
-			Displays the details of the driver
-			@return
-		*/
-		void displayDriver() ;
+	/**
+		Constructor
+	*/
+	ControlledDriving(string name, float);
+
+	/**
+		Constructor
+	*/
+	ControlledDriving(Driver* D);
+
+	/**
+		Destructor
+	*/
+	~ControlledDriving();
+
+	/**
+		Displays the details of the driver
+		@return
+	*/
+	void displayDriver();
+
+	/**
+		@brief gets the type of driving
+		@return the type of driver
+	*/
+	string getType();
+private:
+	/** @brief type of the driver object*/
+	string type;
 };
 
 #endif

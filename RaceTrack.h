@@ -221,13 +221,13 @@ class RaceTrack: public Circuit {
 			Returns the average amount of time to complete the track
 			@return
 		*/
-		float getAvgLapTime() const;
+		float getBestLapTime() const;
 
 		/**
 			Sets the average amount of time to complete the track
 			@param[in] time: the time to complete the track in seconds
 		*/
-		void setAvgLapTime( float );
+		void setBestLapTime( float );
 
 	private:
 
@@ -265,7 +265,7 @@ class RaceTrack: public Circuit {
 		/**
 			@brief the average amount of it takes to complete this track
 		*/
-		float averageLapTime;
+		float bestLapTime;
 
 		/**
 			@brief the basic location of the track

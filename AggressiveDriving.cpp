@@ -1,20 +1,24 @@
 #include "AggressiveDriving.h"
 
-AggressiveDriving::AggressiveDriving():Driver() {
-cout << "Aggressive" << endl;
+AggressiveDriving::AggressiveDriving() :Driver() {
+	this->type = "Aggressive";
 }
 
-AggressiveDriving::AggressiveDriving(string name, float specialMove): Driver(name, 90, specialMove){
-	cout << "Aggressive" << endl;
+AggressiveDriving::AggressiveDriving(string name, float error) : Driver(name, 90, error) {
+	this->type = "Aggressive";
 }
 
-AggressiveDriving::AggressiveDriving(Driver* d): Driver(d->getName(), 90, d->getSpecialMove()){
-	cout << "Aggressive" << endl;
+AggressiveDriving::AggressiveDriving(Driver* d) : Driver(d->getName(), 90, d->getErrorProne()) {
+	this->type = "Aggressive";
 }
 
-AggressiveDriving::~AggressiveDriving(){
+AggressiveDriving::~AggressiveDriving() {
 }
 
 void AggressiveDriving::displayDriver() {
-	cout <<"Name: "<< getName() << "\tSpecial Move: " << getSpecialMove() << "\tAggression: "<< getAggression() << "\tLevel: Aggressive" << endl;
+	cout << "Name: " << getName() << "\tAggression: " << getAggression() << "\tLevel: Aggressive" << endl;
+}
+
+string AggressiveDriving::getType() {
+	return type;
 }
