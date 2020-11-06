@@ -33,8 +33,8 @@ int main() {
 		for ( int i = 0; i < grandPrixs.size(); ++ i ) {
 
 			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
-			raceSeason->runNextGrandPrix();                     									//Alex: run race, maybe check maybe dont I am not your mom
-			grandPrixs[ i ]->displayResult();                    									//Alex, Make sure it uses logger
+			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
+			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex double check this prints nicely

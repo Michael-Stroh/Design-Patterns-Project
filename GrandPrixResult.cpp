@@ -11,31 +11,21 @@ GrandPrixResult::~GrandPrixResult(){
 
 }
 
-	void GrandPrixResult::print()
+void GrandPrixResult::print()
 {
-	cout << "Drivers Championship: " << endl;
-	this->printDrivers();
-	cout << "Constructors Championship: " << endl;
-	this->printTeams();
+	Logger::blue("Grand Prix Results", this->getDriverPositions());
 }
 
-void GrandPrixResult::printDrivers()
+string GrandPrixResult::getDriverPositions()
 {
-
+	string driverResults = "";
 	vector<pair<string, int>>::iterator it;
-	for (it = this->driverPoints.begin(); it != this->driverPoints.end(); ++it)
+	vector<pair<string, int>> driverPositions = dynamic_cast<RaceResult*>(this->officialRaceResult)->getDriverResults();
+	for (it = driverPositions.begin(); it != driverPositions.end(); ++it)
 	{
-		cout << it->first << ": " << it->second << " pts" << endl;
+		driverResults += it->first + ":\t" + to_string(it->second) + "\n";
 	}
-}
-
-void GrandPrixResult::printTeams()
-{
-	vector<pair<string, int>>::iterator it;
-	for (it = this->teamPoints.begin(); it != this->teamPoints.end(); ++it)
-	{
-		cout << it->first << ": " << it->second << " pts" << endl;
-	}
+	return driverResults;
 }
 
 void GrandPrixResult::addResult(Result *r)
