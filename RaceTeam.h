@@ -55,7 +55,7 @@ public:
 			@param[in]: Circuit*: The circuit on which the lap will take place
 			@return: The results of the lap
 		*/
-	LapResult *performLap(int, Circuit *);
+	LapResult *performLap(int, RaceTrack* );
 
 	/**
 		@brief A function to be called inside of the performaLap function. It takes in a circuit and , based on the circuits description
@@ -64,7 +64,7 @@ public:
 		@param[in]: circuit: the circuit on which the lap must be run.
 		@todo figure out where the best value fo r the time of thiscircuit comes from.
 	*/
-	float getCarLapTime(int , Circuit *);
+	float getCarLapTime(int , RaceTrack*);
 
 	/**
 		@brief Brent
