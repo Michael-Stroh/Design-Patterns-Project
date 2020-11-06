@@ -12,11 +12,17 @@ RaceTrack::RaceTrack( string name, float dist, float wind ): Circuit( name ), di
 
 }
 
+RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
+                      int corners, int RaceLaps ): Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
+                                                   laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
+
+}
+
 RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist, float pitStops,
 					  float lapTime, int corners, int RaceLaps, bool euro, string start, string end ):
 					 Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
 					 laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ), averagePitStop( pitStops ),
-					 averageLapTime( lapTime ), isEuropean( euro ), endingDate( end ), startingDate( start ) {
+					 bestLapTime( lapTime ), isEuropean( euro ), endingDate( end ), startingDate( start ) {
 
 }
 
@@ -152,13 +158,13 @@ void RaceTrack::setStartDate( string date ) {
 	startingDate = date;
 }
 
-float RaceTrack::getAvgLapTime() const {
+float RaceTrack::getBestLapTime() const {
 
-	return averageLapTime;
+	return bestLapTime;
 }
 
-void RaceTrack::setAvgLapTime( float time ) {
+void RaceTrack::setBestLapTime( float time ) {
 
-	averageLapTime = time;
+	bestLapTime = time;
 }
 

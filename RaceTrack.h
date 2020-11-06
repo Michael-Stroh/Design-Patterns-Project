@@ -51,6 +51,18 @@ class RaceTrack: public Circuit {
 		RaceTrack( string, float, float );
 
 		/**
+            @brief Constructor
+            @param[in] name used to identify the object
+            @param[in] dir: given direction cars will race
+            @param[in] dist: given total distance
+            @param[in] wind: given amount of wind
+            @param[in] strDist: given straight distance of the track
+            @param[in] corners: given amount of corners
+            @param[in] RaceLaps: given amount of laps
+        */
+        RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
+
+		/**
 			@brief Constructor
 			@param[in] name used to identify the object
 			@param[in] dir: given direction cars will race
@@ -209,13 +221,13 @@ class RaceTrack: public Circuit {
 			Returns the average amount of time to complete the track
 			@return
 		*/
-		float getAvgLapTime() const;
+		float getBestLapTime() const;
 
 		/**
 			Sets the average amount of time to complete the track
 			@param[in] time: the time to complete the track in seconds
 		*/
-		void setAvgLapTime( float );
+		void setBestLapTime( float );
 
 	private:
 
@@ -253,7 +265,7 @@ class RaceTrack: public Circuit {
 		/**
 			@brief the average amount of it takes to complete this track
 		*/
-		float averageLapTime;
+		float bestLapTime;
 
 		/**
 			@brief the basic location of the track

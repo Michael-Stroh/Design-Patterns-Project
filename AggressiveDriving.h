@@ -1,9 +1,9 @@
 /**
    @file AggressiveDriving.h
    @class AggressiveDriving
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef AGGRESSIVEDRIVING_H
@@ -15,35 +15,46 @@
 
 using namespace std;
 
-class AggressiveDriving: public Driver {
+class AggressiveDriving : public Driver {
 
-	public:
-		
-		/**
-			Constructor
-		*/
-		AggressiveDriving();
-		
-		/**
-			Constructor
-		*/
-		AggressiveDriving(string name, float a);
-		
-		/**
-			Constructor
-		*/
-		AggressiveDriving(Driver* d);
+public:
 
-		/**
-			Destructor
-		*/
-		~AggressiveDriving();
+	/**
+		@brief Constructor
+	*/
+	AggressiveDriving();
 
-		/**
-			Display the detials of the driver
-			@return
-		*/
-		void displayDriver() ;
+	/**
+		@brief Constructor
+	*/
+	AggressiveDriving(string name, float error);
+
+	/**
+		@brief Constructor
+	*/
+	AggressiveDriving(Driver* d);
+
+	/**
+		@brief Destructor
+	*/
+	~AggressiveDriving();
+
+	/**
+		@brief Display the details of the driver
+		@return
+	*/
+	void displayDriver();
+
+	/**
+		@brief get the type of the of the driver object
+		@return the type
+	*/
+	string getType();
+
+private:
+
+	/** @brief type of the driver object*/
+	string type;
 };
 
 #endif

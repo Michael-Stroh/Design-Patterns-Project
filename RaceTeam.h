@@ -45,6 +45,12 @@ public:
 	RaceTeam();
 
 	/**
+	 	@brief: Value constructor taking a string as a teamname (for testing purposes only)
+		@todo: Remove from final implementation
+	*/
+	RaceTeam(string);
+
+	/**
 			Destructor
 		*/
 	~RaceTeam();
@@ -55,7 +61,7 @@ public:
 			@param[in]: Circuit*: The circuit on which the lap will take place
 			@return: The results of the lap
 		*/
-	LapResult *performLap(int, Circuit *);
+	LapResult *performLap(int, RaceTrack*);
 
 	/**
 		@brief A function to be called inside of the performaLap function. It takes in a circuit and , based on the circuits description
@@ -64,12 +70,12 @@ public:
 		@param[in]: circuit: the circuit on which the lap must be run.
 		@todo figure out where the best value fo r the time of thiscircuit comes from.
 	*/
-	float getCarLapTime(int , Circuit *);
+	float getCarLapTime(int , RaceTrack*);
 
 	/**
 		@brief Brent
 	*/
-	float getDriverLapTime(int, Circuit *);
+	float getDriverLapTime(int, RaceTrack*);
 
 	/**
 			@brief: Sets the internal representation of the entire season's result
@@ -114,10 +120,54 @@ public:
 	*/
 	Budget * createSeasonBudget();
 
+	/**
+		@brief 
+	*/
+	void prepareForNextRace();
+
+	/**
+		@brief FOR TIM TO IMPLEMENT AND ADD TO MAIN MAYBE!!
+	*/
+	void startRace(); //reset lapcount
+
+	/**
+		@brief FOR TIM TO IMPLEMENT AND ADD TO MAIN MAYBE!!
+	*/
+	void endRace(); //reset lap count
+
+	/**
+	@brief Brent go wild
+	*/
+	void changeStratgiesBasedOnPosition();
+
+	/**
+		@brief Brent used ot decide the strategy the team will use for the next grandprix
+	*/
+	void decideNextStrategy(GrandPrix *);
+
+	/**
+		@brief for brent to do logistics calculations
+	*/
+	void endOfGrandPrix();
+
+	/**
+		@brief Returns the team's name for identification and testing purposes
+		@todo: Remove from final implementation
+	*/
+	string getName();
+
 private:
+
+	int lapCount;
+
+	/**
+		
+	*/
+     RaceState * raceState;
+
 	/**
 			@brief: A vector containing all the grand prixs that will take place during a season
-		*/
+	*/
 	vector<GrandPrix *> grandPrixs;
 
 	/**
@@ -128,7 +178,7 @@ private:
 	/**
 			@brief: The internal representation of the results of the current official race
 		*/
-	Result *officialRaceResult;
+	Result * officialRaceResult;
 
 	/**
 			@brief: The internal representation of the results of the current qualifying race
@@ -141,36 +191,22 @@ private:
 	Result *seasonResult;
 
 	/**
-			@brief: 
-			@todo: Provide details on car member variable
-		*/
-	CarComposite *car;
-
-
-
-	/**
 			@brief
 			@todo: Provide details on the strategy member variable
 
-		*/
-	Strategies *Strategy;
-
-	/**
-		@brief represents the shared budget for the engineering Departments. Might be removed at a later stage
-		@warning determine if we keep this or not
 	*/
-	Budget* budget;
+	Strategies *Strategy;
 
 	/**
 		@brief a vector of all of the Engineering Departments that will work on the car throughout the year.
 	*/
-	EngineeringCrew* engineeringCrew;
+	EngineeringCrew * engineeringCrew;
 
-	/**	
-		@breif specified the amount of money allocated for engineering purposes for each Grand Prix
-		@warning this amount still needs to be calibrated
+	/**
+		@brief: A string containing the name of the team for identification during testing
+		@todo: Remove from final implementation
 	*/
-	const static float moneyPerGrandPrix;
+	string teamName;
 };
 
 #endif

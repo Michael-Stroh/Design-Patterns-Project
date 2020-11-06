@@ -10,7 +10,6 @@ PracticeState::~PracticeState() {
 
 Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
-
 	// 3 practice sessions
 	// #1 & #2 are 1.5 hours long, #3 is 1 hour long
 
@@ -24,6 +23,7 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTra
 	// Races #1, #2 & #3:
 	for (int i = 0; i < 3; i++)
 	{
+		Logger::debug("Running practice session " + to_string(i+1), "");
 		if (i == 2)
 		{
 			timeLeft = 3600.00; // 1 hour stored as seconds
@@ -54,6 +54,5 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTra
 			timeLeft -= longestLapTime;
 		}
 	}
-
-    return raceResult;
+	return raceResult;
 }
