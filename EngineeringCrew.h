@@ -1,10 +1,10 @@
 /**
    @file EngineeringCrew.h
    @class EngineeringCrew
-   @authors Michael Timothy
+   @authors Michael Timothy Kayla
    @version 1.0.1
    @brief A class responsible for building the car as well as updating the cars
-   @warning update me
+   @warning TODO important car things get the racing car!!
  */
 
 #ifndef ENGINEERINGCREW_H
@@ -29,12 +29,6 @@ class EngineeringCrew {
 		EngineeringCrew();
 
 		/**
-			Constructor
-			@param
-		*/
-		EngineeringCrew( Car* );
-
-		/**
 			Destructor
 		*/
 		~EngineeringCrew();
@@ -43,7 +37,7 @@ class EngineeringCrew {
 			
 			@return
 		*/
-		Car* getCar();
+		CarComposite * getCar();
 
 		/**
 			
@@ -51,11 +45,13 @@ class EngineeringCrew {
 		*/
 		void setCar( Car* );
 
+		void calculateBudget(int);
+
 		/**
 			
 			@return
 		*/
-		Car* getNextSeasonCar();
+		CarComposite * getNextSeasonCar();
 
 		/**
 			
@@ -85,7 +81,19 @@ class EngineeringCrew {
 		/**
 			@brief 
 		*/
-		vector<EngineeringDepartment*> team;
+		vector<EngineeringDepartment*> departments;
+
+		/**
+			@brief represents the shared budget for the engineering Departments. Might be removed at a later stage
+	
+		*/
+		Budget* budget;
+
+		/**
+			@brief specified the amount of money allocated for engineering purposes for each Grand Prix
+			@warning this amount still needs to be calibrated
+		*/
+		const static float moneyPerGrandPrix;
 };
 
 #endif

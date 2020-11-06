@@ -13,6 +13,7 @@
 #include "Circuit.h"
 #include "RaceTeam.h"
 #include "RaceState.h"
+#include "RaceState.h"
 #include "PracticeState.h"
 #include "QualifyingState.h"
 #include "OfficialState.h"
@@ -57,6 +58,16 @@ class Race {
 				@param[in]: r: The race subject that will be used to inform any racing teams of updates before or during the race.
 			*/
 		void setRaceSubject(RaceSubject *);
+
+		/**
+			@brief
+		*/
+		void startRace();
+
+		/**
+			@brief
+		*/
+		void endRace();
 
 	private:
 		/**

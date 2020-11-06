@@ -1,3 +1,4 @@
+/* 
 #include "../utilities/Logger.h"
 #include "../Result.h"
 #include "../LapResult.h"
@@ -118,3 +119,4 @@ int main()
     }
     return 0;
 }
+*/

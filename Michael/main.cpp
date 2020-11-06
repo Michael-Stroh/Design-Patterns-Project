@@ -1,3 +1,4 @@
+/* 
 #include "../RaceTrack.h"
 #include "../CompositeRoad.h"   //changed to allow compilation on Tim's machine (added ../)
 #include "../CircuitIterator.h"
@@ -39,3 +40,4 @@ int main() {
 
      delete track;
 }
+*/
