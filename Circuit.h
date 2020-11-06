@@ -10,9 +10,9 @@
 #ifndef Circuit_H
 #define Circuit_H
 
-#include "utilities/Logger.h""
+#include "utilities/Logger.h"
 #include <sstream>
-#include <iostream>
+#include <string>
 
 using namespace std;
 
