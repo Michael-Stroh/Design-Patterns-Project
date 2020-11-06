@@ -12,6 +12,8 @@ void endGrandPrix();
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
+vector< GrandPrix* > grandPrixs;
+vector< RaceTeam* > raceTeams
 
 int main() {
 
@@ -37,8 +39,8 @@ int main() {
 
 
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs();                                    //Alex: done
-		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
+		grandPrixs = createGrandPrixs();                                                            //Alex: done
+		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
 
