@@ -18,7 +18,7 @@ vector< RaceTeam* > raceTeams;
 int main() {
 
 
-		int numberOfTeams = 10;                                                                     //Should this not be 5??
+		int numberOfTeams = 10;                                                                     //Should this not be 5?? no theres 10 teams where did you come up with 5
 
 		////////////////Creation////////////////
 
@@ -252,7 +252,7 @@ void  populateCircuit( const string& fileName ) {
 			} else {
 
 				//the value given is invalid so take the default of true and output the error
-				Logger::cyan( "Error", "Incorrect direction value given in " + fileName + "." );
+				Logger::red( "Error", "Incorrect direction value given in " + fileName + "." );
 			}
 
 			//determine the bool value for European from the string value
@@ -269,7 +269,7 @@ void  populateCircuit( const string& fileName ) {
 			} else {
 
 				//the value given is invalid so take the default of true and output the error
-				Logger::cyan( "Error", "Incorrect european value given in " + fileName + "." );
+				Logger::red( "Error", "Incorrect european value given in " + fileName + "." );
 			}
 
 
@@ -281,7 +281,7 @@ void  populateCircuit( const string& fileName ) {
 	else {
 
 		//the file could not open, most likely does not exist
-		Logger::cyan( "Error", "The file not found therefore could not create circuits( main )." );
+		Logger::red( "Error", "The file not found therefore could not create circuits( main )." );
 	}
 
 }
