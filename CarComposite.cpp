@@ -17,12 +17,12 @@ CarComposite::CarComposite(const CarComposite& c) {
 
 	for (int i = 0; i < NUMPARTS; ++i)
 	{
-		Logger::setDebug(true);
+		//Logger::setDebug(true);
 		Logger::debug("CarComposite Clone Function:", to_string(i));
 		CarPart* oldPart = c.getPart(i);
 		CarPart * part = oldPart->clone();
 		carParts.push_back(part);
-		Logger::setDebug(false);
+		//Logger::setDebug(false);
 	}
 	fuel = 0;
 

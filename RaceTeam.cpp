@@ -10,6 +10,12 @@ RaceTeam::RaceTeam()
 		Tim's Portion: The Construction of the Engineering Crew that will create and improve the cars.
 	*/
 		engineeringCrew = new EngineeringCrew();
+		lapCount = 0;
+		raceState = nullptr;
+		seasonResult = nullptr;
+		qualifyingRaceResult = nullptr;
+		officialRaceResult = nullptr;
+		
 	/*
 		End Of Tim's Portion
 	*/
@@ -17,7 +23,7 @@ RaceTeam::RaceTeam()
 	/*
 		Brents Portion: Create Drivers and RaceTeam Name 
 	*/
-		//fuunction file reader
+		//function file reader
 	/*
 		End Of Brents Portion
 	*/
@@ -62,7 +68,13 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	/*
 		EngineeringCrew: car run lap function depending on race state (Tim Kayla)
 	*/
-
+	int agg = drivers[driverIndex]->getAggression();
+	//quick test just to be sure
+	if (agg < 0)
+		agg = 1;
+	if (agg > 2)
+		agg = 1;
+	engineeringCrew->getCar()->runLap(agg);
 
 	/**
 		Driver part
@@ -73,8 +85,11 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		CarPart
 	*/
 	float carTime = this->getCarLapTime(driverIndex, circuit);
-	float avgTime = (driverTime + carTime) / 2;
 
+	/*
+		Finalize
+	*/
+	float avgTime = (driverTime + carTime) / 2;
 	if (extraTime != 0)
 		avgTime += extraTime;
 
@@ -134,12 +149,15 @@ Driver *RaceTeam::getDriver(int i){
 	return this->drivers[i];
 }
 
-//Cicruit should be Composite Road for iterator
+//Ask brent what the possible values for aggression are.
 float RaceTeam::getCarLapTime(int index, RaceTrack * circuit)
 {
 	//doesnt need iterators for raceTrack
 	float ans = 0;
-	throw "Not Implemented Yet";
+	CarComposite* car = engineeringCrew->getCar();	
+	float numCorners = 1.0 * circuit->getCorners();
+	float straightDistance = circuit->getStraightDistance();
+	float windForce = circuit->getWindForce();
 
 	return ans;
 }
@@ -163,33 +181,56 @@ void RaceTeam::changeStratgiesBasedOnPosition()
 	*/
 }
 
-
-Budget* RaceTeam::createSeasonBudget()
-{
-	throw "Not Implemented Yet";
-}
-
 string RaceTeam::getName(){
 	return this->teamName;
 }
 
-void RaceTeam::prepareForNextRace() {
+void RaceTeam::prepareForNextRace() 
+{
+	/*
+		Tim portion
+	*/
+	//Algorithm is as follows:
+	//update the budgets of the department
+	engineeringCrew->updateDepartmentBudgets();
+	engineeringCrew->prepareForNextRace();
+	engineeringCrew->setCar((CarComposite*)(engineeringCrew->getNextSeasonCar()->clone()));
+	/*
+	
+	*/
+}
+
+void RaceTeam::startRace() 
+{
+	/*
+		Tims portion
+	*/
+	lapCount = 0;
+	engineeringCrew->getCar()->setFuel(100);		//Just a placeHolder. Kayla can gooi here if she wants
+	/*
+		End Tim's Portion
+	*/
+}
+
+void RaceTeam::endRace() 
+{
+	/*
+		Tims Portion
+	*/
+	engineeringCrew->getCar()->resetAfterRace();
+	lapCount = 0;
+	/*
+		End Tim's Portion
+	*/
+}
+
+void RaceTeam::decideNextStrategy( GrandPrix* ) 
+{
 
 }
 
-void RaceTeam::startRace() {
-
-}
-
-void RaceTeam::endRace() {
-
-}
-
-void RaceTeam::decideNextStrategy( GrandPrix* ) {
-
-}
-
-void RaceTeam::endOfGrandPrix() {
+void RaceTeam::endOfGrandPrix() 
+{
 
 }
 

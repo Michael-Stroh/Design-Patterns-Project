@@ -22,7 +22,7 @@ CarPart::CarPart(float s, float h, float a, string n, string b)
 }
 
 CarPart::CarPart( CarPart & part) {
-	Logger::setDebug(true);
+	//Logger::setDebug(true);
 	
 	speed = part.speed;
 	
@@ -34,15 +34,15 @@ CarPart::CarPart( CarPart & part) {
 
 	brand = (part).brand;
 	
-	Logger::debug("CarPart copy constructor", "Post setting of new variables");
-	Logger::setDebug(false);
+	//Logger::debug("CarPart copy constructor", "Post setting of new variables");
+	//Logger::setDebug(false);
 }
 
 CarPart *  CarPart::clone() {
-	Logger::setDebug(true);
-	Logger::debug("CarPart clone function:", this->name);
+	//Logger::setDebug(true);
+	//Logger::debug("CarPart clone function:", this->name);
 	CarPart* newPart = new CarPart(*this);
-	Logger::setDebug(false);
+	//Logger::setDebug(false);
 
 	return newPart;
 }

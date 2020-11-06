@@ -116,11 +116,6 @@ public:
 	Driver *getDriver(int);
 
 	/**
-		@brief A function for Kayla to implement to/change that should be used in the constructor of the RaceTeam
-	*/
-	Budget * createSeasonBudget();
-
-	/**
 		@brief 
 	*/
 	void prepareForNextRace();

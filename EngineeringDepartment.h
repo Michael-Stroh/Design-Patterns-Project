@@ -70,6 +70,11 @@ public:
 	*/
 	void update();
 
+	/**
+		@brief returns the Remaining balance of this engineeringDepartment
+	*/
+	float getRemainingBalance();
+
 protected:
 
 	/**

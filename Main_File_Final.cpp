@@ -10,12 +10,25 @@ CompositeRoad* populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
 
+void testEngineeringCrew();		//for testing, delete me
+
 int main() {
 
 		cout << "Successful compilation" << endl;
 
-		int numberOfTeams = 10;                                                                                //Should this not be 5??
+		/*
+			Delete HERE!!!
+		*/
+		testEngineeringCrew();
 
+		string temp;
+		cin >> temp;
+		return 0;
+		/*
+		
+		*/
+
+		int numberOfTeams = 5;                                                                                //Should this not be 5?? -Maybe 
 
 		//Creation
 		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
@@ -23,8 +36,6 @@ int main() {
 		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
-
-
 
 		//Notification
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
@@ -47,6 +58,48 @@ int main() {
 
 }
 
+void printCarStatistics(CarComposite* car) //DELETE ME!!!
+{
+	float aggregateH = car->getHandling();
+	float aggregateA = car->getAcceleration();
+	float aggregateS = car->getSpeed();
+
+	cout << endl;
+	cout << "Car total Speed: " << aggregateS << endl;
+	cout << "Car total acceleration: " << aggregateA << endl;
+	cout << "Car total Handling: " << aggregateH << endl;
+	cout << endl;
+}
+
+void testEngineeringCrew()
+{
+	/*
+		Test 1: Create EngineeringCrew and check the cars
+	*/
+	cout << endl << "Creating EngineeringCrew" << endl << endl;
+	EngineeringCrew* e = new EngineeringCrew();
+	printCarStatistics(e->getCar());
+	printCarStatistics(e->getNextSeasonCar());
+	/*
+		Test 2: Set the budget of the Engingeering Crew 
+	*/
+	e->calculateBudget(10);
+
+	/*
+		Run the Simulation Loop:
+	*/
+
+	for (int i = 0; i < 10; i++)
+	{
+		e->updateDepartmentBudgets();		//algorithm taken directly from raceTeam prepareForNextRace
+		e->prepareForNextRace();
+		e->setCar((CarComposite*)(e->getNextSeasonCar()->clone()));
+		printCarStatistics(e->getCar());
+		printCarStatistics(e->getNextSeasonCar());
+	}
+	
+}
+
 vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
 
 	vector<GrandPrix*> vec;
@@ -57,6 +110,7 @@ vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
 	return vec;
 }
 
+//Check Brent has created a way for RaceTeams to determine their names.
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
 	vector<RaceTeam*> vec;
@@ -64,6 +118,10 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	/*
 			Tim: create the RaceTeams
 	*/
+
+	for (int i = 0; i < numberOfTeams; ++i)
+		vec.push_back(new RaceTeam());
+
 	return vec;
 }
 

@@ -48,7 +48,10 @@ void EngineeringDepartment::updateRemainingBudget(float newRemainingBudget)
 	remainingBudget = newRemainingBudget;
 }
 
-
+float EngineeringDepartment::getRemainingBalance()
+{
+	return remainingBudget;
+}
 
 void EngineeringDepartment::update()
 {
