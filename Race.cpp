@@ -20,7 +20,7 @@ Result* Race::runRace( Result* _result, vector< RaceTeam* > teams, RaceTrack* ci
 
 	startRace(teams);
 	this->result = this->state->runRace( _result, teams, circuit );
-	endRace();
+	endRace( teams );
 	return this->result;
 }
 
