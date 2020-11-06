@@ -26,14 +26,17 @@ void Race::setState( string _state )
 {
 	if (_state == "Practice")
 	{
+		Logger::debug("Setting Race State", "State set to practice");
 		this->state = practiceState;
 	}
 	else if (_state == "Qualifying")
 	{
+		Logger::debug("Setting Race State", "State set to qualifying");
 		this->state = qualifyingState;
 	}
 	else if (_state == "Official")
 	{
+		Logger::debug("Setting Race State", "State set to official");
 		this->state = officialState;
 	}
 }

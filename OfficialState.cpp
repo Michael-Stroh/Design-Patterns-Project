@@ -18,6 +18,7 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	float longestLapTime = 0;
 	RaceResult *officialRaceResult = new RaceResult();
 	RaceResult *previousQualifiersResult = dynamic_cast<RaceResult *>(result);
+	previousQualifiersResult->printGridPositions();
 
 	while (remainingDistance > 0 && timeLeft > 0)
 	{
@@ -45,6 +46,7 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 		timeLeft -= longestLapTime;
 		remainingDistance -= lapDistance;
 	}
-
+	Logger::debug("Official Race Results", "");
+	officialRaceResult->print();
 	return officialRaceResult;
 }

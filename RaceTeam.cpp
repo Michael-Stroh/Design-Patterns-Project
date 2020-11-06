@@ -1,6 +1,8 @@
 #include "RaceTeam.h"
 #include "GrandPrix.h"
 #include "RaceState.h"
+#include <ctime>
+using namespace std;
 
 RaceTeam::RaceTeam()
 {
@@ -21,6 +23,8 @@ RaceTeam::RaceTeam(string teamName){
 	this->drivers = vector<Driver *>();
 	this->drivers.push_back(new Driver(teamName + " : Driver 1"));
 	this->drivers.push_back(new Driver(teamName + " : Driver 2"));
+	srand((unsigned)time(0));
+
 }
 
 RaceTeam::~RaceTeam()
@@ -32,7 +36,11 @@ LapResult *RaceTeam::performLap(int driverIndex, Circuit *circuit)
 {
 	// drivers[driverIndex] drive on circuit
 	// return lapresult
-	throw "Not yet implemented";
+	// throw "Not yet implemented";
+
+	// FOR TESTING PURPOSES ONLY
+	LapResult *result = new LapResult(this->drivers[driverIndex]->getName(), this->teamName, rand()/10000000);
+	return result;
 }
 
 void RaceTeam::informSeasonResult(Result *result)
@@ -62,7 +70,8 @@ void RaceTeam::setRaceState(RaceState* s){
 }
 
 Driver *RaceTeam::getDriver(int i){
-	throw "Not yet implemented";
+	// FOR TESTING PURPOSES ONLY
+	return this->drivers[i];
 }
 
 float RaceTeam::getCarLapTime(int index, Circuit* circuit)
@@ -85,6 +94,10 @@ float RaceTeam::getDriverLapTime(int index, Circuit* circuit)
 Budget* RaceTeam::createSeasonBudget()
 {
 	throw "Not Implemented Yet";
+}
+
+string RaceTeam::getName(){
+	return this->teamName;
 }
 
 const float RaceTeam::moneyPerGrandPrix = 1000;	//Subject to change

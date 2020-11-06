@@ -109,6 +109,7 @@ int main()
             raceSeason->runNextGrandPrix();
         }
 
+        Logger::debug("Race Season Results", "");
         raceSeason->getResult()->print();
     }
     catch (char const *s)

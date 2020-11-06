@@ -120,6 +120,12 @@ public:
 	*/
 	Budget * createSeasonBudget();
 
+	/**
+		@brief Returns the team's name for identification and testing purposes
+		@todo: Remove from final implementation
+	*/
+	string getName();
+
 private:
 	/**
 			@brief: A vector containing all the grand prixs that will take place during a season
