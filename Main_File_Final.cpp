@@ -4,7 +4,7 @@
 #include <iostream>
 
 //Main Helper Functions predeclarationb
-vector<GrandPrix*> createGrandPrixs( CompositeRoad* );
+vector<GrandPrix*> createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
@@ -37,7 +37,7 @@ int main() {
 				/// TODO: the file path will change depending what files are stored in which folders
 
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex: done
+		vector< GrandPrix* > grandPrixs = createGrandPrixs();                              //Alex: done
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
@@ -64,15 +64,16 @@ int main() {
 		delete circuit;
 }
 
-vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
+vector<GrandPrix*> createGrandPrixs() {
 
 	/*
 		Alex: has created the GrandPrixs
 	*/
 	vector<GrandPrix *> vec = vector<GrandPrix *>();
-	CircuitIterator *circuitIterator = dynamic_cast<CircuitIterator*>(circuit->createIterator());
-	while(!circuitIterator->isDone()){
-		vec.push_back(new GrandPrix((circuitIterator->currentItem())));
+	CircuitIterator *circuitIterator = circuit->createIterator();
+	while ( !circuitIterator->isDone() ) {
+
+		vec.push_back( new GrandPrix( ( circuitIterator->currentItem() ) ) );
 		circuitIterator->next();
 	}
 	return vec;

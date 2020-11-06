@@ -100,7 +100,7 @@ void CompositeRoad::print() {
     }
 }
 
-Iterator *CompositeRoad::createIterator() {
+CircuitIterator* CompositeRoad::createIterator() {
 
     //create and return an iterator on the current object
     return ( new CircuitIterator( this ) );

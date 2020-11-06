@@ -69,7 +69,7 @@ class CompositeRoad: public Circuit {
 			traversed in a linear order
 			@return the created iterator on the current object
 		*/
-		Iterator *createIterator();
+		CircuitIterator* createIterator();
 
 		/**
 			Determines the size of the tracks vector and returns it
