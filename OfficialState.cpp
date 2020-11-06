@@ -1,12 +1,12 @@
 #include "OfficialState.h"
 
-OfficialState::OfficialState() : RaceState(), raceSubject( new RaceSubject( ) ) {
+OfficialState::OfficialState() : RaceState(), officialRaceSubject( new RaceSubject( ) ) {
 
 }
 
 OfficialState::~OfficialState() {
 
-	delete raceSubject;
+	delete officialRaceSubject;
 }
 
 Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) {
