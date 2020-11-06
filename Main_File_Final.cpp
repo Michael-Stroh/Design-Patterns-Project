@@ -47,7 +47,7 @@ int main() {
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
 
 		//RaceLoop
-		for ( int i = 0; i < grandPrixs.size(); ++ i ) {
+		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 
 			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
@@ -89,7 +89,7 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	return vec;
 }
 
-void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
+void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 
 	/*
 		Brents Portion
@@ -104,7 +104,7 @@ void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
 		Tim's portion
 	*/
 
-	for ( int i = 0; i < team.size(); ++ i ) {
+	for ( int i = 0; i < team.size(); ++i ) {
 
 			team[ i ]->prepareForNextRace();
 	}
