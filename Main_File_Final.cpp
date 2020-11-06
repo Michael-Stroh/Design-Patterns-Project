@@ -4,7 +4,7 @@
 #include <iostream>
 
 //Main Helper Functions pre-declaration
-vector<GrandPrix*> createGrandPrixs();
+void createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
@@ -13,7 +13,7 @@ void endGrandPrix();
 //this will hold all the created circuits
 CompositeRoad* circuit;
 vector< GrandPrix* > grandPrixs;
-vector< RaceTeam* > raceTeams
+vector< RaceTeam* > raceTeams;
 
 int main() {
 
@@ -39,7 +39,8 @@ int main() {
 
 
 
-		grandPrixs = createGrandPrixs();                                                            //Alex: done
+		grandPrixs = vector<GrandPrix *>();
+		createGrandPrixs();                                                                         //Alex: done
 		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
@@ -63,24 +64,43 @@ int main() {
 			Deletion
 			Mike Will handle Deletion
 		*/
+
+		//delete the circuit before the GrandPrix that holds it
 		delete circuit;
+
+        //go through each object stored
+        for ( GrandPrix* prix : grandPrixs ) {
+
+            //free the memory
+            delete prix;
+        }
+
+        //empty and resize the vector
+        grandPrixs.clear();
 }
 
-vector<GrandPrix*> createGrandPrixs() {
+void createGrandPrixs() {
 
 	/*
 		Alex: has created the GrandPrixs
 	*/
-	vector<GrandPrix *> vec = vector<GrandPrix *>();
-	CircuitIterator* circuitIterator = circuit->createIterator();
 
-	circuitIterator->first();
-	while ( !circuitIterator->isDone() ) {
 
-		vec.push_back( new GrandPrix( ( circuitIterator->currentItem() ) ) );
-		circuitIterator->next();
+	//create and set the iterator
+	CircuitIterator* it = circuit->createIterator();
+    it->first();
+
+	//continue going through until we have traversed all the items
+	while ( !it->isDone() ) {
+
+	    //create the GrandPrix with the current iterator item
+        grandPrixs.push_back( new GrandPrix( ( it->currentItem() ) ) );
+
+        //go to the next item in the iterator
+        it->next();
 	}
-	return vec;
+
+    delete it;
 }
 
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
