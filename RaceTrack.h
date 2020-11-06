@@ -70,7 +70,7 @@ class RaceTrack: public Circuit {
 			@param[in] wind: given amount of wind
 			@param[in] strDist: given straight distance of the track
 			@param[in] pitStops: given average amount of pit stops
-			@param[in] lapTime: given average amount time to keep the track
+			@param[in] lapTime: given best amount time to keep the track
 			@param[in] corners: given amount of corners
 			@param[in] RaceLaps: given amount of laps
 			@param[in] euro: given basic location of the race

@@ -1,21 +1,21 @@
- Albert Park | 84.125 | 5.303 | 58 | 843  | 16 | 03-15 | 03-17 | 16.8 | false | clockwise
- Bahrain International Circuit | 91.447 | 5.412 | 57 | 1205 | 15 | 03-29 | 03-31 | 18.9 | false |  clockwise
- Shanghai International Circuit | 92.238 | 5.451 | 56 | 1397 | 16 | 04-12 | 04-14 | 17.2 | false | clockwise
- Baku City Circuit | 103.441| 6.003 | 51 | 2010 | 20 | 04-26 | 04-28 | 22.0 | false | clockwise
- Circuit de Catalunya | 81.670 | 4.655 | 66 | 1310 | 16 | 05-10 | 05-12 | 16.6 | true | clockwise
- Monaco | 74.260 | 3.337 | 78 | 669  | 19 | 05-23 | 05-26 | 18.5 | true | anticlockwise
- Circuit Gilles Villeneuve | 73.622 | 4.361 | 70 | 1190 | 13 | 06-07 | 06-09 | 18.2 | false  | clockwise
- Paul Ricard | 79.214 | 5.842 | 53 | 515  | 15 | 06-21 | 06-23 | 23.6 | true | clockwise
- Red Bull Ring | 68.337 | 4.326 | 71 | 868  | 10 | 06-28 | 06-30 | 16.1 | true | clockwise
- Silverstone | 90.874 | 5.891 | 52 | 1034 | 18 | 07-12 | 07-14 | 29.2 | true | clockwise
- Hockenheimring | 73.780 | 4.574 | 67 | 1240 | 12 | 07-26 | 07-28 | 11.0 | true | clockwise
- Hungaroring | 77.103 | 4.381 | 70 | 908  | 14 | 08-02 | 08-04 | 20.0 | true | anticlockwise		
- Spa-Francorchamps | 107.263 | 7.004 | 44 | 2015 | 19 | 08-30 | 09-01 | 17.4 | true | clockwise
- Monza | 81.046 | 5.793 | 53 | 1520 | 11 | 09-06 | 09-08 | 19.0 | true | clockwise
- Singapore | 107.187 | 5.065 | 61 | 832  | 23 | 09-20 | 09-22 | 20.9 | false | clockwise
- Sochi Autodrom | 95.745 | 5.848 | 53 | 1073 | 18 | 09-27 | 09-29 | 25.6 | true | clockwise
- Suzuka| 87.319 | 5.807 | 53 | 994  | 18 | 10-11 | 10-13 | 17.7 | false | clockwise
- Autodromo Hermanos Rodriguez | 80.521 | 4.304 | 71 | 1200 | 17 | 10-25 | 10-27 | 16.0 | false | clockwise
- Circuit of the Americas	| 99.347 | 5.513 | 56 | 1090 | 20 | 11-01 | 11-03 | 18.6 | false | anticlockwise
- Interlagos | 71.473 | 4.308 | 71 | 1394 | 15 | 11-15 | 11-17 | 18.5 | false | clockwise
- Yas Marina | 100.279 | 5.554 | 55 | 1233 | 21 | 11-29 | 12-01 | 21.9 | false | clockwise
+ Albert Park | 84.125 | 5.303 | 58 | 843  | 16 | 03-15 | 03-17 | 16.8 | false | clockwise | 5.458
+ Bahrain International Circuit | 91.447 | 5.412 | 57 | 1205 | 15 | 03-29 | 03-31 | 18.9 | false | clockwise | 8.52
+ Shanghai International Circuit | 92.238 | 5.451 | 56 | 1397 | 16 | 04-12 | 04-14 | 17.2 | false | clockwise | 1.337
+ Baku City Circuit | 103.441| 6.003 | 51 | 2010 | 20 | 04-26 | 04-28 | 22.0 | false | clockwise | 7.518
+ Circuit de Catalunya | 81.670 | 4.655 | 66 | 1310 | 16 | 05-10 | 05-12 | 16.6 | true | clockwise | 6.478
+ Monaco | 74.260 | 3.337 | 78 | 669  | 19 | 05-23 | 05-26 | 18.5 | true | anticlockwise | 14.478
+ Circuit Gilles Villeneuve | 73.622 | 4.361 | 70 | 1190 | 13 | 06-07 | 06-09 | 18.2 | false  | clockwise | 0.841
+ Paul Ricard | 79.214 | 5.842 | 53 | 515  | 15 | 06-21 | 06-23 | 23.6 | true | clockwise | 3.179
+ Red Bull Ring | 68.337 | 4.326 | 71 | 868  | 10 | 06-28 | 06-30 | 16.1 | true | clockwise | 6.219
+ Silverstone | 90.874 | 5.891 | 52 | 1034 | 18 | 07-12 | 07-14 | 29.2 | true | clockwise | 8.415
+ Hockenheimring | 73.780 | 4.574 | 67 | 1240 | 12 | 07-26 | 07-28 | 11.0 | true | clockwise | 2.849
+ Hungaroring | 77.103 | 4.381 | 70 | 908  | 14 | 08-02 | 08-04 | 20.0 | true | anticlockwise | 7.465
+ Spa-Francorchamps | 107.263 | 7.004 | 44 | 2015 | 19 | 08-30 | 09-01 | 17.4 | true | clockwise | 1.247
+ Monza | 81.046 | 5.793 | 53 | 1520 | 11 | 09-06 | 09-08 | 19.0 | true | clockwise | 3.100
+ Singapore | 107.187 | 5.065 | 61 | 832  | 23 | 09-20 | 09-22 | 20.9 | false | clockwise | 9.154
+ Sochi Autodrom | 95.745 | 5.848 | 53 | 1073 | 18 | 09-27 | 09-29 | 25.6 | true | clockwise | 0.641
+ Suzuka| 87.319 | 5.807 | 53 | 994  | 18 | 10-11 | 10-13 | 17.7 | false | clockwise | 3.217
+ Autodromo Hermanos Rodriguez | 80.521 | 4.304 | 71 | 1200 | 17 | 10-25 | 10-27 | 16.0 | false | clockwise | 5.515
+ Circuit of the Americas	| 99.347 | 5.513 | 56 | 1090 | 20 | 11-01 | 11-03 | 18.6 | false | anticlockwise | 1.321
+ Interlagos | 71.473 | 4.308 | 71 | 1394 | 15 | 11-15 | 11-17 | 18.5 | false | clockwise | 4.158
+ Yas Marina | 100.279 | 5.554 | 55 | 1233 | 21 | 11-29 | 12-01 | 21.9 | false | clockwise | 6.584

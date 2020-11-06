@@ -115,7 +115,7 @@ int CompositeRoad::getSize() {
 RaceTrack *CompositeRoad::getRoad( int index ) {
 
     //check if the vector is populated and the index is valid
-    if ( ( !tracks.empty() ) && ( index > 0 ) && ( index < tracks.size() ) ) {
+    if ( ( !tracks.empty() ) && ( index >= 0 ) && ( index < tracks.size() ) ) {
 
         //check if the index exists in the vector
         if ( tracks[ index ] != nullptr ) {
@@ -127,4 +127,92 @@ RaceTrack *CompositeRoad::getRoad( int index ) {
 
     //there was an error do no return anything
     return nullptr;
+}
+
+
+void CompositeRoad::determineMaxValues() {
+
+    /*
+        numCorners
+        windForce
+        straightDistance
+    */
+
+    int maxCorners = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        int hold = track->getCorners();
+        if ( hold > maxCorners ) {
+
+            maxCorners = hold;
+        }
+
+    }
+
+
+    float maxWind = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getWindForce();
+        if ( hold > maxWind ) {
+
+            maxWind = hold;
+        }
+    }
+
+    float maxStrDist = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getStraightDistance();
+        if ( hold > maxWind ) {
+
+            maxStrDist = hold;
+        }
+
+    }
+
+    Logger::cyan( "Max Distances", "Corners: " + to_string( maxCorners ) + "  Wind:  " + to_string( maxWind ) + "  Straight Distance: " + to_string( maxStrDist ) );
+}
+
+void CompositeRoad::determineMinValues() {
+
+    /*
+        numCorners
+        windForce
+        straightDistance
+    */
+
+    int maxCorners = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        int hold = track->getCorners();
+        if ( hold < maxCorners ) {
+
+            maxCorners = hold;
+        }
+
+    }
+
+    float maxWind = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getWindForce();
+        if ( hold < maxWind ) {
+
+            maxWind = hold;
+        }
+    }
+
+    float maxStrDist = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getStraightDistance();
+        if ( hold < maxWind ) {
+
+            maxStrDist = hold;
+        }
+
+    }
+
+    Logger::cyan( "Min Distances", "Corners: " + to_string( maxCorners ) + "  Wind:  " + to_string( maxWind ) + "  Straight Distance: " + to_string( maxStrDist ) );
 }
