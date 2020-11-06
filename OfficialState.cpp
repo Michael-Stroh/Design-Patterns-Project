@@ -12,8 +12,7 @@ OfficialState::~OfficialState() {
 Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) {
 
 	float remainingDistance = 305.00;
-	// float lapDistance = circuit->getLapDistance();
-	float lapDistance = 10;
+	float lapDistance = circuit->getDistance();
 	float timeLeft = 7200.00; // 2 hours in seconds
 	float longestLapTime = 0;
 	RaceResult *officialRaceResult = new RaceResult();
