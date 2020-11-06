@@ -3,7 +3,7 @@
 #include "RaceSeason.h"
 #include <iostream>
 
-//Main Helper Functions predeclarationb
+//Main Helper Functions pre-declaration
 vector<GrandPrix*> createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
