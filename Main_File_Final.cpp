@@ -18,8 +18,7 @@ int main() {
 
 
 		//Creation
-		CompositeRoad* circuit = populateCircuit(
-				"Data/races.txt" );                        //Mike -create these function definitions
+		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
 
 		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                                //Alex
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                            //Tim
