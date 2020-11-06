@@ -18,20 +18,29 @@ Race::~Race() {
 
 Result* Race::runRace( Result* _result, vector< RaceTeam* > teams, RaceTrack* circuit ) {
 
-	startRace();
+	startRace(teams);
 	this->result = this->state->runRace( _result, teams, circuit );
 	endRace();
 	return this->result;
 }
 
-void Race::startRace() {
+void Race::startRace(vector<RaceTeam*> teams) {
 
-	//todo for each team call startRace
+	vector<RaceTeam *>::iterator it;
+	for (it = teams.begin(); it != teams.end();++it)
+	{
+		(*it)->startRace();
+	}
 }
 
-void Race::endRace() {
+void Race::endRace(vector<RaceTeam *> teams)
+{
 
-	//todo for each team call endRace
+	vector<RaceTeam *>::iterator it;
+	for (it = teams.begin(); it != teams.end(); ++it)
+	{
+		(*it)->endRace();
+	}
 }
 
 void Race::setState( string _state ) {

@@ -62,12 +62,12 @@ class Race {
 		/**
 			@brief
 		*/
-		void startRace();
+		void startRace(vector<RaceTeam *>);
 
 		/**
 			@brief
 		*/
-		void endRace();
+		void endRace(vector<RaceTeam *>);
 
 	private:
 		/**
