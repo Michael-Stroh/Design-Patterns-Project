@@ -1,7 +1,7 @@
 /**
    @file Hard.h
    @class Hard
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
  */
@@ -11,11 +11,6 @@
 #define HARD_H
 
 #include "Tyre.h"
-
-#include <iostream>
-#include <string>
-
-using namespace std;
 
 class Hard: public Tyre {
 
@@ -28,9 +23,9 @@ class Hard: public Tyre {
 
 		/**
 			Constructor
-			@param
-			@param
-			@param
+			@param durability
+		 	@param grip
+		 	@param pressure
 		*/
 		Hard( int, int, float );
 
@@ -40,18 +35,18 @@ class Hard: public Tyre {
 		~Hard();
 
 		/**
-			calculates the usage per lap
-			@param distance of a lap
-		*/
-		void usage(int);
-		
-		/**
-			returns the type of wheel
+			@brief return type of tyre
+			@return string type of tyre
 		*/
 		string getType();
-	private:
-	/** type of tyre */
-		string type;
+
+		/**
+			@brief to be used after every offical lap
+			@param float distance of lap
+		*/
+		void usage(float);
+private:
+	string type;
 };
 
 #endif

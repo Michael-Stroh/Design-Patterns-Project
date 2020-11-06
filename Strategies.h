@@ -34,32 +34,22 @@ class Strategies {
 
 		/**
 			Constructor
-			@param the driver for the race
+			@param the driver1 for the race
+			@param the driver2 for the race
 			@param the name of the race
 		*/
-		void setRaceStrategy(Driver*, string name);
+		void setRaceStrategy(Driver*, Driver*, string name);
 
 		/**
 			Destructor
 		*/
 		~Strategies();
-		
-		/**
-			
-			@return
-		*/
-		int getMonth();
-
-		/**
-
-			@param
-		*/
-		void setMonth( int );
-		
+				
 		/**
 			create race track vector;
+			@brief do not delete this, it is needed, creates an vector of race track for dates and other information
 		*/
-		void createRaces();
+		void createSchedule();
 		
 		/**
 		called at the end of race for logisitics and keeping track of races
@@ -69,7 +59,7 @@ class Strategies {
 		/**
 		returns the race strategy object
 		*/
-		RaceStrategy* getRaceStrategy();
+		RaceStrategy* getRaceStrategy(int index);
 		
 		/**
 			prints the races vector
@@ -78,20 +68,19 @@ class Strategies {
 				
 		/**
 		*/
-		void setLogisitics();
-		/**
-		*/
-		string trim(string temp);
+		void setLogistics();
 				
 		/**
 		*/
 		vector<RaceTrack*> getRaceTrack();
+
+		string trim(string temp);
 	private:
 	
 		/**
 			@brief
 		*/
-		RaceStrategy* raceStrategy;
+		vector<RaceStrategy*> raceStrategy;
 		
 		/**
 			@brief

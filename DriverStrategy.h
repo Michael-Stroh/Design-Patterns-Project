@@ -1,9 +1,9 @@
 /**
    @file DriverStrategy.h
    @class DriverStrategy
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 
@@ -24,72 +24,94 @@
 
 class DriverStrategy {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		DriverStrategy();
+public:
 
-		/**
-			Constructor
-			@param
-		*/
-		DriverStrategy( Driver* );
-		
-		
-		/** 
-			Constructor
-			@param
-		*/
-		DriverStrategy(TyreStrategy* tyre);
+	/**
+		@brief Constructor of driver strategy
+	*/
+	DriverStrategy();
 
-		/**
-			Destructor
-		*/
-		~DriverStrategy();
+	/**
+		@brief Constructor
+		@param driver object
+	*/
+	DriverStrategy(Driver*);
 
-		/**
-			
-		*/
-		void displayDriver();
-		
-		/**
-			
-		*/
-		void setDriver(Driver* d);
-		
-		/**
-			
-		*/
-		Driver* getDriver();
-		
-		/**
-			
-		*/
-		vector<Driver*> decideStrategy();
-		
-		/**
-		 	called when pit has happened
-		*/
-		void changeStrategy();
-	
-	private:
-		/**
-			@brief 
-		*/
-		Driver* raceDriver;
-		
-		/**
-			@brief
-		*/
-		TyreStrategy* tyreStrategy;
-		
-		/**
-			@brief front of vector is the one in current use
-		*/
-		vector<Driver*> drivers;
-		
+
+	/**
+		@brief Constructor
+		@param tyrestrategy
+	*/
+	DriverStrategy(TyreStrategy* tyre);
+
+	/**
+		@brief Destructor
+	*/
+	~DriverStrategy();
+
+	/**
+		@brief displays all drivers and the scheduled plan
+	*/
+	void displayDriver();
+
+	/**
+		@brief changes the raceDriver to d
+		@param driver object to clone
+	*/
+	void setDriver(Driver* d);
+
+	/**
+		@brief returns the driver
+		@return driver object
+	*/
+	Driver* getDriver();
+
+	/**
+		@brief makes the drivers strategy depending on the tyre type
+		@return a vector of drivers all with different types to be ready to change during pitstops
+	*/
+	vector<Driver*> decideStrategy();
+
+	/**
+		@brief called when pit has happened and reverts back the driver to the orginal plan
+	*/
+	void changeStrategy();
+
+	/**
+		@brief changes the driver strategy to whatever the param is set
+		@param string type
+	*/
+	void changeStrategy(string);
+
+	/**
+		@brief changes the drivers aggression level based on how it preformed in the race
+		@param bool value decides if lap is good or bad;
+	*/
+	void lapChanges(bool);
+
+	/**
+	* @brief changes the level of aggression depending on results 
+	* @param the amount to change can be negative or postive
+	*/
+
+	void changeAggressionDueToPositions(int);
+
+private:
+	/**
+		@brief the orginal driver
+	*/
+	Driver* raceDriver;
+
+	/**
+		@brief tyrestrategy
+	*/
+	TyreStrategy* tyreStrategy;
+
+	/**
+		@brief front of vector is the one in current use
+	*/
+	vector<Driver*> drivers;
+
 
 };
 

@@ -1,23 +1,25 @@
 #include "Soft.h"
 
-Soft::Soft(): Tyre(60, 100, 1.2) {
-	this->type = "Soft";
+Soft::Soft(): Tyre( 60, 90, 1.2 ){
+    setType( "Soft" );
 }
 
 Soft::Soft( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
-	this->type = "Soft";
+    setType( "Soft" );
+}
+
+string Soft::getType() {
+    return type;
 }
 
 Soft::~Soft() {
 
 }
 
-void Soft::usage(int distance) {
-	setDurability(getDurability() / distance);
-	setGrip(getGrip() -1);
+void Soft::usage(float track) {
+    setDurability(getDurability() - (int)ceil(track));
+    setGrip(getGrip() - 3);
+    if (getDurability() <= 0) {
+        //dead 
+    }
 }
-
-string Soft::getType() {
-	return this->type;
-}
-

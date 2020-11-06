@@ -12,11 +12,6 @@
 
 #include "Tyre.h"
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 class Medium: public Tyre {
 
 	public:
@@ -40,19 +35,19 @@ class Medium: public Tyre {
 		~Medium();
 
 		/**
-			calculates the usage per lap
-			@param distance of a lap
-		*/
-		void usage(int);
-		
-		/**
-			returns the type of wheel
+			@brief return type of tyre
+			@return string type of tyre
 		*/
 		string getType();
-		
-		private:
-		/** type of tyre */
-			string type;
+
+		/**
+			@brief to be used after every offical lap
+			@param float distance of lap
+		*/
+		void usage(float);
+private:
+	string type;
+
 };
 
 #endif

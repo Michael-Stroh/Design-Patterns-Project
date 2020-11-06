@@ -70,14 +70,18 @@ RaceTrack* LogisticsStrategy::getRace(string name){
 			return races.at(i);
 		}
 	}
+
+	return nullptr;
 }
 
 Logistics* LogisticsStrategy::getLogistics(string name){
-	for( int i =1; i < (int)logisitics.capacity(); i++){
+	for( int i =1; i < (int)logisitics.size(); i++){
 		if(name == logisitics.at(i)->getName()){
 			return logisitics.at(i);
 		}
 	}
+
+	return nullptr;
 }
 
 

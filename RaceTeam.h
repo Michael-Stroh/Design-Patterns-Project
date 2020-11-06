@@ -1,7 +1,7 @@
 /**
    @file Racing_Team.h
    @class Racing_Team
-   @authors Michael
+   @authors Michael Timothy 
    @version 1.0.0
    @brief 
    @todo: Implement constructor
@@ -13,23 +13,36 @@
    @todo: Implement updateOfficialResult()
    @todo: Implement setRaceState()
    @todo: Implement performLap()
+   @todo: Implement setRaceState()
+   @todo: Implement getDriver()
  */
 
 #ifndef RACING_TEAM_H
 #define RACING_TEAM_H
 
-#include "Result.h"
 #include "RaceResult.h"
 #include "RaceSeasonResult.h"
-#include "GrandPrix.h"
 #include "Driver.h"
-#include "Car.h"
+#include "CarComposite.h" //changed from include Car.h by Tim
+#include "EngineeringCrew.h"
 #include "CarBuilder.h"
 #include "Strategies.h"
 #include "LapResult.h"
 #include "Circuit.h"
+#include "Strategies.h"
+#include "RaceStrategy.h"
+#include "DriverStrategy.h"
+#include "TyreStrategy.h"
+#include "Tyre.h"
+
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
 #include <vector>
 using namespace std;
+
+class GrandPrix;
+class RaceState;
 
 class RaceTeam
 {
@@ -41,17 +54,42 @@ public:
 	RaceTeam();
 
 	/**
+	 	@brief: Value constructor taking a string as a teamname (for testing purposes only)
+		@todo: Remove from final implementation
+	*/
+	RaceTeam(string);
+
+	/**
+	@brief brents constructor idea, nice to have team name and drivers name
+	*/
+	RaceTeam(string teamName, vector<Driver*> d)
+
+	/**
 			Destructor
 		*/
 	~RaceTeam();
 
 	/**
 	 		@brief: The method that will handle the team performing a lap on the circuit with a specific driver
-			@param[in]: int: The index of the driver to be performing the lap
+			@param[in]: int: The index of the driver and car to be performing the lap
 			@param[in]: Circuit*: The circuit on which the lap will take place
 			@return: The results of the lap
 		*/
-	LapResult *performLap(int, Circuit *);
+	LapResult *performLap(int, RaceTrack*);
+
+	/**
+		@brief A function to be called inside of the performaLap function. It takes in a circuit and , based on the circuits description
+		and the statistics of the car at index i, determines how well the car performs relative to the best time for this circuit.
+		@param[in]: int: the index of the car to perform the lap.
+		@param[in]: circuit: the circuit on which the lap must be run.
+		@todo figure out where the best value fo r the time of thiscircuit comes from.
+	*/
+	float getCarLapTime(int , RaceTrack*);
+
+	/**
+		@brief Brent
+	*/
+	float getDriverLapTime(int, RaceTrack*);
 
 	/**
 			@brief: Sets the internal representation of the entire season's result
@@ -75,14 +113,85 @@ public:
 	/**
 			@brief: Updates the internal representation of all the GrandPrixs, so that the team can prepare
 			@param[in]: A vector containing all GrandPrixs that will occur in a season
+			@warning Brent
+	*/
+	void informGrandPrixs( vector< GrandPrix* > );
+
+	/**
+			@brief: Updates the internal representation of the state of the current race
+			@param[in]: The state that the team should be informed of
 		*/
-	void informGrandPrix(vector<GrandPrix *>);
+	void setRaceState(RaceState*);
+
+	/**
+			@brief: Returns a pointer to a driver at index i
+			@param[in]: The index of the driver to be returned
+		*/
+	Driver *getDriver(int);
+
+	/**
+		@brief A function for Kayla to implement to/change that should be used in the constructor of the RaceTeam
+	*/
+	Budget * createSeasonBudget();
+
+	/**
+		@brief 
+	*/
+	void prepareForNextRace();
+
+	/**
+		@brief FOR TIM TO IMPLEMENT AND ADD TO MAIN MAYBE!!
+	*/
+	void startRace(); //reset lapcount
+
+	/**
+		@brief FOR TIM TO IMPLEMENT AND ADD TO MAIN MAYBE!!
+	*/
+	void endRace(); //reset lap count
+
+	/**
+	@brief Brent go wild
+	@param driver
+	*/
+	void changeStrategiesBasedOnPosition(Driver* d);
+
+	/**
+		@brief Brent used ot decide the strategy the team will use for the next grandprix
+	*/
+	void decideNextStrategy(GrandPrix *);
+
+	/**
+		@brief to signal the end of a race and sort of the logistics
+		@param the name of the race
+	*/
+	void endOfGrandPrix(string);
+
+	/**
+		@brief Returns the team's name for identification and testing purposes
+		@todo: Remove from final implementation
+	*/
+	string getName();
+
+	/**
+	*/
+	void makeDrivers();
 
 private:
 	/**
+	*/
+	string trim(string a);
+
+	int lapCount;
+
+	/**
+		
+	*/
+     RaceState * raceState;
+
+	/**
 			@brief: A vector containing all the grand prixs that will take place during a season
-		*/
-	vector<Driver *> grandPrixs;
+	*/
+	vector<GrandPrix *> grandPrixs;
 
 	/**
 			@brief: A vector containing the 2 drivers that drive per team
@@ -92,7 +201,7 @@ private:
 	/**
 			@brief: The internal representation of the results of the current official race
 		*/
-	Result *officialRaceResult;
+	Result * officialRaceResult;
 
 	/**
 			@brief: The internal representation of the results of the current qualifying race
@@ -105,24 +214,22 @@ private:
 	Result *seasonResult;
 
 	/**
-			@brief: 
-			@todo: Provide details on car member variable
-		*/
-	Car *car;
-
-	/**
-			@brief
-			@todo: Provide details on the builder member variable
-
-		*/
-	CarBuilder *builder;
-
-	/**
 			@brief
 			@todo: Provide details on the strategy member variable
 
-		*/
+	*/
 	Strategies *Strategy;
+
+	/**
+		@brief a vector of all of the Engineering Departments that will work on the car throughout the year.
+	*/
+	EngineeringCrew * engineeringCrew;
+
+	/**
+		@brief: A string containing the name of the team for identification during testing
+		@todo: Remove from final implementation. No why ?
+	*/
+	string teamName;
 };
 
 #endif

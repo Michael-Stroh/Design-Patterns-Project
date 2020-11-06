@@ -29,11 +29,17 @@ class TyreStrategy {
 
 
 	public:
-		
+
 		/**
 			Constructor
 		*/
-		TyreStrategy(RaceTrack*  rt);
+		TyreStrategy();
+
+		/**
+			Constructor
+		 	@param rt
+		*/
+		TyreStrategy( RaceTrack* );
 
 		/**
 			Constructor
@@ -78,17 +84,22 @@ class TyreStrategy {
 		*/
 		void print();
 		
-		
-		
 	private:
 	
 		/**
 			@brief
 		*/
 		vector<Tyre*> tyres;
-		int* pitLaps;
-		int numPits;
 
+		/**
+			@brief
+		*/
+		int* pitLaps;
+
+		/**
+			@brief
+		*/
+		int numPits;
 };
 
 #endif

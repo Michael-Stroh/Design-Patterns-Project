@@ -1,7 +1,7 @@
 /**
    @file PitStopStrategy.h
    @class PitStopStrategy
-   @authors Michael
+   @authors Brent
    @version 1.0.0
    @brief 
  */
@@ -10,22 +10,23 @@
 #ifndef PITSTOPSTRATEGY_H
 #define PITSTOPSTRATEGY_H
 
-#include <iostream>
-
 #include "TyreStrategy.h"
-#include "Tyre.h"
 #include "PitStop.h"
-
-using namespace std;
 
 class PitStopStrategy {
 
 	public:
-	
+
+		/**
+				Constructor
+		*/
+		PitStopStrategy( );
+
 		/**
 			Constructor
+		 	@param Tyre Startergy
 		*/
-		PitStopStrategy(TyreStrategy* tyre);
+		PitStopStrategy( TyreStrategy* );
 
 		/**
 			Destructor
@@ -33,37 +34,44 @@ class PitStopStrategy {
 		~PitStopStrategy();
 
 		/**
+			@brief checks to see if the lap is a pit lap
+			@param int current lap
+			@return true if pit is needed 
+		*/
+		bool CheckForPitStop(int);
+
+		/**
+			@brief calls a pitstop 
+		*/
+		void CallPitStop();
+
+		/**
+
+		*/
+		//void IncrementLap();
+		
+		/**
+			
+			@param laps
+		*/
+		//void setLap( int );
+		
+		/**
 			
 			@return
 		*/
-		bool CheckForPitStop();
-
-		/**
-			
-		*/
-		void CallPitStop();
-		
-		/**
-			
-
-		*/
-		void IncrementLap();
-		
-		/**
-			
-
-		*/
-		void setLap(int laps);
-		
-		/**
-			
-
-		*/
-		int getLap();
+		//int getLap() const;
 		
 	private:
+
+		/**
+			@brief holds the tyre object
+		*/
 		TyreStrategy* tyres;
-		int currentLap;
+
+		/**
+			@brief holds the pit stop object
+		*/
 		PitStop* ps;
 };
 

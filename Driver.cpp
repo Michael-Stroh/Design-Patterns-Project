@@ -3,16 +3,16 @@
 Driver::Driver() {
 	this->name = "";
 	this->aggression = 0;
-	this->specialMove = 0;
+	this->error = 0;
 }
 
-Driver::Driver(string name, int aggr, float move) {
+Driver::Driver(string name, int aggr, float error) {
 	this->name = name;
 	this->aggression = aggr;
-	this->specialMove = move;
+	this->error = error;
 }
 
-Driver::~Driver(){
+Driver::~Driver() {
 }
 
 string Driver::getName() {
@@ -28,14 +28,14 @@ int Driver::getAggression() {
 }
 
 void Driver::setAggression(int a) {
-	this->aggression = a;	
+	this->aggression = a;
 }
 
-float Driver::getSpecialMove() {
-	return this->specialMove;
+void Driver::setErrorProne(float error) {
+	this->error = error;
 }
 
-void Driver::setSpecialMove(float s) {
-	this->specialMove = s;
+float Driver::getErrorProne() {
+	return error;
 }
 

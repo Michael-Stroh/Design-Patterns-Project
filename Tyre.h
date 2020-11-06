@@ -1,7 +1,7 @@
 /**
    @file Tyre.h
    @class Tyre
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
 */
@@ -10,8 +10,8 @@
 #define Tyre_H
 
 #include <string>
+#include <vector>
 #include <iostream>
-
 
 using namespace std;
 
@@ -41,7 +41,7 @@ class Tyre {
 		
 			@return durability of tyre
 		*/
-		int getDurability();
+		int getDurability() const;
 
 		/**
 			@param durability of tyre
@@ -51,7 +51,7 @@ class Tyre {
 		/**
 			@return the grip of tyre
 		*/
-		int getGrip();
+		int getGrip() const;
 
 		/**
 			
@@ -68,23 +68,20 @@ class Tyre {
 		/**
 			@return
 		*/
-		float getPressure();
-		
-
+		float getPressure() const;
 
 		/**
-			@return virtual pure method which returns the type of tyre
+			returns the type of wheel
+		 	@return
 		*/
-		virtual string getType() =0;;
-		
-		
+		virtual string getType() = 0;
 
 		/**
-			calculates the usage of the wheel
-			@param the distance of a lap
+			calculates the usage per lap
+			@param distance of a lap
 		*/
-		virtual void usage(int) = 0;
-		
+		virtual void usage( float ) = 0 ;
+
 	private:
 		
 		/**
@@ -101,8 +98,6 @@ class Tyre {
 			@brief the pressure of the tyre
 		*/
 		float pressure;
-		
-	
-};	
+};
 
 #endif

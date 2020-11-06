@@ -1,7 +1,7 @@
 /**
    @file Soft.h
    @class Soft
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
  */
@@ -10,11 +10,6 @@
 #define SOFT_H
 
 #include "Tyre.h"
-
-#include <string>
-#include <iostream>
-
-using namespace std;
 
 class Soft: public Tyre {
 
@@ -26,7 +21,7 @@ class Soft: public Tyre {
 		Soft();
 
 		/**
-			Constructor
+			@brief Constructor
 			@param durability
 			@param grip
 			@param pressure
@@ -38,20 +33,17 @@ class Soft: public Tyre {
 		*/
 		~Soft();
 
-		/**
-			returns the type of wheel
-		*/
 		string getType();
-		
+
 		/**
-			calculates the usage per lap
-			@param distance of a lap
+			@brief to be used after every offical lap
+			@param float distance of lap
 		*/
-		void usage(int );
-		
-		private:
-		/** type of tyre */
-			string type;
+		void usage(float);
+
+private:
+	string type;
+
 };
 
 #endif

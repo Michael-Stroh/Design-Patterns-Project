@@ -11,10 +11,6 @@
 
 #include "Result.h"
 #include "RaceResult.h"
-#include <map>
-#include <string>
-#include <vector>
-using namespace std;
 
 class GrandPrixResult : public Result
 {

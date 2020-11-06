@@ -23,7 +23,7 @@ class LogisticsStrategy {
 		/**
 			Constructor
 		*/
-		LogisticsStrategy(vector<RaceTrack*>);
+		LogisticsStrategy( vector<RaceTrack*> );
 
 		/**
 			Destructor

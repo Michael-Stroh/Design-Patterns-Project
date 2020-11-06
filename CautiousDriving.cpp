@@ -1,22 +1,26 @@
 #include "CautiousDriving.h"
 
-CautiousDriving::CautiousDriving():Driver() {
-	cout << "Cautious driving" << endl;
+CautiousDriving::CautiousDriving() :Driver() {
+	this->type = "Cautious";
+	setAggression(30);
 }
 
 
-CautiousDriving::CautiousDriving(string name, float specialMove): Driver(name, 30, specialMove){
-	cout << "Cautious Driving" << endl;
+CautiousDriving::CautiousDriving(string name, float error) : Driver(name, 30, error) {
+	this->type = "Cautious";
 }
 
-CautiousDriving::CautiousDriving(Driver* d): Driver(d->getName(), 30, d->getSpecialMove()){
-	cout << "Cautious Driving" << endl;
+CautiousDriving::CautiousDriving(Driver* d) : Driver(d->getName(), 30, d->getErrorProne()) {
+	this->type = "Cautious";
 }
 
-CautiousDriving::~CautiousDriving(){
+CautiousDriving::~CautiousDriving() {
 }
 
+void CautiousDriving::displayDriver() {
+	cout << "Name: " << getName() << "\tAggression: " << getAggression() << "\tLevel: Cautious" << endl;
+}
 
-void CautiousDriving::displayDriver(){
-	 cout <<"Name: "<< getName() << "\tSpecial Move: " << getSpecialMove() << "\tAggression: "<< getAggression() << "\tLevel: Cautious" << endl;
+string CautiousDriving::getType() {
+	return type;
 }
