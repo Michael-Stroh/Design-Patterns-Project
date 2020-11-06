@@ -3,22 +3,30 @@
 #include "RaceSeason.h"
 #include <iostream>
 
-//Main Helper Functions
+//Main Helper Functions predeclarationb
 vector<GrandPrix*> createGrandPrixs( CompositeRoad* );
 vector<RaceTeam* > createRaceTeams( int );
-CompositeRoad* populateCircuit( const string& );
+void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
 
+//this will hold all the created circuits
+CompositeRoad* circuit;
+
 int main() {
 
-		cout << "Successful compilation" << endl;
 
-		int numberOfTeams = 10;                                                                                //Should this not be 5??
+		int numberOfTeams = 10;                                                                     //Should this not be 5??
 
+		////////////////Creation////////////////
 
-		//Creation
-		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
+		//instantiate the CompositeRoad pointer
+		circuit = new CompositeRoad();
+		//call the function to read the circuits in from the file
+		populateCircuit("Data/races.txt" );
+
+				/// TODO: the file path will change depending what files are stored in which folders
+
 
 		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
@@ -44,7 +52,7 @@ int main() {
 			Deletion
 			Mike Will handle Deletion
 		*/
-
+		delete circuit;
 }
 
 vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
@@ -105,7 +113,7 @@ string trim( string temp ) {
 	return temp;
 }
 
-CompositeRoad*  populateCircuit( const string& fileName ) {
+void  populateCircuit( const string& fileName ) {
 
 	string line;
 	ifstream file;
@@ -204,8 +212,6 @@ CompositeRoad*  populateCircuit( const string& fileName ) {
 	else {
 
 		Logger::cyan( "Error", "The file not found." );
-
 	}
 
-	return nullptr;
 }
