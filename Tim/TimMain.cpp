@@ -1,14 +1,13 @@
-
-/*  
+/*
 #include <iostream>
-#include "utilities/Logger.h"
-#include "CarBuilder.h"
-#include "CarComposite.h"
+#include "../utilities/Logger.h"
+#include "../CarBuilder.h"
+#include "../CarComposite.h"
 
-#include "ChassisDepartment.h"
-#include "EngineDepartment.h"
-#include "ElectronicsDepartment.h"
-#include "AerodynamicsDepartment.h"
+#include "../ChassisDepartment.h"
+#include "../EngineDepartment.h"
+#include "../ElectronicsDepartment.h"
+#include "../AerodynamicsDepartment.h"
 
 using namespace std;
 
@@ -56,7 +55,7 @@ int main()
             Test 3: -Ensuring the Car Memento Function works as it should
                     -no formal CareTaker will be used in this test.
 
-    *  
+    * 
     
     CarMemento* mem = car->createCarMemento();
     cout << "Printing out car1 statistics" << endl;
@@ -129,7 +128,7 @@ int main()
     cout << "Max Handling: " << max[1] << endl;
     cout << "Max Speed: " << max[2] << endl;
     
-    *
+
 
     //add debug logging to the destructors for extra testing
     delete builder;

@@ -19,6 +19,8 @@ GrandPrix::~GrandPrix() {
 
 Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
 
+    Logger::debug("Running GrandPrix", "Circuit: " + this->circuit->getName());
+
     // Perform the practice race
     this->race->setState( "Practice" );
     Result* practiceResult = this->race->runRace( nullptr, teams, circuit );

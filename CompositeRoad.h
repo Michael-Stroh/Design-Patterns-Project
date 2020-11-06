@@ -31,7 +31,6 @@ class CompositeRoad: public Circuit {
 		/**
 			@brief Constructor
 			Creates the object with the given name
-
 			@param[in] RoadName used to identify the object
 		*/
 		CompositeRoad( string );

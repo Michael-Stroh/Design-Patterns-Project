@@ -20,7 +20,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	float timeLeft;
 	float longestLapTime;
 	RaceResult *qualifyingResult = new RaceResult();
-
+	Logger::debug("Running first stage of qualifiers","");
 	// 3 stage "knockout" system
 
 	// Stage 1 - All 20 teams
@@ -48,6 +48,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	}
 	qualifyingResult->placeBottomXOnGrid(5);
 
+	Logger::debug("Running second stage of qualifiers", "");
 	// Stage 2 - Top 15 teams
 	// 15 minutes long
 	timeLeft = 900.00; // 15 minutes in seconds
@@ -77,6 +78,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	}
 	qualifyingResult->placeBottomXOnGrid(5);
 
+	Logger::debug("Running final stage of qualifiers", "");
 	// Stage 3 - Top 10 teams
 	// 12 minutes long
 	timeLeft = 720.00; // 12 minutes in seconds
@@ -105,7 +107,9 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 		timeLeft -= longestLapTime;
 	}
 	qualifyingResult->placeBottomXOnGrid(10);
+	Logger::debug("Final qualifying round grid positions", "");
+	qualifyingResult->printGridPositions();
 
-	qualifyingResult->apply107Rule();
+	// qualifyingResult->apply107Rule();
 	return qualifyingResult;
 }
