@@ -41,6 +41,8 @@ int main() {
 
 		grandPrixs = vector<GrandPrix *>();
 		createGrandPrixs();                                                                         //Alex: done
+
+
 		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
