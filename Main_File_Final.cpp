@@ -1,10 +1,7 @@
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "RaceSeason.h"
-
 #include <iostream>
-#include <string>
-using namespace std;
 
 //Main Helper Functions
 vector<GrandPrix*> createGrandPrixs( CompositeRoad* );
