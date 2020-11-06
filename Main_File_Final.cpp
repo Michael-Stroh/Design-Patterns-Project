@@ -41,7 +41,7 @@ int main() {
 		for ( int i = 0; i < grandPrixs.size(); ++ i ) {
 
 			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
-			raceSeason->runNextGrandPrix();                     									//Alex: run race, maybe check maybe dont I am not your mom
+			raceSeason->runNextGrandPrix();                     									//Alex: run race, isEuro check isEuro dont I am not your mom
 			grandPrixs[ i ]->displayResult();                    									//Alex, Make sure it uses logger
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
@@ -115,103 +115,134 @@ string trim( string temp ) {
 
 void  populateCircuit( const string& fileName ) {
 
-	string line;
-	ifstream file;
+	/*
+		Order of the races.txt file
 
+	 		circuitName | bestLapTime( seconds ) | lapLength( km ) | numberOfLaps | longestStriaght( m ) | numberOfCorners | startDate( M-D ) | endDate( M-D ) | pitStop( s)  | European | direction
+	*/
+
+	//create a file variable and open the given file
+	ifstream file;
 	file.open( fileName.c_str() );
+
+	//check if the file can open
 	if ( file.is_open() ) {
 
+		//the file can open, therefore exists
+
+		//go through each line in the file
+		string line;
 		while ( getline(file, line ) ) {
 
-			int pos = 0;
-			int size = line.size();
-			string name, direction, startingDate, endingDate, euro;
-			float disLap, wind = 0, longestStraight, fastestLap, averagePitStop;
-			int numCorners, numLaps;
+			//variables to hold the data read from the file
+			float wind = 0, disLap, straight, bestLap, pitStop;
+			int size = line.size(), pos = 0, numCorners, numLaps;
+			string name, direction, startDate, endDate, euro;
 
 
 			string temp = line;
 
+			//find the first value, the name
 			pos = temp.find_first_of( '|' );
 			name = trim( temp.substr( 0, pos - 1 ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value, the name
 			pos = temp.find_first_of( '|' );
-			fastestLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			bestLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
 			disLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
 			numLaps = stoi( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
-			longestStraight = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			straight = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
 			numCorners = stoi( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
-			startingDate = trim( temp.substr( 0, pos - 1 ) );
+			startDate = trim( temp.substr( 0, pos - 1 ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
-			endingDate = temp.substr( 0, pos - 1 );
+			endDate = temp.substr( 0, pos - 1 );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
-			averagePitStop = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			pitStop = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
 			euro = trim( temp.substr( 0, pos - 1 ) );
 			temp = temp.substr( pos + 1, size );
 
+			//find the first value,
 			pos = temp.find_first_of( '|' );
 			direction = trim( temp.substr( 0, pos - 1 ) );
 			temp = temp.substr( pos + 1, size );
 
-			RaceTrack* tmp = nullptr;
+
+
+
+			//determine the enum direction from the string value
+			RaceTrack::direction dir = RaceTrack::direction::clockwise;
 			if ( direction == "clockwise" ) {
 
-				tmp = new RaceTrack( name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners,
-									 numLaps );
+				//the track will be raced clockwise
+				dir = RaceTrack::direction::clockwise;
 			} else if ( direction == "anticlockwise" ) {
 
-				tmp = new RaceTrack( name, RaceTrack::direction::anticlockwise, disLap, wind, longestStraight,
-									 numCorners, numLaps );
+				//the track will be raced anti-clockwise
+				dir = RaceTrack::direction::anticlockwise;
 			} else {
 
-				Logger::cyan( "Error", "Wrong direction given." );
+				//the value given is invalid so take the default of true and output the error
+				Logger::cyan( "Error", "Incorrect direction value given in " + fileName + "." );
 			}
 
-			tmp->setStartDate( startingDate );
-			tmp->setEndDate( endingDate );
-			bool maybe = true;
+			//determine the bool value for European from the string value
 			euro = trim( euro );
-
+			bool isEuro = true;
 			if ( euro == "true" ) {
 
-				maybe = true;
+				//the race is in Europe
+				isEuro = true;
 			} else if ( euro == "false" ) {
 
-				maybe = false;
+				//the race is not in Europe
+				isEuro = false;
 			} else {
 
-				Logger::cyan( "Error", "The file not found." );
+				//the value given is invalid so take the default of true and output the error
+				Logger::cyan( "Error", "Incorrect european value given in " + fileName + "." );
 			}
-			tmp->setAvgPitStops( averagePitStop );
-			tmp->setEuro( maybe );
+
+
+			//create the RaceTrack from the given data and add it to the Circuit
+			circuit->addRoad( new RaceTrack( name, dir, disLap, wind, straight, pitStop,
+											 bestLap, numCorners, numLaps, isEuro, startDate, endDate ) );
 		}
 	}
 	else {
 
-		Logger::cyan( "Error", "The file not found." );
+		//the file could not open, most likely does not exist
+		Logger::cyan( "Error", "The file not found therefore could not create circuits( main )." );
 	}
 
 }
