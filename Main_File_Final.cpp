@@ -70,7 +70,9 @@ vector<GrandPrix*> createGrandPrixs() {
 		Alex: has created the GrandPrixs
 	*/
 	vector<GrandPrix *> vec = vector<GrandPrix *>();
-	CircuitIterator *circuitIterator = circuit->createIterator();
+	CircuitIterator* circuitIterator = circuit->createIterator();
+
+	circuitIterator->first();
 	while ( !circuitIterator->isDone() ) {
 
 		vec.push_back( new GrandPrix( ( circuitIterator->currentItem() ) ) );
