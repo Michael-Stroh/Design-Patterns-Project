@@ -1,7 +1,7 @@
 #include "EngineeringDepartment.h"
 
 //should never be used
-EngineeringDepartment::EngineeringDepartment() 
+EngineeringDepartment::EngineeringDepartment()
 {
 	simulationState = nullptr;
 	remainingBudget = 0;
@@ -10,7 +10,7 @@ EngineeringDepartment::EngineeringDepartment()
 }
 
 
-EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, float budgetLimit)
+EngineeringDepartment::EngineeringDepartment(Simulation* state, Budget* budget, float budgetLimit)
 {
 	simulationState = state;
 	this->budget = budget;
@@ -18,7 +18,7 @@ EngineeringDepartment::EngineeringDepartment(Simulation* state,Budget * budget, 
 	remainingBudget = budget->getBudget();
 }
 
-EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
+EngineeringDepartment::EngineeringDepartment(Budget* budget, float budgetLimit)
 {
 	simulationState = new AccelerationSimulation();
 	this->budget = budget;
@@ -26,13 +26,14 @@ EngineeringDepartment::EngineeringDepartment(Budget * budget, float budgetLimit)
 	remainingBudget = budget->getBudget();
 }
 
-EngineeringDepartment::~EngineeringDepartment() 
+EngineeringDepartment::~EngineeringDepartment()
 {
 	delete simulationState;
 	simulationState = nullptr;
+	delete budget;
 }
 
-void EngineeringDepartment::updateBudgetLimit(float newBudgetLimit) 
+void EngineeringDepartment::updateBudgetLimit(float newBudgetLimit)
 {
 	budgetLimit = newBudgetLimit;
 }
@@ -47,11 +48,11 @@ void EngineeringDepartment::updateRemainingBudget(float newRemainingBudget)
 	remainingBudget = newRemainingBudget;
 }
 
-void EngineeringDepartment::setBudget(Budget* budget)
+
+
+void EngineeringDepartment::update()
 {
-	if (this->budget != nullptr)
-		delete this->budget;
-	this->budget = budget;
+	remainingBudget = budget->getBudget();
 }
 
-const float EngineeringDepartment::costPerSimulation = 100; 
+const float EngineeringDepartment::costPerSimulation = 100;

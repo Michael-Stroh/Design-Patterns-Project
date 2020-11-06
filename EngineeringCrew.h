@@ -45,6 +45,9 @@ class EngineeringCrew {
 		*/
 		void setCar( Car* );
 
+		/**
+			@brief
+		*/
 		void calculateBudget(int);
 
 		/**
@@ -53,8 +56,9 @@ class EngineeringCrew {
 		*/
 		CarComposite * getNextSeasonCar();
 
+		void updateDepartmentBudgets();
+
 		/**
-			
 			@param
 		*/
 		void setNextSeasonCar( Car* );

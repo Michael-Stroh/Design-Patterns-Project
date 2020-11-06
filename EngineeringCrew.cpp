@@ -1,15 +1,27 @@
 #include "EngineeringCrew.h"
 
-EngineeringCrew::EngineeringCrew() {
+EngineeringCrew::EngineeringCrew() 
+{
 
-	// TODO - implement EngineeringCrew::EngineeringCrew
-	throw "Not yet implemented";
+	budget = new Budget();		//actual amount gets
+	//Build car n shit
+	departments[0] = new EngineDepartment(budget, 0);
+	departments[1] = new ElectronicsDepartment(budget, 0);
+	departments[2] = new ChassisDepartment(budget, 0);
+	departments[3] = new AerodynamicsDepartment(budget, 0);
+
+	for (int i = 0; i < departments.size(); ++i)
+		budget->attach(departments[0]);
 }
 
 
-EngineeringCrew::~EngineeringCrew() {
-
-	// TODO - implement EngineeringCrew::EngineeringCrew
+EngineeringCrew::~EngineeringCrew()
+{
+	for (int i = 0; i < departments.size(); ++i)
+		budget->detach(departments[i]);
+	delete budget;
+	for (int i = 0; i < departments.size(); ++i)
+		departments[i];
 }
 
 CarComposite* EngineeringCrew::getCar() {
@@ -30,13 +42,25 @@ CarComposite * EngineeringCrew::getNextSeasonCar() {
 	throw "Not yet implemented";
 }
 
-void EngineeringCrew::setNextSeasonCar( Car* car ) {
+void EngineeringCrew::setNextSeasonCar( Car* car ) 
+{
 
-	// TODO - implement EngineeringCrew::setnextSeasonCar
-	throw "Not yet implemented";
+	
 }
 
 void EngineeringCrew::calculateBudget(int numGrandPrixs)
 {
-	throw "Not implemented yet";
+	float totalInitialBalance = numGrandPrixs * moneyPerGrandPrix;
+	budget->setBudget(totalInitialBalance);
+	budget->notifyAll();	
+	for (int i = 0; i < departments.size(); ++i)
+		departments[i]->updateBudgetLimit(totalInitialBalance - moneyPerGrandPrix);
 }
+
+void EngineeringCrew::updateDepartmentBudgets()
+{
+	for (int i = 0; i < departments.size(); ++i)
+		departments[i]->updateBudgetLimit(departments[i]->getBudgetLimit() - moneyPerGrandPrix);
+}
+
+const float EngineeringCrew::moneyPerGrandPrix = 1000;
