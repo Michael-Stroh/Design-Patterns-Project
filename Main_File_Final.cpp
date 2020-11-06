@@ -15,36 +15,39 @@ void endGrandPrix();
 
 int main() {
 
-	cout << "Successful compilation" << endl;
+		cout << "Successful compilation" << endl;
 
-	int numberOfTeams = 10;								//Should this not be 5??
-
-
-			//Creation
-			CompositeRoad* circuit = populateCircuit( "Data/races.txt" );						//Mike -create these function definitions
-
-			vector< GrandPrix* > grandPrixs = createGrandPrixs(circuit);	//Alex
-			vector< RaceTeam* >  raceTeams = createRaceTeams(numberOfTeams);		    //Tim
-			RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams);
-	
-
-			//Notification
-			raceSeason->prepareSeason();		//Brent do inform grandPrixs
-
-			//RaceLoop
-			for ( int i = 0; i < grandPrixs.size(); ++ i ) {
-				prepareForNextRace( raceTeams, grandPrixs[i] );	 //Tim and Kayla calls doDayPreparetion in RaceTeam
-				raceSeason->runNextGrandPrix();					 //Alex: run race, maybe check maybe dont I am not your mom
-				grandPrixs[i]->displayResult();					//Alex, Make sure it uses logger
-				endGrandPrix();									//Brent: Do what needs be done for logistics after a grandprix.
-			}
-			raceSeason->getResult()->print();					//Alex double check this printss nicely
+		int numberOfTeams = 10;                                                                                //Should this not be 5??
 
 
-			/*
-			 	Deletion
-				Mike Will handle Deletion
-			*/
+		//Creation
+		CompositeRoad* circuit = populateCircuit(
+				"Data/races.txt" );                        //Mike -create these function definitions
+
+		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                                //Alex
+		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                            //Tim
+		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
+
+
+
+		//Notification
+		raceSeason->prepareSeason();																//Brent do inform grandPrixs
+
+		//RaceLoop
+		for ( int i = 0; i < grandPrixs.size(); ++ i ) {
+
+			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
+			raceSeason->runNextGrandPrix();                     									//Alex: run race, maybe check maybe dont I am not your mom
+			grandPrixs[ i ]->displayResult();                    									//Alex, Make sure it uses logger
+			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
+		}
+		raceSeason->getResult()->print();															//Alex double check this printss nicely
+
+
+		/*
+			Deletion
+			Mike Will handle Deletion
+		*/
 
 }
 
@@ -68,7 +71,7 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	return vec;
 }
 
-void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix * gp ) {
+void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
 
 	/*
 		Brents Portion
