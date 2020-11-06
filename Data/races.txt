@@ -1,6 +1,6 @@
  Albert Park | 84.125 | 5.303 | 58 | 843  | 16 | 03-15 | 03-17 | 16.8 | false | clockwise | 5.458
  Bahrain International Circuit | 91.447 | 5.412 | 57 | 1205 | 15 | 03-29 | 03-31 | 18.9 | false | clockwise | 8.52
- Shanghai International Circuit | 92.238 | 5.451 | 56 | 1397 | 16 | 04-12 | 04-14 | 17.2 | false | clockwise| 1.337
+ Shanghai International Circuit | 92.238 | 5.451 | 56 | 1397 | 16 | 04-12 | 04-14 | 17.2 | false | clockwise | 1.337
  Baku City Circuit | 103.441| 6.003 | 51 | 2010 | 20 | 04-26 | 04-28 | 22.0 | false | clockwise | 7.518
  Circuit de Catalunya | 81.670 | 4.655 | 66 | 1310 | 16 | 05-10 | 05-12 | 16.6 | true | clockwise | 6.478
  Monaco | 74.260 | 3.337 | 78 | 669  | 19 | 05-23 | 05-26 | 18.5 | true | anticlockwise | 14.478

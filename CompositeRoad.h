@@ -84,6 +84,18 @@ class CompositeRoad: public Circuit {
 		*/
 		RaceTrack *getRoad( int );
 
+		/**
+			@brief Determines the needed Max values from all the stored RaceTracks
+		 	this is mostly used to determine the inner works of the car its not so relevant
+		*/
+		void determineMaxValues();
+
+		/**
+			@brief Determines the needed Min values from all the stored RaceTracks
+		 	this is mostly used to determine the inner works of the car its not so relevant
+		*/
+		void determineMinValues();
+
 	private:
 
 		/**

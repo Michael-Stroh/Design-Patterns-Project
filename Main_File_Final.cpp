@@ -25,8 +25,13 @@ int main() {
 		//call the function to read the circuits in from the file
 		populateCircuit("Data/races.txt" );
 
+
 		//test to see if the RaceTracks were created
-		/*circuit->print();
+		/*circuit->determineMaxValues();
+		circuit->determineMinValues();
+		cout << endl << endl;
+
+		circuit->print();
 		cout << endl << endl;*/
 
 				/// TODO: the file path will change depending what files are stored in which folders
@@ -93,12 +98,12 @@ void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
 	/*
 		Tim's portion
 	*/
-	
+
 	for ( int i = 0; i < team.size(); ++ i ) {
 
-			team[ i ]->prepareForNextRace(); 
+			team[ i ]->prepareForNextRace();
 	}
-	
+
 
 	/*
 	End of Tim's Portion
