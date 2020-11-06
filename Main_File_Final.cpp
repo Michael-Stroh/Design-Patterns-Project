@@ -22,7 +22,7 @@ int main() {
 
 	//******IDEA ALGORITHM******
 			//Creation
-			Circuit * circuit = populateCircuit(circuitFileName);						//Mike -create these function definitions
+			Circuit * circuit = populateCircuit( "Data/races.txt" );						//Mike -create these function definitions
 			vector<GrandPrix*> grandPrixs = createGrandPrixs(circuit);	//Alex 
 			vector<RaceTeam*>  raceTeams = createRaceTeams(numberOfTeams);		    //Tim
 			RaceSeason * raceSeason = new RaceSeason( grandPrixs, raceTeams);
