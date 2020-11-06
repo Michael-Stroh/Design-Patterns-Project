@@ -113,3 +113,8 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	// qualifyingResult->apply107Rule();
 	return qualifyingResult;
 }
+
+string QualifyingState::getStateName()
+{
+	return "Qualifying";
+}

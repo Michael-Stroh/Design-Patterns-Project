@@ -49,3 +49,8 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	officialRaceResult->print();
 	return officialRaceResult;
 }
+
+string OfficialState::getStateName()
+{
+	return "Official";
+}

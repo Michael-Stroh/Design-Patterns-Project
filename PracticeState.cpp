@@ -56,3 +56,7 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTra
 	}
 	return raceResult;
 }
+
+string PracticeState::getStateName(){
+	return "Practice";
+}

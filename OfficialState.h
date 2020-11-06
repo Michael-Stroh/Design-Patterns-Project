@@ -41,6 +41,11 @@ public:
 		*/
 	Result* runRace( Result*, vector< RaceTeam* >, RaceTrack* );
 
+	/**
+			@brief: Returns the name of the current state as a string
+		*/
+	string getStateName();
+
 private:
 	/**
 		@brief The subject that will allow all teams to be informed of any necessary information before or during the official race.
