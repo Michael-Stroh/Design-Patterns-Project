@@ -87,7 +87,7 @@ void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
 	*/
 
 	/*
-		Tim's potrion
+		Tim's portion
 	*/
 	
 	for ( int i = 0; i < team.size(); ++ i ) {
@@ -135,7 +135,7 @@ void  populateCircuit( const string& fileName ) {
 		while ( getline(file, line ) ) {
 
 			//variables to hold the data read from the file
-			float wind = 0, disLap, straight, bestLap, pitStop;
+			float wind = 0, dist, straightDist, bestLap, pitStop;
 			int size = line.size(), pos = 0, numCorners, numLaps;
 			string name, direction, startDate, endDate, euro;
 
@@ -154,7 +154,7 @@ void  populateCircuit( const string& fileName ) {
 
 			//find the first value,
 			pos = temp.find_first_of( '|' );
-			disLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			dist = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
 			//find the first value,
@@ -164,7 +164,7 @@ void  populateCircuit( const string& fileName ) {
 
 			//find the first value,
 			pos = temp.find_first_of( '|' );
-			straight = stof( trim( temp.substr( 0, pos - 1 ) ) );
+			straightDist = stof( trim( temp.substr( 0, pos - 1 ) ) );
 			temp = temp.substr( pos + 1, size );
 
 			//find the first value,
@@ -235,7 +235,7 @@ void  populateCircuit( const string& fileName ) {
 
 
 			//create the RaceTrack from the given data and add it to the Circuit
-			circuit->addRoad( new RaceTrack( name, dir, disLap, wind, straight, pitStop,
+			circuit->addRoad( new RaceTrack( name, dir, dist, wind, straightDist, pitStop,
 											 bestLap, numCorners, numLaps, isEuro, startDate, endDate ) );
 		}
 	}
