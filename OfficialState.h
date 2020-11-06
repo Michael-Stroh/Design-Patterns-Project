@@ -12,6 +12,7 @@
 #define OFFICIALSTATE_H
 
 #include "RaceSubject.h"
+#include "OfficialRaceSubject.h"
 #include "RaceState.h"
 #include "RaceTeam.h"
 #include "Result.h"
@@ -50,7 +51,7 @@ private:
 	/**
 		@brief The subject that will allow all teams to be informed of any necessary information before or during the official race.
 		*/
-	RaceSubject *raceSubject;
+	RaceSubject *officialRaceSubject;
 };
 
 #endif

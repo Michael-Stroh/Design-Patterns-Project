@@ -11,6 +11,7 @@
 #ifndef QUALIFYINGSTATE_H
 #define QUALIFYINGSTATE_H
 
+#include "QualifyingRaceSubject.h"
 #include "RaceSubject.h"
 #include "RaceState.h"
 #include "RaceTeam.h"
