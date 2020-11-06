@@ -83,6 +83,12 @@ class RaceResult : public Result {
 		*/
 		bool isQualified(string);
 
+		/**
+			@brief Returns the drivers performance in the current race
+			@details: Returns a value from 0 to 1, 1 meaning they're first in the race & 0 meaning they're last
+		*/
+		float getDriverPerformanceRating(string);
+
 	private:
 		/**
 			@brief A collection of all the lapresults for the current race

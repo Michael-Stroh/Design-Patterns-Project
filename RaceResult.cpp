@@ -325,3 +325,17 @@ bool RaceResult::isQualified(string driverName){
 	}
 	return found;
 }
+
+float RaceResult::getDriverPerformanceRating(string driverName){
+	vector<pair<string, int>> driverResults = this->getDriverResults();
+	vector<pair<string, int>>::iterator it;
+	int numDrivers = driverResults.size();
+	float performanceMetric = 0;
+	for(it = driverResults.begin(); it != driverResults.end(); ++it){
+		if(it->first == driverName){
+			performanceMetric = 1 - (it->second / numDrivers);
+			break;
+		}
+	}
+	return performanceMetric;
+}
