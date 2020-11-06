@@ -20,7 +20,7 @@ int main() {
 		//Creation
 		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex
+		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex: done
 		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
@@ -49,11 +49,15 @@ int main() {
 
 vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
 
-	vector<GrandPrix*> vec;
-
 	/*
-			Alex: create the GrandPrixs
+		Alex: has created the GrandPrixs
 	*/
+	vector<GrandPrix *> vec = vector<GrandPrix *>();
+	CircuitIterator *circuitIterator = dynamic_cast<CircuitIterator*>(circuit->createIterator());
+	while(!circuitIterator->isDone()){
+		vec.push_back(new GrandPrix((circuitIterator->currentItem())));
+		circuitIterator->next();
+	}
 	return vec;
 }
 
