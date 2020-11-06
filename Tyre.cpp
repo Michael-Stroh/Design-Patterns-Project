@@ -1,35 +1,30 @@
 #include "Tyre.h"
 
-Tyre::Tyre() {
+Tyre::Tyre(): durability( 0 ), grip( 0 ), pressure( 0 ) {
 
-	// TODO - implement Tyre::Tyre
-	throw "Not yet implemented";
 }
 
 Tyre::Tyre( int StartDurability, int StartGrip, float StartPressure ):
 		durability( StartDurability ), grip( StartGrip ), pressure( StartPressure ) {
-
-	// TODO - implement Tyre::Tyre
-	throw "Not yet implemented";
 }
 
 Tyre::~Tyre() {
 
 }
 
-int Tyre::getDurability() {
+int Tyre::getDurability() const {
 
-	return this->durability;
+	return durability;
 }
 
 void Tyre::setDurability( int StartDurability ) {
 
-	this->durability = StartDurability;
+	durability = StartDurability;
 }
 
-int Tyre::getGrip() {
+int Tyre::getGrip() const {
 
-	return this->grip;
+	return grip;
 }
 
 void Tyre::setGrip( int StartGrip ) {
@@ -37,9 +32,9 @@ void Tyre::setGrip( int StartGrip ) {
 	this->grip = StartGrip;
 }
 
-float Tyre::getPressure() {
+float Tyre::getPressure() const {
 
-	return this->pressure;
+	return pressure;
 }
 
 void Tyre::setPressure( float StartPressure ) {
@@ -55,4 +50,10 @@ void Tyre::setType( string typeTyre ) {
 string Tyre::getType() {
 
 	return type;
+}
+
+void Tyre::usage( int distance ) {
+
+	setDurability( getDurability() / distance );
+	setGrip( getGrip() -1);
 }

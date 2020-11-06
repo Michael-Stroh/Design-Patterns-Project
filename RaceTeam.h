@@ -45,6 +45,12 @@ public:
 	RaceTeam();
 
 	/**
+	 	@brief: Value constructor taking a string as a teamname (for testing purposes only)
+		@todo: Remove from final implementation
+	*/
+	RaceTeam(string);
+
+	/**
 			Destructor
 		*/
 	~RaceTeam();
@@ -114,6 +120,12 @@ public:
 	*/
 	Budget * createSeasonBudget();
 
+	/**
+		@brief Returns the team's name for identification and testing purposes
+		@todo: Remove from final implementation
+	*/
+	string getName();
+
 private:
 	/**
 			@brief: A vector containing all the grand prixs that will take place during a season
@@ -170,6 +182,12 @@ private:
 		@warning this amount still needs to be calibrated
 	*/
 	const static float moneyPerGrandPrix;
+
+	/**
+		@brief: A string containing the name of the team for identification during testing
+		@todo: Remove from final implementation
+	*/
+	string teamName;
 };
 
 #endif

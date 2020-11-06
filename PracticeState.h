@@ -39,7 +39,7 @@ public:
 			@param Circuit: The circuit on which the practice race will take place.
 			@return The result of the practice race.
 		*/
-	Result *runRace(Result *, vector<RaceTeam *>, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *>, RaceTrack *);
 };
 
 #endif

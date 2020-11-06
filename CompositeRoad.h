@@ -11,6 +11,7 @@
 #define CompositeRoad_H
 
 #include "CircuitIterator.h"
+#include "RaceTrack.h"
 #include <vector>
 
 class Circuit;
@@ -44,13 +45,13 @@ class CompositeRoad: public Circuit {
 			Adds a road object to the tracks vector
 			@param[out] CreateRoad: reference to the road we want to add
 		*/
-		void addRoad( Circuit * );
+		void addRoad( RaceTrack* );
 
 		/**
 			Removes a road object to the tracks vector
 			@param[out] RemoveRoad: reference to the road we want to remove
 		*/
-		void removeRoad( Circuit * );
+		void removeRoad( RaceTrack* );
 
 		/**
 			Removes a road object to the tracks vector
@@ -81,14 +82,14 @@ class CompositeRoad: public Circuit {
 			@param index: location to return from
 			@return the specific Circuit in tracks
 		*/
-		Circuit *getRoad( int );
+		RaceTrack *getRoad( int );
 
 	private:
 
 		/**
 			@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		vector<Circuit *> tracks;
+		vector<RaceTrack* > tracks;
 };
 
 #include "Circuit.h"

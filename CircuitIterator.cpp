@@ -28,7 +28,7 @@ bool CircuitIterator::isDone() {
     return ( array->getSize() > index );
 }
 
-Circuit *CircuitIterator::currentItem() {
+RaceTrack *CircuitIterator::currentItem() {
 
     /*
         find and return the current object

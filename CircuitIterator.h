@@ -11,6 +11,7 @@
 #define CircuitITERATOR_H
 
 #include "Circuit.h"
+#include "RaceTrack.h"
 #include "Iterator.h"
 
 class CompositeRoad;
@@ -60,7 +61,7 @@ class CircuitIterator: public Iterator {
                 /**
                     Returns the current element
                 */
-                Circuit *currentItem();
+                RaceTrack* currentItem();
 
         private:
 
@@ -72,7 +73,7 @@ class CircuitIterator: public Iterator {
                 /**
                     @brief holds the data the iterator is accessing
                 */
-                CompositeRoad *array;
+                CompositeRoad* array;
 };
 
 #include "CompositeRoad.h"

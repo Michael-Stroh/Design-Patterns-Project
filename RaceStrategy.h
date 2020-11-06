@@ -12,6 +12,8 @@
 #include "TyreStrategy.h"
 #include "PitStopStrategy.h"
 #include "DriverStrategy.h"
+#include "RaceTrack.h"
+#include "Circuit.h"
 
 class RaceStrategy {
 	
@@ -19,8 +21,10 @@ class RaceStrategy {
 		
 		/**
 			Constructor
+		 	@param drive
+		 	@param track
 		*/
-		RaceStrategy();
+		RaceStrategy( Driver* , RaceTrack* );
 
 		/**
 			Destructor
@@ -28,36 +32,82 @@ class RaceStrategy {
 		~RaceStrategy();
 
 		/**
-			
+			makes the pitstop strategy and sets it
+			@param strategy
 		*/
-		void setPitStopStrategy();
+		void setPitStopStrategy( TyreStrategy* );
+		
 
 		/**
-			
+			makes the driver strategy and sets it
+			@param strategy
 		*/
-		void setDriverStrategy();
+		void setDriverStrategy( TyreStrategy* );
 
 		/**
-			
+			makes the tyre strategy and sets it
+			@param track
 		*/
-		void setTyreStrategy();
+		void setTyreStrategy( RaceTrack* );
+		
+		/**
+			returns the driver strategy
+		*/
+		DriverStrategy*  getDriverStrategy();
+		
+		/**
+			returns the tyre strategy variable
+		*/
+		TyreStrategy* getTyreStrategy();
+		
+		/**
+			set the driver
+			@param drive
+		*/
+		void setDriver( Driver* );
+		
+		/**
+			returns the driver that was set
+		 	@return
+		*/
+		Driver* getDriver();
+		
+		/**
+			returns the pitstop strategy
+		*/
+		PitStopStrategy* getPitStopStrategy();
 		
 	private:
 	
 		/**
-			@brief
+			@brief the variable that holds the tyre strategy
 		*/
-		TyreStrategy* tyreStrategy;
+		TyreStrategy* tyreStrategy{};
 		
 		/**
-			@brief
+			@brief the variable that holds the pit crew strategy
 		*/
-		PitStopStrategy* pitCrewStrategy;
+		PitStopStrategy* pitStopStrategy{};
 		
 		/**
-			@brief
+			@brief the variable that holds the driver strategy
 		*/
-		DriverStrategy* driverStrategy;
+		DriverStrategy* driverStrategy{};
+		
+		/**
+			@brief the variable that holds the driver
+		*/
+		Driver* driver;
+		
+		/**
+			@brief the variable that holds the race track
+		*/
+		RaceTrack* rt;
+		
+		/**
+			@brief name of the race to keep track of what strategy is for what
+		*/
+		string name;
 
 };
 

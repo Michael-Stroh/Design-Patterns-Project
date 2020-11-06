@@ -1,7 +1,7 @@
 /**
    @file Strategies.h
    @class Strategies
-   @authors Michael
+   @authors Brent
    @version 1.0.0
    @brief 
  */
@@ -9,8 +9,19 @@
 #ifndef STRATEGIES_H
 #define STRATEGIES_H
 
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <cstring>
+#include <string.h>
+#include <algorithm>
+
 #include "RaceStrategy.h"
 #include "LogisticsStrategy.h"
+#include "Driver.h"
+#include "CompositeRoad.h"
+
+using namespace std;
 
 class Strategies {
 
@@ -23,28 +34,50 @@ class Strategies {
 
 		/**
 			Constructor
-			@param
-			@param
+			@param the driver for the race
+			@param the name of the race
 		*/
-		Strategies( RaceStrategy*, LogisticsStrategy* );
+		void setRaceStrategy(Driver*, string name);
 
 		/**
 			Destructor
 		*/
 		~Strategies();
-
+		
 		/**
 			
 			@return
 		*/
-		int getLapNumber();
+		static int getMonth();
 
 		/**
 
-			@param
+			@param date
 		*/
-		void setLapNumber( int );
-
+		void setMonth( int );
+		
+		/**
+			called at the end of race for logistics and keeping track of races
+		*/
+		void endOfRace(string name);
+		
+		/**
+		returns the race strategy object
+		*/
+		RaceStrategy* getRaceStrategy();
+		
+		/**
+			prints the races vector
+		*/
+		void print();
+				
+		/**
+		*/
+		void setLogistics();
+				
+		/**
+		*/
+		vector<RaceTrack*> getRaceTrack();
 	private:
 	
 		/**
@@ -58,9 +91,12 @@ class Strategies {
 		LogisticsStrategy* logisticsStrategy;
 		
 		/**
-			@brief
-		*/
-		int lapNumber;
+			@brief vector to instantate the race strategy
+		*/		
+		vector<RaceTrack*> races;
+		
+		
+		
 };
 
 #endif

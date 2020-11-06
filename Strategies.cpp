@@ -1,26 +1,71 @@
 #include "Strategies.h"
 
-Strategies::Strategies() {
-	// TODO - implement Strategies::Strategies
-	throw "Not yet implemented";
+Strategies::Strategies(){
+
+	setLogistics();
 }
 
 Strategies::~Strategies() {
 
+	races.clear();
 }
 
-Strategies::Strategies( RaceStrategy* r, LogisticsStrategy* l ) {
+void Strategies::setRaceStrategy(Driver* driver, string name){
 
-	// TODO - implement Strategies::Strategies
-	throw "Not yet implemented";
+	raceStrategy = new RaceStrategy( driver, logisticsStrategy->getRace( name ) );
 }
 
-int Strategies::getLapNumber() {
+void Strategies::endOfRace( string name ) {
 
-	return this->lapNumber;
+	//delete raceStrategy;
+	logisticsStrategy->endOfRace( name );
 }
 
-void Strategies::setLapNumber( int num ) {
+RaceStrategy* Strategies::getRaceStrategy() {
 
-	lapNumber = num;
+	return raceStrategy;
 }
+
+void Strategies::setLogistics() {
+
+	logisticsStrategy =  new LogisticsStrategy(races);
+}
+
+void Strategies::print() {
+
+	for( int i =0; i < 21; i++){
+
+		RaceTrack* temp = races.at(i);
+		cout << temp->getName() << " " << temp->getDistance() << " " << temp->getLaps() << endl;
+	}
+}
+
+vector<RaceTrack*> Strategies::getRaceTrack() {
+
+	return races;
+}
+
+int Strategies::getMonth() {
+
+	return 0;
+}
+
+void Strategies::setMonth( int date ) {
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,7 +33,6 @@ void RaceResult::addResult(Result *r)
 		if (it2->first == lapResult->getDriverName())
 		{
 			alreadyRecorded = true;
-			it2->second += lapResult->getTeamName();
 			break;
 		}
 	}
@@ -269,7 +268,6 @@ void RaceResult::apply107Rule()
 	{
 		if (it->second > 1.07 * this->polePositionFastestLap)
 		{
-			Logger::debug("107 Rule", "Removed driver from grid" + it->first);
 			this->removeDriverFromGrid(it->first);
 		}
 	}
@@ -317,5 +315,13 @@ string RaceResult::getDriverTeam(string driverName)
 }
 
 bool RaceResult::isQualified(string driverName){
-	throw "Not yet implemented";
+	vector<pair<string, int>>::iterator it;
+	bool found = false;
+	for (it = driverGridPositions.begin(); it != driverGridPositions.end();++it){
+		if(it->first == driverName){
+			found = true;
+			break;
+		}
+	}
+	return found;
 }

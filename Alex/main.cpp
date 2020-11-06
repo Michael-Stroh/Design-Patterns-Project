@@ -7,6 +7,7 @@
 #include "../GrandPrix.h"
 #include "../RaceSeason.h"
 #include "../Race.h"
+#include "../RaceTrack.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -80,7 +81,36 @@ int main()
         // rsr->print();
 
         // Testing the race season & grand prix
-        
+
+        vector<GrandPrix *> grandPrixs = vector<GrandPrix *>();
+
+        grandPrixs.push_back(new GrandPrix(new RaceTrack("Race Track 1")));
+        grandPrixs.push_back(new GrandPrix(new RaceTrack("Race Track 2")));
+        grandPrixs.push_back(new GrandPrix(new RaceTrack("Race Track 3")));
+        grandPrixs.push_back(new GrandPrix(new RaceTrack("Race Track 4")));
+        grandPrixs.push_back(new GrandPrix(new RaceTrack("Race Track 5")));
+
+        vector<RaceTeam *> raceTeams = vector<RaceTeam *>();
+
+        raceTeams.push_back(new RaceTeam("Race Team 1"));
+        raceTeams.push_back(new RaceTeam("Race Team 2"));
+        raceTeams.push_back(new RaceTeam("Race Team 3"));
+        raceTeams.push_back(new RaceTeam("Race Team 4"));
+        raceTeams.push_back(new RaceTeam("Race Team 5"));
+        raceTeams.push_back(new RaceTeam("Race Team 6"));
+        raceTeams.push_back(new RaceTeam("Race Team 7"));
+        raceTeams.push_back(new RaceTeam("Race Team 8"));
+        raceTeams.push_back(new RaceTeam("Race Team 9"));
+        raceTeams.push_back(new RaceTeam("Race Team 10"));
+
+        RaceSeason *raceSeason = new RaceSeason(grandPrixs, raceTeams);
+
+        while(raceSeason->hasNextGrandPrix()){
+            raceSeason->runNextGrandPrix();
+        }
+
+        Logger::debug("Race Season Results", "");
+        raceSeason->getResult()->print();
     }
     catch (char const *s)
     {

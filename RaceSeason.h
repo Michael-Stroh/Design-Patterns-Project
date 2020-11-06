@@ -10,6 +10,7 @@
 #ifndef RACE_SEASON_H
 #define RACE_SEASON_H
 
+#include "utilities/Logger.h"
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "GrandPrixResult.h"
@@ -56,9 +57,25 @@ public:
 	Result *runSeason();
 
 	/**
+			@brief Runs the next GrandPrix in the raceSeason
+			@details Will use an iterator to run the "next" grandPrix in the season
+		*/
+	void runNextGrandPrix();
+
+	/**
+		@brief Returns where or not the race season has come to an end
+	*/
+	bool hasNextGrandPrix();
+
+	/**
 			@brief Performs all necessary actions that occur before the Race Season begins.
 		*/
 	void prepareSeason();
+
+	/**
+		@brief Returns the result of the RaceSeason
+	*/
+	Result* getResult();
 
 private:
 	/**
@@ -70,6 +87,11 @@ private:
 			@brief All of the racing teams that will participate in the racing season.
 		*/
 	vector<RaceTeam *> teams;
+
+	/**
+			@brief An iterator that will store the progress of the grandprixs during the race season
+		*/
+	vector<GrandPrix *>::iterator grandPrixIterator;
 
 	/**
 			@brief The overall Season Result, this will be updated everytime a grand prix completes.

@@ -6,6 +6,10 @@ Driver::Driver() {
 	this->specialMove = 0;
 }
 
+Driver::Driver(string name){
+	this->name = name;
+}
+
 Driver::Driver(string name, int aggr, float move) {
 	this->name = name;
 	this->aggression = aggr;

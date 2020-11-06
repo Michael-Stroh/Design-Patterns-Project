@@ -1,7 +1,7 @@
 /**
    @file LogisiticsStrategy.h
    @class LogisiticsStrategy
-   @authors Michael
+   @authors Brent
    @version 1.0.0
    @brief 
  */
@@ -14,6 +14,7 @@
 #include "RaceTrack.h"
 
 #include <vector> 
+#include <string>
 
 class LogisticsStrategy {
 
@@ -22,46 +23,59 @@ class LogisticsStrategy {
 		/**
 			Constructor
 		*/
-		LogisticsStrategy(RaceTrack* rt);
+		LogisticsStrategy( vector<RaceTrack*> );
 
 		/**
 			Destructor
 		*/
 		~LogisticsStrategy();
 		
+		Logistics* getLogistics(string name);
+		
+		void setDates(vector<RaceTrack*>);
+		
 		/**
 			signal method to transport car to factory
 		*/
-		void endOfRace();
+		void endOfRace(string name);
 		
 		/**
-			signal method to transport car from factory to race
-		*/
-		void startOfRace();
-		
-		/**
-			signal method to transport car from factory to race
-			@param month is the current month of the year
-		*/
-		void newMonthNewLog(int month);
-		
-		/**
-			@param the full date 
-			@brief takes the value  input and only returns the month as an int
+			signal method to transport car to factory
 		*/
 		int getMonth(string date);
-	
+		
+	/**
+			signal method to transport car to factory
+		*/
+		RaceTrack* getRace(string name);
+		
+		
 	private:
 
 		/**
-			@brief 
+			@brief holds the logisitics strategy for the whole season
 		*/
 		vector<Logistics*> logisitics;
 		
+		
 		/**
-			@brief 
+			@brief the variable that holds all the dates for when logisitics needs to happen
 		*/
-		RaceTrack* rt;
+		vector<string> dates;
+		
+		/**
+		*/
+		vector<string> names; 
+		
+		/**
+			@brief the variable that holds all the dates for when logisitics needs to happen
+		*/
+		vector<RaceTrack*> races;
+		
+		/**
+		
+		*/
+		int tracker;
 };
 
 #endif
