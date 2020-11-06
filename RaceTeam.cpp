@@ -173,3 +173,23 @@ string RaceTeam::getName(){
 	return this->teamName;
 }
 
+void RaceTeam::prepareForNextRace() {
+
+}
+
+void RaceTeam::startRace() {
+
+}
+
+void RaceTeam::endRace() {
+
+}
+
+void RaceTeam::decideNextStrategy( GrandPrix* ) {
+
+}
+
+void RaceTeam::endOfGrandPrix() {
+
+}
+
