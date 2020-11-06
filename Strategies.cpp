@@ -2,7 +2,7 @@
 
 Strategies::Strategies(){
 
-	setLogisitics();
+	setLogistics();
 }
 
 Strategies::~Strategies() {
@@ -12,26 +12,26 @@ Strategies::~Strategies() {
 
 void Strategies::setRaceStrategy(Driver* driver, string name){
 
-	raceStrategy = new RaceStrategy(driver, logisticsStrategy->getRace(name));
+	raceStrategy = new RaceStrategy( driver, logisticsStrategy->getRace( name ) );
 }
 
-void Strategies::endOfRace(string name){
+void Strategies::endOfRace( string name ) {
 
 	//delete raceStrategy;
-	logisticsStrategy->endOfRace(name);
+	logisticsStrategy->endOfRace( name );
 }
 
-RaceStrategy* Strategies::getRaceStrategy(){
+RaceStrategy* Strategies::getRaceStrategy() {
 
 	return raceStrategy;
 }
 
-void Strategies::setLogisitics(){
+void Strategies::setLogistics() {
 
 	logisticsStrategy =  new LogisticsStrategy(races);
 }
 
-void Strategies::print(){
+void Strategies::print() {
 
 	for( int i =0; i < 21; i++){
 
@@ -40,15 +40,19 @@ void Strategies::print(){
 	}
 }
 
+vector<RaceTrack*> Strategies::getRaceTrack() {
 
-string Strategies::trim(string temp){
-	string nono = "\t\n\v\f\r ";
-	temp.erase(0, temp.erase(temp.find_last_not_of(nono)+1).find_first_not_of(nono));
-	return temp; 
+	return races;
 }
 
-vector<RaceTrack*> Strategies::getRaceTrack(){
-	return races;
+int Strategies::getMonth() {
+
+	return 0;
+}
+
+void Strategies::setMonth( int date ) {
+
+
 }
 
 
