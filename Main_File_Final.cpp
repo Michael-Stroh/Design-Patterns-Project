@@ -25,6 +25,10 @@ int main() {
 		//call the function to read the circuits in from the file
 		populateCircuit("Data/races.txt" );
 
+		//test to see if the RaceTracks were created
+		circuit->print();
+		cout << endl << endl;
+
 				/// TODO: the file path will change depending what files are stored in which folders
 
 
@@ -136,7 +140,7 @@ void  populateCircuit( const string& fileName ) {
 
 			//variables to hold the data read from the file
 			float wind = 0, dist, straightDist, bestLap, pitStop;
-			int size = line.size(), pos = 0, numCorners, numLaps;
+			int size = line.size(), pos, numCorners, numLaps;
 			string name, direction, startDate, endDate, euro;
 
 
