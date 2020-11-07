@@ -27,8 +27,8 @@ class Subject {
 		/**
 
 				@param An instance of RaceTeam, to be attached to the subject
-			*/
-		void attach(RaceTeam *);
+		*/
+		 void attach(RaceTeam *);						 
 
 		/**
 

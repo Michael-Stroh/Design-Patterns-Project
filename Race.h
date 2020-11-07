@@ -1,7 +1,7 @@
 /**
    @file Race.h
    @class Race
-   @authors Alex
+   @authors Alex Tim ;)
    @version 1.3.0
    @brief The races that will take place during a Grand Prix. Responsible for performing the steps followed for each different race type (Practice, Qualifying & Official)
  */

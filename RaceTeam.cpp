@@ -93,6 +93,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	*/
 	//increment lapCount if raceState is official
 	//brent do calculations
+	//Logger::debug("RaceTeam::performLap", "");
 
 	if (raceState->getStateName() == "Official") {
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
@@ -126,13 +127,13 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		CarPart
 	*/
 	float carTime = this->getCarLapTime(driverIndex, circuit);			//check this value
-	Logger::debug("RaceTeam::performLap car Time", to_string(carTime));
+	//Logger::debug("RaceTeam::performLap car Time", to_string(carTime));
 	float avgTime = (driverTime + carTime) / 2;
 
 	if (extraTime != 0)
 		avgTime += extraTime;
 
-	Logger::debug("RaceTEam::getLapResult", to_string(avgTime));
+	//Logger::debug("RaceTEam::getLapResult", to_string(avgTime));
 
 	if (circuit->getBestLapTime() + 10 < avgTime) {
 		//bad lap 3 seconds slower
@@ -193,7 +194,7 @@ void RaceTeam::setRaceState(RaceState* s){
 	}
 	else
 	{
-		delete raceState;
+		//delete raceState;													//MUSNT delete since its a shallow copy
 		raceState = s;
 	}
 }
@@ -235,13 +236,13 @@ float RaceTeam::getDriverLapTime(int index, RaceTrack * circuit)
 	/**
 		Brent to do calcultions
 	*/
-	Logger::debug("RaceTeam::getDriverLapTIme", "");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "");
 	srand(time(NULL));
-	Logger::debug("RaceTeam::getDriverLapTIme", "get rs");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get rs");
 	RaceStrategy* rs = Strategy->getRaceStrategy(index);
-	Logger::debug("RaceTeam::getDriverLapTIme", "get ts");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get ts");
 	TyreStrategy* ts = rs->getTyreStrategy();
-	Logger::debug("RaceTeam::getDriverLapTIme", "get ds");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get ds");
 	DriverStrategy* ds = rs->getDriverStrategy();
 
 	int agg = ds->getDriver()->getAggression();

@@ -12,7 +12,6 @@ Subject::~Subject()
 
 void Subject::attach(RaceTeam *r)
 {
-
 	this->observerList.push_back(r);
 }
 
