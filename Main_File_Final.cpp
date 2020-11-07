@@ -64,7 +64,7 @@ int main() {
 		Logger::red("Main: prepared for Season", "");
 
 		//RaceLoop
-		for ( int i = 0; i < 1; ++i ) {
+		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
 			Logger::setDebug(true);
