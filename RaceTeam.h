@@ -62,7 +62,7 @@ public:
 	/**
 	@brief brents constructor idea, nice to have team name and drivers name
 	*/
-	RaceTeam(string teamName, vector<Driver*> d)
+	RaceTeam(string teamName, vector<Driver*> d);
 
 	/**
 			Destructor
@@ -148,8 +148,7 @@ public:
 	@brief Brent go wild
 	@param driver
 	*/
-	void changeStratgiesBasedOnPosition();
-	void changeStrategiesBasedOnPosition(Driver* d);
+	void changeStrategiesBasedOnPosition(Driver* d, int index);
 
 	/**
 		@brief Brent used ot decide the strategy the team will use for the next grandprix

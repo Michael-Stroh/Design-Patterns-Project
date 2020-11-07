@@ -9,7 +9,7 @@ vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
-void makeDrivers();
+vector<RaceTeam*> makeDrivers();
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
@@ -39,19 +39,15 @@ int main() {
 
 		grandPrixs = vector<GrandPrix *>();								//working
 		createGrandPrixs();                                                                         //Alex: done
+		
 
-
-		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
-		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
-
-		for (int i = 0; i < raceTeams.size(); ++i)
-		{
-			cout << "Team: " << raceTeams[i]->getName() << endl;
-		}
-
-		while (true) {}
-
+		//DELETE ME!!
+		Logger::setDebug(true);
+		raceTeams = makeDrivers();                                               //Brent (weird name but it is rihgt_)
+		while(true) {}
 		return 0;
+		//DELETE ME!!
+		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 
 		//Notification
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
@@ -111,6 +107,7 @@ void createGrandPrixs() {
     delete it;
 }
 
+//Backup Function
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
 	vector<RaceTeam*> vec;
@@ -118,7 +115,6 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	for (int i = 0; i < numberOfTeams; ++i)
 	{
 		vec.push_back(new RaceTeam());
-		vec[i]->setName(to_string(i));
 	}
 
 	return vec;
@@ -161,7 +157,7 @@ string trim( string line ) {
 	return line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
 }
 
-void makeDrivers() {
+vector<RaceTeam *> makeDrivers() {
 	vector<RaceTeam*> teams;
 	int i = 0;
 	string line;
@@ -170,7 +166,7 @@ void makeDrivers() {
 	bool changer = false;
 	vector<Driver*> temp;
 
-	file.open("../Data/drivers.txt");
+	file.open("Data/driver.txt");
 	if (file.is_open()) {
 		while (getline(file, line)) {
 
@@ -185,26 +181,31 @@ void makeDrivers() {
 			line = line.substr(pos + 1, size);
 
 			pos = line.find_first_of('|');
-			racerName = stof(trim(line.substr(0, pos - 1)));
+			racerName = trim(line.substr(0, pos - 1));
 			line = line.substr(pos + 1, size);
 
 			pos = line.find_first_of('|');
-			errorProne = trim(line.substr(0, pos - 1));
+			errorProne = stof(trim(line.substr(0, pos - 1)));
 			line = line.substr(pos + 1, size);
 
+			Logger::debug("Main::MakeDriver ", "Creating Driver");
 			temp.push_back(new ControlledDriving(racerName, errorProne));
+			Logger::debug("Main::MakeDriver ", "after Driver Created");
 			if (changer != true) {
 				
 				changer = true;
 			}
 			else {
 				changer = false;
+				Logger::debug("Main::MakeDriver ", "before creating raceTeam");
 				teams.push_back(new RaceTeam(teamName, temp));
+				Logger::debug("Main::MakeDriver ", "After Creating RaceTeam");
 				temp.clear();
 			}
 
 		}
 	}
+	return teams;
 }
 
 void  populateCircuit( const string& fileName ) {

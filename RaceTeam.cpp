@@ -33,8 +33,8 @@ RaceTeam::RaceTeam()
 		End Of Brents Portion
 	*/
 		Logger::debug("End of the RaceTeam Constructor", "");
-		Brents Portion: Create Drivers and RaceTeam Name
-	*/
+		//Brents Portion: Create Drivers and RaceTeam Name
+	
 	//fuunction file reader
 /*
 	End Of Brents Portion
@@ -44,13 +44,20 @@ RaceTeam::RaceTeam()
 }
 
 RaceTeam::RaceTeam(string teamName, vector<Driver*> d) {
+	Logger::debug("RaceTeam::constructor", "creating engineering crew");
+	engineeringCrew = new EngineeringCrew();
+	Logger::debug("RaceTeam::constructor", "engineering crew created");
+	lapCount = 0;
+
+	Logger::debug("RaceTeam::Constructor", "assigning Teams");
 	this->teamName = teamName;
+	Logger::debug("RAceTeam::constructor", "Assigning Tyres");
 	this->drivers = d;
+	Strategy = new Strategies();
 }
 
 //For testing, should not be used in main
 RaceTeam::RaceTeam(string teamName){
-RaceTeam::RaceTeam(string teamName) {
 
 	// FOR TESTING PURPOSES ONLY
 	//this->teamName = teamName;
@@ -75,14 +82,13 @@ RaceTeam::~RaceTeam()
 }
 
 LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
-LapResult* RaceTeam::performLap(int driverIndex, RaceTrack* circuit)
 {
 	float extraTime =0;
 
 	/**
 		Brent Change strategies basedOn Position
 	*/
-	changeStratgiesBasedOnPosition();
+	changeStrategiesBasedOnPosition(drivers[driverIndex], driverIndex);
 	float extraTime = 0;
 
 	/*
@@ -94,7 +100,7 @@ LapResult* RaceTeam::performLap(int driverIndex, RaceTrack* circuit)
 	if (raceState->getStateName() == "Official") {
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
 		lapCount++;
-		changeStrategiesBasedOnPosition(drivers.at(driverIndex));
+		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
 		//check for pit stop in race
 		if (ps->CheckForPitStop()) {
 			ps->CallPitStop();
@@ -118,7 +124,6 @@ LapResult* RaceTeam::performLap(int driverIndex, RaceTrack* circuit)
 		Driver part
 	*/
 	float driverTime = this->getDriverLapTime(driverIndex, circuit); 
-	float driverTime = this->getDriverLapTime(driverIndex, circuit);
 
 	/**
 		CarPart
@@ -135,25 +140,24 @@ LapResult* RaceTeam::performLap(int driverIndex, RaceTrack* circuit)
 	LapResult *result = new LapResult(this->drivers[driverIndex]->getName(), this->teamName, avgTime);
 	if (circuit->getBestLapTime() + 3 < avgTime) {
 		//bad lap 3 seconds slower
-		Strategy->getRaceStrategy()->getDriverStrategy(driverIndex)->lapChanges(false);
+		Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->lapChanges(false);
 	}
 	else {
 		//good lap
-		Strategy->getRaceStrategy()->getDriverStrategy(driverIndex)->lapChanges(true);
+		Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->lapChanges(true);
 	}
+
 	LapResult* result = new LapResult(this->drivers[driverIndex]->getName(), this->teamName, avgTime);
 	return result;
 }
 
 void RaceTeam::informSeasonResult(Result *result)
-void RaceTeam::informSeasonResult(Result* result)
 {
 	this->seasonResult = dynamic_cast<RaceSeasonResult *>(result);
 	this->seasonResult = dynamic_cast<RaceSeasonResult*>(result);
 }
 
 void RaceTeam::updateQualifyingRaceResult(Result *result)
-void RaceTeam::updateQualifyingRaceResult(Result* result)
 {
 
 	this->qualifyingRaceResult = dynamic_cast<RaceResult *>(result);
@@ -161,7 +165,6 @@ void RaceTeam::updateQualifyingRaceResult(Result* result)
 }
 
 void RaceTeam::updateOfficialRaceResult(Result *result)
-void RaceTeam::updateOfficialRaceResult(Result* result)
 {
 
 	this->officialRaceResult = dynamic_cast<RaceResult *>(result);
@@ -173,13 +176,12 @@ void RaceTeam::updateOfficialRaceResult(Result* result)
 	@todo cry
 */
 void RaceTeam::informGrandPrixs(vector<GrandPrix *> g)
-void RaceTeam::informGrandPrixs(vector<GrandPrix*> g)
 {
 
 	/*
 		Tim Portion Brent please don't delete
 	*/
-		engineeringCrew->calculateBudget(g.size());
+	engineeringCrew->calculateBudget(g.size());
 	engineeringCrew->calculateBudget(g.size());
 	/*
 		End of Tim's Portion
@@ -187,13 +189,10 @@ void RaceTeam::informGrandPrixs(vector<GrandPrix*> g)
 
 	//Create Strategy and all the shit that goes with it
 
-
-
 	this->grandPrixs = g;
 }
 
 void RaceTeam::setRaceState(RaceState* s){
-void RaceTeam::setRaceState(RaceState* s) {
 	if (raceState == nullptr)
 	{
 		raceState = s;
@@ -206,7 +205,6 @@ void RaceTeam::setRaceState(RaceState* s) {
 }
 
 Driver *RaceTeam::getDriver(int i){
-Driver* RaceTeam::getDriver(int i) {
 	// FOR TESTING PURPOSES ONLY
 	return this->drivers[i];
 	return this->drivers.at(i);
@@ -234,21 +232,12 @@ float RaceTeam::getCarLapTime(int index, RaceTrack * circuit)
 	ans = speed_portion + acceleration_portion + handling_portion;
 	float portionOfBestTime = ((float)100.0 - ans) / 100.0;
 	ans = circuit->getBestLapTime() * (portionOfBestTime / 2) + circuit->getBestLapTime();
-//Cicruit should be Composite Road for iterator
-float RaceTeam::getCarLapTime(int index, RaceTrack* circuit)
-{//okay??
-
-	float ans = 0;
 
 	return ans;
 }
 
 float RaceTeam::getDriverLapTime(int index, RaceTrack * circuit)
-float RaceTeam::getDriverLapTime(int index, RaceTrack* circuit)
 {
-	float ans = 0;
-	throw "Not Implemented Yet";
-	//doesnt need iterators for raceTrack
 	/**
 		Brent to do calcultions
 	*/
@@ -274,14 +263,9 @@ float RaceTeam::getDriverLapTime(int index, RaceTrack* circuit)
 	return ans;
 }
 
-void RaceTeam::changeStratgiesBasedOnPosition()
-{
-	/**
-		For Brent to do based on race State
-	*/
-void RaceTeam::changeStrategiesBasedOnPosition(Driver* d) {
+void RaceTeam::changeStrategiesBasedOnPosition(Driver* d, int index) {
 	// negative number decrease aggression as driver is performing well
-	float num = officialRaceResult->getDriverPerformanceMetric(d->getName());
+	float num = ((RaceResult*)officialRaceResult)->getDriverPerformanceRating(d->getName());
 	int amount = 0;
 	if (num != 0.5) {
 		if (num > 0.5) {
@@ -311,7 +295,8 @@ void RaceTeam::changeStrategiesBasedOnPosition(Driver* d) {
 			}
 		}
 	}
-	Strategies->changeAggressionDueToPositions(amount);
+
+	Strategy->getRaceStrategy(index)->getDriverStrategy()->changeAggressionDueToPositions(amount);
 }
 
 string RaceTeam::getName(){
@@ -362,23 +347,17 @@ void RaceTeam::decideNextStrategy( GrandPrix* )
 
 }
 
-void RaceTeam::endOfGrandPrix() 
-{
+
 void RaceTeam::decideNextStrategy(GrandPrix* gp)
 {
-	Strategy->setRaceStrategy(drivers[0], drivers[1], gp->getCircuit());
+	Strategy->setRaceStrategy(drivers[0], drivers[1], gp->getCircuit()->getName());
 }
 
 void RaceTeam::endOfGrandPrix(string name)
 {
-	Strategies->endOfRace(name);
+	Strategy->endOfRace(name);
 }
 
-
-Budget* RaceTeam::createSeasonBudget()
-{
-	throw "Not Implemented Yet";
-}
 
 void RaceTeam::prepareForNextRace()
 {
@@ -388,6 +367,5 @@ string RaceTeam::getName() {
 	return this->teamName;
 }
 
->>>>>>> BrentsBranch
 
 
