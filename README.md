@@ -18,10 +18,12 @@ We will model a Formula one team, specifically the logistics and racing, using a
 
 The project will be coded in C++ 20 and submitted on the 9th of Novemeber 2020.
 
-    The group memembers are as follows:
+    The group members are as follows:
 
-            Brenton        Stroberg            u17015741
-            Michael         Stroh             u17023557
-            Timothy         Hill                u17112592
-            Kayla           Latty            u17360812
-            Alex            Human            u19069716
+            Brenton        Stroberg         u17015741
+            Michael        Stroh            u17023557
+            Timothy        Hill             u17112592
+            Kayla          Latty            u17360812
+            Alex           Human            u19069716
+
+                                            -ordered by emplid
