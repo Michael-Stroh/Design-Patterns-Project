@@ -42,11 +42,6 @@ RaceTeam::RaceTeam(string teamName) {
 
 }
 
-RaceTeam::RaceTeam(string teamName, vector<Driver*> d) {
-	this->teamName = teamName;
-	this->drivers = d;
-}
-
 RaceTeam::~RaceTeam()
 {
 	drivers.clear();
@@ -72,6 +67,8 @@ LapResult* RaceTeam::performLap(int driverIndex, RaceTrack* circuit)
 		//check for pit stop in race
 		if (ps->CheckForPitStop()) {
 			ps->CallPitStop();
+			Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->changeStrategy();
+			extraTime += circuit->getAvgPitStops();
 		}
 	}
 
