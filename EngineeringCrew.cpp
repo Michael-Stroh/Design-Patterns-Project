@@ -27,7 +27,6 @@ EngineeringCrew::EngineeringCrew()
 		budget->attach(departments[i]);
 }
 
-
 EngineeringCrew::~EngineeringCrew()
 {
 	delete builder;
@@ -47,10 +46,11 @@ CarComposite* EngineeringCrew::getCar() {
 
 void EngineeringCrew::setCar( CarComposite * car ) {
 
-	if (this->car != nullptr)
-		delete this->car;
-
-	this->car = car;
+	Logger::customDebug("EngineeringCrew::setCar deleting the old car");
+	//if (this->car != nullptr)
+	//	delete this->car;
+	Logger::customDebug("EngineeringCrew::setCar dsetting car to newCar");
+	this->car = (CarComposite *)car->clone();
 }
 
 CarComposite * EngineeringCrew::getNextSeasonCar() {

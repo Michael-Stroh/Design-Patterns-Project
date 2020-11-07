@@ -13,7 +13,7 @@ Race::~Race() {
     delete result;
     delete practiceState;
     delete qualifyingState;
-    delete officialState;
+    //delete officialState;					//removed by Tim
 }
 
 Result* Race::runRace( Result* _result, vector< RaceTeam* > teams, RaceTrack* circuit ) {

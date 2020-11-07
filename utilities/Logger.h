@@ -63,6 +63,8 @@ public:
     */
     static void setDebug(bool);
 
+    static void customDebug(string);
+
 private:
     static bool isDebug;
 };
