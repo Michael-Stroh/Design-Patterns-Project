@@ -1,10 +1,9 @@
 /**
    @file Hard.h
    @class Hard
-   @authors Michael
    @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 
@@ -12,40 +11,46 @@
 #define HARD_H
 
 #include "Tyre.h"
+#include <math.h>
+#include <iostream>
 
-class Hard: public Tyre {
+using namespace std;
 
-	public:
-		
-		/**
-			Constructor
-		*/
-		Hard();
+class Hard : public Tyre {
 
-		/**
-			Constructor
-			@param durability
-		 	@param grip
-		 	@param pressure
-		*/
-		Hard( int, int, float );
+public:
 
-		/**
-			Desstructor
-		*/
-		~Hard();
+	/**
+		Constructor
+	*/
+	Hard();
 
-		/**
-			@brief return type of tyre
-			@return string type of tyre
-		*/
-		string getType();
+	/**
+		Constructor
+		@param durability
+		@param grip
+		@param pressure
+	*/
+	Hard(int, int, float);
 
-		/**
-			@brief to be used after every offical lap
-			@param float distance of lap
-		*/
-		void usage(float);
+	/**
+		Desstructor
+	*/
+	~Hard();
+
+	/**
+		@brief return type of tyre
+		@return string type of tyre
+	*/
+	string getTyreType();
+
+	void setTyreType(string str);
+
+	/**
+		@brief to be used after every offical lap
+		@param float distance of lap
+	*/
+	void usage(float);
 private:
 	string type;
 };

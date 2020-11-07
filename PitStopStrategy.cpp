@@ -1,27 +1,26 @@
 #include "PitStopStrategy.h"
 
-PitStopStrategy::PitStopStrategy(): tyres( new TyreStrategy() ), currentLap( 0 ), ps( new PitStop() ) {
+PitStopStrategy::PitStopStrategy() : tyres(new TyreStrategy()), ps(new PitStop()) {
 
 }
 
-PitStopStrategy::PitStopStrategy( TyreStrategy* tyreStart ): tyres( tyreStart ), currentLap( 0 ), ps( new PitStop() ) {
+PitStopStrategy::PitStopStrategy(TyreStrategy* tyreStart) : tyres(tyreStart), ps(new PitStop()) {
 
 }
 
 PitStopStrategy::~PitStopStrategy() {
 
-	delete tyres;
+    delete tyres;
 }
 
-bool PitStopStrategy::CheckForPitStop() {
 bool PitStopStrategy::CheckForPitStop(int currentLap) {
 
     int* pits = tyres->getPitLaps();
     cout << tyres->getNumPits() << endl;
 
-    for ( int i = 0; i < tyres->getNumPits(); i++) {
+    for (int i = 0; i < tyres->getNumPits(); i++) {
 
-        if ( pits[ i ] == currentLap ) {
+        if (pits[i] == currentLap) {
 
             return true;
         }
@@ -30,23 +29,22 @@ bool PitStopStrategy::CheckForPitStop(int currentLap) {
 }
 
 void PitStopStrategy::CallPitStop() {
-
-	ps->changeTyre( tyres );
+    ps->changeTyre(tyres);
 }
 
 /*
 void PitStopStrategy::IncrementLap(){
 
-	this->currentLap = currentLap + 1;
+    this->currentLap = currentLap + 1;
 }
 
 void PitStopStrategy::setLap( int i ){
 
-	this->currentLap = i;
+    this->currentLap = i;
 }
 
 int PitStopStrategy::getLap() const{
 
-	return currentLap;
+    return currentLap;
 }
 */

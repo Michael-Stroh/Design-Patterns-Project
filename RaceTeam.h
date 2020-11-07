@@ -160,7 +160,6 @@ public:
 		@brief to signal the end of a race and sort of the logistics
 		@param the name of the race
 	*/
-	void endOfGrandPrix();
 	void endOfGrandPrix(string);
 
 	/**
@@ -169,14 +168,9 @@ public:
 	*/
 	string getName();
 
-	/**
-	*/
-	void makeDrivers();
 
-private:
-	/**
-	*/
-	string trim(string a);
+	private:
+
 
 	int lapCount;
 

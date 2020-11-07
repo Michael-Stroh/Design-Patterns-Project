@@ -39,7 +39,6 @@ RaceTeam::RaceTeam()
 /*
 	End Of Brents Portion
 */
-	makeDrivers();
 	Strategy = new Strategies();
 }
 
@@ -51,9 +50,12 @@ RaceTeam::RaceTeam(string teamName, vector<Driver*> d) {
 
 	Logger::debug("RaceTeam::Constructor", "assigning Teams");
 	this->teamName = teamName;
-	Logger::debug("RAceTeam::constructor", "Assigning Tyres");
+	Logger::debug("RAceTeam::constructor", "Assigning Drivers");
 	this->drivers = d;
-	Strategy = new Strategies();
+	//drivers[0]->displayDriver();										//delete me1
+	Logger::debug("RAceTeam::constructor", "Creating new Strategy");
+	Strategy = new Strategies();								//leave in, Not in Brent's
+	Logger::debug("RAceTeam::constructor", "new Strategy created");
 }
 
 //For testing, should not be used in main
@@ -75,6 +77,7 @@ RaceTeam::~RaceTeam()
 {
 	drivers.clear();
 	delete engineeringCrew;
+	delete Strategy;
 
 	/*
 		Brent delete drivers: strategies. DONT DELTE GRANDPRIXS ITS DONE IN MAIN!!!!
@@ -84,12 +87,6 @@ RaceTeam::~RaceTeam()
 LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 {
 	float extraTime =0;
-
-	/**
-		Brent Change strategies basedOn Position
-	*/
-	changeStrategiesBasedOnPosition(drivers[driverIndex], driverIndex);
-	float extraTime = 0;
 
 	/*
 		Pitstop Checking: Brent use raceState to decide
@@ -102,7 +99,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		lapCount++;
 		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
 		//check for pit stop in race
-		if (ps->CheckForPitStop()) {
+		if (ps->CheckForPitStop(lapCount)) {
 			ps->CallPitStop();
 			Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->changeStrategy();
 			extraTime += circuit->getAvgPitStops();
@@ -112,7 +109,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	/*
 		EngineeringCrew: car run lap function depending on race state (Tim Kayla)
 	*/
-	int agg = drivers[driverIndex]->getAggression();
+	int agg = (drivers[driverIndex]->getAggression()/30) -1;
 	//quick test just to be sure
 	if (agg < 0)
 		agg = 1;
@@ -128,17 +125,16 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	/**
 		CarPart
 	*/
-	float carTime = this->getCarLapTime(driverIndex, circuit);
-
-	/*
-		Finalize
-	*/
+	float carTime = this->getCarLapTime(driverIndex, circuit);			//check this value
+	Logger::debug("RaceTeam::performLap car Time", to_string(carTime));
 	float avgTime = (driverTime + carTime) / 2;
+
 	if (extraTime != 0)
 		avgTime += extraTime;
 
-	LapResult *result = new LapResult(this->drivers[driverIndex]->getName(), this->teamName, avgTime);
-	if (circuit->getBestLapTime() + 3 < avgTime) {
+	Logger::debug("RaceTEam::getLapResult", to_string(avgTime));
+
+	if (circuit->getBestLapTime() + 10 < avgTime) {
 		//bad lap 3 seconds slower
 		Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->lapChanges(false);
 	}
@@ -146,7 +142,6 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		//good lap
 		Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->lapChanges(true);
 	}
-
 	LapResult* result = new LapResult(this->drivers[driverIndex]->getName(), this->teamName, avgTime);
 	return result;
 }
@@ -154,22 +149,22 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 void RaceTeam::informSeasonResult(Result *result)
 {
 	this->seasonResult = dynamic_cast<RaceSeasonResult *>(result);
-	this->seasonResult = dynamic_cast<RaceSeasonResult*>(result);
+
 }
 
 void RaceTeam::updateQualifyingRaceResult(Result *result)
 {
 
 	this->qualifyingRaceResult = dynamic_cast<RaceResult *>(result);
-	this->qualifyingRaceResult = dynamic_cast<RaceResult*>(result);
 }
 
-void RaceTeam::updateOfficialRaceResult(Result *result)
+void RaceTeam::updateOfficialRaceResult(Result* result)
 {
-
-	this->officialRaceResult = dynamic_cast<RaceResult *>(result);
 	this->officialRaceResult = dynamic_cast<RaceResult*>(result);
 }
+
+/*
+	@todo cry
 
 /*
 	@Brent Must implement
@@ -181,7 +176,6 @@ void RaceTeam::informGrandPrixs(vector<GrandPrix *> g)
 	/*
 		Tim Portion Brent please don't delete
 	*/
-	engineeringCrew->calculateBudget(g.size());
 	engineeringCrew->calculateBudget(g.size());
 	/*
 		End of Tim's Portion
@@ -241,9 +235,13 @@ float RaceTeam::getDriverLapTime(int index, RaceTrack * circuit)
 	/**
 		Brent to do calcultions
 	*/
+	Logger::debug("RaceTeam::getDriverLapTIme", "");
 	srand(time(NULL));
+	Logger::debug("RaceTeam::getDriverLapTIme", "get rs");
 	RaceStrategy* rs = Strategy->getRaceStrategy(index);
+	Logger::debug("RaceTeam::getDriverLapTIme", "get ts");
 	TyreStrategy* ts = rs->getTyreStrategy();
+	Logger::debug("RaceTeam::getDriverLapTIme", "get ds");
 	DriverStrategy* ds = rs->getDriverStrategy();
 
 	int agg = ds->getDriver()->getAggression();
@@ -260,10 +258,12 @@ float RaceTeam::getDriverLapTime(int index, RaceTrack * circuit)
 		ans += 1;
 	}
 
-	return ans;
+
+	return ans + circuit->getBestLapTime();
 }
 
 void RaceTeam::changeStrategiesBasedOnPosition(Driver* d, int index) {
+	// negative number decrease aggression as driver is performing well
 	// negative number decrease aggression as driver is performing well
 	float num = ((RaceResult*)officialRaceResult)->getDriverPerformanceRating(d->getName());
 	int amount = 0;
@@ -295,12 +295,7 @@ void RaceTeam::changeStrategiesBasedOnPosition(Driver* d, int index) {
 			}
 		}
 	}
-
 	Strategy->getRaceStrategy(index)->getDriverStrategy()->changeAggressionDueToPositions(amount);
-}
-
-string RaceTeam::getName(){
-	return this->teamName;
 }
 
 void RaceTeam::prepareForNextRace() 
@@ -342,25 +337,16 @@ void RaceTeam::endRace()
 	*/
 }
 
-void RaceTeam::decideNextStrategy( GrandPrix* ) 
+void RaceTeam::decideNextStrategy( GrandPrix* gp ) 
 {
-
-}
-
-
-void RaceTeam::decideNextStrategy(GrandPrix* gp)
-{
+	Logger::debug("RaceTeam::decideNextStrategy", "");
 	Strategy->setRaceStrategy(drivers[0], drivers[1], gp->getCircuit()->getName());
 }
+
 
 void RaceTeam::endOfGrandPrix(string name)
 {
 	Strategy->endOfRace(name);
-}
-
-
-void RaceTeam::prepareForNextRace()
-{
 }
 
 string RaceTeam::getName() {

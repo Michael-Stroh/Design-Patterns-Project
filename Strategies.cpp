@@ -1,20 +1,17 @@
 #include "Strategies.h"
 
-Strategies::Strategies(){
-
+Strategies::Strategies() {
 	createSchedule();
 	setLogistics();
 }
 
 Strategies::~Strategies() {
-
 	races.clear();
 }
 
-void Strategies::setRaceStrategy(Driver* driver, string name){
-   //////////////////////////////////////////////////////////////
-  /////                    DO NOT TOUCH                    /////
- /////  either get me and racetrack vector or dont touch  /////
+//////////////////////////////////////////////////////////////
+/////                    DO NOT TOUCH                    /////
+/////  either get me and racetrack vector or dont touch  /////
 //////////////////////////////////////////////////////////////
 
 void Strategies::createSchedule()
@@ -22,7 +19,7 @@ void Strategies::createSchedule()
 	string line;
 	ifstream file;
 
-	file.open(fileName);
+	file.open("Data/races.txt");
 	if (file.is_open()) {
 		while (getline(file, line)) {
 
@@ -82,9 +79,11 @@ void Strategies::createSchedule()
 			RaceTrack* tmp = nullptr;
 			if (direction == "clockwise") {
 				tmp = new RaceTrack(name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners, numLaps);
-			} else if (direction == "anticlockwise") {
+			}
+			else if (direction == "anticlockwise") {
 				tmp = new RaceTrack(name, RaceTrack::direction::anticlockwise, disLap, wind, longestStraight, numCorners, numLaps);
-			} else {
+			}
+			else {
 				Logger::yellow("Error", "Wrong direction given.");
 			}
 
@@ -95,51 +94,51 @@ void Strategies::createSchedule()
 
 			if (euro == "true") {
 				maybe = true;
-			} else if (euro == "false") {
+			}
+			else if (euro == "false") {
 				maybe = false;
-			} else {
+			}
+			else {
 				Logger::yellow("Error", "The file not found.");
 			}
 			tmp->setAvgPitStops(averagePitStop);
 			tmp->setEuro(maybe);
+			races.push_back(tmp);
 		}
-		races.push_back(tmp);
+
 	}
 }
 
 string Strategies::trim(string temp) {
-		temp.erase(0, temp.erase(temp.find_last_not_of("\t\n\v\f\r ") + 1).find_first_not_of("\t\n\v\f\r "));
-		return temp;
-	}
-
-void Strategies::setRaceStrategy(Driver* driver1, Driver* driver2, string name){
-	raceStrategy.push_back(new RaceStrategy( driver1, logisticsStrategy->getRace( name )));
-	raceStrategy.push_back(new RaceStrategy( driver2, logisticsStrategy->getRace( name )));
-
-	raceStrategy = new RaceStrategy( driver, logisticsStrategy->getRace( name ) );
+	temp.erase(0, temp.erase(temp.find_last_not_of("\t\n\v\f\r ") + 1).find_first_not_of("\t\n\v\f\r "));
+	return temp;
 }
 
-void Strategies::endOfRace( string name ) {
+void Strategies::setRaceStrategy(Driver* driver1, Driver* driver2, string name) {
+	Logger::debug("Strategies::setRaceStrategy", "raceStrategy 1");
+	raceStrategy.push_back(new RaceStrategy(driver1, logisticsStrategy->getRace(name)));
+	Logger::debug("Strategies::setRaceStrategy", "raceStrategy 2");
+	raceStrategy.push_back(new RaceStrategy(driver2, logisticsStrategy->getRace(name)));
 
+}
+
+void Strategies::endOfRace(string name) {
 	raceStrategy.clear();
-	logisticsStrategy->endOfRace( name );
+	logisticsStrategy->endOfRace(name);
 }
 
-RaceStrategy* Strategies::getRaceStrategy() {
-
-	return raceStrategy;
 RaceStrategy* Strategies::getRaceStrategy(int index) {
 	return raceStrategy.at(index);
 }
 
 void Strategies::setLogistics() {
-
-	logisticsStrategy =  new LogisticsStrategy(races);
+	Logger::debug("Strategies::setLogistics", "");
+	logisticsStrategy = new LogisticsStrategy(races);
 }
 
 void Strategies::print() {
 
-	for( int i =0; i < 21; i++){
+	for (int i = 0; i < 21; i++) {
 
 		RaceTrack* temp = races.at(i);
 		cout << temp->getName() << " " << temp->getDistance() << " " << temp->getLaps() << endl;
@@ -147,19 +146,9 @@ void Strategies::print() {
 }
 
 vector<RaceTrack*> Strategies::getRaceTrack() {
-
 	return races;
 }
 
-int Strategies::getMonth() {
-
-	return 0;
-}
-
-void Strategies::setMonth( int date ) {
-
-
-}
 
 
 

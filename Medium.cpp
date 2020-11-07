@@ -1,15 +1,12 @@
 #include "Medium.h"
 
-Medium::Medium(): Tyre( 90,60,1.25 ) {
-
-	cout << "Medium tyre created" << endl;
-	setType( "Medium" );
+Medium::Medium() : Tyre(90, 60, 1.25) {
+    setTyreType("Medium");
 }
 
-Medium::Medium( int durability, int grip, float pressure ): Tyre( durability, grip, pressure ) {
+Medium::Medium(int durability, int grip, float pressure) : Tyre(durability, grip, pressure) {
 
-	cout << "Medium tyre created" << endl;
-    setType( "Medium" );
+    setTyreType("Medium");
 }
 
 Medium::~Medium() {
@@ -24,6 +21,10 @@ void Medium::usage(float track) {
     }
 }
 
-string Medium::getType() {
+string Medium::getTyreType() {
     return type;
+}
+
+void Medium::setTyreType(string str) {
+    this->type = str;
 }

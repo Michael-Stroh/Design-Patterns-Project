@@ -90,7 +90,7 @@ public:
 	void lapChanges(bool);
 
 	/**
-	* @brief changes the level of aggression depending on results 
+	* @brief changes the level of aggression depending on results
 	* @param the amount to change can be negative or postive
 	*/
 
