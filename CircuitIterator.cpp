@@ -25,7 +25,7 @@ void CircuitIterator::next() {
 bool CircuitIterator::isDone() {
 
     //check if the current index is still in range
-    return ( array->getSize() > index );
+    return ( array->getSize() <= index );
 }
 
 RaceTrack *CircuitIterator::currentItem() {

@@ -13,6 +13,7 @@
 #include "RaceTeam.h"
 #include "Circuit.h"
 #include <vector>
+#include <string>
 using namespace std;
 
 class RaceTeam;
@@ -38,6 +39,12 @@ class RaceState {
 				@return The result for the race.
 			*/
 		virtual Result* runRace( Result *, vector<RaceTeam *>, RaceTrack* ) = 0;
+
+
+		/**
+			@brief: Returns the name of the current state as a string
+		*/
+		virtual string getStateName() = 0;
 };
 
 #endif

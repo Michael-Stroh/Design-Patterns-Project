@@ -17,9 +17,15 @@ QualifyingState::~QualifyingState()
 Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
 
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	{
+		this->qualifyingRaceSubject->attach((*team));
+	}
+	RaceResult *qualifyingResult = new RaceResult();
+	dynamic_cast<QualifyingRaceSubject*>(this->qualifyingRaceSubject)->notify(qualifyingResult);
+
 	float timeLeft;
 	float longestLapTime;
-	RaceResult *qualifyingResult = new RaceResult();
 	Logger::debug("Running first stage of qualifiers","");
 	// 3 stage "knockout" system
 
@@ -109,7 +115,15 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	qualifyingResult->placeBottomXOnGrid(10);
 	Logger::debug("Final qualifying round grid positions", "");
 	qualifyingResult->printGridPositions();
-
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	{
+		this->qualifyingRaceSubject->detach((*team));
+	}
 	// qualifyingResult->apply107Rule();
 	return qualifyingResult;
+}
+
+string QualifyingState::getStateName()
+{
+	return "Qualifying";
 }

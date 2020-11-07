@@ -3,52 +3,62 @@
 #include "RaceSeason.h"
 #include <iostream>
 
-//Main Helper Functions
-vector<GrandPrix*> createGrandPrixs( CompositeRoad* );
+//Main Helper Functions pre-declaration
+void createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
-CompositeRoad* populateCircuit( const string& );
+void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
 
-void testEngineeringCrew();		//for testing, delete me
+//this will hold all the created circuits
+CompositeRoad* circuit;
+vector< GrandPrix* > grandPrixs;
+vector< RaceTeam* > raceTeams;
 
 int main() {
 
-		cout << "Successful compilation" << endl;
 
-		/*
-			Delete HERE!!!
-		*/
-		testEngineeringCrew();
+		int numberOfTeams = 10;                                                                     //Should this not be 5??
 
-		string temp;
-		cin >> temp;
-		return 0;
-		/*
-		
-		*/
+		////////////////Creation////////////////
 
-		int numberOfTeams = 5;                                                                                //Should this not be 5?? -Maybe 
+		//instantiate the CompositeRoad pointer
+		circuit = new CompositeRoad();
+		//call the function to read the circuits in from the file
+		populateCircuit("Data/races.txt" );
+                /// TODO: the file path will change depending what files are stored in which folders
 
-		//Creation
-		CompositeRoad* circuit = populateCircuit("Data/races.txt" );                        //Mike -create these function definitions
+		//test to see if the RaceTracks were created
+		/*circuit->determineMaxValues();
+		circuit->determineMinValues();
+		cout << endl << endl;
+		circuit->print();
+		cout << endl << endl;*/
 
-		vector< GrandPrix* > grandPrixs = createGrandPrixs( circuit );                              //Alex
-		vector< RaceTeam* > raceTeams = createRaceTeams( numberOfTeams );                           //Tim
+
+
+
+		grandPrixs = vector<GrandPrix *>();
+		createGrandPrixs();                                                                         //Alex: done
+
+
+		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
+
+
 
 		//Notification
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
 
 		//RaceLoop
-		for ( int i = 0; i < grandPrixs.size(); ++ i ) {
+		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 
 			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
-			raceSeason->runNextGrandPrix();                     									//Alex: run race, maybe check maybe dont I am not your mom
-			grandPrixs[ i ]->displayResult();                    									//Alex, Make sure it uses logger
+			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
+			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
-		raceSeason->getResult()->print();															//Alex double check this prints nicely
+		raceSeason->getResult()->print();															//Alex: is now printing nicely
 
 
 		/*
@@ -56,61 +66,44 @@ int main() {
 			Mike Will handle Deletion
 		*/
 
+		//delete the circuit before the GrandPrix that holds it
+		delete circuit;
+
+        //go through each object stored
+        for ( GrandPrix* prix : grandPrixs ) {
+
+            //free the memory
+            delete prix;
+        }
+
+        //empty and resize the vector
+        grandPrixs.clear();
 }
 
-void printCarStatistics(CarComposite* car) //DELETE ME!!!
-{
-	float aggregateH = car->getHandling();
-	float aggregateA = car->getAcceleration();
-	float aggregateS = car->getSpeed();
-
-	cout << endl;
-	cout << "Car total Speed: " << aggregateS << endl;
-	cout << "Car total acceleration: " << aggregateA << endl;
-	cout << "Car total Handling: " << aggregateH << endl;
-	cout << endl;
-}
-
-void testEngineeringCrew()
-{
-	/*
-		Test 1: Create EngineeringCrew and check the cars
-	*/
-	cout << endl << "Creating EngineeringCrew" << endl << endl;
-	EngineeringCrew* e = new EngineeringCrew();
-	printCarStatistics(e->getCar());
-	printCarStatistics(e->getNextSeasonCar());
-	/*
-		Test 2: Set the budget of the Engingeering Crew 
-	*/
-	e->calculateBudget(10);
+void createGrandPrixs() {
 
 	/*
-		Run the Simulation Loop:
+		Alex: has created the GrandPrixs
 	*/
 
-	for (int i = 0; i < 10; i++)
-	{
-		e->updateDepartmentBudgets();		//algorithm taken directly from raceTeam prepareForNextRace
-		e->prepareForNextRace();
-		e->setCar((CarComposite*)(e->getNextSeasonCar()->clone()));
-		printCarStatistics(e->getCar());
-		printCarStatistics(e->getNextSeasonCar());
+
+	//create and set the iterator
+	CircuitIterator* it = circuit->createIterator();
+    it->first();
+
+	//continue going through until we have traversed all the items
+	while ( !it->isDone() ) {
+
+	    //create the GrandPrix with the current iterator item
+        grandPrixs.push_back( new GrandPrix( ( it->currentItem() ) ) );
+
+        //go to the next item in the iterator
+        it->next();
 	}
-	
+
+    delete it;
 }
 
-vector<GrandPrix*> createGrandPrixs( CompositeRoad* circuit ) {
-
-	vector<GrandPrix*> vec;
-
-	/*
-			Alex: create the GrandPrixs
-	*/
-	return vec;
-}
-
-//Check Brent has created a way for RaceTeams to determine their names.
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
 	vector<RaceTeam*> vec;
@@ -118,14 +111,10 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	/*
 			Tim: create the RaceTeams
 	*/
-
-	for (int i = 0; i < numberOfTeams; ++i)
-		vec.push_back(new RaceTeam());
-
 	return vec;
 }
 
-void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
+void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 
 	/*
 		Brents Portion
@@ -137,14 +126,14 @@ void prepareForNextRace( vector<RaceTeam*> team,	GrandPrix* gp ) {
 	*/
 
 	/*
-		Tim's potrion
+		Tim's portion
 	*/
-	
-	for ( int i = 0; i < team.size(); ++ i ) {
 
-			team[ i ]->prepareForNextRace(); 
+	for ( int i = 0; i < team.size(); ++i ) {
+
+			team[ i ]->prepareForNextRace();
 	}
-	
+
 
 	/*
 	End of Tim's Portion
@@ -157,113 +146,140 @@ void endGrandPrix() {
 	//for each team
 }
 
-string trim( string temp ) {
+string trim( string line ) {
 
-	temp.erase( 0, temp.erase( temp.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
-	return temp;
+	return line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
 }
 
-CompositeRoad*  populateCircuit( const string& fileName ) {
+void  populateCircuit( const string& fileName ) {
 
-	string line;
+	/*
+		Order of the races.txt file
+	 		circuitName | bestLapTime( seconds ) | lapLength( km ) | numberOfLaps | longestStriaght( m ) | numberOfCorners | startDate( M-D ) | endDate( M-D ) | pitStop( s)  | European | direction
+	*/
+
+	//create a file variable and open the given file
 	ifstream file;
-
 	file.open( fileName.c_str() );
+
+	//check if the file can open
 	if ( file.is_open() ) {
 
+		//the file can open, therefore exists
+
+		//go through each line in the file
+		string line;
 		while ( getline(file, line ) ) {
 
-			int pos = 0;
-			int size = line.size();
-			string name, direction, startingDate, endingDate, euro;
-			float disLap, wind = 0, longestStraight, fastestLap, averagePitStop;
-			int numCorners, numLaps;
+			//variables to hold the data read from the file
+			float wind, dist, straightDist, bestLap, pitStop;
+			int size = line.size(), pos, numCorners, numLaps;
+			string name, direction, startDate, endDate, euro;
+
+			//find the value for the name
+			pos = line.find_first_of( '|' );
+			name = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for best lap time
+			pos = line.find_first_of( '|' );
+			bestLap = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for distance of a lap
+			pos = line.find_first_of( '|' );
+			dist = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for number of laps the track will be raced
+			pos = line.find_first_of( '|' );
+			numLaps = stoi( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for straight distance of the track
+			pos = line.find_first_of( '|' );
+			straightDist = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for the number of corners on the track
+			pos = line.find_first_of( '|' );
+			numCorners = stoi( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for starting date the track will be used for
+			pos = line.find_first_of( '|' );
+			startDate = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for ending date the track will not be used for
+			pos = line.find_first_of( '|' );
+			endDate = line.substr( 0, pos - 1 );
+			line = line.substr( pos + 1, size );
+
+			//find the value for the average amount of pit stops made on the track
+			pos = line.find_first_of( '|' );
+			pitStop = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for if the track is in Europe or not
+			pos = line.find_first_of( '|' );
+			euro = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for the direction the track will be raced in
+			pos = line.find_first_of( '|' );
+			direction = trim( line.substr( 0, pos - 1 ) );
+			line = line.substr( pos + 1, size );
+
+			//find the value for wind on the track
+			pos = line.find_first_of( '|' );
+			wind = stof( trim( line.substr( 0, pos - 1 ) ) );
+			line = line.substr( pos + 1, size );
 
 
-			string temp = line;
-
-			pos = temp.find_first_of( '|' );
-			name = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			fastestLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			disLap = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			numLaps = stoi( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			longestStraight = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			numCorners = stoi( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			startingDate = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			endingDate = temp.substr( 0, pos - 1 );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			averagePitStop = stof( trim( temp.substr( 0, pos - 1 ) ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			euro = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-			pos = temp.find_first_of( '|' );
-			direction = trim( temp.substr( 0, pos - 1 ) );
-			temp = temp.substr( pos + 1, size );
-
-			RaceTrack* tmp = nullptr;
+			//determine the enum direction from the string value
+			RaceTrack::direction dir = RaceTrack::direction::clockwise;
 			if ( direction == "clockwise" ) {
 
-				tmp = new RaceTrack( name, RaceTrack::direction::clockwise, disLap, wind, longestStraight, numCorners,
-									 numLaps );
+				//the track will be raced clockwise
+				dir = RaceTrack::direction::clockwise;
 			} else if ( direction == "anticlockwise" ) {
 
-				tmp = new RaceTrack( name, RaceTrack::direction::anticlockwise, disLap, wind, longestStraight,
-									 numCorners, numLaps );
+				//the track will be raced anti-clockwise
+				dir = RaceTrack::direction::anticlockwise;
 			} else {
 
-				Logger::cyan( "Error", "Wrong direction given." );
+				//the value given is invalid so take the default of true and output the error
+				Logger::cyan( "Error", "Incorrect direction value given in " + fileName + "." );
 			}
 
-			tmp->setStartDate( startingDate );
-			tmp->setEndDate( endingDate );
-			bool maybe = true;
+			//determine the bool value for European from the string value
 			euro = trim( euro );
-
+			bool isEuro = true;
 			if ( euro == "true" ) {
 
-				maybe = true;
+				//the race is in Europe
+				isEuro = true;
 			} else if ( euro == "false" ) {
 
-				maybe = false;
+				//the race is not in Europe
+				isEuro = false;
 			} else {
 
-				Logger::cyan( "Error", "The file not found." );
+				//the value given is invalid so take the default of true and output the error
+				Logger::cyan( "Error", "Incorrect european value given in " + fileName + "." );
 			}
-			tmp->setAvgPitStops( averagePitStop );
-			tmp->setEuro( maybe );
+
+
+			//create the RaceTrack from the given data and add it to the Circuit
+			circuit->addRoad( new RaceTrack( name, dir, dist, wind, straightDist, pitStop,
+											 bestLap, numCorners, numLaps, isEuro, startDate, endDate ) );
 		}
 	}
 	else {
 
-		Logger::cyan( "Error", "The file not found." );
-
+		//the file could not open, most likely does not exist
+		Logger::cyan( "Error", "The file not found therefore could not create circuits( main )." );
 	}
 
-	return nullptr;
 }

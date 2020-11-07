@@ -71,26 +71,28 @@ void RaceSeasonResult::addResult(Result *r)
 
 void RaceSeasonResult::print()
 {
-	this->printDrivers();
-	this->printTeams();
+	Logger::blue("Driver Championship Results", this->getDriversPoints());
+	Logger::blue("Constructor Championship Results", this->getTeamsPoints());
 }
 
-void RaceSeasonResult::printDrivers()
+string RaceSeasonResult::getDriversPoints()
 {
-	cout << "Drivers Championship: " << endl;
+	string driversPoints = "";
 	vector<pair<string, int>>::iterator it;
 	for (it = this->totalDriverPoints.begin(); it != this->totalDriverPoints.end(); ++it)
 	{
-		cout << it->first << " : " << it->second << " pts" << endl;
+		driversPoints += it->first + "\t" + to_string(it->second) + "pts\n";
 	}
+	return driversPoints;
 }
 
-void RaceSeasonResult::printTeams()
+string RaceSeasonResult::getTeamsPoints()
 {
-	cout << "Constructors Championship: " << endl;
+	string teamsPoints = "";
 	vector<pair<string, int>>::iterator it;
 	for (it = this->totalTeamPoints.begin(); it != this->totalTeamPoints.end(); ++it)
 	{
-		cout << it->first << " : " << it->second << " pts" << endl;
+		teamsPoints += it->first + "\t" + to_string(it->second) + "pts\n";
 	}
+	return teamsPoints;
 }

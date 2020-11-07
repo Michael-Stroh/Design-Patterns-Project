@@ -40,12 +40,12 @@ public:
 	/**
 		@brief: Prints out the results of the Drivers Championship
 		*/
-	void printDrivers();
+	string getDriversPoints();
 
 	/**
 	    @brief: Prints out the results of the Constructors Championship
 		*/
-	void printTeams();
+	string getTeamsPoints();
 
 private:
 	/**

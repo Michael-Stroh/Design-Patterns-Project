@@ -1,22 +1,26 @@
 #include "OfficialState.h"
 
-OfficialState::OfficialState() : RaceState(), raceSubject( new RaceSubject( ) ) {
+OfficialState::OfficialState() : RaceState(), officialRaceSubject( new RaceSubject( ) ) {
 
 }
 
 OfficialState::~OfficialState() {
 
-	delete raceSubject;
+	delete officialRaceSubject;
 }
 
 Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) {
 
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team){
+		this->officialRaceSubject->attach((*team));
+	}
+	RaceResult *officialRaceResult = new RaceResult();
+	dynamic_cast<OfficialRaceSubject *>(this->officialRaceSubject)->notify(officialRaceResult);
+
 	float remainingDistance = 305.00;
-	// float lapDistance = circuit->getLapDistance();
-	float lapDistance = 10;
+	float lapDistance = circuit->getDistance();
 	float timeLeft = 7200.00; // 2 hours in seconds
 	float longestLapTime = 0;
-	RaceResult *officialRaceResult = new RaceResult();
 	RaceResult *previousQualifiersResult = dynamic_cast<RaceResult *>(result);
 	previousQualifiersResult->printGridPositions();
 
@@ -48,5 +52,14 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	}
 	Logger::debug("Official Race Results", "");
 	officialRaceResult->print();
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	{
+		this->officialRaceSubject->detach((*team));
+	}
 	return officialRaceResult;
+}
+
+string OfficialState::getStateName()
+{
+	return "Official";
 }

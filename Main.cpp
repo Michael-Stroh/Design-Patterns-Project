@@ -2,7 +2,8 @@
 #include "RaceTeam.h"
 #include "RaceSeason.h"
 
-int main() {
+int main()
+{
 
 	cout << "Successful compilation" << endl;
 	//Creation
@@ -19,13 +20,10 @@ int main() {
 		raceSeason->runNextRace();        //run race
 		printCurrentGrandprixResult();
 	}
-	raceSeason->printFinalResults();
-	//deletion
-	deleteEverything();
-}
-void prepareForNextRace( team, days) {
-	for ( int i = 0; i < numTeams; ++ i ) {
-		teams[ i ]->prepareForNextRace(); //Brent strategy call once lekker
+	else
+	{
+
+		Logger::cyan("Error", "The file not found.");
 	}
 */
 }

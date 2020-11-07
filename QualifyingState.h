@@ -11,6 +11,7 @@
 #ifndef QUALIFYINGSTATE_H
 #define QUALIFYINGSTATE_H
 
+#include "QualifyingRaceSubject.h"
 #include "RaceSubject.h"
 #include "RaceState.h"
 #include "RaceTeam.h"
@@ -40,6 +41,11 @@ public:
 			@return The result of the qualfying race.
 		*/
 	Result *runRace( Result*, vector< RaceTeam* >, RaceTrack* );
+
+	/**
+			@brief: Returns the name of the current state as a string
+		*/
+	string getStateName();
 
 private:
 	/**

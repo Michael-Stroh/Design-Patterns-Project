@@ -40,6 +40,11 @@ public:
 			@return The result of the practice race.
 		*/
 	Result *runRace(Result *, vector<RaceTeam *>, RaceTrack *);
+	
+	/**
+			@brief: Returns the name of the current state as a string
+		*/
+	string getStateName();
 };
 
 #endif
