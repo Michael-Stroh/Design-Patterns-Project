@@ -97,7 +97,7 @@ class RaceTrack: public Circuit {
 			traversed in a linear order
 			@return the created iterator on the current object
 		*/
-		CircuitIterator* createIterator();
+		Iterator* createIterator();
 
 		/**
 			Returns the stored distance of a single lap
