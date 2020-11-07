@@ -24,6 +24,7 @@ ElectronicsDepartment::~ElectronicsDepartment() {
 
 void ElectronicsDepartment::runSimulation(CarComposite * car) 
 {
+	Logger::debug("Electronics:department before paying", "remainingBudget + " + to_string(remainingBudget));
 	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
 		return;
 	else
@@ -32,6 +33,7 @@ void ElectronicsDepartment::runSimulation(CarComposite * car)
 		budget->setBudget(remainingBudget);
 		budget->notifyAll();
 	}
+	Logger::debug("Electronics:department after paying", "remainingBudget + " + to_string(remainingBudget));
 
 	CarPart* electronics = car->getPart(ELECTRONICS);
 	float variances[] = { Electronics::ACCELERATION_CHANGE_VARIANCE,

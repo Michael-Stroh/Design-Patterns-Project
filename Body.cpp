@@ -68,11 +68,11 @@ void Body::setState(PartState* state)
 	this->aeroDynamicMultiplier = state->getAeroDynamicsMultiplier();
 }
 
-const  float Body::INITIAL_AERODYNAMICS = 0.65;
+const  float Body::INITIAL_AERODYNAMICS = 0.85;
 
 const  float Body::INITAL_AERODYNAMICS_VARIANCE = 0.05;
 
-const  float Body::AERODYNAMICS_VARIANCE = 0.06;
+const  float Body::AERODYNAMICS_VARIANCE = 0.01;
 
 const float Body::MAX_AERODYNAMICS = 1.0;
 

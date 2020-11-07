@@ -1,14 +1,14 @@
 #include "RaceStrategy.h"
 
 
-RaceStrategy::RaceStrategy(Driver* drive, RaceTrack* track ): rt( track ), driver( drive ) {
+RaceStrategy::RaceStrategy(Driver* drive, RaceTrack* track) : rt(track), driver(drive) {
 
 	setTyreStrategy(rt);
 	setDriverStrategy(tyreStrategy);
 	setPitStopStrategy(tyreStrategy);
 }
 
-RaceStrategy::~RaceStrategy(){
+RaceStrategy::~RaceStrategy() {
 
 	delete rt;
 	delete driver;
@@ -17,40 +17,40 @@ RaceStrategy::~RaceStrategy(){
 	delete tyreStrategy;
 }
 
-void RaceStrategy::setPitStopStrategy( TyreStrategy* strategy ) {
+void RaceStrategy::setPitStopStrategy(TyreStrategy* strategy) {
 
-	pitStopStrategy = new PitStopStrategy( strategy );
+	pitStopStrategy = new PitStopStrategy(strategy);
 }
 
 
-void RaceStrategy::setDriverStrategy( TyreStrategy* strategy ) {
+void RaceStrategy::setDriverStrategy(TyreStrategy* strategy) {
 
-	driverStrategy = new DriverStrategy( strategy );
-	driverStrategy->setDriver( driver );
+	driverStrategy = new DriverStrategy(strategy);
+	driverStrategy->setDriver(driver);
 }
 
-void RaceStrategy::setTyreStrategy( RaceTrack*  track ) {
+void RaceStrategy::setTyreStrategy(RaceTrack* track) {
 
-	tyreStrategy = new TyreStrategy( track  );
+	tyreStrategy = new TyreStrategy(track);
 }
 
-DriverStrategy*  RaceStrategy::getDriverStrategy(){
+DriverStrategy* RaceStrategy::getDriverStrategy() {
 
 	return driverStrategy;
-}		
+}
 
 
-TyreStrategy* RaceStrategy::getTyreStrategy(){
+TyreStrategy* RaceStrategy::getTyreStrategy() {
 
 	return tyreStrategy;
 }
 
-PitStopStrategy* RaceStrategy::getPitStopStrategy(){
+PitStopStrategy* RaceStrategy::getPitStopStrategy() {
 
 	return pitStopStrategy;
 }
 
-void RaceStrategy::setDriver( Driver* drive ) {
+void RaceStrategy::setDriver(Driver* drive) {
 
 	driver = drive;
 }

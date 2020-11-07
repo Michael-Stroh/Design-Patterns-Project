@@ -1,37 +1,58 @@
 /**
    @file Soft.h
    @class Soft
-   @authors Michael
+   @authors Brenton
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef SOFT_H
 #define SOFT_H
 
+
+#include <math.h>
+#include <iostream>
+
+using namespace std;
+
 #include "Tyre.h"
 
-class Soft: public Tyre {
+class Soft : public Tyre {
 
-	public:
+public:
 
-		/**
-			Constructor
-		*/
-		Soft();
+	/**
+		Constructor
+	*/
+	Soft();
 
-		/**
-			Constructor
-			@param durability
-			@param grip
-			@param pressure
-		*/
-		Soft( int, int, float );
+	/**
+		@brief Constructor
+		@param durability
+		@param grip
+		@param pressure
+	*/
+	Soft(int, int, float);
 
-		/**
-			Destructor
-		*/
-		~Soft();
+	/**
+		Destructor
+	*/
+	~Soft();
+
+	string getTyreType();
+
+	/**
+		@brief to be used after every offical lap
+		@param float distance of lap
+	*/
+	void usage(float);
+
+	/**
+	*/
+	void setTyreType(string str);
+
+private:
+	string type;
 
 };
 

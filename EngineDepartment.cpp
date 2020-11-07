@@ -24,6 +24,7 @@ EngineDepartment::~EngineDepartment()
 //Look into typeCasting, check for memory leaks!!
 void  EngineDepartment::runSimulation(CarComposite * car) 
 {
+	Logger::debug("Engine::department before paying", "remainingBudget + " + to_string(remainingBudget));
 
 	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
 		return;
@@ -33,6 +34,8 @@ void  EngineDepartment::runSimulation(CarComposite * car)
 		budget->setBudget(remainingBudget);
 		budget->notifyAll();
 	}
+
+	Logger::debug("Engine::department after paying", "remainingBudget + " + to_string(remainingBudget));
 
 	CarPart* engine = car->getPart(ENGINE); 
 	float variances[] = { Engine::ACCELERATION_CHANGE_VARIANCE,

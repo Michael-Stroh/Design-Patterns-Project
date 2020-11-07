@@ -18,11 +18,22 @@ void SeasonSubject::notify(vector<GrandPrix *> grandPrixs)
 	}
 }
 
+//ALex wat we doing here
+//memeory leaks in RaceTeam.h file if we arent careful
 void SeasonSubject::notify(RaceState *r){
-	throw "Not yet implemented";
+	vector<RaceTeam*>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		(*it)->setRaceState(r);
+	}
 }
 
+//ALex wat we doing here
 void SeasonSubject::notify(Result *r)
 {
-	throw "Not yet implemented";
+	vector<RaceTeam*>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		(*it)->informSeasonResult(r);
+	}
 }

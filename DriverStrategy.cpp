@@ -28,7 +28,7 @@ vector<Driver*> DriverStrategy::decideStrategy() {
 	Driver* temp;
 
 	for (int i = 0; i < size; i++) {
-		string type = tyres.at(i)->getType();
+		string type = tyres.at(i)->getTyreType();
 		if (type == "Soft") {
 			temp = new AggressiveDriving(raceDriver);
 			drive.push_back(temp);
@@ -51,9 +51,7 @@ vector<Driver*> DriverStrategy::decideStrategy() {
 }
 
 void DriverStrategy::displayDriver() {
-	cout << "Orginal:" << endl;
 	raceDriver->displayDriver();
-	cout << "Driver strategy: " << endl;
 	for (int i = 0; i < tyreStrategy->getNumPits(); i++) {
 		drivers.at(i)->displayDriver();
 	}
@@ -66,6 +64,7 @@ Driver* DriverStrategy::getDriver() {
 
 
 void DriverStrategy::setDriver(Driver* d) {
+	//delete raceDriver;
 	this->raceDriver = d;
 }
 
@@ -103,16 +102,34 @@ void DriverStrategy::lapChanges(bool good) {
 		increment = increment * -1;
 	}
 
-	raceDriver->setAggression(raceDriver->getAggression() + increment);
+	if (raceDriver->getAggression() + increment <= 100 && raceDriver->getAggression() + increment >= 0) {
+		raceDriver->setAggression(raceDriver->getAggression() + increment);
 
-	if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
-		changeStrategy("Aggressive");
+		if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
+			changeStrategy("Aggressive");
+		}
+		else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
+			changeStrategy("Controlled");
+		}
+		else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
+			changeStrategy("Cautious");
+		}
 	}
-	else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
-		changeStrategy("Controlled");
-	}
-	else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
-		changeStrategy("Cautious");
+}
+
+void DriverStrategy::changeAggressionDueToPositions(int amount)
+{
+	if (raceDriver->getAggression() + amount <= 100 && raceDriver->getAggression() + amount >= 0) {
+		raceDriver->setAggression(raceDriver->getAggression() + amount);
+		if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
+			changeStrategy("Aggressive");
+		}
+		else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
+			changeStrategy("Controlled");
+		}
+		else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
+			changeStrategy("Cautious");
+		}
 	}
 }
 

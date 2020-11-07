@@ -3,7 +3,7 @@
    @class TyreStrategy
    @authors Brent
    @version 1.0.0
-   @brief 
+   @brief
 */
 
 #ifndef TYRESTRATEGY_H
@@ -28,78 +28,78 @@ using namespace std;
 class TyreStrategy {
 
 
-	public:
+public:
 
-		/**
-			Constructor
-		*/
-		TyreStrategy();
+	/**
+		Constructor
+	*/
+	TyreStrategy();
 
-		/**
-			Constructor
-		 	@param rt
-		*/
-		TyreStrategy( RaceTrack* );
+	/**
+		Constructor
+		@param rt
+	*/
+	TyreStrategy(RaceTrack*);
 
-		/**
-			Constructor
-		*/
-		~TyreStrategy();
+	/**
+		Constructor
+	*/
+	~TyreStrategy();
 
-		/**
-			
-			@return
-		*/
-		vector<Tyre*> getTyres();
+	/**
 
-		/**
+		@return
+	*/
+	vector<Tyre*> getTyres();
 
-			@param
-		*/
-		void setTyres( vector<Tyre*> );
-		
-		
-		/**
-			@param
-		*/
-		int* getPitLaps();
-		
-		/**
-			@param
-		*/
-		void setPitLaps(int* arr);
-		
-		/**
-			@param
-		*/
-		int getNumPits();
-		
-		/**
-			@param
-		*/
-		void setNumPits(int arr);
-		
-		/**
-			
-		*/
-		void print();
-		
-	private:
-	
-		/**
-			@brief
-		*/
-		vector<Tyre*> tyres;
+	/**
 
-		/**
-			@brief
-		*/
-		int* pitLaps;
+		@param
+	*/
+	void setTyres(vector<Tyre*>);
 
-		/**
-			@brief
-		*/
-		int numPits;
+
+	/**
+		@param
+	*/
+	int* getPitLaps();
+
+	/**
+		@param
+	*/
+	void setPitLaps(int* arr);
+
+	/**
+		@param
+	*/
+	int getNumPits();
+
+	/**
+		@param
+	*/
+	void setNumPits(int arr);
+
+	/**
+
+	*/
+	void print();
+
+private:
+
+	/**
+		@brief
+	*/
+	vector<Tyre*> tyres;
+
+	/**
+		@brief
+	*/
+	int* pitLaps;
+
+	/**
+		@brief
+	*/
+	int numPits;
 };
 
 #endif

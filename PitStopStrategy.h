@@ -1,9 +1,9 @@
 /**
    @file PitStopStrategy.h
    @class PitStopStrategy
-   @authors Michael
+   @authors Brent
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 
@@ -15,68 +15,64 @@
 
 class PitStopStrategy {
 
-	public:
+public:
 
-		/**
-				Constructor
-		*/
-		PitStopStrategy( );
-
-		/**
+	/**
 			Constructor
-		 	@param tyreStart
-		*/
-		PitStopStrategy( TyreStrategy* );
+	*/
+	PitStopStrategy();
 
-		/**
-			Destructor
-		*/
-		~PitStopStrategy();
+	/**
+		Constructor
+		@param Tyre Startergy
+	*/
+	PitStopStrategy(TyreStrategy*);
 
-		/**
-			
-			@return
-		*/
-		bool CheckForPitStop();
+	/**
+		Destructor
+	*/
+	~PitStopStrategy();
 
-		/**
-			
-		*/
-		void CallPitStop();
-		
-		/**
+	/**
+		@brief checks to see if the lap is a pit lap
+		@param int current lap
+		@return true if pit is needed
+	*/
+	bool CheckForPitStop(int);
 
-		*/
-		void IncrementLap();
-		
-		/**
-			
-			@param laps
-		*/
-		void setLap( int );
-		
-		/**
-			
-			@return
-		*/
-		int getLap() const;
-		
-	private:
+	/**
+		@brief calls a pitstop
+	*/
+	void CallPitStop();
 
-		/**
-			@brief
-		*/
-		TyreStrategy* tyres;
+	/**
 
-		/**
-			@brief
-		*/
-		int currentLap;
+	*/
+	//void IncrementLap();
 
-		/**
-			@brief
-		*/
-		PitStop* ps;
+	/**
+
+		@param laps
+	*/
+	//void setLap( int );
+
+	/**
+
+		@return
+	*/
+	//int getLap() const;
+
+private:
+
+	/**
+		@brief holds the tyre object
+	*/
+	TyreStrategy* tyres;
+
+	/**
+		@brief holds the pit stop object
+	*/
+	PitStop* ps;
 };
 
 #endif

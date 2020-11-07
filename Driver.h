@@ -31,7 +31,7 @@ public:
 	/**
 		Destructor
 	*/
-	~Driver();
+	virtual ~Driver();
 
 
 

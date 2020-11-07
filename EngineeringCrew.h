@@ -43,8 +43,11 @@ class EngineeringCrew {
 			
 			@param
 		*/
-		void setCar( Car* );
+		void setCar( CarComposite * );
 
+		/**
+			@brief
+		*/
 		void calculateBudget(int);
 
 		/**
@@ -54,22 +57,31 @@ class EngineeringCrew {
 		CarComposite * getNextSeasonCar();
 
 		/**
-			
+			@brief
+		*/
+		void updateDepartmentBudgets();
+
+		/**
 			@param
 		*/
-		void setNextSeasonCar( Car* );
+		void setNextSeasonCar( CarComposite * );
+
+		/**
+			@brief 
+		*/
+		void prepareForNextRace();
 		
 	private:
 	
 		/**
 			@brief 
 		*/
-		Car* car;
+		CarComposite * car;
 		
 		/**
 			@brief 
 		*/
-		Car* nextSeasonCar;
+		CarComposite * nextSeasonCar;
 
 		/**
 		@brief

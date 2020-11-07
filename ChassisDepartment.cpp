@@ -22,7 +22,7 @@ ChassisDepartment::~ChassisDepartment()
 
 void  ChassisDepartment::runSimulation(CarComposite* car)
 {
-
+	Logger::debug("Electronics:department before paying", "remainingBudget + " + to_string(remainingBudget));
 	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
 		return;
 	else
@@ -31,6 +31,7 @@ void  ChassisDepartment::runSimulation(CarComposite* car)
 		budget->setBudget(remainingBudget);
 		budget->notifyAll();
 	}
+	Logger::debug("Electronics:department after paying", "remainingBudget + " + to_string(remainingBudget));
 
 	CarPart* Chassis = car->getPart(CHASSIS);
 	float variances[] = { Chassis::ACCELERATION_CHANGE_VARIANCE,

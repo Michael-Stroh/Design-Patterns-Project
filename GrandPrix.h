@@ -65,7 +65,12 @@ class GrandPrix {
 			@brief Sets the circuit on which the Grand Prix will take place.
 		*/
 		void setCircuit( RaceTrack* );
-
+		
+		/**
+			@brief used for testing.
+			@return the RaceTrack that this grandprix holds.
+		*/
+		RaceTrack* getCircuit() { return circuit; }   
 
 	private:
 

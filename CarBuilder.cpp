@@ -11,9 +11,9 @@ CarBuilder::CarBuilder() {
 	factories.push_back(new BrakesFactory());
 	factories.push_back(new ElectronicFactory());
 
-	Logger::setDebug(true);
-	Logger::magenta("Vector of factories.length", to_string(factories.size()));
-	Logger::setDebug(false);
+	//Logger::setDebug(true);
+	Logger::debug("CarBuilder::Construcotr Vector of factories.length", to_string(factories.size()));
+	//Logger::setDebug(false);
 }
 
 CarBuilder::~CarBuilder()
@@ -25,6 +25,7 @@ CarBuilder::~CarBuilder()
 CarComposite * CarBuilder::buildCar()
 {
 	CarComposite * car = new CarComposite();
+	Logger::debug("CarBuilder::build car", "adding parts to the created car");
 	car->add(ENGINE, factories[ENGINE]->createPart());
 	car->add(CHASSIS, factories[CHASSIS]->createPart());
 	car->add(TRANSMISSION, factories[TRANSMISSION]->createPart());
@@ -34,6 +35,7 @@ CarComposite * CarBuilder::buildCar()
 	car->add(SUSPENSION, factories[SUSPENSION]->createPart());
 	car->add(BRAKES, factories[BRAKES]->createPart());
 	car->add(ELECTRONICS, factories[ELECTRONICS]->createPart());
+	Logger::debug("CarBuilder::build car", "all parts added");
 
 	return car;
 }

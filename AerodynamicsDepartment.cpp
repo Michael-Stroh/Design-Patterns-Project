@@ -41,9 +41,7 @@ void AerodynamicsDepartment::runSimulation(CarComposite * car) {
 	};
 
 	Body* potentialBody = (Body * ) (simulationState->simulate(body, variances, max));
-	Logger::setDebug(true);
 	Logger::debug("Potential Body aerodynamics: ", to_string(potentialBody->getAerodynamicMultiplier()));
-	Logger::setDebug(false);
 
 	if (potentialBody->getAerodynamicMultiplier() <= body->getAerodynamicMultiplier())
 	{
