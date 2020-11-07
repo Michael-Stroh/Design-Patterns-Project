@@ -9,7 +9,7 @@ vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
-void makeDrivers();
+vector< RaceTeam*> makeDrivers();
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
@@ -177,11 +177,11 @@ void makeDrivers() {
 			line = line.substr(pos + 1, size);
 
 			pos = line.find_first_of('|');
-			racerName = stof(trim(line.substr(0, pos - 1)));
+			racerName = trim(line.substr(0, pos - 1));
 			line = line.substr(pos + 1, size);
 
 			pos = line.find_first_of('|');
-			errorProne = trim(line.substr(0, pos - 1));
+			errorProne = stof(trim(line.substr(0, pos - 1)));
 			line = line.substr(pos + 1, size);
 
 			temp.push_back(new ControlledDriving(racerName, errorProne));
