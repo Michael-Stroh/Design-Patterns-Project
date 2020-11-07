@@ -11,9 +11,7 @@ CarBuilder::CarBuilder() {
 	factories.push_back(new BrakesFactory());
 	factories.push_back(new ElectronicFactory());
 
-	//Logger::setDebug(true);
 	Logger::debug("CarBuilder::Construcotr Vector of factories.length", to_string(factories.size()));
-	//Logger::setDebug(false);
 }
 
 CarBuilder::~CarBuilder()

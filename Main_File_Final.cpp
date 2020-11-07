@@ -7,7 +7,8 @@
 /*
 	Remember:
 	Alex: SeasonSubject Notify Functions
-
+	Race.h Top author change and startRace function
+	Qualifing Race Subject notify
 */
 
 
@@ -57,12 +58,15 @@ int main() {
 		//delete me
 		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 		//Notification
+		Logger::red("Main: calling prepareRaceSeason", "");
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
+		Logger::red("Main: prepared for Season", "");
 
 		//RaceLoop
 		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
+			Logger::setDebug(true);
 			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
 			Logger::red("Main: printing grandPrix results", "");

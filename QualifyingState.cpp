@@ -16,13 +16,16 @@ QualifyingState::~QualifyingState()
 
 Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
-
+	Logger::debug("QualifyingState::runRace started", "");									//added By Tim
 	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 	{
 		this->qualifyingRaceSubject->attach((*team));
 	}
+	Logger::debug("QualifyingState::runRace all subjects attached", "");									//added By Tim
 	RaceResult *qualifyingResult = new RaceResult();
-	dynamic_cast<QualifyingRaceSubject*>(this->qualifyingRaceSubject)->notify(qualifyingResult);
+	Logger::debug("QualifyingState::runRace raceResult created", "");										//added by Tim
+	dynamic_cast<QualifyingRaceSubject*>(this->qualifyingRaceSubject)->notify(qualifyingResult);    //commented out gets us further
+	Logger::debug("QualifyingState::runRace all subbjects notified", "");							//added by Tim
 
 	float timeLeft;
 	float longestLapTime;
