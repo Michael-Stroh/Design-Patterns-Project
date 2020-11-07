@@ -5,7 +5,6 @@ EngineeringCrew::EngineeringCrew()
 	/*
 		Builders and building the cars
 	*/
-	//Logger::setDebug(true);
 	Logger::debug("EngineeringCrew::constructor", "");
 	Logger::debug("EngineeringCrew::constructor", "making a carBuilder");
 	builder = new CarBuilder();
@@ -26,8 +25,6 @@ EngineeringCrew::EngineeringCrew()
 
 	for (int i = 0; i < departments.size(); ++i)
 		budget->attach(departments[i]);
-
-	//Logger::setDebug(false);
 }
 
 
@@ -75,7 +72,7 @@ void EngineeringCrew::calculateBudget(int numGrandPrixs)
 	float totalInitialBalance = numGrandPrixs * moneyPerGrandPrix;
 	budget->setBudget(totalInitialBalance);
 	budget->notifyAll();	
-	Logger::setDebug(true);
+
 	for (int i = 0; i < departments.size(); ++i)
 	{
 		Logger::debug("EngineeringCrew::calulcate budget department " + i, to_string(departments[i]->getRemainingBalance()));
@@ -92,14 +89,13 @@ void EngineeringCrew::updateDepartmentBudgets()
 
 void EngineeringCrew::prepareForNextRace()
 {
-	//Logger::setDebug(true);
+
 	//Logger::debug("EngineeringCrew::prepareForNextRace", "IF there is an infinite loop it is here");
 	while (budget->getBudget() > departments[0]->getBudgetLimit())	//TEST THIS!!!!
 	{
 		for (int i = 0; i < departments.size(); ++i)
 			departments[i]->runSimulation(nextSeasonCar);
 	}
-	//Logger::setDebug(false);
 }
 
 const float EngineeringCrew::moneyPerGrandPrix = 1000;

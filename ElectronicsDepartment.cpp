@@ -24,7 +24,6 @@ ElectronicsDepartment::~ElectronicsDepartment() {
 
 void ElectronicsDepartment::runSimulation(CarComposite * car) 
 {
-	Logger::setDebug(true);
 	Logger::debug("Electronics:department before paying", "remainingBudget + " + to_string(remainingBudget));
 	if (remainingBudget < budgetLimit + costPerSimulation) //if amount remaining smaller than our limit plust the cost for a simulation
 		return;

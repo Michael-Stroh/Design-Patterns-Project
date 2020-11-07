@@ -17,7 +17,7 @@ vector< RaceTeam* > raceTeams;
 
 int main() {
 
-
+	
 		int numberOfTeams = 10;                                                                     //Should this not be 5??
 
 		////////////////Creation////////////////
@@ -283,3 +283,28 @@ void  populateCircuit( const string& fileName ) {
 	}
 
 }
+
+/*  Tim testing values for getCarLapTime
+	// Delete ME!!
+	cout << "Compilled and running" << endl;
+	Logger::setDebug(true);
+	RaceTeam * team = new RaceTeam();
+	string name = "RaceTrack1";
+
+	RaceTrack* raceTrack = new RaceTrack(name, RaceTrack::clockwise,1200.0, 10.09, 1200.0, 17, 20);
+	raceTrack->setBestLapTime(60.00);
+	cout << "RaceTrackBest Time: "<<raceTrack->getBestLapTime()<< " team lap Time: "<<team->getCarLapTime(0, raceTrack) << endl;
+
+	RaceTrack* raceTrack2 = new RaceTrack(name, RaceTrack::clockwise, 1200.0, 5.09, 1000.0, 23, 20);
+	raceTrack2->setBestLapTime(60.00);
+	cout << "RaceTrackBest Time: " << raceTrack->getBestLapTime() << " team lap Time: " << team->getCarLapTime(0, raceTrack2) << endl;
+
+	RaceTrack* raceTrack3 = new RaceTrack(name, RaceTrack::clockwise, 1200.0, 12.09, 1100.0, 10, 20);
+	raceTrack3->setBestLapTime(60.00);
+	cout << "RaceTrackBest Time: " << raceTrack->getBestLapTime() << " team lap Time: " << team->getCarLapTime(0, raceTrack3) << endl;
+
+	Logger::debug("Finished", "end");
+	while (true) {}
+	return 0;
+	//DELETE ME!!
+*/

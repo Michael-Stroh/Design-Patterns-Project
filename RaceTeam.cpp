@@ -9,12 +9,15 @@ RaceTeam::RaceTeam()
 	/*
 		Tim's Portion: The Construction of the Engineering Crew that will create and improve the cars.
 	*/
+	Logger::debug("RaceTeam::constructor", "creating engineering crew");
 		engineeringCrew = new EngineeringCrew();
+	Logger::debug("RaceTeam::constructor", "engineering crew created");
 		lapCount = 0;
 		raceState = nullptr;
 		seasonResult = nullptr;
 		qualifyingRaceResult = nullptr;
 		officialRaceResult = nullptr;
+		Strategy = nullptr;
 		
 	/*
 		End Of Tim's Portion
@@ -27,17 +30,18 @@ RaceTeam::RaceTeam()
 	/*
 		End Of Brents Portion
 	*/
+		Logger::debug("End of the RaceTeam Constructor", "");
 }
 
 //For testing, should not be used in main
 RaceTeam::RaceTeam(string teamName){
 
 	// FOR TESTING PURPOSES ONLY
-	this->teamName = teamName;
-	this->drivers = vector<Driver *>();
+	//this->teamName = teamName;
+	//this->drivers = vector<Driver *>();
 	//this->drivers.push_back(new Driver(teamName + " : Driver 1"));	//commented out since Driver is a pure virtual class
 	//this->drivers.push_back(new Driver(teamName + " : Driver 2"));
-	srand((unsigned)time(0));
+	//srand((unsigned)time(0));
 
 }
 
@@ -149,15 +153,28 @@ Driver *RaceTeam::getDriver(int i){
 	return this->drivers[i];
 }
 
-//Ask brent what the possible values for aggression are.
 float RaceTeam::getCarLapTime(int index, RaceTrack * circuit)
 {
+	//Logger::debug("RaceTeam::getCarLapTime", "printing car stats");
+	
 	//doesnt need iterators for raceTrack
 	float ans = 0;
 	CarComposite* car = engineeringCrew->getCar();	
 	float numCorners = 1.0 * circuit->getCorners();
 	float straightDistance = circuit->getStraightDistance();
 	float windForce = circuit->getWindForce();
+
+	//max corners = 23, max wind = 14.478, max straight = 1233
+	//min Corners: 10  Wind:  0.641  Straight Distance: 1000.00
+
+	float weightedSum = (windForce * 34.5351) + (numCorners * 21.7391) + (straightDistance *0.40551);
+	float speed_portion = ((straightDistance * 0.40551) / weightedSum) * engineeringCrew->getCar()->getSpeed();
+	float acceleration_portion = ((windForce * 34.5351) / weightedSum) * engineeringCrew->getCar()->getAcceleration();
+	float handling_portion = ((numCorners * 21.7391) / weightedSum) * engineeringCrew->getCar()->getHandling();
+
+	ans = speed_portion + acceleration_portion + handling_portion;
+	float portionOfBestTime = ((float)100.0 - ans) / 100.0;
+	ans = circuit->getBestLapTime() * (portionOfBestTime / 2) + circuit->getBestLapTime();
 
 	return ans;
 }
