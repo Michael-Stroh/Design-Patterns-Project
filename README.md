@@ -27,3 +27,9 @@ The project will be coded in C++ 20 and submitted on the 9th of Novemeber 2020.
             Alex           Human            u19069716
 
                                             -ordered by emplid
+Classes in Patterns:
+
+To compile the code:
+
+
+To create instances of classes:
