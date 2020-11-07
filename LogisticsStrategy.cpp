@@ -81,6 +81,7 @@ Logistics* LogisticsStrategy::getLogistics(string name){
 
 	//TODO: return type/value
 	for( int i =1; i < (int)logisitics.capacity(); i++){
+	for( int i =1; i < (int)logisitics.size(); i++){
 		if(name == logisitics.at(i)->getName()){
 			return logisitics.at(i);
 		}

@@ -29,6 +29,15 @@
 #include "Strategies.h"
 #include "LapResult.h"
 #include "Circuit.h"
+#include "Strategies.h"
+#include "RaceStrategy.h"
+#include "DriverStrategy.h"
+#include "TyreStrategy.h"
+#include "Tyre.h"
+
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
 #include <vector>
 using namespace std;
 
@@ -49,6 +58,11 @@ public:
 		@todo: Remove from final implementation
 	*/
 	RaceTeam(string);
+
+	/**
+	@brief brents constructor idea, nice to have team name and drivers name
+	*/
+	RaceTeam(string teamName, vector<Driver*> d)
 
 	/**
 			Destructor
@@ -132,8 +146,10 @@ public:
 
 	/**
 	@brief Brent go wild
+	@param driver
 	*/
 	void changeStratgiesBasedOnPosition();
+	void changeStrategiesBasedOnPosition(Driver* d);
 
 	/**
 		@brief Brent used ot decide the strategy the team will use for the next grandprix
@@ -142,8 +158,11 @@ public:
 
 	/**
 		@brief for brent to do logistics calculations
+		@brief to signal the end of a race and sort of the logistics
+		@param the name of the race
 	*/
 	void endOfGrandPrix();
+	void endOfGrandPrix(string);
 
 	/**
 		@brief Returns the team's name for identification and testing purposes
@@ -151,9 +170,14 @@ public:
 	*/
 	string getName();
 
-	void setName(string n) { teamName = n; }
+	/**
+	*/
+	void makeDrivers();
 
 private:
+	/**
+	*/
+	string trim(string a);
 
 	int lapCount;
 
@@ -202,6 +226,7 @@ private:
 	/**
 		@brief: A string containing the name of the team for identification during testing
 		@todo: Remove from final implementation
+		@todo: Remove from final implementation. No why ?
 	*/
 	string teamName;
 };

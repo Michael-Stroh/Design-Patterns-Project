@@ -9,6 +9,7 @@ vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
+void makeDrivers();
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
@@ -158,6 +159,52 @@ void endGrandPrix() {
 string trim( string line ) {
 
 	return line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
+}
+
+void makeDrivers() {
+	vector<RaceTeam*> teams;
+	int i = 0;
+	string line;
+	ifstream file;
+
+	bool changer = false;
+	vector<Driver*> temp;
+
+	file.open("../Data/drivers.txt");
+	if (file.is_open()) {
+		while (getline(file, line)) {
+
+			int pos = 0;
+			int size = line.size();
+
+			string teamName, racerName;
+			float errorProne;
+
+			pos = line.find_first_of('|');
+			teamName = trim(line.substr(0, pos - 1));
+			line = line.substr(pos + 1, size);
+
+			pos = line.find_first_of('|');
+			racerName = stof(trim(line.substr(0, pos - 1)));
+			line = line.substr(pos + 1, size);
+
+			pos = line.find_first_of('|');
+			errorProne = trim(line.substr(0, pos - 1));
+			line = line.substr(pos + 1, size);
+
+			temp.push_back(new ControlledDriving(racerName, errorProne));
+			if (changer != true) {
+				
+				changer = true;
+			}
+			else {
+				changer = false;
+				teams.push_back(new RaceTeam(teamName, temp));
+				temp.clear();
+			}
+
+		}
+	}
 }
 
 void  populateCircuit( const string& fileName ) {

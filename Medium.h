@@ -34,6 +34,20 @@ class Medium: public Tyre {
 		*/
 		~Medium();
 
+		/**
+			@brief return type of tyre
+			@return string type of tyre
+		*/
+		string getType();
+
+		/**
+			@brief to be used after every offical lap
+			@param float distance of lap
+		*/
+		void usage(float);
+private:
+	string type;
+
 };
 
 #endif

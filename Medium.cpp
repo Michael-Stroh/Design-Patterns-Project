@@ -15,3 +15,15 @@ Medium::Medium( int durability, int grip, float pressure ): Tyre( durability, gr
 Medium::~Medium() {
 
 }
+
+void Medium::usage(float track) {
+    setDurability(getDurability() - (int)ceil(track));
+    setGrip(getGrip() - 2);
+    if (getDurability() <= 0) {
+        //dead 
+    }
+}
+
+string Medium::getType() {
+    return type;
+}

@@ -2,6 +2,7 @@
    @file Soft.h
    @class Soft
    @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
  */
@@ -22,6 +23,7 @@ class Soft: public Tyre {
 
 		/**
 			Constructor
+			@brief Constructor
 			@param durability
 			@param grip
 			@param pressure
@@ -32,6 +34,17 @@ class Soft: public Tyre {
 			Destructor
 		*/
 		~Soft();
+
+		string getType();
+
+		/**
+			@brief to be used after every offical lap
+			@param float distance of lap
+		*/
+		void usage(float);
+
+private:
+	string type;
 
 };
 
