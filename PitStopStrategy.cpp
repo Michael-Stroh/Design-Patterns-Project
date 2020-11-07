@@ -14,6 +14,7 @@ PitStopStrategy::~PitStopStrategy() {
 }
 
 bool PitStopStrategy::CheckForPitStop() {
+bool PitStopStrategy::CheckForPitStop(int currentLap) {
 
     int* pits = tyres->getPitLaps();
     cout << tyres->getNumPits() << endl;
@@ -33,6 +34,7 @@ void PitStopStrategy::CallPitStop() {
 	ps->changeTyre( tyres );
 }
 
+/*
 void PitStopStrategy::IncrementLap(){
 
 	this->currentLap = currentLap + 1;
@@ -47,3 +49,4 @@ int PitStopStrategy::getLap() const{
 
 	return currentLap;
 }
+*/

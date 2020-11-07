@@ -15,3 +15,15 @@ Hard::Hard( int durability, int grip, float pressure ): Tyre( durability, grip, 
 Hard::~Hard() {
 
 }
+
+void Hard::usage(float track) {
+    setDurability(getDurability() - (int)ceil(track));
+    setGrip(getGrip() - 1);
+    if (getDurability() <= 0) {
+        //dead 
+    }
+}
+
+string Hard::getType() {
+    return type;
+}

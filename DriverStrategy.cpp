@@ -66,6 +66,7 @@ Driver* DriverStrategy::getDriver() {
 
 
 void DriverStrategy::setDriver(Driver* d) {
+	delete raceDriver;
 	this->raceDriver = d;
 }
 
@@ -104,15 +105,41 @@ void DriverStrategy::lapChanges(bool good) {
 	}
 
 	raceDriver->setAggression(raceDriver->getAggression() + increment);
+	if (raceDriver->getAggression() + increment <= 100 && raceDriver->getAggression() + increment >= 0) {
+		raceDriver->setAggression(raceDriver->getAggression() + increment);
 
 	if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
 		changeStrategy("Aggressive");
 	}
 	else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
 		changeStrategy("Controlled");
+		if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
+			changeStrategy("Aggressive");
+		}
+		else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
+			changeStrategy("Controlled");
+		}
+		else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
+			changeStrategy("Cautious");
+		}
 	}
 	else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
 		changeStrategy("Cautious");
+}
+
+void DriverStrategy::changeAggressionDueToPositions(int amount)
+{
+	if (raceDriver->getAggression() + amount <= 100 && raceDriver->getAggression() + amount >= 0) {
+		raceDriver->setAggression(raceDriver->getAggression() + int);
+		if (raceDriver->getAggression() >= 90 && raceDriver->getType() != "Aggressive") {
+			changeStrategy("Aggressive");
+		}
+		else if (raceDriver->getAggression() >= 60 && raceDriver->getType() != "Controlled") {
+			changeStrategy("Controlled");
+		}
+		else if (raceDriver->getAggression() >= 30 && raceDriver->getType() != "Cautious") {
+			changeStrategy("Cautious");
+		}
 	}
 }
 

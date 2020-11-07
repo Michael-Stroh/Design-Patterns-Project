@@ -2,6 +2,7 @@
    @file Tyre.h
    @class Tyre
    @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
 */
@@ -81,12 +82,14 @@ class Tyre {
 		 	@return
 		*/
 		string getType();
+		virtual string getType() = 0;
 
 		/**
 			calculates the usage per lap
 			@param distance of a lap
 		*/
 		void usage( int );
+		virtual void usage( float ) = 0 ;
 
 	private:
 		

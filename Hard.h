@@ -2,6 +2,7 @@
    @file Hard.h
    @class Hard
    @authors Michael
+   @authors Brenton
    @version 1.0.0
    @brief 
  */
@@ -34,6 +35,19 @@ class Hard: public Tyre {
 		*/
 		~Hard();
 
+		/**
+			@brief return type of tyre
+			@return string type of tyre
+		*/
+		string getType();
+
+		/**
+			@brief to be used after every offical lap
+			@param float distance of lap
+		*/
+		void usage(float);
+private:
+	string type;
 };
 
 #endif
