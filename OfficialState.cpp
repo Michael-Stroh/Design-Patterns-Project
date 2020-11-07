@@ -1,7 +1,8 @@
 #include "OfficialState.h"
 
-OfficialState::OfficialState() : RaceState(), officialRaceSubject( new RaceSubject( ) ) {
-
+OfficialState::OfficialState() : RaceState()		//changed by Tim
+{
+	this->officialRaceSubject = new OfficialRaceSubject();   //Added by Tim
 }
 
 OfficialState::~OfficialState() {
@@ -9,8 +10,9 @@ OfficialState::~OfficialState() {
 	delete officialRaceSubject;
 }
 
-Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) {
-
+Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) 
+{
+	Logger::debug("OfficialState::runRace", "");											//added by Tim
 	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team){
 		this->officialRaceSubject->attach((*team));
 	}
@@ -22,7 +24,9 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	float timeLeft = 7200.00; // 2 hours in seconds
 	float longestLapTime = 0;
 	RaceResult *previousQualifiersResult = dynamic_cast<RaceResult *>(result);
+	Logger::debug("OfficialState::runRace printing grid results", "");											//added by Tim
 	previousQualifiersResult->printGridPositions();
+	Logger::debug("OfficialState: printed grid positions", "aboout to do while loop");							//added by Tim
 
 	while (remainingDistance > 0 && timeLeft > 0)
 	{
@@ -47,15 +51,20 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 				}
 			}
 		}
+		//Logger::debug("OfficialState runRace loop", "");
 		timeLeft -= longestLapTime;
 		remainingDistance -= lapDistance;
 	}
-	Logger::debug("Official Race Results", "");
+
+	Logger::debug("OfficialState: Official Race Results", "");
 	officialRaceResult->print();
-	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
-	{
-		this->officialRaceSubject->detach((*team));
-	}
+	Logger::debug("OfficialState::runRace finished printing the results", "");			
+	//for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	//{
+	//	this->officialRaceSubject->detach((*team));
+	//}
+
+	Logger::debug("OfficialState::runRace end of function", "");											//added by Tim
 	return officialRaceResult;
 }
 

@@ -35,7 +35,7 @@ void  EngineDepartment::runSimulation(CarComposite * car)
 		budget->notifyAll();
 	}
 
-	Logger::debug("Engine::department after paying", "remainingBudget + " + to_string(remainingBudget));
+	Logger::debug("Engine::department after paying", "remainingBudget " + to_string(remainingBudget));
 
 	CarPart* engine = car->getPart(ENGINE); 
 	float variances[] = { Engine::ACCELERATION_CHANGE_VARIANCE,

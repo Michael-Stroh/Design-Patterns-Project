@@ -30,6 +30,11 @@ public:
 			@param: The results of an official race, used to inform teams of what's going on during/after the race
 		*/
 	void notify(Result *);
+
+	/**
+		@brief
+	*/
+	void notify(RaceState *);			//added By Tim to make this non pure virtual class
 };
 
 #endif
