@@ -27,6 +27,11 @@ public:
 	~QualifyingRaceSubject();
 
 	/**
+		@brief
+	*/
+	void notify(RaceState*);					//added by Tim to make this a non pure virtual class 
+
+	/**
 			
 			@param: The results of a qualifying race, used to inform teams of what's going on during/after the qualifying race
 		*/

@@ -9,9 +9,9 @@ Logistics::Logistics( string name, bool euro ) {
 	this->carComponents =  new Container();
 	
 	if(isEuropean){
-		cout<< "Containers are been trucked to "  << name<< endl;
+		//cout<< "Containers are been trucked to "  << name<< endl;			//Add this again eventually 
 	}else{
-		cout << "Containers are been shipped to " << name << endl;
+		//cout << "Containers are been shipped to " << name << endl;
 	}
 }
 

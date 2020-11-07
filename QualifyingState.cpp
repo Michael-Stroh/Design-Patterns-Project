@@ -2,7 +2,8 @@
 
 QualifyingState::QualifyingState() : RaceState()
 {
-	this->qualifyingRaceSubject = new RaceSubject();
+	//this->qualifyingRaceSubject = new RaceSubject();
+	this->qualifyingRaceSubject = new QualifyingRaceSubject();				//changed by Tim
 }
 
 QualifyingState::~QualifyingState()
@@ -16,13 +17,18 @@ QualifyingState::~QualifyingState()
 
 Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
-
+	Logger::debug("QualifyingState::runRace started", "");									//added By Tim
 	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 	{
+		Logger::debug("QualifyfingState adding a team", "");
 		this->qualifyingRaceSubject->attach((*team));
 	}
+
+	Logger::debug("QualifyingState::runRace all subjects attached", "");									//added By Tim
 	RaceResult *qualifyingResult = new RaceResult();
-	dynamic_cast<QualifyingRaceSubject*>(this->qualifyingRaceSubject)->notify(qualifyingResult);
+	Logger::debug("QualifyingState::runRace raceResult created", "");										//added by Tim
+	dynamic_cast<QualifyingRaceSubject*>(this->qualifyingRaceSubject)->notify(qualifyingResult);    //commented out gets us further
+	Logger::debug("QualifyingState::runRace all subbjects notified", "");							//added by Tim
 
 	float timeLeft;
 	float longestLapTime;
@@ -115,10 +121,15 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	qualifyingResult->placeBottomXOnGrid(10);
 	Logger::debug("Final qualifying round grid positions", "");
 	qualifyingResult->printGridPositions();
-	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	Logger::debug("QualifyingState finished printing postions", "");							//Added by Tim
+	
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)		//This detaching isnt working
 	{
-		this->qualifyingRaceSubject->detach((*team));
+		Logger::debug("QualifyingState detaching team", "");
+		//this->qualifyingRaceSubject->detach((*team));											//commented out By Tim
 	}
+	Logger::debug("QualifyingState enf ofrunRace function", "");		//added by Tim
+
 	// qualifyingResult->apply107Rule();
 	return qualifyingResult;
 }
