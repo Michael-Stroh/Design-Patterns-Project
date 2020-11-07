@@ -15,6 +15,11 @@ RaceSeason::RaceSeason(vector<GrandPrix *> g, vector<RaceTeam *> t)
 	this->teams = t;
 	this->result = new RaceSeasonResult();
 	this->seasonSubject = new SeasonSubject();
+	Logger::debug("RaceSeason::constructor", "attatching raceTeams to seasonSubject");
+	for (int i = 0; i < t.size(); ++i)
+	{
+		seasonSubject->attach(t[i]);
+	}
 	this->grandPrixIterator = this->grandPrixs.begin();
 }
 
@@ -69,7 +74,7 @@ bool RaceSeason::hasNextGrandPrix(){
 
 void RaceSeason::prepareSeason()
 {
-
+	Logger::debug("RaceSeason::prepareSeason ", "");
 	// Notify all the teams of the grand prixs that will take place this season
 	this->seasonSubject->notify(this->grandPrixs);
 

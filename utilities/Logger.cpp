@@ -15,10 +15,10 @@ void Logger::log(string heading, string message)
 
 void Logger::red(string heading, string message)
 {
-    cout << "\e[31m";
+    cout << "\033[31m";
     cout << "--- " << heading << " ---" << endl;
     cout << message << endl;
-    cout << "\e[39m";
+    cout << "\033[39m";
 }
 
 void Logger::green(string heading, string message)

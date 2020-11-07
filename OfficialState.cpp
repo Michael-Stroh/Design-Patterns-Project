@@ -51,7 +51,7 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 				}
 			}
 		}
-		Logger::debug("OfficialState runRace loop", "");
+		//Logger::debug("OfficialState runRace loop", "");
 		timeLeft -= longestLapTime;
 		remainingDistance -= lapDistance;
 	}
@@ -59,10 +59,10 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	Logger::debug("OfficialState: Official Race Results", "");
 	officialRaceResult->print();
 	Logger::debug("OfficialState::runRace finished printing the results", "");			
-	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
-	{
-		this->officialRaceSubject->detach((*team));
-	}
+	//for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	//{
+	//	this->officialRaceSubject->detach((*team));
+	//}
 
 	Logger::debug("OfficialState::runRace end of function", "");											//added by Tim
 	return officialRaceResult;

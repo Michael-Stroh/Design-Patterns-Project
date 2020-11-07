@@ -40,7 +40,8 @@ void printCarStatistics(CarComposite* car)		//helper functin, delete
 
 int main() {
 
-		int numberOfTeams = 10;                                                                    
+		int numberOfTeams = 10;           
+		
 		////////////////Creation////////////////
 
 		//instantiate the CompositeRoad pointer
@@ -55,6 +56,7 @@ int main() {
 		raceTeams = makeTeamsAndDrivers();                                               //Brent 
 
 		//delete me
+		Logger::setDebug(true);
 		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 		//Notification
 		Logger::red("Main: calling prepareRaceSeason", "");
@@ -62,7 +64,7 @@ int main() {
 		Logger::red("Main: prepared for Season", "");
 
 		//RaceLoop
-		for ( int i = 0; i < grandPrixs.size(); ++i ) {
+		for ( int i = 0; i < 1; ++i ) {
 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
 			Logger::setDebug(true);
@@ -80,7 +82,6 @@ int main() {
 			Deletion
 			Mike Will handle Deletion
 		*/
-
 		//delete the circuit before the GrandPrix that holds it
 		delete circuit;
 
