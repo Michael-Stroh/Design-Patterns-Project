@@ -41,7 +41,6 @@ void printCarStatistics(CarComposite* car)		//helper functin, delete
 int main() {
 
 		int numberOfTeams = 10;                                                                    
-
 		////////////////Creation////////////////
 
 		//instantiate the CompositeRoad pointer

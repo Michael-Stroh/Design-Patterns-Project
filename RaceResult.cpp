@@ -78,6 +78,7 @@ void RaceResult::addResult(Result *r)
 
 void RaceResult::print()
 {
+	Logger::debug("RaceResult::print", "");							//added by Tim
 	vector<pair<string, float>>::iterator it;
 	int position = 1;
 	for (it = totalDriversLaptime.begin(); it != totalDriversLaptime.end(); ++it)
@@ -89,12 +90,15 @@ void RaceResult::print()
 
 void RaceResult::printGridPositions()
 {
+	Logger::debug("RaceResult::printGrid positions start", "");							//added by Tim
 	sort(driverGridPositions.begin(), driverGridPositions.end(), sortByAscending);
 	vector<pair<string, int>>::iterator it;
 	for (it = driverGridPositions.begin(); it != driverGridPositions.end(); ++it)
 	{
 		cout << it->second << " - " << it->first << endl;
 	}
+
+	Logger::debug("RaceResult::printGrid positions end", "");							//added by Tim
 }
 
 void RaceResult::sortDrivers()

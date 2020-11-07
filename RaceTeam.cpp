@@ -96,6 +96,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	//Logger::debug("RaceTeam::performLap", "");
 
 	if (raceState->getStateName() == "Official") {
+		Logger::debug("RaceTEam::perform lap Offcial behaviour", this->getName());
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
 		lapCount++;
 		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
