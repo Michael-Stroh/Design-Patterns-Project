@@ -79,6 +79,8 @@ class RaceTrack: public Circuit {
 		*/
 		RaceTrack( string, RaceTrack::direction, float, float, float, float, float, int, int, bool, string, string );
 
+
+
 		/**
 			@brief Destructor
 			Frees all the memory
@@ -95,7 +97,7 @@ class RaceTrack: public Circuit {
 			traversed in a linear order
 			@return the created iterator on the current object
 		*/
-		Iterator *createIterator();
+		CircuitIterator* createIterator();
 
 		/**
 			Returns the stored distance of a single lap
