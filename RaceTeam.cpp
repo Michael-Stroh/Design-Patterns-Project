@@ -13,6 +13,7 @@ RaceTeam::RaceTeam()
 		engineeringCrew = new EngineeringCrew();
 	Logger::debug("RaceTeam::constructor", "engineering crew created");
 		lapCount = 0;
+
 		raceState = nullptr;
 		seasonResult = nullptr;
 		qualifyingRaceResult = nullptr;

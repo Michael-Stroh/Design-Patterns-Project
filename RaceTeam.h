@@ -151,6 +151,8 @@ public:
 	*/
 	string getName();
 
+	void setName(string n) { teamName = n; }
+
 private:
 
 	int lapCount;

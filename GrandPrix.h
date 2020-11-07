@@ -66,6 +66,7 @@ class GrandPrix {
 		*/
 		void setCircuit( RaceTrack* );
 
+		RaceTrack* getCircuit() { return circuit; }   //DELETE ME!!!
 
 	private:
 

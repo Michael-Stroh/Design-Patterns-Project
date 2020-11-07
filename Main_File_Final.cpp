@@ -17,35 +17,40 @@ vector< RaceTeam* > raceTeams;
 
 int main() {
 
-	
-		int numberOfTeams = 10;                                                                     //Should this not be 5??
+		int numberOfTeams = 10;                                                                    
 
 		////////////////Creation////////////////
 
 		//instantiate the CompositeRoad pointer
 		circuit = new CompositeRoad();
 		//call the function to read the circuits in from the file
-		populateCircuit("Data/races.txt" );
+		populateCircuit("Data/races.txt" );																	//working
                 /// TODO: the file path will change depending what files are stored in which folders
 
 		//test to see if the RaceTracks were created
-		/*circuit->determineMaxValues();
+		/* 
+		circuit->determineMaxValues();
 		circuit->determineMinValues();
 		cout << endl << endl;
 		circuit->print();
-		cout << endl << endl;*/
+		cout << endl << endl;
+		*/
 
-
-
-
-		grandPrixs = vector<GrandPrix *>();
+		grandPrixs = vector<GrandPrix *>();								//working
 		createGrandPrixs();                                                                         //Alex: done
 
 
 		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
 		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
+		for (int i = 0; i < raceTeams.size(); ++i)
+		{
+			cout << "Team: " << raceTeams[i]->getName() << endl;
+		}
 
+		while (true) {}
+
+		return 0;
 
 		//Notification
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
@@ -80,6 +85,7 @@ int main() {
         grandPrixs.clear();
 }
 
+
 void createGrandPrixs() {
 
 	/*
@@ -108,9 +114,12 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
 	vector<RaceTeam*> vec;
 
-	/*
-			Tim: create the RaceTeams
-	*/
+	for (int i = 0; i < numberOfTeams; ++i)
+	{
+		vec.push_back(new RaceTeam());
+		vec[i]->setName(to_string(i));
+	}
+
 	return vec;
 }
 
