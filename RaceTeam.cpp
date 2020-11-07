@@ -42,6 +42,11 @@ RaceTeam::RaceTeam(string teamName) {
 
 }
 
+RaceTeam::RaceTeam(string teamName, vector<Driver*> d) {
+	this->teamName = teamName;
+	this->drivers = d;
+}
+
 RaceTeam::~RaceTeam()
 {
 	drivers.clear();
