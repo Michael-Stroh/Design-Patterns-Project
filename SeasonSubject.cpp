@@ -21,7 +21,7 @@ void SeasonSubject::notify(vector<GrandPrix *> grandPrixs)
 }
 
 //ALex wat we doing here
-//memeory leaks in RaceTeam.h file if we arent careful
+//memory leaks in RaceTeam.h file if we arent careful
 void SeasonSubject::notify(RaceState *r){
 	vector<RaceTeam*>::iterator it;
 	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
