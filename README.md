@@ -2,6 +2,8 @@
 This a design-pattern project for COS 214 of the University of Pretoria by the group TSP.
 We will model a Formula one team, specifically the logistics and racing, using at least 10 design patterns. 
 
+The project will be coded in C++ 20 and submitted on the 9th of Novemeber 2020.
+
     The following patterns were used:
 
           1. Composite
@@ -16,7 +18,7 @@ We will model a Formula one team, specifically the logistics and racing, using a
          10. Mediator
          11. Strategy
 
-The project will be coded in C++ 20 and submitted on the 9th of Novemeber 2020.
+
 
     The group members are as follows:
 
