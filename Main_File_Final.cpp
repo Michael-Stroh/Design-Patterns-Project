@@ -65,7 +65,9 @@ int main() {
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
 			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
+			Logger::red("Main: printing grandPrix results", "");
 			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
+			Logger::red("Main: ending grandPrix", "");
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex: is now printing nicely
