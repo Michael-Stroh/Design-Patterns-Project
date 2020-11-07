@@ -40,9 +40,7 @@ CarPart* WindTunnel::simulate(CarPart* body, float variance[], float max[])
 	if (generateRandomFraction() < 0.49)
 		newAero *= -1;
 	newAero += tempBody->getAerodynamicMultiplier();
-	Logger::setDebug(true);
-	Logger::debug("WindTUnnel; simulate newAero: ", to_string(newAero));
-	Logger::setDebug(false);
+	//Logger::debug("WindTUnnel; simulate newAero: ", to_string(newAero));
 
 	if (newAero <= max[0])
 		potentialBody->setAerodynamicMultiplier(newAero);

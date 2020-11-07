@@ -3,59 +3,71 @@
 #include "RaceSeason.h"
 #include <iostream>
 
+
+/*
+	Remember:
+	Alex: SeasonSubject Notify Functions
+
+*/
+
+
 //Main Helper Functions pre-declaration
 void createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
+vector<RaceTeam*> makeTeamsAndDrivers();
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
 vector< GrandPrix* > grandPrixs;
 vector< RaceTeam* > raceTeams;
 
+void printCarStatistics(CarComposite* car)		//helper functin, delete
+{
+	float aggregateH = car->getHandling();
+	float aggregateA = car->getAcceleration();
+	float aggregateS = car->getSpeed();
+
+	cout << endl;
+	cout << "Car total Speed: " << aggregateS << endl;
+	cout << "Car total acceleration: " << aggregateA << endl;
+	cout << "Car total Handling: " << aggregateH << endl;
+	cout << endl;
+}
+
 int main() {
 
-	
-		int numberOfTeams = 10;                                                                     //Should this not be 5??
+		int numberOfTeams = 10;                                                                    
 
 		////////////////Creation////////////////
 
 		//instantiate the CompositeRoad pointer
 		circuit = new CompositeRoad();
 		//call the function to read the circuits in from the file
-		populateCircuit("Data/races.txt" );
+		populateCircuit("Data/races.txt" );																	//working
                 /// TODO: the file path will change depending what files are stored in which folders
 
-		//test to see if the RaceTracks were created
-		/*circuit->determineMaxValues();
-		circuit->determineMinValues();
-		cout << endl << endl;
-		circuit->print();
-		cout << endl << endl;*/
+		grandPrixs = vector<GrandPrix *>();								//working
+		createGrandPrixs();                                                               //Alex: done
+		
+		raceTeams = makeTeamsAndDrivers();                                               //Brent 
 
-
-
-
-		grandPrixs = vector<GrandPrix *>();
-		createGrandPrixs();                                                                         //Alex: done
-
-
-		raceTeams = createRaceTeams( numberOfTeams );                                               //Tim
-		RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
-
-
-
+		//delete me
+		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 		//Notification
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
 
 		//RaceLoop
 		for ( int i = 0; i < grandPrixs.size(); ++i ) {
-
-			prepareForNextRace( raceTeams, grandPrixs[ i ] );     									//Tim and Kayla calls doDayPreparetion in RaceTeam
+			Logger::red("Main: Preparing for next Race", to_string(i));
+			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
+			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
+			Logger::red("Main: printing grandPrix results", "");
 			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
+			Logger::red("Main: ending grandPrix", "");
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex: is now printing nicely
@@ -79,6 +91,7 @@ int main() {
         //empty and resize the vector
         grandPrixs.clear();
 }
+
 
 void createGrandPrixs() {
 
@@ -104,13 +117,16 @@ void createGrandPrixs() {
     delete it;
 }
 
+//Backup Function
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
 	vector<RaceTeam*> vec;
 
-	/*
-			Tim: create the RaceTeams
-	*/
+	for (int i = 0; i < numberOfTeams; ++i)
+	{
+		vec.push_back(new RaceTeam());
+	}
+
 	return vec;
 }
 
@@ -119,7 +135,10 @@ void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 	/*
 		Brents Portion
 	*/
-		//for each team call 'decideNextStrategy'
+	for (int i = 0; i < team.size(); ++i) {
+
+		team[i]->decideNextStrategy(gp);
+	}
 
 	/*
 		End of Brents Portion
@@ -149,6 +168,58 @@ void endGrandPrix() {
 string trim( string line ) {
 
 	return line.erase( 0, line.erase( line.find_last_not_of( "\t\n\v\f\r " ) + 1 ).find_first_not_of( "\t\n\v\f\r " ) );
+}
+
+vector<RaceTeam*> makeTeamsAndDrivers() {
+	vector<RaceTeam*> teams;
+	int i = 0;
+	string line;
+	ifstream file;
+
+	bool changer = false;
+	vector<Driver*> temp;
+
+	file.open("Data/driver.txt");   //changed from ../Data
+	if (file.is_open()) {
+		Logger::debug("MakeDrivers and Teams", "File opened correctly");
+		while (getline(file, line)) {
+
+			int pos = 0;
+			int size = line.size();
+
+			string teamName, racerName;
+			float errorProne;
+
+			pos = line.find_first_of('|');
+			teamName = trim(line.substr(0, pos - 1));
+			line = line.substr(pos + 1, size);
+
+			pos = line.find_first_of('|');
+			racerName = trim(line.substr(0, pos - 1));
+			line = line.substr(pos + 1, size);
+
+			pos = line.find_first_of('|');
+			errorProne = stof(trim(line.substr(0, pos - 1)));
+			line = line.substr(pos + 1, size);
+
+			Logger::debug("MakeDrivers and Teams", "creating new COntrolledDriving");
+			temp.push_back(new ControlledDriving(racerName, errorProne));
+			Logger::debug("MakeDrivers and Teams", "new COntrolledDriving created");
+			if (changer != true) {
+
+				changer = true;
+			}
+			else {
+				changer = false;
+				Logger::debug("MakeDrivers and Teams", "creating new Team");
+				teams.push_back(new RaceTeam(teamName, temp));
+				Logger::debug("MakeDrivers and Teams", " new Team created");
+				temp.clear();
+			}
+
+		}
+	}
+	return teams;
 }
 
 void  populateCircuit( const string& fileName ) {
@@ -308,3 +379,51 @@ void  populateCircuit( const string& fileName ) {
 	return 0;
 	//DELETE ME!!
 */
+
+/*
+	//DELETE ME!!
+		Logger::setDebug(true);
+		raceTeams = makeTeamsAndDrivers();                                               //Brent 
+
+		Logger::debug("Main after creating raceTeams", to_string(raceTeams.size()));
+		for (int i = 0; i < raceTeams.size(); ++i)						//MAKE VARIABLES PRIVATE AGAIN!!!
+		{
+			Logger::debug("Main car " , to_string(i));
+			raceTeams[i]->drivers[0]->displayDriver();
+			raceTeams[i]->drivers[1]->displayDriver();
+			printCarStatistics(raceTeams[i]->engineeringCrew->getCar());
+		}
+
+		while(true) {}
+		return 0;
+		//DELETE ME!!
+*/
+
+/*
+
+		Logger::debug("Main after creating raceTeams", to_string(raceTeams.size()));
+		for (int i = 0; i < raceTeams.size(); ++i)						//MAKE VARIABLES PRIVATE AGAIN!!!
+		{
+			Logger::debug("RaceTeam ", to_string(i));
+			RaceTrack* raceTrack = new RaceTrack("Albert Park", RaceTrack::clockwise, 1200.0, 10.09, 1200.0, 17, 20);
+			raceTrack->setBestLapTime(60.00);
+			cout << "RaceTrackBest Time: " << raceTrack->getBestLapTime() <<endl;
+			raceTeams[i]->decideNextStrategy(grandPrixs[0]);
+			cout<<" team lap Time: " << raceTeams[i]->getDriverLapTime(0, raceTrack) << endl;
+		}
+
+		while (true) {}
+		return 0;
+		//DELETE ME!!
+*/
+
+/*
+
+		//test to see if the RaceTracks were created
+		/*
+		circuit->determineMaxValues();
+		circuit->determineMinValues();
+		cout << endl << endl;
+		circuit->print();
+		cout << endl << endl;
+		*/

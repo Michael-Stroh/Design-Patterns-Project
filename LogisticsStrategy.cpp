@@ -77,15 +77,15 @@ RaceTrack* LogisticsStrategy::getRace(string name){
 	return nullptr;
 }
 
-Logistics* LogisticsStrategy::getLogistics(string name){
-
-	//TODO: return type/value
-	for( int i =1; i < (int)logisitics.capacity(); i++){
-		if(name == logisitics.at(i)->getName()){
-			return logisitics.at(i);
+Logistics* LogisticsStrategy::getLogistics(string name)
+{
+	for (int i = 1; i < (int)logisitics.capacity(); i++) 
+	{
+		if (name == logisitics.at(i)->getName()) {
+				return logisitics.at(i);
 		}
+		
 	}
-
 	return nullptr;
 }
 

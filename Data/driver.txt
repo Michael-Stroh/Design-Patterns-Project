@@ -1,0 +1,20 @@
+ Mercedes | Lewis Hamilton | 0.01 
+ Mercedes | Valtteri Bottas | 0.02
+ Ferrari | Charles Leclerc | 0.05
+ Ferrari | Sebastian Vettel | 0.02
+ Red Bull | Max Verstappen | 0.01
+ Red Bull | Alex Albon | 0.03
+ McLaren | Carlos Sainz | 0.05
+ McLaren | Lando Norris | 0.09
+ Renault | Daniel Ricciardo | 0.04
+ Renault | Esteban Ocon | 0.08
+ AlphaTauri | Pierre Gasly | 0.06
+ AlphaTauri | Daniil Kvyat | 0.03
+ Racing Point | Sergio Perez | 0.04
+ Racing Point | Lance Stroll | 0.50
+ Alfa Romeo | Kimi Raikkonen | 0.08
+ Alfa Romeo | Antonio Giovinazzi | 0.05
+ Haas | Kevin Mangussen | 0.04
+ Haas | Romain Grosjean | 0.05
+ Williams | George Russell | 0.4
+ Williams | Nicholas Latifi | 0.4

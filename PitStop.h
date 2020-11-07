@@ -3,10 +3,10 @@
    @class PitStop
    @authors Michael
    @version 1.0.0
-   @brief 
+   @brief
  */
 
-//mediator
+ //mediator
 #ifndef PITSTOP_H
 #define PITSTOP_H
 
@@ -19,37 +19,37 @@ using namespace std;
 
 class PitStop {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		PitStop();
+public:
 
-		/**
-			Destructor
-		*/
-		virtual ~PitStop();
+	/**
+		Constructor
+	*/
+	PitStop();
 
-		/**
-			
-			@param crewMember
-		*/
-		int addCrewMember(PitCrew *);
-		
-		/**
-			
-			@param tyreStrategy
-		*/
-		TyreStrategy * changeTyre(TyreStrategy *);
-		
-	protected:
+	/**
+		Destructor
+	*/
+	virtual ~PitStop();
 
-		/**
-			@brief 
-		*/
-		vector <PitCrew*> pitcrew;
-		int crewMemberID;
+	/**
+
+		@param crewMember
+	*/
+	int addCrewMember(PitCrew*);
+
+	/**
+
+		@param tyreStrategy
+	*/
+	TyreStrategy* changeTyre(TyreStrategy*);
+
+protected:
+
+	/**
+		@brief
+	*/
+	vector <PitCrew*> pitcrew;
+	int crewMemberID;
 };
 
 #endif

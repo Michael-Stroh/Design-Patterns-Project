@@ -3,7 +3,7 @@
    @class Strategies
    @authors Brent
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef STRATEGIES_H
@@ -25,83 +25,75 @@ using namespace std;
 
 class Strategies {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		Strategies();
+public:
 
-		/**
-			Constructor
-			@param the driver for the race
-			@param the name of the race
-		*/
-		void setRaceStrategy(Driver*, string name);
+	/**
+		Constructor
+	*/
+	Strategies();
 
-		/**
-			Destructor
-		*/
-		~Strategies();
-		
-		/**
-			
-			@return
-		*/
-		static int getMonth();
+	/**
+		Constructor
+		@param the driver1 for the race
+		@param the driver2 for the race
+		@param the name of the race
+	*/
+	void setRaceStrategy(Driver*, Driver*, string name);
 
-		/**
+	/**
+		Destructor
+	*/
+	~Strategies();
 
-			@param date
-		*/
-		void setMonth( int );
-		
-		/**
-			create race track vector;
-		*/
-		void createRaces();
-		
-		/**
-		called at the end of race for logisitics and keeping track of races
-		*/
-		void endOfRace(string name);
-		
-		/**
-		returns the race strategy object
-		*/
-		RaceStrategy* getRaceStrategy();
-		
-		/**
-			prints the races vector
-		*/
-		void print();
-				
-		/**
-		*/
-		void setLogistics();
-				
-		/**
-		*/
-		vector<RaceTrack*> getRaceTrack();
-	private:
-	
-		/**
-			@brief
-		*/
-		RaceStrategy* raceStrategy;
-		
-		/**
-			@brief
-		*/
-		LogisticsStrategy* logisticsStrategy;
-		
-		/**
-			@brief vector to instantate the race strategy
-		*/		
-		vector<RaceTrack*> races;
-		
-		
-		
+	/**
+		create race track vector;
+		@brief do not delete this, it is needed, creates an vector of race track for dates and other information
+	*/
+	void createSchedule();
+
+	/**
+	called at the end of race for logisitics and keeping track of races
+	*/
+	void endOfRace(string name);
+
+	/**
+	returns the race strategy object
+	*/
+	RaceStrategy* getRaceStrategy(int index);
+
+	/**
+		prints the races vector
+	*/
+	void print();
+
+	/**
+	*/
+	void setLogistics();
+
+	/**
+	*/
+	vector<RaceTrack*> getRaceTrack();
+
+	string trim(string temp);
+private:
+
+	/**
+		@brief
+	*/
+	vector<RaceStrategy*> raceStrategy;
+
+	/**
+		@brief
+	*/
+	LogisticsStrategy* logisticsStrategy;
+
+	/**
+		@brief vector to instantate the race strategy
+	*/
+	vector<RaceTrack*> races;
+
+
+
 };
 
 #endif
