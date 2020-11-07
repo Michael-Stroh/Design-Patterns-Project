@@ -95,7 +95,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	//brent do calculations
 	//Logger::debug("RaceTeam::performLap", "");
 
-	if (raceState->getStateName() ==	"") {	//"Official") {
+	if (raceState->getStateName() == "") {	//"Official") {
 		Logger::debug("RaceTEam::perform lap Offcial behaviour", this->getName());
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
 		lapCount++;
@@ -307,8 +307,11 @@ void RaceTeam::prepareForNextRace()
 	*/
 	//Algorithm is as follows:
 	//update the budgets of the department
+	Logger::customDebug("RaceTeam::prepareForNextRace updating the budgets");
 	engineeringCrew->updateDepartmentBudgets();
+	Logger::customDebug("RaceTeam::prepareForNextRace engineeringcrew perpareForNextRace");
 	engineeringCrew->prepareForNextRace();
+	Logger::customDebug("RaceTeam::prepareForNextRace swapping cars");
 	engineeringCrew->setCar((CarComposite*)(engineeringCrew->getNextSeasonCar()->clone()));
 	/*
 	

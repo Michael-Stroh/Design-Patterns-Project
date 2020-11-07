@@ -2,7 +2,7 @@
 #include "RaceTeam.h"
 #include "RaceSeason.h"
 #include <iostream>
-
+#include <stdlib.h>
 
 /*
 	Remember:
@@ -40,6 +40,8 @@ void printCarStatistics(CarComposite* car)		//helper functin, delete
 
 int main() {
 
+	
+		system("Color 05");
 		int numberOfTeams = 10;           
 		
 		////////////////Creation////////////////
@@ -48,15 +50,13 @@ int main() {
 		circuit = new CompositeRoad();
 		//call the function to read the circuits in from the file
 		populateCircuit("Data/races.txt" );																	//working
-                /// TODO: the file path will change depending what files are stored in which folders
+										   /// TODO: the file path will change depending what files are stored in which folders
 
 		grandPrixs = vector<GrandPrix *>();								//working
 		createGrandPrixs();                                                               //Alex: done
-		
 		raceTeams = makeTeamsAndDrivers();                                               //Brent 
 
 		//delete me
-		Logger::setDebug(true);
 		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 		//Notification
 		Logger::red("Main: calling prepareRaceSeason", "");
@@ -67,7 +67,6 @@ int main() {
 		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
-			Logger::setDebug(true);
 			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
 			Logger::red("Main: printing grandPrix results", "");
@@ -94,6 +93,9 @@ int main() {
 
         //empty and resize the vector
         grandPrixs.clear();
+
+		string temp = "";
+		cin >> temp;
 }
 
 
@@ -139,6 +141,7 @@ void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 	/*
 		Brents Portion
 	*/
+	Logger::customDebug("Main PrepareForNextRace decide Next STrategy");
 	for (int i = 0; i < team.size(); ++i) {
 
 		team[i]->decideNextStrategy(gp);
@@ -151,7 +154,7 @@ void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 	/*
 		Tim's portion
 	*/
-
+	Logger::customDebug("Main PrepareForNextRace decide team preparefor next race");
 	for ( int i = 0; i < team.size(); ++i ) {
 
 			team[ i ]->prepareForNextRace();
