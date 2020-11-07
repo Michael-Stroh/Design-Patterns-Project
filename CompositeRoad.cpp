@@ -11,8 +11,7 @@ CompositeRoad::CompositeRoad( string RoadName ) : Circuit( RoadName ), tracks(){
 CompositeRoad::~CompositeRoad() {
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
-    for ( Circuit *track : tracks ) {
+    for ( Circuit* track : tracks ) {
 
         //free the memory
         delete track;
@@ -22,13 +21,13 @@ CompositeRoad::~CompositeRoad() {
     tracks.clear();
 }
 
-void CompositeRoad::addRoad( Circuit *CreateRoad ) {
+void CompositeRoad::addRoad( RaceTrack* CreateRoad ) {
 
     //add the given RaceTrack to the vector
     tracks.push_back( CreateRoad );
 }
 
-void CompositeRoad::removeRoad( Circuit *RemoveRoad ) {
+void CompositeRoad::removeRoad( RaceTrack* RemoveRoad ) {
 
     /*
         The Road object must be deleted by the user
@@ -38,8 +37,7 @@ void CompositeRoad::removeRoad( Circuit *RemoveRoad ) {
     int x = 0;
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
-    for ( Circuit *track : tracks ) {
+    for ( Circuit* track : tracks ) {
 
         //check if current RaceTrack is what we are looking for
         if ( track->getName() == RemoveRoad->getName() ) {
@@ -68,8 +66,7 @@ void CompositeRoad::removeRoad( const string &RemoveRoad ) {
     int x = 0;
 
     //go through each RaceTrack object stored
-    //for ( auto& track : tracks ) {
-    for ( Circuit *&track : tracks ) {
+    for ( RaceTrack*& track : tracks ) {
 
         //check if current RaceTrack is what we are looking for
         if ( track->getName() == RemoveRoad ) {
@@ -96,14 +93,14 @@ void CompositeRoad::print() {
 
     //go through each RaceTrack object stored
     //for ( auto& track : tracks ) {
-    for ( Circuit *&track : tracks ) {
+    for ( RaceTrack*& track : tracks ) {
 
         //call the print function to display the details
         track->print();
     }
 }
 
-Iterator *CompositeRoad::createIterator() {
+CircuitIterator* CompositeRoad::createIterator() {
 
     //create and return an iterator on the current object
     return ( new CircuitIterator( this ) );
@@ -115,10 +112,10 @@ int CompositeRoad::getSize() {
     return tracks.size();
 }
 
-Circuit *CompositeRoad::getRoad( int index ) {
+RaceTrack *CompositeRoad::getRoad( int index ) {
 
     //check if the vector is populated and the index is valid
-    if ( ( !tracks.empty() ) && ( index > 0 ) && ( index < tracks.size() ) ) {
+    if ( ( !tracks.empty() ) && ( index >= 0 ) && ( index < tracks.size() ) ) {
 
         //check if the index exists in the vector
         if ( tracks[ index ] != nullptr ) {
@@ -130,4 +127,92 @@ Circuit *CompositeRoad::getRoad( int index ) {
 
     //there was an error do no return anything
     return nullptr;
+}
+
+
+void CompositeRoad::determineMaxValues() {
+
+    /*
+        numCorners
+        windForce
+        straightDistance
+    */
+
+    int maxCorners = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        int hold = track->getCorners();
+        if ( hold > maxCorners ) {
+
+            maxCorners = hold;
+        }
+
+    }
+
+
+    float maxWind = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getWindForce();
+        if ( hold > maxWind ) {
+
+            maxWind = hold;
+        }
+    }
+
+    float maxStrDist = -999;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getStraightDistance();
+        if ( hold > maxWind ) {
+
+            maxStrDist = hold;
+        }
+
+    }
+
+    Logger::cyan( "Max Distances", "Corners: " + to_string( maxCorners ) + "  Wind:  " + to_string( maxWind ) + "  Straight Distance: " + to_string( maxStrDist ) );
+}
+
+void CompositeRoad::determineMinValues() {
+
+    /*
+        numCorners
+        windForce
+        straightDistance
+    */
+
+    int maxCorners = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        int hold = track->getCorners();
+        if ( hold < maxCorners ) {
+
+            maxCorners = hold;
+        }
+
+    }
+
+    float maxWind = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getWindForce();
+        if ( hold < maxWind ) {
+
+            maxWind = hold;
+        }
+    }
+
+    float maxStrDist = 10000;
+    for ( RaceTrack*& track : tracks ) {
+
+        float hold = track->getStraightDistance();
+        if ( hold < maxWind ) {
+
+            maxStrDist = hold;
+        }
+
+    }
+
+    Logger::cyan( "Min Distances", "Corners: " + to_string( maxCorners ) + "  Wind:  " + to_string( maxWind ) + "  Straight Distance: " + to_string( maxStrDist ) );
 }

@@ -1,14 +1,14 @@
 #include "PracticeState.h"
 
-PracticeState::PracticeState() : RaceState()
-{
+PracticeState::PracticeState() : RaceState() {
+
 }
 
-PracticeState::~PracticeState()
-{
+PracticeState::~PracticeState() {
+
 }
 
-Result *PracticeState::runRace(Result *result, vector<RaceTeam *> *teams, Circuit *circuit)
+Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTrack *circuit)
 {
 	// 3 practice sessions
 	// #1 & #2 are 1.5 hours long, #3 is 1 hour long
@@ -17,12 +17,13 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> *teams, Circui
 	// Have all teams perform a single lap, store the longest laptime & subtract this from a variable representing the time left. Loop until there's no time left
 
 	Result *raceResult = new RaceResult();
-	float timeleft;
+	float timeLeft;
 	float longestLapTime;
 
 	// Races #1, #2 & #3:
 	for (int i = 0; i < 3; i++)
 	{
+		Logger::debug("Running practice session " + to_string(i+1), "");
 		if (i == 2)
 		{
 			timeLeft = 3600.00; // 1 hour stored as seconds
@@ -35,18 +36,27 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> *teams, Circui
 		// @todo: account for if last lap puts timeLeft into the negative
 		while (timeLeft > 0)
 		{
-			for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
+			for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 			{
-				LapResult *lapA = team->performLap(0, this->circuit);
-				LapResult *lapB = team->performLap(1, this->circuit);
+				LapResult *lapA = (*team)->performLap(0, circuit);
+				LapResult *lapB = (*team)->performLap(1, circuit);
 				raceResult->addResult(lapA);
 				raceResult->addResult(lapB);
-				if (lap->getLapTime() > longestLapTime)
+				if (lapA->getLapTime() > longestLapTime)
 				{
-					longestLapTime = lap->getLapTime();
+					longestLapTime = lapA->getLapTime();
+				}
+				if (lapA->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapA->getLapTime();
 				}
 			}
-			timeleft -= longestLapTime;
+			timeLeft -= longestLapTime;
 		}
 	}
+	return raceResult;
+}
+
+string PracticeState::getStateName(){
+	return "Practice";
 }

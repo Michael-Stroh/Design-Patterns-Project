@@ -1,6 +1,8 @@
-#include "RaceTrack.h"
-#include "CompositeRoad.h"
-#include "CircuitIterator.h"
+/* 
+#include "../RaceTrack.h"
+#include "../CompositeRoad.h"   //changed to allow compilation on Tim's machine (added ../)
+#include "../CircuitIterator.h"
+#include "../Circuit.h"
 
 #include "iostream"
 
@@ -38,3 +40,4 @@ int main() {
 
      delete track;
 }
+*/

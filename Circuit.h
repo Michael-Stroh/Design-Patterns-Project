@@ -10,9 +10,9 @@
 #ifndef Circuit_H
 #define Circuit_H
 
-#include <utilities/Logger.h>
+#include "utilities/Logger.h"
 #include <sstream>
-#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -51,7 +51,7 @@ class Circuit {
             Creates an iterator to be able to traverse the object, pure virtual
             @return the created iterator on the current object
         */
-        virtual Iterator *createIterator() = 0;
+        virtual Iterator* createIterator() = 0;
 
         /**
             Returns the stored name

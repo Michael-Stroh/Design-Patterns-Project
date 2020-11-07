@@ -1,32 +1,30 @@
-o_files = main.o Logger.o Result.o LapResult.o RaceResult.o GrandPrixResult.o RaceSeasonResult.o
+_o_files = main.o Logger.o Result.o LapResult.o RaceSeason.o RaceSeasonResult.o SeasonSubject.o GrandPrix.o RaceTeam.o GrandPrixResult.o Subject.o Race.o EngineeringCrew.o RaceResult.o RaceSubject.o PracticeState.o QualifyingState.o OfficialState.o RaceState.o Driver.o RaceTrack.o Circuit.o
+o_files = $(patsubst %,$(OBJDIR)/%,$(_o_files))
+OBJDIR = obj
 
 main: $(o_files)
-	@g++ $(o_files) -o main
+	@g++ -o main $(o_files)
 
 run: main
+	@echo "" 
+	@echo "Running:" 
 	@./main
 
 clean:
-	@rm -rf *.o main
+	@rm -rf $(OBJDIR)/*.o main
 	@echo "Cleaned"
 
-Result.o: ../Result.cpp ../Result.h
-	@g++ -c ../Result.cpp .
+$(OBJDIR)/%.o: %.cpp
+	@echo "Compiling $<"
+	@g++ -c $< -o $@
 
-RaceResult.o: ../RaceResult.cpp ../RaceResult.h
-	@g++ -c ../RaceResult.cpp .
+$(OBJDIR)/%.o: ../%.cpp ../%.h
+	@echo "Compiling $<"
+	@g++ -c $< -o $@
 
-GrandPrixResult.o: ../GrandPrixResult.cpp ../GrandPrixResult.h
-	@g++ -c ../GrandPrixResult.cpp .
-
-RaceSeasonResult.o: ../RaceSeasonResult.cpp ../RaceSeasonResult.h
-	@g++ -c ../RaceSeasonResult.cpp .
-
-LapResult.o: ../LapResult.cpp ../LapResult.h
-	@g++ -c ../LapResult.cpp .
-
-Logger.o: ../utilities/Logger.h ../utilities/Logger.cpp
-	@g++ -c ../utilities/Logger.cpp .
+$(OBJDIR)/Logger.o: ../utilities/Logger.cpp ../utilities/Logger.h
+	@echo "Compiling $<"
+	@g++ -c ../utilities/Logger.cpp -o $@
 
 
 

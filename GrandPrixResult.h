@@ -32,14 +32,9 @@ public:
 	void print();
 
 	/**
-		@brief Prints the formatted results for the drivers of the Grand Prix (ie. the driver's championship results)
+		@brief Returns a string of the formatted results for the drivers of the Grand Prix (ie. the driver's championship results)
 	*/
-	void printDrivers();
-
-	/**
-		@brief Prints the formatted results for the teams of the Grand Prix (ie. the constructor's championship results)
-	*/
-	void printTeams();
+	string getDriverPositions();
 
 	/**
 		@param[in] r: An instance of RaceResult, to be added to the total results of the race

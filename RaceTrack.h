@@ -51,16 +51,33 @@ class RaceTrack: public Circuit {
 		RaceTrack( string, float, float );
 
 		/**
+            @brief Constructor
+            @param[in] name used to identify the object
+            @param[in] dir: given direction cars will race
+            @param[in] dist: given total distance
+            @param[in] wind: given amount of wind
+            @param[in] strDist: given straight distance of the track
+            @param[in] corners: given amount of corners
+            @param[in] RaceLaps: given amount of laps
+        */
+        RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
+
+		/**
 			@brief Constructor
 			@param[in] name used to identify the object
 			@param[in] dir: given direction cars will race
 			@param[in] dist: given total distance
 			@param[in] wind: given amount of wind
 			@param[in] strDist: given straight distance of the track
+			@param[in] pitStops: given average amount of pit stops
+			@param[in] lapTime: given best amount time to keep the track
 			@param[in] corners: given amount of corners
 			@param[in] RaceLaps: given amount of laps
+			@param[in] euro: given basic location of the race
+			@param[in] start: given starting date the track will be used
+			@param[in] end: given ending date the track will not be used from
 		*/
-		RaceTrack( string, RaceTrack::direction, float, float, float, int, int );
+		RaceTrack( string, RaceTrack::direction, float, float, float, float, float, int, int, bool, string, string );
 
 		/**
 			@brief Destructor
@@ -81,7 +98,7 @@ class RaceTrack: public Circuit {
 		Iterator *createIterator();
 
 		/**
-			Returns the stored distance
+			Returns the stored distance of a single lap
 			@return
 		*/
 		float getDistance() const;
@@ -200,6 +217,18 @@ class RaceTrack: public Circuit {
 		*/
 		void setStartDate( string );
 
+		/**
+			Returns the average amount of time to complete the track
+			@return
+		*/
+		float getBestLapTime() const;
+
+		/**
+			Sets the average amount of time to complete the track
+			@param[in] time: the time to complete the track in seconds
+		*/
+		void setBestLapTime( float );
+
 	private:
 
 		/**
@@ -213,7 +242,7 @@ class RaceTrack: public Circuit {
 		int numCorners = 0;
 
 		/**
-			@brief the total distance in Km of this road/track
+			@brief the total distance in Km of a single lap of the track
 		*/
 		float distance = 0;
 
@@ -229,19 +258,19 @@ class RaceTrack: public Circuit {
 		float straightDistance = 0;
 
 		/**
-			@brief the direction the cars are going to be going on this road/track
+			@brief the average amount of pit-stops on the current track
 		*/
-		direction direct = clockwise;
+		float averagePitStop;
+
+		/**
+			@brief the average amount of it takes to complete this track
+		*/
+		float bestLapTime;
 
 		/**
 			@brief the basic location of the track
 		*/
 		bool isEuropean;
-
-		/**
-			@brief the average amount of pit-stops on the current track
-		*/
-		float averagePitStop;
 
 		/**
 			@brief the date the track will be used, month then date
@@ -252,6 +281,13 @@ class RaceTrack: public Circuit {
 			@brief the date the track will be used, month then date
 		*/
 		string startingDate;
+
+		/**
+			@brief the direction the cars are going to be going on this road/track
+		*/
+		direction direct = clockwise;
+
+
 };
 
 #endif

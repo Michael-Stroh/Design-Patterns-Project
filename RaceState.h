@@ -13,30 +13,38 @@
 #include "RaceTeam.h"
 #include "Circuit.h"
 #include <vector>
+#include <string>
 using namespace std;
 
-class RaceState
-{
+class RaceTeam;
 
-public:
-	/**
-			Constructor
-		*/
-	RaceState();
+class RaceState {
 
-	/**
-			Destructor
+	public:
+		/**
+				Constructor
 		*/
-	~RaceState();
+		RaceState();
 
-	/**
-			
-			@param Result: The results of the previous race (will be used within the function if necessary).
-			@param RaceTeam: The teams that will participate in the race.
-			@param Circuit: The circuit on which the race will take place.
-			@return The result for the race.
+		/**
+				Destructor
+			*/
+		virtual ~RaceState();
+
+		/**
+
+				@param Result: The results of the previous race (will be used within the function if necessary).
+				@param RaceTeam: The teams that will participate in the race.
+				@param Circuit: The circuit on which the race will take place.
+				@return The result for the race.
+			*/
+		virtual Result* runRace( Result *, vector<RaceTeam *>, RaceTrack* ) = 0;
+
+
+		/**
+			@brief: Returns the name of the current state as a string
 		*/
-	virtual Result *runRace(Result *, vector<RaceTeam *> *, Circuit *) = 0;
+		virtual string getStateName() = 0;
 };
 
 #endif

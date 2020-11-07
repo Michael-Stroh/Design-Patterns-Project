@@ -5,17 +5,29 @@ RaceTrack::RaceTrack(): Circuit() {
 }
 
 RaceTrack::RaceTrack( string name ): Circuit( name ) {
+
 }
 
 RaceTrack::RaceTrack( string name, float dist, float wind ): Circuit( name ), distance( dist ), windForce( wind ) {
+
 }
 
 RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist,
-					 int corners, int RaceLaps ): Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
-												  laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
+                      int corners, int RaceLaps ): Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
+                                                   laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ) {
+
+}
+
+RaceTrack::RaceTrack( string name, RaceTrack::direction dir, float dist, float wind, float strDist, float pitStops,
+					  float lapTime, int corners, int RaceLaps, bool euro, string start, string end ):
+					 Circuit( name ), direct( dir ), distance( dist ), windForce( wind ),
+					 laps( RaceLaps ), numCorners( corners ), straightDistance( strDist ), averagePitStop( pitStops ),
+					 bestLapTime( lapTime ), isEuropean( euro ), endingDate( end ), startingDate( start ) {
+
 }
 
 RaceTrack::~RaceTrack() {
+
 }
 
 void RaceTrack::print() {
@@ -26,7 +38,8 @@ void RaceTrack::print() {
 	dist << distance;
 	wind << windForce;
 	//output the details of the road/track
-	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str() + "km and a wind force of " + wind.str() + " units." );
+	Logger::cyan( "Circuit raced", getName() + " circuit was raced " + getDirection() + " with a distance of " + dist.str() +
+	"km per lap and a wind force of " + wind.str() + " units." );
 }
 
 Iterator *RaceTrack::createIterator() {
@@ -143,5 +156,15 @@ string RaceTrack::getStartDate() const {
 void RaceTrack::setStartDate( string date ) {
 
 	startingDate = date;
+}
+
+float RaceTrack::getBestLapTime() const {
+
+	return bestLapTime;
+}
+
+void RaceTrack::setBestLapTime( float time ) {
+
+	bestLapTime = time;
 }
 

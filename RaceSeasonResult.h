@@ -12,8 +12,6 @@
 #include "Result.h"
 #include "GrandPrixResult.h"
 #include <iostream>
-#include <vector>
-using namespace std;
 
 class RaceSeasonResult : public Result
 {
@@ -42,12 +40,12 @@ public:
 	/**
 		@brief: Prints out the results of the Drivers Championship
 		*/
-	void printDrivers();
+	string getDriversPoints();
 
 	/**
 	    @brief: Prints out the results of the Constructors Championship
 		*/
-	void printTeams();
+	string getTeamsPoints();
 
 private:
 	/**

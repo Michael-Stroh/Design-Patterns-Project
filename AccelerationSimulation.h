@@ -1,9 +1,9 @@
 /**
    @file AccelerationSimulation.h
    @class AccelerationSimulation
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.2
+   @brief A Simulation used to improve the acceleration value of a part of the car.
  */
 
 #ifndef ACCELERATIONSIMULATION_H
@@ -17,7 +17,7 @@ class AccelerationSimulation: public Simulation {
 	public:
 	
 		/**
-			Constructor
+			Default Constructor
 		*/
 		AccelerationSimulation();
 
@@ -37,10 +37,13 @@ class AccelerationSimulation: public Simulation {
 		*/
 		CarPart* simulate(CarPart*, float variance[], float max[]);
 
+		/**
+			@warning This function needs a description
+		*/
 		void simulate(Driver*);
 
 		/**
-			@brief Returns the next simulation that a department should run
+			@brief Returns the next simulation that a department should run.
 		*/
 		Simulation* getNextState();
 

@@ -1,46 +1,65 @@
 #include "OfficialState.h"
 
-OfficialState::OfficialState() : RaceState(), raceSubject(new OfficialRaceSubject())
-{
+OfficialState::OfficialState() : RaceState(), officialRaceSubject( new RaceSubject( ) ) {
+
 }
 
-OfficialState::~OfficialState()
-{
-	if (this->raceSubject)
-	{
-		delete this->raceSubject;
+OfficialState::~OfficialState() {
+
+	delete officialRaceSubject;
+}
+
+Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTrack* circuit ) {
+
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team){
+		this->officialRaceSubject->attach((*team));
 	}
-	this->raceSubject = NULL;
-}
+	RaceResult *officialRaceResult = new RaceResult();
+	dynamic_cast<OfficialRaceSubject *>(this->officialRaceSubject)->notify(officialRaceResult);
 
-Result *OfficialState::runRace(Result *result, vector<RaceTeam *> *teams, Circuit *circuit)
-{
 	float remainingDistance = 305.00;
-	float lapDistance = circuit->getLapDistance();
-	float remainingTime = 7200.00; // 2 hours in seconds
+	float lapDistance = circuit->getDistance();
+	float timeLeft = 7200.00; // 2 hours in seconds
 	float longestLapTime = 0;
-	RaceResult officialRaceResult = new RaceResult();
+	RaceResult *previousQualifiersResult = dynamic_cast<RaceResult *>(result);
+	previousQualifiersResult->printGridPositions();
 
-	while (remainingDistance > 0 && remainingTime > 0)
+	while (remainingDistance > 0 && timeLeft > 0)
 	{
-		for (vector<RaceTeam *>::iterator team = teams->begin(); team != teams->end(); ++team)
+		for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
 		{
-			if(result->isQualified(team->getDriver(0)->getName()){
-				LapResult *lapA = team->performLap(0, this->circuit);
-				officialRaceResult->addResult(lapA);
-			}
-			if(result->isQualified(team->getDriver(1)->getName()){
-				LapResult *lapB = team->performLap(1, this->circuit);
-				officialRaceResult->addResult(lapB);
-			}
-			if (lap->getLapTime() > longestLapTime)
+			if (previousQualifiersResult->isQualified((*team)->getDriver(0)->getName()))
 			{
-				longestLapTime = lap->getLapTime();
+				LapResult *lapA = (*team)->performLap(0, circuit);
+				officialRaceResult->addResult(lapA);
+				if (lapA->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapA->getLapTime();
+				}
+			}
+			if (previousQualifiersResult->isQualified((*team)->getDriver(1)->getName()))
+			{
+				LapResult *lapB = (*team)->performLap(1, circuit);
+				officialRaceResult->addResult(lapB);
+				if (lapB->getLapTime() > longestLapTime)
+				{
+					longestLapTime = lapB->getLapTime();
+				}
 			}
 		}
-		timeleft -= longestLapTime;
+		timeLeft -= longestLapTime;
 		remainingDistance -= lapDistance;
 	}
-
+	Logger::debug("Official Race Results", "");
+	officialRaceResult->print();
+	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)
+	{
+		this->officialRaceSubject->detach((*team));
+	}
 	return officialRaceResult;
+}
+
+string OfficialState::getStateName()
+{
+	return "Official";
 }

@@ -1,6 +1,6 @@
 /**
-   @file TansmissionFactory.h
-   @class TansmissionFactory
+   @file TransmissionFactory.h
+   @class TransmissionFactory
    @authors Michael Timothy
    @version 1.0.1
    @brief A concrete factory responsible for creating the transmission of a car and ensuring its variables are

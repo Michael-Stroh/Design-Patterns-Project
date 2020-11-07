@@ -2,18 +2,20 @@
    @file RaceSeason.h
    @class RaceSeason
    @authors Alex
-   @version 1.0.0
+   @version 1.1.0
    @brief Responsible for running all of the Grand Prixs in a season and ensuring all participating teams are aware of the season before it starts as well keeping them updated on its progress while it takes place.
    @todo: add runNextGrandPrix() method for running individual grand prixs
  */
 
-#ifndef RACE SEASON_H
-#define RACE SEASON_H
+#ifndef RACE_SEASON_H
+#define RACE_SEASON_H
 
+#include "utilities/Logger.h"
 #include "GrandPrix.h"
 #include "RaceTeam.h"
 #include "GrandPrixResult.h"
 #include "Subject.h"
+#include "SeasonSubject.h"
 #include <vector>
 using namespace std;
 
@@ -34,7 +36,7 @@ public:
 			@param[in] r: An instantiated (but not yet containing any information) RaceSeasonResult that will be added to as the RaceSeason unfolds.
 			@param[in] s: The SeasonSubject, used to notify RaceTeams of the particulars of the RaceSeason before or during the season.
 		*/
-	RaceSeason(vector<GrandPrix *>, RaceTeam *, Result *, Subject *);
+	RaceSeason(vector<GrandPrix *>, vector<RaceTeam *>);
 
 	/**
 			Destructor
@@ -55,9 +57,25 @@ public:
 	Result *runSeason();
 
 	/**
+			@brief Runs the next GrandPrix in the raceSeason
+			@details Will use an iterator to run the "next" grandPrix in the season
+		*/
+	void runNextGrandPrix();
+
+	/**
+		@brief Returns where or not the race season has come to an end
+	*/
+	bool hasNextGrandPrix();
+
+	/**
 			@brief Performs all necessary actions that occur before the Race Season begins.
 		*/
 	void prepareSeason();
+
+	/**
+		@brief Returns the result of the RaceSeason
+	*/
+	Result* getResult();
 
 private:
 	/**
@@ -71,6 +89,11 @@ private:
 	vector<RaceTeam *> teams;
 
 	/**
+			@brief An iterator that will store the progress of the grandprixs during the race season
+		*/
+	vector<GrandPrix *>::iterator grandPrixIterator;
+
+	/**
 			@brief The overall Season Result, this will be updated everytime a grand prix completes.
 		*/
 	Result *result;
@@ -78,7 +101,7 @@ private:
 	/**
 			@brief The Season Subject, to which each racing team attaches so that they can be informed of any pertinent information regarding the Race Season.
 		*/
-	Subject *seasonSubject;
+	SeasonSubject *seasonSubject;
 };
 
 #endif

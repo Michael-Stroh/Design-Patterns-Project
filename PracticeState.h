@@ -11,11 +11,12 @@
 #ifndef PRACTICESTATE_H
 #define PRACTICESTATE_H
 
-#include "RaceState.h"
-#include "RaceTeam.h"
 #include "Circuit.h"
 #include "Result.h"
 #include "RaceResult.h"
+#include "RaceState.h"
+
+class RaceTeam;
 
 class PracticeState : public RaceState
 {
@@ -38,7 +39,12 @@ public:
 			@param Circuit: The circuit on which the practice race will take place.
 			@return The result of the practice race.
 		*/
-	Result *runRace(Result *, vector<RaceTeam *> *, Circuit *);
+	Result *runRace(Result *, vector<RaceTeam *>, RaceTrack *);
+	
+	/**
+			@brief: Returns the name of the current state as a string
+		*/
+	string getStateName();
 };
 
 #endif

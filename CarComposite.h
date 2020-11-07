@@ -2,7 +2,7 @@
    @file CarComposite.h
    @class CarComposite
    @authors Michael Timothy
-   @version 1.1.3
+   @version 1.1.4
    @brief The Composite Class of the Composite Design Pattern.
    Holds all of the parts that make up a car and implements the
    functions necessary to change them.
@@ -13,8 +13,11 @@
 
 #include "CarMemento.h"
 #include "CarPart.h"	//Contains Car.h so no need to include it here.
+#include "Engine.h"		//sometimes we need to access the engine directly
+#include "CoolingSystem.h"	//sometimes we need to access the cooling system directly
 #include <vector>
 #include "PartState.h"
+#include "Body.h"
 
 
 /*
@@ -126,9 +129,38 @@ class CarComposite : public Car{
 			@param newAcceleration is not used.
 		*/
 		void setAcceleration( float );
+
+		/**
+			@brief A function that is used to simulate the car running a race. Specifically, it updates the tempreture
+			of the engine of the car according to the difficulty of the strategy the Driver is attempting to perform.
+			@param[in]: difficulty: represents how difficult the racing is for the car, with 0=easy 1=medium 2=hard.
+			The higher the value, the more the engine is heated up. This value will be determined by the RaceTeam class in the
+
+		*/
+		void runLap(int);
+
+		/**
+			@brief A function used to reset the car after the race by resetting the tempreture of its engine.
+		*/
+		void resetAfterRace();
+
+		/**
+			@brief Returns the amount of fuel in this car.
+		*/
+		float getFuel();
+
+		/**
+			 @brief Sets the fuel of this car to the specified level.
+		*/
+		void setFuel(float);
 		
 	private:
 	
+		/**
+			@brief Represents the amount of fuel (in liters) that is inside the car.
+		*/
+		float fuel;
+
 		/**
      		@brief A vector of all the car parts that make up the car.
      		Used in conjunction with the enum PartIndices in @link Car .

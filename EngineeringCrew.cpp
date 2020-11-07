@@ -6,18 +6,13 @@ EngineeringCrew::EngineeringCrew() {
 	throw "Not yet implemented";
 }
 
-EngineeringCrew::EngineeringCrew( Car* car ) {
-
-	// TODO - implement EngineeringCrew::EngineeringCrew
-	throw "Not yet implemented";
-}
 
 EngineeringCrew::~EngineeringCrew() {
 
 	// TODO - implement EngineeringCrew::EngineeringCrew
 }
 
-Car* EngineeringCrew::getCar() {
+CarComposite* EngineeringCrew::getCar() {
 
 	// TODO - implement EngineeringCrew::getCar
 	throw "Not yet implemented";
@@ -29,7 +24,7 @@ void EngineeringCrew::setCar( Car* car ) {
 	throw "Not yet implemented";
 }
 
-Car* EngineeringCrew::getNextSeasonCar() {
+CarComposite * EngineeringCrew::getNextSeasonCar() {
 
 	// TODO - implement EngineeringCrew::getnextSeasonCar
 	throw "Not yet implemented";
@@ -41,3 +36,7 @@ void EngineeringCrew::setNextSeasonCar( Car* car ) {
 	throw "Not yet implemented";
 }
 
+void EngineeringCrew::calculateBudget(int numGrandPrixs)
+{
+	throw "Not implemented yet";
+}

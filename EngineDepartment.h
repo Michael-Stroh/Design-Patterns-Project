@@ -2,8 +2,8 @@
    @file EngineDepartment.h
    @class EngineDepartment
    @authors Michael
-   @version 1.0.0
-   @brief 
+   @version 1.0.2
+   @brief The Department responsible for making changes and improvements to the Engine of a car.
  */
 
 

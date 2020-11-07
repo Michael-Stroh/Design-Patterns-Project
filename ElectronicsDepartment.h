@@ -1,9 +1,9 @@
 /**
    @file ElectronicsDepartment.h
    @class ElectronicsDepartment
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Michael Timothy
+   @version 1.0.2
+   @brief The Department responsible for making changes and improvements to the Electronics of a car.
  */
 
 

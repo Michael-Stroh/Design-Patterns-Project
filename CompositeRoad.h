@@ -11,6 +11,7 @@
 #define CompositeRoad_H
 
 #include "CircuitIterator.h"
+#include "RaceTrack.h"
 #include <vector>
 
 class Circuit;
@@ -30,7 +31,6 @@ class CompositeRoad: public Circuit {
 		/**
 			@brief Constructor
 			Creates the object with the given name
-
 			@param[in] RoadName used to identify the object
 		*/
 		CompositeRoad( string );
@@ -45,13 +45,13 @@ class CompositeRoad: public Circuit {
 			Adds a road object to the tracks vector
 			@param[out] CreateRoad: reference to the road we want to add
 		*/
-		void addRoad( Circuit * );
+		void addRoad( RaceTrack* );
 
 		/**
 			Removes a road object to the tracks vector
 			@param[out] RemoveRoad: reference to the road we want to remove
 		*/
-		void removeRoad( Circuit * );
+		void removeRoad( RaceTrack* );
 
 		/**
 			Removes a road object to the tracks vector
@@ -69,7 +69,7 @@ class CompositeRoad: public Circuit {
 			traversed in a linear order
 			@return the created iterator on the current object
 		*/
-		Iterator *createIterator();
+		CircuitIterator* createIterator();
 
 		/**
 			Determines the size of the tracks vector and returns it
@@ -82,14 +82,26 @@ class CompositeRoad: public Circuit {
 			@param index: location to return from
 			@return the specific Circuit in tracks
 		*/
-		Circuit *getRoad( int );
+		RaceTrack *getRoad( int );
+
+		/**
+			@brief Determines the needed Max values from all the stored RaceTracks
+		 	this is mostly used to determine the inner works of the car its not so relevant
+		*/
+		void determineMaxValues();
+
+		/**
+			@brief Determines the needed Min values from all the stored RaceTracks
+		 	this is mostly used to determine the inner works of the car its not so relevant
+		*/
+		void determineMinValues();
 
 	private:
 
 		/**
 			@brief a group of RaceTracks so it's easier to store and iterate through
 		*/
-		std::vector<Circuit *> tracks;
+		vector<RaceTrack* > tracks;
 };
 
 #include "Circuit.h"
