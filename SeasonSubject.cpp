@@ -10,12 +10,14 @@ SeasonSubject::~SeasonSubject()
 
 void SeasonSubject::notify(vector<GrandPrix *> grandPrixs)
 {
-
+	Logger::debug("SeasonSubject::notify grandprix version", "start");
 	vector<RaceTeam *>::iterator it;
 	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
 	{
+		Logger::debug("SeasonSubject::notify grandprix version", "loop");
 		(*it)->informGrandPrixs(grandPrixs);
 	}
+	Logger::debug("SeasonSubject::notify grandprix version", "end");
 }
 
 //ALex wat we doing here

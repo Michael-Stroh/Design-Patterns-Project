@@ -51,7 +51,7 @@ private:
 	/**
 			@brief The subject that will allow all teams to be informed of any necessary information before or during the qualfying race.
 		*/
-	RaceSubject *qualifyingRaceSubject;
-};
+	QualifyingRaceSubject *qualifyingRaceSubject;				//changed from RaceSubject by Tim
+};	
 
 #endif

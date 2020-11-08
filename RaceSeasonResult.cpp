@@ -96,3 +96,8 @@ string RaceSeasonResult::getTeamsPoints()
 	}
 	return teamsPoints;
 }
+
+vector<pair<string, int>> RaceSeasonResult::getTotalTeamPoints()		//added by Tim for an extra print function
+{
+	return totalTeamPoints;
+}

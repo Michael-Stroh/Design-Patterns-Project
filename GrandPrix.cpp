@@ -30,6 +30,7 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
     Result* qualifyingResult = this->race->runRace( nullptr, teams, circuit );
 
     // Perform the official race
+    Logger::debug("GrandPric::runGrandPrix setting state to official", "");
     this->race->setState( "Official" );
     Result* officialResult = this->race->runRace( qualifyingResult, teams, circuit );
 
@@ -39,9 +40,9 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
 
 }
 
-void GrandPrix::displayResult() {
-
-	result->print();
+void GrandPrix::displayResult()        
+{
+	result->print();                    
 }
 
 void GrandPrix::setCircuit( RaceTrack* changeCircuit ) {

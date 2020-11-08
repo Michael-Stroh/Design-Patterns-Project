@@ -50,7 +50,7 @@ class OfficialState : public RaceState {
 		/**
 			@brief The subject that will allow all teams to be informed of any necessary information before or during the official race.
 			*/
-		RaceSubject* officialRaceSubject;
+		OfficialRaceSubject * officialRaceSubject;			//changed By TIm
 };
 
 #endif

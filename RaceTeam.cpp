@@ -75,8 +75,11 @@ RaceTeam::RaceTeam(string teamName){
 
 RaceTeam::~RaceTeam()
 {
+	Logger::customDebug("RaceTeam Destructor: removing Drivers");
 	drivers.clear();
+	Logger::customDebug("RaceTeam Destructor: deleting EngineeringCrew");
 	delete engineeringCrew;
+	Logger::customDebug("RaceTeam Destructor: deleting STrategies");
 	delete Strategy;
 
 	/*
@@ -93,14 +96,16 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	*/
 	//increment lapCount if raceState is official
 	//brent do calculations
+	//Logger::debug("RaceTeam::performLap", "");
 
-	if (raceState->getStateName() == "Official") {
+	if (raceState->getStateName() == "") {	//"Official") {
+		Logger::debug("RaceTEam::perform lap Offcial behaviour", this->getName());
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
 		lapCount++;
 		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
 		//check for pit stop in race
 		if (ps->CheckForPitStop(lapCount)) {
-			ps->CallPitStop();
+			ps->CallPitStop(); 
 			Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->changeStrategy();
 			extraTime += circuit->getAvgPitStops();
 		}
@@ -126,13 +131,13 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		CarPart
 	*/
 	float carTime = this->getCarLapTime(driverIndex, circuit);			//check this value
-	Logger::debug("RaceTeam::performLap car Time", to_string(carTime));
+	//Logger::debug("RaceTeam::performLap car Time", to_string(carTime));
 	float avgTime = (driverTime + carTime) / 2;
 
 	if (extraTime != 0)
 		avgTime += extraTime;
 
-	Logger::debug("RaceTEam::getLapResult", to_string(avgTime));
+	//Logger::debug("RaceTEam::getLapResult", to_string(avgTime));
 
 	if (circuit->getBestLapTime() + 10 < avgTime) {
 		//bad lap 3 seconds slower
@@ -172,7 +177,7 @@ void RaceTeam::updateOfficialRaceResult(Result* result)
 */
 void RaceTeam::informGrandPrixs(vector<GrandPrix *> g)
 {
-
+	Logger::debug("RaceTeam::informGrandPrixs", "calculating budget-------------------------------------------------------------------");
 	/*
 		Tim Portion Brent please don't delete
 	*/
@@ -193,7 +198,7 @@ void RaceTeam::setRaceState(RaceState* s){
 	}
 	else
 	{
-		delete raceState;
+		//delete raceState;													//MUSNT delete since its a shallow copy
 		raceState = s;
 	}
 }
@@ -235,13 +240,13 @@ float RaceTeam::getDriverLapTime(int index, RaceTrack * circuit)
 	/**
 		Brent to do calcultions
 	*/
-	Logger::debug("RaceTeam::getDriverLapTIme", "");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "");
 	srand(time(NULL));
-	Logger::debug("RaceTeam::getDriverLapTIme", "get rs");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get rs");
 	RaceStrategy* rs = Strategy->getRaceStrategy(index);
-	Logger::debug("RaceTeam::getDriverLapTIme", "get ts");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get ts");
 	TyreStrategy* ts = rs->getTyreStrategy();
-	Logger::debug("RaceTeam::getDriverLapTIme", "get ds");
+	//Logger::debug("RaceTeam::getDriverLapTIme", "get ds");
 	DriverStrategy* ds = rs->getDriverStrategy();
 
 	int agg = ds->getDriver()->getAggression();
@@ -305,8 +310,11 @@ void RaceTeam::prepareForNextRace()
 	*/
 	//Algorithm is as follows:
 	//update the budgets of the department
+	Logger::customDebug("RaceTeam::prepareForNextRace updating the budgets");
 	engineeringCrew->updateDepartmentBudgets();
+	Logger::customDebug("RaceTeam::prepareForNextRace engineeringcrew perpareForNextRace");
 	engineeringCrew->prepareForNextRace();
+	Logger::customDebug("RaceTeam::prepareForNextRace swapping cars");
 	engineeringCrew->setCar((CarComposite*)(engineeringCrew->getNextSeasonCar()->clone()));
 	/*
 	
@@ -353,5 +361,8 @@ string RaceTeam::getName() {
 	return this->teamName;
 }
 
-
+CarComposite* RaceTeam::getCar()
+{
+	return engineeringCrew->getCar();
+}
 

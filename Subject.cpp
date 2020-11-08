@@ -1,9 +1,8 @@
 #include "Subject.h"
 
-Subject::Subject()
+Subject::Subject() 
 {
-
-	this->observerList = vector<RaceTeam *>();
+	this->observerList = vector<RaceTeam *>();  
 }
 
 Subject::~Subject()
@@ -12,7 +11,6 @@ Subject::~Subject()
 
 void Subject::attach(RaceTeam *r)
 {
-
 	this->observerList.push_back(r);
 }
 

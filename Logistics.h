@@ -11,6 +11,7 @@
 #define LOGISTICS_H
 
 #include "Container.h"
+#include "utilities/Logger.h"
 
 #include <string>
 #include <iostream>

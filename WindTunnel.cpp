@@ -1,8 +1,8 @@
 #include "WindTunnel.h"
 
 WindTunnel::WindTunnel(): Simulation() {
-
-	
+	usageAllowed = 400;
+	usage = 0;
 }
 
 WindTunnel::~WindTunnel() 
@@ -35,6 +35,10 @@ CarPart* WindTunnel::simulate(CarPart* body, float variance[], float max[])
 {
 	Body* tempBody = (Body*)body;
 	Body* potentialBody = (Body * )body->clone();
+
+	if (usage >= usageAllowed)
+		return potentialBody;
+	else usage++;
 
 	float newAero =  generateRandomFraction() * variance[0];
 	if (generateRandomFraction() < 0.49)
