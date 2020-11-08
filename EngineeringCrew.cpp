@@ -27,15 +27,20 @@ EngineeringCrew::EngineeringCrew()
 		budget->attach(departments[i]);
 }
 
-
 EngineeringCrew::~EngineeringCrew()
 {
+	Logger::customDebug("EngineeringCrew destructor: deleting Builder");
 	delete builder;
-	delete car;
+	Logger::customDebug("EngineeringCrew destructor: deleting Car");
+	//delete car;
+	Logger::customDebug("EngineeringCrew destructor: deleting nextSeasonCar");
 	delete nextSeasonCar;
-	for (int i = 0; i < departments.size(); ++i)
-		budget->detach(departments[i]);
+	Logger::customDebug("EngineeringCrew destructor: detaching budgets");
+	//for (int i = 0; i < departments.size(); ++i)
+	//	budget->detach(departments[i]);
+	Logger::customDebug("EngineeringCrew destructor: deleting budget");
 	delete budget;
+	Logger::customDebug("EngineeringCrew destructor: deleting  departments");
 	for (int i = 0; i < departments.size(); ++i)
 		departments[i];
 }
@@ -47,10 +52,11 @@ CarComposite* EngineeringCrew::getCar() {
 
 void EngineeringCrew::setCar( CarComposite * car ) {
 
-	if (this->car != nullptr)
-		delete this->car;
-
-	this->car = car;
+	Logger::customDebug("EngineeringCrew::setCar deleting the old car");
+	//if (this->car != nullptr)
+	//	delete this->car;
+	Logger::customDebug("EngineeringCrew::setCar dsetting car to newCar");
+	this->car = (CarComposite *)car->clone();
 }
 
 CarComposite * EngineeringCrew::getNextSeasonCar() {

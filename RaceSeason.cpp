@@ -15,12 +15,22 @@ RaceSeason::RaceSeason(vector<GrandPrix *> g, vector<RaceTeam *> t)
 	this->teams = t;
 	this->result = new RaceSeasonResult();
 	this->seasonSubject = new SeasonSubject();
+	Logger::debug("RaceSeason::constructor", "attatching raceTeams to seasonSubject");
+	for (int i = 0; i < t.size(); ++i)
+	{
+		seasonSubject->attach(t[i]);
+	}
 	this->grandPrixIterator = this->grandPrixs.begin();
 }
 
 RaceSeason::~RaceSeason()
 {
 	// Delete every instance of Grand Prix in the vector & remove the item from the vector
+	Logger::customDebug("RaceSeason destructor: deleting grandprixs");
+	for (GrandPrix* prix : grandPrixs) { //added by Tim since other loop was not working
+        delete prix;
+    }
+	/* 
 	for (vector<GrandPrix *>::iterator grandPrix = this->grandPrixs.begin(); grandPrix != this->grandPrixs.end(); ++grandPrix)
 	{
 		if (*grandPrix)
@@ -29,8 +39,15 @@ RaceSeason::~RaceSeason()
 		}
 		grandPrixs.erase(grandPrix);
 	}
-
+	*/
+	Logger::customDebug("RaceSeason destructor: deleting RaceTeams");
 	// Delete every instance of Race Team in the vector & remove the item from the vector
+	for (int i = 0; i < teams.size(); ++i)		//added by Tim for the Same Reasons
+	{
+		Logger::customDebug("Deleting Team: " + to_string(i));
+		delete teams[i];
+	}
+	/* 
 	for (vector<RaceTeam *>::iterator team = this->teams.begin(); team != this->teams.end(); ++team)
 	{
 		if (*team)
@@ -39,6 +56,8 @@ RaceSeason::~RaceSeason()
 		}
 		teams.erase(team);
 	}
+	*/
+	Logger::customDebug("RaceSeason destructor: deleting seasonResult");
 
 	// Delete the instance of the RaceSeason result
 	if (this->result)
@@ -69,7 +88,7 @@ bool RaceSeason::hasNextGrandPrix(){
 
 void RaceSeason::prepareSeason()
 {
-
+	Logger::debug("RaceSeason::prepareSeason ", "");
 	// Notify all the teams of the grand prixs that will take place this season
 	this->seasonSubject->notify(this->grandPrixs);
 

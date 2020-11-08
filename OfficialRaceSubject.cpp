@@ -15,3 +15,8 @@ void OfficialRaceSubject::notify( Result *r ) {
         ( *it )->updateOfficialRaceResult( r );
 	}
 }
+
+void OfficialRaceSubject::notify(RaceState*) //added by Tim
+{
+	throw "Should not be used";
+}
