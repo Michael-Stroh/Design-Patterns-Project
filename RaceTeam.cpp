@@ -75,8 +75,11 @@ RaceTeam::RaceTeam(string teamName){
 
 RaceTeam::~RaceTeam()
 {
+	Logger::customDebug("RaceTeam Destructor: removing Drivers");
 	drivers.clear();
+	Logger::customDebug("RaceTeam Destructor: deleting EngineeringCrew");
 	delete engineeringCrew;
+	Logger::customDebug("RaceTeam Destructor: deleting STrategies");
 	delete Strategy;
 
 	/*
@@ -102,7 +105,7 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
 		//check for pit stop in race
 		if (ps->CheckForPitStop(lapCount)) {
-			ps->CallPitStop();
+			ps->CallPitStop(); 
 			Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->changeStrategy();
 			extraTime += circuit->getAvgPitStops();
 		}
@@ -358,5 +361,8 @@ string RaceTeam::getName() {
 	return this->teamName;
 }
 
-
+CarComposite* RaceTeam::getCar()
+{
+	return engineeringCrew->getCar();
+}
 

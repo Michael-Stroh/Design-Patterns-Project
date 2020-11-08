@@ -25,6 +25,7 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	float longestLapTime = 0;
 	RaceResult *previousQualifiersResult = dynamic_cast<RaceResult *>(result);
 	Logger::debug("OfficialState::runRace printing grid results", "");											//added by Tim
+	Logger::blue("Printing Official RaceState gridPositions", "");
 	previousQualifiersResult->printGridPositions();
 	Logger::debug("OfficialState: printed grid positions", "aboout to do while loop");							//added by Tim
 
@@ -57,6 +58,7 @@ Result *OfficialState::runRace( Result *result, vector<RaceTeam *> teams, RaceTr
 	}
 
 	Logger::debug("OfficialState: Official Race Results", "");
+	Logger::blue("Printing Official Race Results:", "");
 	officialRaceResult->print();
 	Logger::debug("OfficialState::runRace finished printing the results", "");			
 	//for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)

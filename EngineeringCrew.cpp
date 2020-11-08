@@ -29,12 +29,18 @@ EngineeringCrew::EngineeringCrew()
 
 EngineeringCrew::~EngineeringCrew()
 {
+	Logger::customDebug("EngineeringCrew destructor: deleting Builder");
 	delete builder;
-	delete car;
+	Logger::customDebug("EngineeringCrew destructor: deleting Car");
+	//delete car;
+	Logger::customDebug("EngineeringCrew destructor: deleting nextSeasonCar");
 	delete nextSeasonCar;
-	for (int i = 0; i < departments.size(); ++i)
-		budget->detach(departments[i]);
+	Logger::customDebug("EngineeringCrew destructor: detaching budgets");
+	//for (int i = 0; i < departments.size(); ++i)
+	//	budget->detach(departments[i]);
+	Logger::customDebug("EngineeringCrew destructor: deleting budget");
 	delete budget;
+	Logger::customDebug("EngineeringCrew destructor: deleting  departments");
 	for (int i = 0; i < departments.size(); ++i)
 		departments[i];
 }

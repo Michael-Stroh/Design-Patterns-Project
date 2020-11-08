@@ -19,6 +19,7 @@ void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix();
 vector<RaceTeam*> makeTeamsAndDrivers();
+void printWinningTeamCar(vector<pair<string, int>>);
 
 //this will hold all the created circuits
 CompositeRoad* circuit;
@@ -32,16 +33,15 @@ void printCarStatistics(CarComposite* car)		//helper functin, delete
 	float aggregateS = car->getSpeed();
 
 	cout << endl;
-	cout << "Car total Speed: " << aggregateS << endl;
-	cout << "Car total acceleration: " << aggregateA << endl;
-	cout << "Car total Handling: " << aggregateH << endl;
+	Logger::red("Car total Speed: ", to_string(aggregateS));
+	Logger::red("Car total acceleration: ", to_string(aggregateA));
+	Logger::red("Car total Handling: " ,to_string(aggregateH));
 	cout << endl;
 }
 
 int main() {
 
-	
-		system("Color 05");
+		system("Color 05");																//Needed for the Colors To Print Correctly
 		int numberOfTeams = 10;           
 		
 		////////////////Creation////////////////
@@ -52,30 +52,34 @@ int main() {
 		populateCircuit("Data/races.txt" );																	//working
 										   /// TODO: the file path will change depending what files are stored in which folders
 
-		grandPrixs = vector<GrandPrix *>();								//working
+		grandPrixs = vector<GrandPrix *>();												//working
 		createGrandPrixs();                                                               //Alex: done
 		raceTeams = makeTeamsAndDrivers();                                               //Brent 
 
-		//delete me
 		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
 		//Notification
 		Logger::red("Main: calling prepareRaceSeason", "");
 		raceSeason->prepareSeason();																//Brent do inform grandPrixs
-		Logger::red("Main: prepared for Season", "");
+		Logger::red("Main: prepared for Season", "All Teams notified of GrandPrix Schedule");
 
 		//RaceLoop
 		for ( int i = 0; i < grandPrixs.size(); ++i ) {
 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
+			
 			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended
+	
 			Logger::red("Main: printing grandPrix results", "");
 			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
+			
 			Logger::red("Main: ending grandPrix", "");
 			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex: is now printing nicely
-
+		//added by Tim to print the winning Team's car
+		vector<pair<string, int>> vec = ((RaceSeasonResult*)(raceSeason->getResult()))->getTotalTeamPoints();
+		printWinningTeamCar(vec);
 
 		/*
 			Deletion
@@ -83,21 +87,43 @@ int main() {
 		*/
 		//delete the circuit before the GrandPrix that holds it
 		delete circuit;
-
+		//delete the RaceSeason
+		Logger::customDebug("Deleting the RaceSeason");
+		delete raceSeason;
+		Logger::customDebug("RaceSeason and associated data deleted");
+		
         //go through each object stored
-        for ( GrandPrix* prix : grandPrixs ) {
+		 //  for ( GrandPrix* prix : grandPrixs ) {
 
             //free the memory
-            delete prix;
-        }
+       //     delete prix;
+       // }
 
         //empty and resize the vector
-        grandPrixs.clear();
+       // grandPrixs.clear();
 
 		string temp = "";
+		cout << "Enter any character to terinate the program" << endl;
 		cin >> temp;
+		return 0;
 }
 
+void printWinningTeamCar(vector<pair<string, int>> vec)
+{
+	for (int i = 0; i < raceTeams.size(); ++i)
+	{
+		if (raceTeams[i]->getName() == vec[0].first)
+		{
+			Logger::red("Printing the winning Team's Car Statistics", "");
+			printCarStatistics(raceTeams[i]->getCar());
+			string option;
+			Logger::red("Enter Y to view in depth details about the car", "---");
+			cin >> option;
+			if (option == "Y" || option == "y")
+				raceTeams[i]->getCar()->print();
+		}
+	}
+}
 
 void createGrandPrixs() {
 

@@ -40,9 +40,9 @@ Result* GrandPrix::runGrandPrix( vector< RaceTeam* > teams ) {
 
 }
 
-void GrandPrix::displayResult() {
-
-	result->print();
+void GrandPrix::displayResult()        
+{
+	result->print();                    
 }
 
 void GrandPrix::setCircuit( RaceTrack* changeCircuit ) {

@@ -120,6 +120,7 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	}
 	qualifyingResult->placeBottomXOnGrid(10);
 	Logger::debug("Final qualifying round grid positions", "");
+	Logger::blue("Printing Qualifying RaceState gridPositions", "");
 	qualifyingResult->printGridPositions();
 	Logger::debug("QualifyingState finished printing postions", "");							//Added by Tim
 	
