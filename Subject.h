@@ -38,6 +38,12 @@ class Subject {
 
 		/**
 
+			@brief: Detaches all observers
+			*/
+		void detachAll();
+
+		/**
+
 				@param An instance of RaceState, to inform all observers of any changes
 			*/
 		virtual void notify(RaceState *) = 0;

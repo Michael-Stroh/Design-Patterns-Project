@@ -109,7 +109,10 @@ class RaceResult : public Result {
 			@brief A vector containing the drivers and their grid positions
 		*/
 		vector< pair< string, int>> driverGridPositions;
-		
+
+		/**
+			@brief A vector containing the drivers and their points
+		*/
 		vector< pair< string, int>> driverPoints;
 
 		/**

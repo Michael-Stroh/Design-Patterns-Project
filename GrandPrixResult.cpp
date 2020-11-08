@@ -23,7 +23,7 @@ string GrandPrixResult::getDriverPositions()
 	vector<pair<string, int>> driverPositions = dynamic_cast<RaceResult*>(this->officialRaceResult)->getDriverResults();
 	for (it = driverPositions.begin(); it != driverPositions.end(); ++it)
 	{
-		driverResults += it->first + ":\t" + to_string(it->second) + "\n";
+		driverResults += to_string(it->second) + ":\t" + it->first + "\n";
 	}
 	return driverResults;
 }

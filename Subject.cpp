@@ -19,9 +19,18 @@ void Subject::detach(RaceTeam *r)
 	vector<RaceTeam *>::iterator it;
 	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
 	{
-		if (*it == r)
+		if ((*it) == r)
 		{
 			this->observerList.erase(it);
 		}
+	}
+}
+
+
+void Subject::detachAll(){
+	vector<RaceTeam *>::iterator it;
+	for (it = this->observerList.begin(); it != this->observerList.end(); ++it)
+	{
+		this->observerList.erase(it);
 	}
 }

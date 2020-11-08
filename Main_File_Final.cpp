@@ -65,7 +65,7 @@ int main() {
 
 		//RaceLoop
 		for ( int i = 0; i < grandPrixs.size(); ++i ) {
-			Logger::red("Main: Preparing for next Race", to_string(i));
+ 			Logger::red("Main: Preparing for next Race", to_string(i));
 			prepareForNextRace( raceTeams, grandPrixs[ i ]);     									//Tim and Kayla calls doDayPreparetion in RaceTeam
 			Logger::red("Main: runnning next Race", "");
 			raceSeason->runNextGrandPrix();                     									//Alex: checked - working as intended

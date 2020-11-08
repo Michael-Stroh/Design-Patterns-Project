@@ -120,14 +120,8 @@ Result *QualifyingState::runRace(Result *result, vector<RaceTeam *> teams, RaceT
 	}
 	qualifyingResult->placeBottomXOnGrid(10);
 	Logger::debug("Final qualifying round grid positions", "");
-	qualifyingResult->printGridPositions();
-	Logger::debug("QualifyingState finished printing postions", "");							//Added by Tim
-	
-	for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)		//This detaching isnt working
-	{
-		Logger::debug("QualifyingState detaching team", "");
-		//this->qualifyingRaceSubject->detach((*team));											//commented out By Tim
-	}
+
+	this->qualifyingRaceSubject->detachAll();
 	Logger::debug("QualifyingState enf ofrunRace function", "");		//added by Tim
 
 	// qualifyingResult->apply107Rule();
