@@ -4,13 +4,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-/*
-	Remember:
-	Alex: SeasonSubject Notify Functions
-	Race.h Top author change and startRace function
-	Qualifing Race Subject notify
-*/
-
 
 //Main Helper Functions pre-declaration
 void createGrandPrixs();
@@ -103,7 +96,7 @@ int main() {
        // grandPrixs.clear();
 
 		string temp = "";
-		cout << "Enter any character to terinate the program" << endl;
+		cout << "Enter any character to terminate the program" << endl;
 		cin >> temp;
 		return 0;
 }

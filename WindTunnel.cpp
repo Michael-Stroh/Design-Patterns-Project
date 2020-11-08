@@ -1,8 +1,7 @@
 #include "WindTunnel.h"
 
 WindTunnel::WindTunnel(): Simulation() {
-
-	usageAllowed = 100;
+	usageAllowed = 400;
 	usage = 0;
 }
 
