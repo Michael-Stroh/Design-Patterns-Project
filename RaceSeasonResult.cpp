@@ -71,6 +71,7 @@ void RaceSeasonResult::addResult(Result *r)
 
 void RaceSeasonResult::print()
 {
+	Logger::blue("Race Season Results", "");
 	Logger::blue("Driver Championship Results", this->getDriversPoints());
 	Logger::blue("Constructor Championship Results", this->getTeamsPoints());
 }
@@ -81,7 +82,7 @@ string RaceSeasonResult::getDriversPoints()
 	vector<pair<string, int>>::iterator it;
 	for (it = this->totalDriverPoints.begin(); it != this->totalDriverPoints.end(); ++it)
 	{
-		driversPoints += it->first + "\t" + to_string(it->second) + "pts\n";
+		driversPoints += to_string(it->second) + "pts:\t" + it->first + "\n";
 	}
 	return driversPoints;
 }
@@ -92,7 +93,7 @@ string RaceSeasonResult::getTeamsPoints()
 	vector<pair<string, int>>::iterator it;
 	for (it = this->totalTeamPoints.begin(); it != this->totalTeamPoints.end(); ++it)
 	{
-		teamsPoints += it->first + "\t" + to_string(it->second) + "pts\n";
+		teamsPoints += to_string(it->second) + "pts:\t" + it->first + "\n";
 	}
 	return teamsPoints;
 }
