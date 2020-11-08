@@ -58,20 +58,20 @@ int main() {
 	//delete me
 	RaceSeason *raceSeason = new RaceSeason(grandPrixs, raceTeams);
 	//Notification
-	// Logger::red("Main: calling prepareRaceSeason", "");
+	Logger::red("Main: calling prepareRaceSeason", "");
 	raceSeason->prepareSeason(); //Brent do inform grandPrixs
-	// Logger::red("Main: prepared for Season", "");
+	Logger::red("Main: prepared for Season", "");
 
 	//RaceLoop
 	for (int i = 0; i < grandPrixs.size(); ++i)
 	{
-		// Logger::red("Main: Preparing for next Race", to_string(i));
+		Logger::red("Main: Preparing for next Race", to_string(i));
 		prepareForNextRace(raceTeams, grandPrixs[i]); //Tim and Kayla calls doDayPreparetion in RaceTeam
-		// Logger::red("Main: runnning next Race", "");
+		Logger::red("Main: runnning next Race", "");
 		raceSeason->runNextGrandPrix(); //Alex: checked - working as intended
-		// Logger::red("Main: printing grandPrix results", "");
+		Logger::red("Main: printing grandPrix results", "");
 		grandPrixs[i]->displayResult(); //Alex, now using logger
-		// Logger::red("Main: ending grandPrix", "");
+		Logger::red("Main: ending grandPrix", "");
 		endGrandPrix(); //Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex: is now printing nicely
