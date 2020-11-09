@@ -23,3 +23,4 @@ void ControlledDriving::displayDriver() {
 string ControlledDriving::getType() {
 	return type;
 }
+

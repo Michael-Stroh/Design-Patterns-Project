@@ -3,7 +3,7 @@
    @class LogisiticsStrategy
    @authors Brent
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 
@@ -18,64 +18,64 @@
 
 class LogisticsStrategy {
 
-	public:
-		
-		/**
-			Constructor
-		*/
-		LogisticsStrategy( vector<RaceTrack*> );
+public:
 
-		/**
-			Destructor
-		*/
-		~LogisticsStrategy();
-		
-		Logistics* getLogistics(string name);
-		
-		void setDates(vector<RaceTrack*>);
-		
-		/**
-			signal method to transport car to factory
-		*/
-		void endOfRace(string name);
-		
-		/**
-			signal method to transport car to factory
-		*/
-		int getMonth(string date);
-		
+	/**
+		Constructor
+	*/
+	LogisticsStrategy(vector<RaceTrack*>);
+
+	/**
+		Destructor
+	*/
+	~LogisticsStrategy();
+
+	Logistics* getLogistics(string name);
+
+	void setDates(vector<RaceTrack*>);
+
+	/**
+		signal method to transport car to factory
+	*/
+	void endOfRace(string name);
+
+	/**
+		signal method to transport car to factory
+	*/
+	int getMonth(string date);
+
 	/**
 			signal method to transport car to factory
 		*/
-		RaceTrack* getRace(string name);
-		
-		
-	private:
+	RaceTrack* getRace(string name);
 
-		/**
-			@brief holds the logisitics strategy for the whole season
-		*/
-		vector<Logistics*> logisitics;
-		
-		
-		/**
-			@brief the variable that holds all the dates for when logisitics needs to happen
-		*/
-		vector<string> dates;
-		
-		/**
-		*/
-		vector<string> names; 
-		
-		/**
-			@brief the variable that holds all the dates for when logisitics needs to happen
-		*/
-		vector<RaceTrack*> races;
-		
-		/**
-		
-		*/
-		int tracker;
+
+private:
+
+	/**
+		@brief holds the logisitics strategy for the whole season
+	*/
+	vector<Logistics*> logisitics;
+
+
+	/**
+		@brief the variable that holds all the dates for when logisitics needs to happen
+	*/
+	vector<string> dates;
+
+	/**
+	*/
+	vector<string> names;
+
+	/**
+		@brief the variable that holds all the dates for when logisitics needs to happen
+	*/
+	vector<RaceTrack*> races;
+
+	/**
+
+	*/
+	int tracker;
 };
 
 #endif

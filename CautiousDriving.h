@@ -52,6 +52,8 @@ public:
 	*/
 	string getType();
 
+
+
 private:
 	/** @brief type of the driver object*/
 	string type;

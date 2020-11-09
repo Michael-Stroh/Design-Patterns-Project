@@ -10,7 +10,7 @@ void createGrandPrixs();
 vector<RaceTeam* > createRaceTeams( int );
 void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
-void endGrandPrix();
+void endGrandPrix(vector<RaceTeam *>, GrandPrix* gp);
 vector<RaceTeam*> makeTeamsAndDrivers();
 void printWinningTeamCar(vector<pair<string, int>>);
 
@@ -67,7 +67,7 @@ int main() {
 			grandPrixs[ i ]->displayResult();                    									//Alex, now using logger
 			
 			Logger::red("Main: ending grandPrix", "");
-			endGrandPrix();																			//Brent: Do what needs be done for logistics after a grandprix.
+			endGrandPrix(raceTeams, grandPrixs[i]);													//Brent: Do what needs be done for logistics after a grandprix.
 		}
 		raceSeason->getResult()->print();															//Alex: is now printing nicely
 		//added by Tim to print the winning Team's car
@@ -155,7 +155,7 @@ vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 	return vec;
 }
 
-void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
+void prepareForNextRace( vector<RaceTeam*> team, GrandPrix * gp ) {
 
 	/*
 		Brents Portion
@@ -185,10 +185,9 @@ void prepareForNextRace( vector<RaceTeam*> team, GrandPrix* gp ) {
 	*/
 }
 
-void endGrandPrix() {
-
-	//Brent to go Ham
-	//for each team
+void endGrandPrix(vector<RaceTeam *> team, GrandPrix * gp)
+{
+	for (int i = 0; i < team.size(); ++i) { team[i]->endOfGrandPrix(gp->getCircuit()->getName()); }
 }
 
 string trim( string line ) {

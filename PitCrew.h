@@ -1,70 +1,76 @@
 /**
    @file PitCrew.h
    @class PitCrew
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Kayla
+   @version 3.0.0
+   @brief
  */
 
 
 #ifndef PITCREW_H
 #define PITCREW_H
-//collegue
+ //collegue
 
 #include "TyreStrategy.h"
 #include "PitStop.h"
 
 class PitCrew {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		PitCrew();
+public:
 
-		/**
-			Destructor
-		*/
-		virtual ~PitCrew();
+	/**
+		Constructor
+	*/
+	PitCrew();
 
-		/**
-			
-			@param pitstop
-		*/
-		void registerAtPitStop( PitStop* );
+	/**
+		Destructor
+	*/
+	virtual ~PitCrew();
 
-		/**
+	/**
 
-		*/
-		int getID();
+		@param pitstop
+	*/
+	void registerAtPitStop(PitStop*);
+
+	/**
+		@brief get crew member id
+	*/
+	int getID();
 
 
-		/**
+	/**
 
-		 	@param id
-		*/
-		void setID(int);
-		
-		/**
+		@param id
+	*/
+	void setID(int);
 
-			
-		*/
-		
-		virtual TyreStrategy * replacePart(TyreStrategy *) = 0;
-		
+	/**
 
-	protected:
+		@brief virtual replacePart is implemented in child classes
+	*/
 
-		/**
-			@brief 
-		*/
-		PitStop * myPitStop;
-		
-		/**
-			@brief 
-		*/
-		int myID;
+	virtual TyreStrategy* replacePart(TyreStrategy*) = 0;
+
+	/**
+
+		@brief get myPitStop
+	*/
+	PitStop* getPitStop();
+
+
+protected:
+
+	/**
+		@brief
+	*/
+	PitStop* myPitStop;
+
+	/**
+		@brief
+	*/
+	int myID;
 };
 
 #endif
