@@ -77,13 +77,23 @@ Classes in Patterns:
 
 To compile the code:
         
-        See readme.txt
+       Compiling the program
+            Run "make" in the root directory of the project.
 
-To create instances of classes:
-    
- //need to talk about this
+            This command will link & compile all .cpp and .h files found in the System/ directory (but not it's subdirectories).
+            The linked .o files will be placed in the Build/ directory.
+            The main executable (main.exe) will be placed in the root directory of the project.
 
-    The group members are as follows:
+
+        Running the program
+            Run "make run" in the root directory of the project.
+
+            This command will execute the main executable found in the root directory of the project.
+    Output will be displayed to the console.
+
+
+
+The group members are as follows:
 
             Brenton        Stroberg         u17015741
             Michael        Stroh            u17023557
