@@ -1,9 +1,9 @@
 /**
-   @file LogisiticsStrategy.h
-   @class LogisiticsStrategy
+   @file LogisticsStrategy.h
+   @class LogisticsStrategy
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief Creates the RaceSchedule and determines when shipping needs to occur.
  */
 
 

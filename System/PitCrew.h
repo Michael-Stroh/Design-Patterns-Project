@@ -3,7 +3,7 @@
    @class PitCrew
    @authors Kayla
    @version 3.0.0
-   @brief
+   @brief Keeps track of which pitstop a pitcrew member is registered to and contains the virual function that is overwritten by the children classes.
  */
 
 

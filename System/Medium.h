@@ -3,7 +3,7 @@
    @class Medium
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief Represents a Tyre that is made out of a standard compound that provides a balance of grip and strength. 
  */
 
 

@@ -3,7 +3,7 @@
    @class Tyre
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief Represents a Tyre of the Car.
 */
 
 #ifndef Tyre_H

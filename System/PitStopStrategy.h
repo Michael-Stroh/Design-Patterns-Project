@@ -3,7 +3,7 @@
    @class PitStopStrategy
    @authors Kayla
    @version 3.0.0
-   @brief
+   @brief Creates the PitStop and tyrechanger and then recieves a tyreStrategy containing a vector of tyres that will be changed.
  */
 
 

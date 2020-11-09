@@ -3,7 +3,8 @@
    @class CarStop
    @authors Michael
    @version 1.0.0
-   @brief
+   @brief Holds the name of the PitStop to identify which team should be using a certain pitstop.
+
  */
 
 #ifndef CARSTOP_H

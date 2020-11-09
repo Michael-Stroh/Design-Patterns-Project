@@ -3,7 +3,7 @@
    @class Driver
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief Represents the Driver of a RaceTeam. 
  */
 
 #ifndef DRIVER_H

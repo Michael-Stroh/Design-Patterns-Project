@@ -3,7 +3,7 @@
    @class RaceStrategy
    @authors Michael
    @version 1.0.0
-   @brief
+   @brief Represents the strategies that a RaceTeam uses to win races.
  */
 
 #ifndef RACESTRATEGY_H

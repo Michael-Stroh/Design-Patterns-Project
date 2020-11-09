@@ -3,8 +3,8 @@
    @class EngineeringCrew
    @authors Michael Timothy Kayla
    @version 1.0.1
-   @brief A class responsible for building the car as well as updating the cars
-   @warning TODO important car things get the racing car!!
+   @brief A class responsible for building the car as well as upgrading the cars.
+
  */
 
 #ifndef ENGINEERINGCREW_H

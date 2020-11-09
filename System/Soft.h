@@ -3,7 +3,7 @@
    @class Soft
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief Represents a Tyre that is made out of a softer compound that provides more grip.
  */
 
 #ifndef SOFT_H

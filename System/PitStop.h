@@ -3,7 +3,7 @@
    @class PitStop
    @authors Kayla
    @version 3.0.0
-   @brief
+   @brief Keeps track of the different kinds of concrete mediators (in this case the pitcrew) and tells the tyrchanger to change the tyres.
  */
 
  //mediator
