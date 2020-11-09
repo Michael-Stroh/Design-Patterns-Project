@@ -41,7 +41,7 @@ vector<Driver*> DriverStrategy::decideStrategy() {
 			drive.push_back(temp);
 		}
 		else {
-			cout << "error" << endl;
+			//cout << "error" << endl;
 		}
 	}
 	drivers = drive;
@@ -78,7 +78,7 @@ void DriverStrategy::changeStrategy() {
 }
 
 void DriverStrategy::changeStrategy(string type) {
-	cout << type << endl;
+	//cout << type << endl;
 	if (type == "Aggressive") {
 		setDriver(new AggressiveDriving(raceDriver));
 	}

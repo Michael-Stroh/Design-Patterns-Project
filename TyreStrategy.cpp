@@ -1,108 +1,94 @@
-/**
-   @file TyreStrategy.h
-   @class TyreStrategy
-   @authors Brent
-   @version 1.0.0
-   @brief creates and maintains the tyre strategy for each race
-*/
+#include "TyreStrategy.h"
 
-#ifndef TYRESTRATEGY_H
-#define TYRESTRATEGY_H
+TyreStrategy::TyreStrategy() {
 
-#include "Tyre.h"
-#include "Soft.h"
-#include "Medium.h"
-#include "Hard.h"
-#include "RaceTrack.h"
+}
 
-#include <vector>
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <math.h>
+TyreStrategy::TyreStrategy(RaceTrack* rt) {
+	srand(time(NULL));
+	int raceDistance = rt->getLaps() * rt->getDistance();
+	numPits = rand() % 3 + 3;
 
-#include <iostream>
+	int* tmpTyre = new int[numPits];
+	pitLaps = new int[numPits];
 
-using namespace std;
+	for (int i = 0; i < numPits; i++) {
+		tmpTyre[i] = 60;
+	}
 
-class TyreStrategy {
+	int distanceOfTyre = 60 * numPits;
+
+	while (distanceOfTyre < raceDistance) {
+		int j = rand() % numPits;
+		if (tmpTyre[j] != 120) {
+			tmpTyre[j] += 30;
+			distanceOfTyre += 30;
+		}
+	}
+
+	int pos = 0;
+	int totalLaps = 0;
+	for (int i = 0; i < numPits; i++) {
+		switch (tmpTyre[i]) {
+		case 60:
+			tyres.push_back(new Soft());
+			break;
+		case 90:
+			tyres.push_back(new Medium());
+			break;
+		case 120:
+			tyres.push_back(new Hard());
+			break;
+		}
+		pitLaps[pos] = totalLaps + floor(tmpTyre[i] / rt->getDistance());
+		totalLaps += floor(tmpTyre[i] / rt->getDistance());
+		pos++;
+	}
+}
+
+TyreStrategy::~TyreStrategy() {
+	//tyres.clear();
+	//delete pitLaps;
+}
+
+vector<Tyre*> TyreStrategy::getTyres() {
+	return tyres;
+}
+
+void TyreStrategy::setTyres(vector< Tyre* > newTyre) {
+	tyres.clear();
+	tyres.reserve(newTyre.size());
+	for (int i = 0; i < newTyre.size() - 1; i++) {
+		tyres.push_back(newTyre[i]);
+	}
+	this->tyres = newTyre;
+}
 
 
-public:
-
-	/**
-		Constructor
-	*/
-	TyreStrategy();
-
-	/**
-		Constructor
-		@param RaceTrack
-	*/
-	TyreStrategy(RaceTrack*);
-
-	/**
-		deconstructor
-	*/
-	~TyreStrategy();
-
-	/**
-
-		@return the tyre vector
-	*/
-	vector<Tyre*> getTyres();
-
-	/**
-		@brief set the tyres of the tyre strategy
-		@param a vector of tyres
-	*/
-	void setTyres(vector<Tyre*>);
+int* TyreStrategy::getPitLaps() {
+	return pitLaps;
+}
 
 
-	/**
-		@return an int array
-	*/
-	int* getPitLaps();
+void TyreStrategy::setPitLaps(int* arr) {
+	this->pitLaps = arr;
+}
 
-	/**
-		@brief sets when a car should pit
-		@param array of ints
-	*/
-	void setPitLaps(int* arr);
+int TyreStrategy::getNumPits() {
+	return numPits;
+}
 
-	/**
-		@brief gets the number of pits
-		@return int
-	*/
-	int getNumPits();
+void TyreStrategy::setNumPits(int a) {
+	this->numPits = a;
+}
 
-	/**
-		@brief set the number of pits
-		@param int
-	*/
-	void setNumPits(int arr);
 
-	/**
-	@brief for debugging purposes
-	*/
-	void print();
+void TyreStrategy::print() {
+	int prev = 0;
+	cout << "Tyre order:" << endl;
+	for (int i = 0; i < numPits; i++) {
+		Logger::red("Print tyres", " Type: " + tyres.at(i)->getTyreType());
+		//prev = pitLaps[i];
+	}
 
-private:
-
-	/**
-		@brief vector of tyres
-	*/
-	vector<Tyre*> tyres;
-
-	/**
-		@brief array of ints, each int simbolizes a pit lap
-	*/
-	int* pitLaps;
-
-	/**
-		@brief the number of pits
-	*/
-	int numPits;
-};
-
-#endif
+}
