@@ -8,23 +8,26 @@ main: $(o_files)
 
 run: main
 	@echo "" 
-	@echo "Running:" 
+	@echo "[Makefile] Running:" 
 	@./main
 
 clean:
 	@rm -rf $(OBJDIR)/*.o main
-	@echo "Cleaned"
+	@echo "[Makefile] Cleaned"
+
+compress: clean
+	tar -cvzf Final.tar.gz Build/ System/ Data/ Report/ makefile readme.txt
 
 $(OBJDIR)/%.o: $(SYSTEMDIR)/%.cpp
-	@echo "Compiling $<"
+	@echo "[Makefile] Compiling $<"
 	@g++ -c $< -o $@
 
 $(OBJDIR)/%.o: $(SYSTEMDIR)/%.cpp $(SYSTEMDIR)/%.h
-	@echo "Compiling $<"
+	@echo "[Makefile] Compiling $<"
 	@g++ -c $< -o $@
 
 $(OBJDIR)/Logger.o: $(SYSTEMDIR)/utilities/Logger.cpp $(SYSTEMDIR)/utilities/Logger.h
-	@echo "Compiling $<"
+	@echo "[Makefile] Compiling $<"
 	@g++ -c $(SYSTEMDIR)/utilities/Logger.cpp -o $@
 
 
