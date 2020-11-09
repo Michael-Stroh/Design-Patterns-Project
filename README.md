@@ -77,7 +77,7 @@ Classes in Patterns:
 
 To compile the code:
         
-        //say something about using the makefile or even the CMake
+        See readme.txt
 
 To create instances of classes:
     
