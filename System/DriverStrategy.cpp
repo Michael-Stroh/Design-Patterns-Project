@@ -19,7 +19,6 @@ DriverStrategy::~DriverStrategy() {
 }
 
 vector<Driver*> DriverStrategy::decideStrategy() {
-
 	vector<Tyre*> tyres = tyreStrategy->getTyres();
 	int size = (int)tyres.capacity();
 
@@ -42,11 +41,11 @@ vector<Driver*> DriverStrategy::decideStrategy() {
 			drive.push_back(temp);
 		}
 		else {
-			cout << "error" << endl;
+			//cout << "error" << endl;
 		}
 	}
 	drivers = drive;
-	setDriver(drivers.back());
+	changeStrategy(drivers.back()->getType());
 	return drive;
 }
 
@@ -69,12 +68,17 @@ void DriverStrategy::setDriver(Driver* d) {
 }
 
 void DriverStrategy::changeStrategy() {
-	drivers.pop_back();
-	this->drivers = drivers;
-	setDriver(drivers.back());
+	if (drivers.size() != 0) {
+		Driver* temp = drivers.back();
+		string change = temp->getName() + " changed strategy from: " + raceDriver->getType() + " to: " + temp->getType();
+		Logger::yellow("DriverStrategy - changeStrategy", change);
+		changeStrategy(temp->getType());
+		drivers.pop_back();
+	}
 }
 
 void DriverStrategy::changeStrategy(string type) {
+	//cout << type << endl;
 	if (type == "Aggressive") {
 		setDriver(new AggressiveDriving(raceDriver));
 	}

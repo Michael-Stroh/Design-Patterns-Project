@@ -1,9 +1,9 @@
 /**
    @file TyreChanger.h
    @class TyreChanger
-   @authors Michael
-   @version 1.0.0
-   @brief 
+   @authors Kayla
+   @version 3.0.0
+   @brief
 */
 
 #ifndef TYRECHANGER_H
@@ -11,24 +11,33 @@
 
 #include "PitCrew.h"
 
-class TyreChanger: public PitCrew {
+class TyreChanger : public PitCrew {
 
-	public:
-	
-		/**
-			Constructor
-		*/
-		TyreChanger();
+public:
 
-		/**
-			Destructor
-		*/
-		~TyreChanger();
+	/**
+		Constructor
+	*/
+	TyreChanger();
 
-		/**
-			
-		*/
-		void update();
+	/**
+		Destructor
+	*/
+	~TyreChanger();
+
+	/**
+		@param tyre
+		@brief change tyres
+	*/
+	TyreStrategy* replacePart(TyreStrategy*);
+	/**
+		@brief gets the newTyre
+	*/
+	TyreStrategy* getNewTyre();
+
+private:
+
+	TyreStrategy* newTyre;
 };
 
 #endif

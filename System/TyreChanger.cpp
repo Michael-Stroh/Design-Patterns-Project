@@ -1,17 +1,24 @@
 #include "TyreChanger.h"
 
-TyreChanger::TyreChanger(): PitCrew() {
-
-	// TODO - implement TyreChanger::TyreChanger
-	throw "Not yet implemented";
+TyreChanger::TyreChanger() : PitCrew() {
+	newTyre = new TyreStrategy();
 }
 
 TyreChanger::~TyreChanger() {
-
+	delete newTyre;
 }
 
-void TyreChanger::update() {
+TyreStrategy* TyreChanger::replacePart(TyreStrategy* tyre) {
 
-	// TODO - implement TyreChanger::update
-	throw "Not yet implemented";
+
+	//cout<<"changing tyres from: "<<tyre->printLast()<<" to: ";
+
+	newTyre->setTyres(myPitStop->changeTyre(tyre)->getTyres());
+
+	return newTyre;
+}
+
+TyreStrategy* TyreChanger::getNewTyre()
+{
+	return newTyre;
 }

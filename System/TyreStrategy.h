@@ -3,7 +3,7 @@
    @class TyreStrategy
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief creates and maintains the tyre strategy for each race
 */
 
 #ifndef TYRESTRATEGY_H
@@ -37,67 +37,70 @@ public:
 
 	/**
 		Constructor
-		@param rt
+		@param RaceTrack
 	*/
 	TyreStrategy(RaceTrack*);
 
 	/**
-		Constructor
+		deconstructor
 	*/
 	~TyreStrategy();
 
 	/**
 
-		@return
+		@return the tyre vector
 	*/
 	vector<Tyre*> getTyres();
 
 	/**
-
-		@param
+		@brief set the tyres of the tyre strategy
+		@param a vector of tyres
 	*/
 	void setTyres(vector<Tyre*>);
 
 
 	/**
-		@param
+		@return an int array
 	*/
 	int* getPitLaps();
 
 	/**
-		@param
+		@brief sets when a car should pit
+		@param array of ints
 	*/
 	void setPitLaps(int* arr);
 
 	/**
-		@param
+		@brief gets the number of pits
+		@return int
 	*/
 	int getNumPits();
 
 	/**
-		@param
+		@brief set the number of pits
+		@param int
 	*/
 	void setNumPits(int arr);
 
 	/**
-
+	@brief for debugging purposes
 	*/
 	void print();
 
 private:
 
 	/**
-		@brief
+		@brief vector of tyres
 	*/
 	vector<Tyre*> tyres;
 
 	/**
-		@brief
+		@brief array of ints, each int simbolizes a pit lap
 	*/
 	int* pitLaps;
 
 	/**
-		@brief
+		@brief the number of pits
 	*/
 	int numPits;
 };

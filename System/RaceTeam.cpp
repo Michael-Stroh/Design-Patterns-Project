@@ -98,14 +98,14 @@ LapResult *RaceTeam::performLap(int driverIndex, RaceTrack *circuit)
 	//brent do calculations
 	//Logger::debug("RaceTeam::performLap", "");
 
-	if (raceState->getStateName() == "") {	//"Official") {
+	if (raceState->getStateName() == "Official") {
 		Logger::debug("RaceTEam::perform lap Offcial behaviour", this->getName());
 		PitStopStrategy* ps = Strategy->getRaceStrategy(driverIndex)->getPitStopStrategy();
 		lapCount++;
 		changeStrategiesBasedOnPosition(drivers.at(driverIndex), driverIndex);
 		//check for pit stop in race
 		if (ps->CheckForPitStop(lapCount)) {
-			ps->CallPitStop(); 
+			//ps->CallPitStop(); 
 			Strategy->getRaceStrategy(driverIndex)->getDriverStrategy()->changeStrategy();
 			extraTime += circuit->getAvgPitStops();
 		}
