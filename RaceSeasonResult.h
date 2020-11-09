@@ -1,8 +1,8 @@
 /**
    @file RaceSeasonResult.h
    @class RaceSeasonResult
-   @authors Alex
-   @version 1.0.0
+   @authors Alex 
+   @version 1.0.1
    @brief The class that will store the results of an entire race season
  */
 
@@ -46,6 +46,12 @@ public:
 	    @brief: Prints out the results of the Constructors Championship
 		*/
 	string getTeamsPoints();
+
+	/**
+		@brief: Returns the vector of the points each team earned for the RaceSeason.
+		@return a vector of string-int pairs.
+	*/
+	vector<pair<string, int>> getTotalTeamPoints();		//added by Tim for an extra print function
 
 private:
 	/**

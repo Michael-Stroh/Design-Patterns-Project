@@ -168,6 +168,11 @@ public:
 	*/
 	string getName();
 
+	/**
+		@brief returns the car used in the most recent race by this Team.
+		@return a CarComposite from this Team's EngineeringCrew
+	*/
+	CarComposite* getCar();
 
 	private:
 

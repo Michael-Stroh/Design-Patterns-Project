@@ -78,7 +78,7 @@ void Logger::setDebug(bool debug)
 
 void Logger::customDebug(string s)
 {
-   // cout << "\033[37m [CDebug]--" << s << "---\033[39m" << endl;
+   //cout << "\033[37m [CDebug]--" << s << "---\033[39m" << endl;
 }
 
 
