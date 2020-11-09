@@ -8,7 +8,7 @@ main: $(o_files)
 
 run: main
 	@echo "" 
-	@echo "[Makefile] Running:" 
+	@echo "[Makefile] Running" 
 	@./main
 
 clean:
