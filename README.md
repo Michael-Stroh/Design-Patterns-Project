@@ -89,7 +89,8 @@ To compile the code:
             Run "make run" in the root directory of the project.
 
             This command will execute the main executable found in the root directory of the project.
-    Output will be displayed to the console.
+    
+            Output will be displayed to the console.
 
 
 
