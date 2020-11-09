@@ -27,11 +27,13 @@ void RaceStrategy::setDriverStrategy(TyreStrategy* strategy) {
 
 	driverStrategy = new DriverStrategy(strategy);
 	driverStrategy->setDriver(driver);
+	driverStrategy->decideStrategy();
 }
 
 void RaceStrategy::setTyreStrategy(RaceTrack* track) {
 
 	tyreStrategy = new TyreStrategy(track);
+
 }
 
 DriverStrategy* RaceStrategy::getDriverStrategy() {

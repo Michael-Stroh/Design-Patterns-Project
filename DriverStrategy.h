@@ -22,6 +22,8 @@
 #include "TyreStrategy.h"
 #include "Tyre.h"
 
+using namespace std;
+
 class DriverStrategy {
 
 public:

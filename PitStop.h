@@ -1,8 +1,8 @@
 /**
    @file PitStop.h
    @class PitStop
-   @authors Michael
-   @version 1.0.0
+   @authors Kayla
+   @version 3.0.0
    @brief
  */
 
@@ -32,8 +32,8 @@ public:
 	virtual ~PitStop();
 
 	/**
-
 		@param crewMember
+		@brief adds a crew member to the Pitcrew vector
 	*/
 	int addCrewMember(PitCrew*);
 
@@ -42,11 +42,28 @@ public:
 		@param tyreStrategy
 	*/
 	TyreStrategy* changeTyre(TyreStrategy*);
+	/**
 
+		@param id
+	*/
+	PitCrew* getCrewMember(int);
+
+	/**
+
+		@brief get pitstop pitcrew
+	*/
+	vector<PitCrew*> getPitCrew();
+
+	/**
+
+		@brief set pitstop pitcrew
+		@param pitstop
+	*/
+	void setPitStop(PitStop*);
 protected:
 
 	/**
-		@brief
+		@brief a vector to hold all the pitcrew members and an int to hold their ID's
 	*/
 	vector <PitCrew*> pitcrew;
 	int crewMemberID;

@@ -24,3 +24,4 @@ void CautiousDriving::displayDriver() {
 string CautiousDriving::getType() {
 	return type;
 }
+

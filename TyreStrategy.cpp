@@ -47,8 +47,8 @@ TyreStrategy::TyreStrategy(RaceTrack* rt) {
 }
 
 TyreStrategy::~TyreStrategy() {
-	tyres.clear();
-	delete pitLaps;
+	//tyres.clear();
+	//delete pitLaps;
 }
 
 vector<Tyre*> TyreStrategy::getTyres() {
@@ -56,8 +56,12 @@ vector<Tyre*> TyreStrategy::getTyres() {
 }
 
 void TyreStrategy::setTyres(vector< Tyre* > newTyre) {
+	tyres.clear();
+	tyres.reserve(newTyre.size());
+	for (int i = 0; i < newTyre.size() - 1; i++) {
+		tyres.push_back(newTyre[i]);
+	}
 	this->tyres = newTyre;
-	setNumPits((int)newTyre.capacity());
 }
 
 
@@ -84,7 +88,7 @@ void TyreStrategy::print() {
 	cout << "Tyre order:" << endl;
 	for (int i = 0; i < numPits; i++) {
 		Logger::red("Print tyres", " Type: " + tyres.at(i)->getTyreType());
-		prev = pitLaps[i];
+		//prev = pitLaps[i];
 	}
 
 }

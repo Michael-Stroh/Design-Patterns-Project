@@ -4,7 +4,7 @@
    @authors Michael
    @authors Brent
    @version 1.0.0
-   @brief 
+   @brief
  */
 
 #ifndef LOGISTICS_H
@@ -20,54 +20,54 @@ using namespace std;
 
 class Logistics {
 
-	public:
-		/**
-			Constructor
-			@param string name of race
-			@param bool if european or not
-		*/
-		Logistics( string, bool );
+public:
+	/**
+		Constructor
+		@param string name of race
+		@param bool if european or not
+	*/
+	Logistics(string, bool);
 
 
 
-		/**
-			Destructor
-		*/
-		~Logistics();
+	/**
+		Destructor
+	*/
+	~Logistics();
 
-		/**
-			
-			@return
-		*/
-		
-		string getName();
+	/**
 
-	private:
+		@return
+	*/
 
-		/**
-			@brief 
-		*/
-		Container* garage;
-		
-		/**
-			@brief 
-		*/
-		Container* carComponents;
-		
-		/**
-			@brief 
-		*/
-		Container* catering;
-		
-		/**
-			@brief 
-		*/
-		bool isEuropean;
-		
-		/**
-			@brief
-		*/
-		string name;
+	string getName();
+
+private:
+
+	/**
+		@brief
+	*/
+	Container* garage;
+
+	/**
+		@brief
+	*/
+	Container* carComponents;
+
+	/**
+		@brief
+	*/
+	Container* catering;
+
+	/**
+		@brief
+	*/
+	bool isEuropean;
+
+	/**
+		@brief
+	*/
+	string name;
 };
 
 #endif
