@@ -10,8 +10,8 @@ Alex        Human       u19069716
 Compiling the program
     Run "make" in the root directory of the project.
 
-    This command will link & compile all .cpp and .h files that are not in subdirectories of the System/ folder.
-    The linked .o files will be placed in the Build/ folder.
+    This command will link & compile all .cpp and .h files found in the System/ directory (but not it's subdirectories).
+    The linked .o files will be placed in the Build/ directory.
     The main executable (main.exe) will be placed in the root directory of the project.
 
 
