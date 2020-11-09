@@ -3,7 +3,7 @@
    @class GarageEquipment
    @authors Michael
    @version 1.0.0
-   @brief 
+   @brief --Deprecated--
  */
 
 

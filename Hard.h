@@ -3,7 +3,7 @@
    @class Hard
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief Represents a Tyre that is made out of a harder, more durable compound.
  */
 
 

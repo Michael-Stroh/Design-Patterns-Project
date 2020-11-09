@@ -3,7 +3,7 @@
    @class AggressiveDriving
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief A concrete state for the Driver that simulates aggressive driving patterns.
  */
 
 #ifndef AGGRESSIVEDRIVING_H

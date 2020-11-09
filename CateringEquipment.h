@@ -3,7 +3,7 @@
    @class CateringEquipment
    @authors Michael
    @version 1.0.0
-   @brief 
+   @brief Represents the catering equipment used by the Driver and RaceTeam during Races. 
  */
 
 #ifndef CATERINGEQUIPMENT_H

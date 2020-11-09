@@ -3,7 +3,7 @@
    @class ControlledDriving
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief A concrete state for the Driver that simulates controlled driving patterns.
  */
 
 #ifndef CONTROLLEDDRIVING_H

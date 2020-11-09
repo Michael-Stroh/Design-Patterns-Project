@@ -3,7 +3,7 @@
    @class DriverStrategy
    @authors Brenton
    @version 1.0.0
-   @brief
+   @brief Represents the strategy a specific Driver uses during a Race.
  */
 
 

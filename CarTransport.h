@@ -3,7 +3,7 @@
    @class CarTransport
    @authors Michael
    @version 1.0.0
-   @brief 
+   @brief The careTaker for CarMementos.
  */
 
 #ifndef CARTRANSPORT_H

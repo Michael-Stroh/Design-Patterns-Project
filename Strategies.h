@@ -3,7 +3,7 @@
    @class Strategies
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief A collection of RaceStrategy and LogisticsStrategy, held by the RaceTeam. It acts as an interface for RaceTeam to reach all of the necessary strategies.
  */
 
 #ifndef STRATEGIES_H

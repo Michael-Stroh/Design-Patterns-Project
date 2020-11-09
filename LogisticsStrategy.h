@@ -3,7 +3,7 @@
    @class LogisiticsStrategy
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief Creates the RaceSchedule and determines when shipping needs to occur.
  */
 
 

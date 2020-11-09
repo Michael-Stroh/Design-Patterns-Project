@@ -3,7 +3,7 @@
    @class TyreChanger
    @authors Kayla
    @version 3.0.0
-   @brief
+   @brief Tyre changers will be responisble for changing the car's tyres.
 */
 
 #ifndef TYRECHANGER_H

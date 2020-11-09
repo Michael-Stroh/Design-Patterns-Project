@@ -3,18 +3,7 @@
    @class Racing_Team
    @authors Michael Timothy 
    @version 1.0.0
-   @brief 
-   @todo: Implement constructor
-   @todo: Implement destructor
-   @todo: Implement performLap(int, circuit) with int for driver index and circuit for driving on
-   @todo: Implement updateSeasonResult()
-   @todo: Implement informGrandPrixs()
-   @todo: Implement updateQualifyingResult()
-   @todo: Implement updateOfficialResult()
-   @todo: Implement setRaceState()
-   @todo: Implement performLap()
-   @todo: Implement setRaceState()
-   @todo: Implement getDriver()
+   @brief Represents a Racing Team unit. Holds all of the corresponding Engineering, Driver and Strategy components. 
  */
 
 #ifndef RACING_TEAM_H

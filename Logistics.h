@@ -4,7 +4,7 @@
    @authors Michael
    @authors Brent
    @version 1.0.0
-   @brief
+   @brief A class used to create the containers needed to transport the car and other equipment to races.
  */
 
 #ifndef LOGISTICS_H
