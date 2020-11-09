@@ -1,6 +1,6 @@
 /**
-   @file logistics.h
-   @class logistics
+   @file Logistics.h
+   @class Logistics
    @authors Michael
    @authors Brent
    @version 1.0.0

@@ -1,6 +1,6 @@
 /**
-   @file Racing_Team.h
-   @class Racing_Team
+   @file RaceTeam.h
+   @class RaceTeam
    @authors Michael Timothy 
    @version 1.0.0
    @brief Represents a Racing Team unit. Holds all of the corresponding Engineering, Driver and Strategy components. 
