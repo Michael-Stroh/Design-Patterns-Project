@@ -12,11 +12,12 @@ run: main
 	@./main
 
 clean:
-	@rm -rf $(OBJDIR)/*.o main
+	@rm -rf $(OBJDIR)/*.o main Final.tar.gz
 	@echo "[Makefile] Cleaned"
 
 compress: clean
-	tar -cvzf Final.tar.gz Build/ System/ Data/ Report/ makefile readme.txt
+	@echo "[Makefile] Compressing"
+	@tar -cvzf Final.tar.gz Build/ System/ Data/ Report/ makefile readme.txt
 
 $(OBJDIR)/%.o: $(SYSTEMDIR)/%.cpp
 	@echo "[Makefile] Compiling $<"
