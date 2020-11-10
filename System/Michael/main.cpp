@@ -1,5 +1,5 @@
 #include "../RaceTrack.h"
-#include "../CompositeRoad.h"   //changed to allow compilation on Tim's machine (added ../)
+#include "../CompositeRoad.h"
 #include "../CircuitIterator.h"
 #include "../Circuit.h"
 
