@@ -6,14 +6,26 @@
 #include <iostream>
 #include <fstream>
 
+
 void createGrandPrixs();
+void test1();
+void test2();
 CompositeRoad* circuit;
+
 
 int main() {
 
     //instantiate the CompositeRoad pointer
     circuit = new CompositeRoad();
 
+    //test created RaceTrack items
+    test1();
+
+    //instantiate the CompositeRoad pointer
+    circuit = new CompositeRoad();
+
+    //test RaceTracks rad in from a file
+    test2();
 }
 
 string trim( string line ) {
@@ -154,14 +166,24 @@ void  populateCircuit( const string& fileName ) {
 
 }
 
-void test1(){
+void test1() {
 
     ////////Test RaceTrack class////////
 
         //can at least a single road be made
-    Circuit* singleRoad = new RaceTrack( "Bob", 2.1, 5.6 );
+    RaceTrack* singleRoad = new RaceTrack( "Bob", 2.1, 5.6 );
+
+    cout << "Currently testing " + singleRoad->getName() << endl;
 
     //Check if the correct details are printed
+    singleRoad->print();
+
+    //see if you can change details
+    singleRoad->setName( "Bob's road" );
+    singleRoad->setDistance( 77 );
+    singleRoad->setWindForce( 8.0 );
+
+    //Check if the correct details are updated
     singleRoad->print();
 
     //free the memory
@@ -174,41 +196,60 @@ void test1(){
         //can a group of roads be made
     circuit = new CompositeRoad( "Race One" );
 
-    //Add them to th
-    circuit->addRoad( new RaceTrack( "Bob", 2.1, 5.6 ) );
-    circuit->addRoad( new RaceTrack( "SS", 4.2, 2.7 ) );
-    circuit->addRoad( new RaceTrack( "Ko", 3.3, 2.8 ) );
-    circuit->addRoad( new RaceTrack( "Name", 2.4, 2.9 ) );
+    //Add them to the CompositeRoad
+    circuit->addRoad( new RaceTrack( "Bob's Road", 2.1, 5.6 ) );
+    circuit->addRoad( new RaceTrack( "South Road", 4.2, 2.7 ) );
+    circuit->addRoad( new RaceTrack( "Coral Street", 3.3, 2.8 ) );
+    circuit->addRoad( new RaceTrack( "Long Road", 2.4, 2.9 ) );
 
     //Check if all the correct details are printed
     circuit->print();
 
     cout << endl << endl << endl;
-    //check if delete is working
+
+    //check if delete is working when the name does not exist
     circuit->removeRoad("Bob");
+    //check if delete is working
+    circuit->removeRoad("Bob's Road");
 
     //Check if all the correct details are printed
     circuit->print();
 
+    //Create an iterator and set it to the first value
     Iterator* it = circuit->createIterator();
+    it->first();
 
+    //continue going through until we have traversed all the items
+    while ( !it->isDone() ) {
+
+        //get the current RaceTrack and print out the details
+         it->currentItem()->print();
+
+        //go to the next item in the iterator
+        it->next();
+    }
+
+    //free the memory
     delete it;
     delete circuit;
 }
 
-void test2(){
+void test2() {
 
     //call the function to read the circuits in from the file
     populateCircuit("Data/races.txt" );
 
+    //Check to see the Min and Max values created
     circuit->determineMaxValues();
     circuit->determineMinValues();
 
     cout << endl << endl;
 
+    //print out every RaceTrack in the Circuit
     circuit->print();
 
     cout << endl << endl;
 
+    //Free the memory
     delete circuit;
 }
