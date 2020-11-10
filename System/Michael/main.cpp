@@ -15,6 +15,8 @@ CompositeRoad* circuit;
 
 int main() {
 
+    system("Color 05");
+
     //instantiate the CompositeRoad pointer
     circuit = new CompositeRoad();
 

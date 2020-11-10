@@ -1,9 +1,6 @@
 #include "GrandPrix.h"
-#include "RaceTeam.h"
 #include "RaceSeason.h"
 #include <iostream>
-#include <stdlib.h>
-
 
 //Main Helper Functions pre-declaration
 void createGrandPrixs();
@@ -14,13 +11,13 @@ void endGrandPrix(vector<RaceTeam *>, GrandPrix* gp);
 vector<RaceTeam*> makeTeamsAndDrivers();
 void printWinningTeamCar(vector<pair<string, int>>);
 
-//this will hold all the created circuits
+//this will hold all the created objects
 CompositeRoad* circuit;
 vector< GrandPrix* > grandPrixs;
 vector< RaceTeam* > raceTeams;
 
-void printCarStatistics(CarComposite* car)		//helper function
-{
+void printCarStatistics( CarComposite* car ) {
+
 	float aggregateH = car->getHandling();
 	float aggregateA = car->getAcceleration();
 	float aggregateS = car->getSpeed();
