@@ -18,7 +18,7 @@ Art::~Art() {
 void Art::print()
 {
 
-	// TODO - implement Art::print
+
 	throw "Not yet implemented";
 }
 

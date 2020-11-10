@@ -5,7 +5,6 @@
    @version 1.0.0
    @brief The Qualfying state for the Race class.
    @details Responsible for performing the necessary steps to complete a qualfiying race.
-   @todo: runRace(): Account for if last lap puts timeLeft into negative
  */
 
 #ifndef QUALIFYINGSTATE_H

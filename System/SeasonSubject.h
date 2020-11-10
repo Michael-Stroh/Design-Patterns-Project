@@ -4,7 +4,6 @@
    @authors Alex
    @version 1.0.0
    @brief The subject for a season, used to update racing teams of any pertinent information regarding the season
-   @todo: iml
  */
 
 #ifndef SEASONSUBJECT_H

@@ -85,8 +85,6 @@ class EngineeringCrew {
 
 		/**
 		@brief
-		@todo: Provide details on the builder member variable
-
 		*/
 		CarBuilder * builder;
 		

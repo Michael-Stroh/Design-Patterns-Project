@@ -44,7 +44,6 @@ public:
 
 	/**
 	 	@brief: Value constructor taking a string as a teamname (for testing purposes only)
-		@todo: Remove from final implementation
 	*/
 	RaceTeam(string);
 
@@ -71,7 +70,6 @@ public:
 		and the statistics of the car at index i, determines how well the car performs relative to the best time for this circuit.
 		@param[in]: int: the index of the car to perform the lap.
 		@param[in]: circuit: the circuit on which the lap must be run.
-		@todo figure out where the best value fo r the time of thiscircuit comes from.
 	*/
 	float getCarLapTime(int , RaceTrack*);
 
@@ -153,7 +151,6 @@ public:
 
 	/**
 		@brief Returns the team's name for identification and testing purposes
-		@todo: Remove from final implementation
 	*/
 	string getName();
 
@@ -200,8 +197,6 @@ public:
 
 	/**
 			@brief
-			@todo: Provide details on the strategy member variable
-
 	*/
 	Strategies *Strategy;
 
@@ -212,8 +207,6 @@ public:
 
 	/**
 		@brief: A string containing the name of the team for identification during testing
-		@todo: Remove from final implementation
-		@todo: Remove from final implementation. No why ?
 	*/
 	string teamName;
 };

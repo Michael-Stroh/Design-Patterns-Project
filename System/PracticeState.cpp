@@ -33,7 +33,7 @@ Result *PracticeState::runRace(Result *result, vector<RaceTeam *> teams, RaceTra
 			timeLeft = 5400.00; // 1.5 hours stored as seconds
 		}
 		longestLapTime = 0;
-		// @todo: account for if last lap puts timeLeft into the negative
+
 		while (timeLeft > 0)
 		{
 			for (vector<RaceTeam *>::iterator team = teams.begin(); team != teams.end(); ++team)

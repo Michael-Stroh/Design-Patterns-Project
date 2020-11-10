@@ -169,11 +169,10 @@ void RaceTeam::updateOfficialRaceResult(Result* result)
 }
 
 /*
-	@todo cry
+
 
 /*
 	@Brent Must implement
-	@todo cry
 */
 void RaceTeam::informGrandPrixs(vector<GrandPrix *> g)
 {

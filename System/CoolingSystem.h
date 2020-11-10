@@ -14,7 +14,6 @@
 #include "CoolingSystem.h"
 
 /*
-	TODO: Expand on the cooling mechanism. May nneed to have some sort of coupling
 	with the Engine class (or CarComposite acts as a mediator).
 */
 

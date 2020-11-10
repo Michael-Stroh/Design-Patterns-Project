@@ -4,7 +4,6 @@
    @authors Alex
    @version 1.1.0
    @brief Responsible for running all of the Grand Prixs in a season and ensuring all participating teams are aware of the season before it starts as well keeping them updated on its progress while it takes place.
-   @todo: add runNextGrandPrix() method for running individual grand prixs
  */
 
 #ifndef RACE_SEASON_H
