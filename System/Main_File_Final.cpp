@@ -3,18 +3,21 @@
 #include <iostream>
 
 //Main Helper Functions pre-declaration
-void createGrandPrixs();
-vector<RaceTeam* > createRaceTeams( int );
-void populateCircuit( const string& );
 void prepareForNextRace( vector<RaceTeam*>, GrandPrix* );
 void endGrandPrix(vector<RaceTeam *>, GrandPrix* gp);
-vector<RaceTeam*> makeTeamsAndDrivers();
 void printWinningTeamCar(vector<pair<string, int>>);
+vector<RaceTeam* > createRaceTeams( int );
+vector<RaceTeam*> makeTeamsAndDrivers();
+void populateCircuit( const string& );
+void createGrandPrixs();
+
 
 //this will hold all the created objects
 CompositeRoad* circuit;
 vector< GrandPrix* > grandPrixs;
 vector< RaceTeam* > raceTeams;
+
+
 
 void printCarStatistics( CarComposite* car ) {
 
@@ -31,74 +34,67 @@ void printCarStatistics( CarComposite* car ) {
 
 int main() {
 
-		system("Color 05");																//Needed for the Colors To Print Correctly
-		
-		////////////////Creation////////////////
+    system( "Color 05" );                                                                //Needed for the Colors To Print Correctly
 
-		//instantiate the CompositeRoad pointer
-		circuit = new CompositeRoad();
-		//call the function to read the circuits in from the file
-		populateCircuit("Data/races.txt" );
+    ////////////////Creation////////////////
 
-
-		grandPrixs = vector<GrandPrix *>();
-		createGrandPrixs();
-		raceTeams = makeTeamsAndDrivers();
-
-		RaceSeason* raceSeason = new RaceSeason(grandPrixs, raceTeams);
-		//Notification
-		Logger::red("Main: calling prepareRaceSeason", "");
-		raceSeason->prepareSeason();
-		Logger::red("Main: prepared for Season", "All Teams notified of GrandPrix Schedule");
-
-		//RaceLoop
-		for ( int i = 0; i < grandPrixs.size(); ++i ) {
-			Logger::red("Main: Preparing for next Race", to_string(i));
-			prepareForNextRace( raceTeams, grandPrixs[ i ]);
-			
-			Logger::red("Main: runnning next Race", "");
-			raceSeason->runNextGrandPrix();
-	
-			Logger::red("Main: printing grandPrix results", "");
-			grandPrixs[ i ]->displayResult();
-			
-			Logger::red("Main: ending grandPrix", "");
-			endGrandPrix(raceTeams, grandPrixs[i]);
-		}
-		raceSeason->getResult()->print();
-		//added by Tim to print the winning Team's car
-		vector<pair<string, int>> vec = ((RaceSeasonResult*)(raceSeason->getResult()))->getTotalTeamPoints();
-		printWinningTeamCar(vec);
+    //instantiate the CompositeRoad pointer
+    circuit = new CompositeRoad();
+    //call the function to read the circuits in from the file
+    populateCircuit( "Data/races.txt" );
 
 
-		//delete the circuit before the GrandPrix that holds it
-		delete circuit;
-		//delete the RaceSeason
-		Logger::customDebug("Deleting the RaceSeason");
-		delete raceSeason;
-		Logger::customDebug("RaceSeason and associated data deleted");
-		
+    grandPrixs = vector< GrandPrix* >();
+    createGrandPrixs();
+    raceTeams = makeTeamsAndDrivers();
 
-		/*
-            //go through each object stored
-            for ( GrandPrix* prix : grandPrixs ) {
+    RaceSeason* raceSeason = new RaceSeason( grandPrixs, raceTeams );
 
-                free the memory
-                delete prix;
-            }
 
-            //empty and resize the vector
-            grandPrixs.clear();
-        */
+    Logger::red( "Main: calling prepareRaceSeason", "" );
+    raceSeason->prepareSeason();
+    Logger::red( "Main: prepared for Season", "All Teams notified of GrandPrix Schedule" );
 
-		string temp = "";
-		cout << "Enter any character to terminate the program" << endl;
-		cin >> temp;
-		return 0;
+    //RaceLoop
+    for ( int i = 0; i < grandPrixs.size(); ++ i ) {
+
+        Logger::red( "Main: Preparing for next Race", to_string( i ) );
+        prepareForNextRace( raceTeams, grandPrixs[ i ] );
+
+        Logger::red( "Main: runnning next Race", "" );
+        raceSeason->runNextGrandPrix();
+
+        Logger::red( "Main: printing grandPrix results", "" );
+        grandPrixs[ i ]->displayResult();
+
+        Logger::red( "Main: ending grandPrix", "" );
+        endGrandPrix( raceTeams, grandPrixs[ i ] );
+    }
+
+    raceSeason->getResult()->print();
+    vector< pair< string, int>> vec = ( ( RaceSeasonResult* ) ( raceSeason->getResult() ) )->getTotalTeamPoints();
+    printWinningTeamCar( vec );
+
+
+    ////Free memory////
+
+    //delete the circuit before the Grand Prix that holds it
+    delete circuit;
+
+    //delete the RaceSeason( Grand Prix is deleted inside here )
+    Logger::customDebug("Deleting the RaceSeason");
+    delete raceSeason;
+
+    Logger::customDebug("RaceSeason and associated data deleted");
+
+    string temp = "";
+    cout << "Enter any character to terminate the program" << endl;
+    cin >> temp;
+    return 0;
 }
 
-void printWinningTeamCar(vector<pair<string, int>> vec)
-{
+void printWinningTeamCar(vector<pair<string, int>> vec) {
+
 	for (int i = 0; i < raceTeams.size(); ++i)
 	{
 		if (raceTeams[i]->getName() == vec[0].first)
@@ -116,11 +112,6 @@ void printWinningTeamCar(vector<pair<string, int>> vec)
 
 void createGrandPrixs() {
 
-	/*
-		Alex: has created the GrandPrixs
-	*/
-
-
 	//create and set the iterator
 	CircuitIterator* it = circuit->createIterator();
     it->first();
@@ -135,17 +126,19 @@ void createGrandPrixs() {
         it->next();
 	}
 
+	//Free memory
     delete it;
 }
 
-//Backup Function
 vector<RaceTeam* > createRaceTeams( int numberOfTeams ) {
 
+    //Backup Function
 	vector<RaceTeam*> vec;
 
-	for (int i = 0; i < numberOfTeams; ++i)
-	{
-		vec.push_back(new RaceTeam());
+	vec.reserve(numberOfTeams);
+    for ( int i = 0; i < numberOfTeams; ++i ) {
+
+        vec.push_back( new RaceTeam() );
 	}
 
 	return vec;
@@ -181,9 +174,12 @@ void prepareForNextRace( vector<RaceTeam*> team, GrandPrix * gp ) {
 	*/
 }
 
-void endGrandPrix(vector<RaceTeam *> team, GrandPrix * gp)
-{
-	for (int i = 0; i < team.size(); ++i) { team[i]->endOfGrandPrix(gp->getCircuit()->getName()); }
+void endGrandPrix(vector<RaceTeam *> team, GrandPrix * gp) {
+
+	for (int i = 0; i < team.size(); ++i) {
+
+	    team[i]->endOfGrandPrix(gp->getCircuit()->getName());
+	}
 }
 
 string trim( string line ) {
@@ -192,8 +188,8 @@ string trim( string line ) {
 }
 
 vector<RaceTeam*> makeTeamsAndDrivers() {
+
 	vector<RaceTeam*> teams;
-	int i = 0;
 	string line;
 	ifstream file;
 
@@ -205,8 +201,7 @@ vector<RaceTeam*> makeTeamsAndDrivers() {
 		Logger::debug("MakeDrivers and Teams", "File opened correctly");
 		while (getline(file, line)) {
 
-			int pos = 0;
-			int size = line.size();
+			int pos, size = line.size();
 
 			string teamName, racerName;
 			float errorProne;
