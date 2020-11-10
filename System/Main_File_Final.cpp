@@ -87,9 +87,6 @@ int main() {
 
     Logger::customDebug("RaceSeason and associated data deleted");
 
-    string temp = "";
-    cout << "Enter any character to terminate the program" << endl;
-    cin >> temp;
     return 0;
 }
 
