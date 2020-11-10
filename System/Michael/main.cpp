@@ -22,7 +22,7 @@ int main() {
     test1();
 
     //instantiate the CompositeRoad pointer
-    circuit = new CompositeRoad();
+    circuit = new CompositeRoad( "Test Two" );
 
     //test RaceTracks rad in from a file
     test2();
@@ -236,8 +236,12 @@ void test1() {
 
 void test2() {
 
+    cout << endl << endl;
+
     //call the function to read the circuits in from the file
     populateCircuit("Data/races.txt" );
+
+    cout << "There are " + to_string( circuit->getSize() )+ " RaceTracks in circuit " + circuit->getName() << endl;
 
     //Check to see the Min and Max values created
     circuit->determineMaxValues();
